@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B724AA32600730900E3DAAC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B724AA02600730900E3DAAC /* opencv2.framework */; };
+		0B724AA42600730900E3DAAC /* ImageCompare.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AA12600730900E3DAAC /* ImageCompare.mm */; };
+		0B724AAB2600BF1D00E3DAAC /* ClearContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ClearContactManager.swift */; };
 		0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */; };
 		0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9A25FB46A100FA1CBC /* mainVC.swift */; };
 		0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B72BD9C25FB46A100FA1CBC /* Main.storyboard */; };
@@ -20,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B724AA02600730900E3DAAC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		0B724AA12600730900E3DAAC /* ImageCompare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageCompare.mm; sourceTree = "<group>"; };
+		0B724AA22600730900E3DAAC /* ImageCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCompare.h; sourceTree = "<group>"; };
+		0B724AAA2600BF1D00E3DAAC /* ClearContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearContactManager.swift; sourceTree = "<group>"; };
 		0B72BD9325FB46A100FA1CBC /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B72BD9A25FB46A100FA1CBC /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
@@ -42,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B724AA32600730900E3DAAC /* opencv2.framework in Frameworks */,
 				A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				0B79373D25FF019C00E2B5B1 /* ClearPhotoManager.swift */,
+				0B724AAA2600BF1D00E3DAAC /* ClearContactManager.swift */,
+				0B724AA22600730900E3DAAC /* ImageCompare.h */,
+				0B724AA12600730900E3DAAC /* ImageCompare.mm */,
+				0B724AA02600730900E3DAAC /* opencv2.framework */,
 			);
 			path = PhotoManager;
 			sourceTree = "<group>";
@@ -275,10 +287,12 @@
 			files = (
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */,
+				0B724AAB2600BF1D00E3DAAC /* ClearContactManager.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */,
 				0B79373E25FF019C00E2B5B1 /* ClearPhotoManager.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
+				0B724AA42600730900E3DAAC /* ImageCompare.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,12 +442,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WX972HMPDB;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Cleaner/PhotoManager",
+				);
 				INFOPLIST_FILE = Cleaner/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-.Cleaner";
+				PRODUCT_BUNDLE_IDENTIFIER = www.gadfad.Cleaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cleaner/Other/Cleaner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -450,12 +470,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WX972HMPDB;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Cleaner/PhotoManager",
+				);
 				INFOPLIST_FILE = Cleaner/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-.Cleaner";
+				PRODUCT_BUNDLE_IDENTIFIER = www.gadfad.Cleaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cleaner/Other/Cleaner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
