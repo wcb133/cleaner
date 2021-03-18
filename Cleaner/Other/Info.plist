@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSRemindersUsageDescription</key>
-	<string>是否允许“清理助手”获取你的提醒事项用于优化日历</string>
+	<string>是否允许“清理助手”获取你的提醒事项用于查找清理过期提醒</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>是否允许“清理助手”获取你的日历事件用于优化日历</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许“清理助手”获取你的相册权限用于获取照片？</string>
+	<string>是否允许“清理助手”获取你的相册权限用于获取本地照片？</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
