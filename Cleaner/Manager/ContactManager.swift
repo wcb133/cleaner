@@ -19,10 +19,10 @@ class ContactModel: NSObject {
     var tel:String = ""
 }
 
-class ClearContactManager: NSObject {
+class ContactManager: NSObject {
     
-    static let shared: ClearContactManager = {
-        let instance = ClearContactManager()
+    static let shared: ContactManager = {
+        let instance = ContactManager()
         return instance
     }()
     
@@ -43,7 +43,7 @@ class ClearContactManager: NSObject {
         }
     }
     
-    func loadContact(complete:@escaping ([ContactSectonModel],Int)->Void) {
+    private func loadContact(complete:@escaping ([ContactSectonModel],Int)->Void) {
         
         var contactCount = 0
         

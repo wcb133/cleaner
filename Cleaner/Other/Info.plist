@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSRemindersUsageDescription</key>
+	<string>是否允许“清理助手”获取你的提醒事项用于优化日历</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>是否允许“清理助手”获取你的日历事件用于优化日历</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

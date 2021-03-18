@@ -1,5 +1,5 @@
 //
-//  ClearPhotoManager.swift
+//  PhotoManager.swift
 //  Cleaner
 //
 //  Created by fst on 2021/3/15.
@@ -21,14 +21,13 @@ class PhotoModel: NSObject {
         self.exactImage = exactImage
         self.originImageData = originImageData
         self.originImageDataLength = originImageDataLength
-        
     }
     
 }
 
-class ClearPhotoManager: NSObject {
-    static let shared: ClearPhotoManager = {
-        let instance = ClearPhotoManager()
+class PhotoManager: NSObject {
+    static let shared: PhotoManager = {
+        let instance = PhotoManager()
         return instance
     }()
     
@@ -209,7 +208,7 @@ class ClearPhotoManager: NSObject {
     }
 }
 
-extension ClearPhotoManager{
+extension PhotoManager{
     
     //弹框提示开启权限
     func noticeAlert() {
@@ -259,7 +258,7 @@ extension ClearPhotoManager{
     }
 }
 
-extension ClearPhotoManager {
+extension PhotoManager {
     
     // 压缩照片
     func compressImageWithData(imageData:Data,completionHandler:@escaping (UIImage,Int)->Void) {

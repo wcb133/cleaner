@@ -7,26 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B676FA12601D870001825F2 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B676FA02601D870001825F2 /* VideoManager.swift */; };
 		0B724AA32600730900E3DAAC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B724AA02600730900E3DAAC /* opencv2.framework */; };
 		0B724AA42600730900E3DAAC /* ImageCompare.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AA12600730900E3DAAC /* ImageCompare.mm */; };
-		0B724AAB2600BF1D00E3DAAC /* ClearContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ClearContactManager.swift */; };
+		0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */; };
 		0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */; };
 		0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9A25FB46A100FA1CBC /* mainVC.swift */; };
 		0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B72BD9C25FB46A100FA1CBC /* Main.storyboard */; };
 		0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B72BD9F25FB46A400FA1CBC /* Assets.xcassets */; };
 		0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B72BDA125FB46A400FA1CBC /* LaunchScreen.storyboard */; };
 		0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373325FEF9B000E2B5B1 /* BaseVC.swift */; };
-		0B79373E25FF019C00E2B5B1 /* ClearPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373D25FF019C00E2B5B1 /* ClearPhotoManager.swift */; };
+		0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */; };
 		0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79376F25FF3ECC00E2B5B1 /* File.swift */; };
 		0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79378025FF40A500E2B5B1 /* BaseNav.swift */; };
+		0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A0826032EC7007B195A /* MemoryManager.swift */; };
+		0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarManager.swift */; };
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B676FA02601D870001825F2 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		0B724AA02600730900E3DAAC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		0B724AA12600730900E3DAAC /* ImageCompare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageCompare.mm; sourceTree = "<group>"; };
 		0B724AA22600730900E3DAAC /* ImageCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCompare.h; sourceTree = "<group>"; };
-		0B724AAA2600BF1D00E3DAAC /* ClearContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearContactManager.swift; sourceTree = "<group>"; };
+		0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		0B72BD9325FB46A100FA1CBC /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B72BD9A25FB46A100FA1CBC /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
@@ -35,10 +39,12 @@
 		0B72BDA225FB46A400FA1CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B72BDA425FB46A400FA1CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B79373325FEF9B000E2B5B1 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
-		0B79373D25FF019C00E2B5B1 /* ClearPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearPhotoManager.swift; sourceTree = "<group>"; };
+		0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		0B79376F25FF3ECC00E2B5B1 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		0B79377225FF3EFB00E2B5B1 /* Cleaner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cleaner-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B79378025FF40A500E2B5B1 /* BaseNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNav.swift; sourceTree = "<group>"; };
+		0B7B2A0826032EC7007B195A /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
+		0B7E1531260198F00070B02E /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.release.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.release.xcconfig"; sourceTree = "<group>"; };
 		C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CA1EA0DA5BCD9B6E3C64ED /* Pods-Cleaner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.debug.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				0B79373C25FF015B00E2B5B1 /* Modules */,
-				0B79373B25FF014900E2B5B1 /* PhotoManager */,
+				0B79373B25FF014900E2B5B1 /* Manager */,
 				0B79373825FF007400E2B5B1 /* Other */,
 			);
 			path = Cleaner;
@@ -130,16 +136,19 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		0B79373B25FF014900E2B5B1 /* PhotoManager */ = {
+		0B79373B25FF014900E2B5B1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				0B79373D25FF019C00E2B5B1 /* ClearPhotoManager.swift */,
-				0B724AAA2600BF1D00E3DAAC /* ClearContactManager.swift */,
+				0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */,
+				0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */,
+				0B7E1531260198F00070B02E /* CalendarManager.swift */,
+				0B676FA02601D870001825F2 /* VideoManager.swift */,
+				0B7B2A0826032EC7007B195A /* MemoryManager.swift */,
 				0B724AA22600730900E3DAAC /* ImageCompare.h */,
 				0B724AA12600730900E3DAAC /* ImageCompare.mm */,
 				0B724AA02600730900E3DAAC /* opencv2.framework */,
 			);
-			path = PhotoManager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		0B79373C25FF015B00E2B5B1 /* Modules */ = {
@@ -287,10 +296,13 @@
 			files = (
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */,
-				0B724AAB2600BF1D00E3DAAC /* ClearContactManager.swift in Sources */,
+				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
+				0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */,
-				0B79373E25FF019C00E2B5B1 /* ClearPhotoManager.swift in Sources */,
+				0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */,
+				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
+				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
 				0B724AA42600730900E3DAAC /* ImageCompare.mm in Sources */,
 			);
