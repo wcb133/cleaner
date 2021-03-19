@@ -15,7 +15,7 @@ class MemoryManager: NSObject {
     }
     
     //返回的数据单位是G
-    class  func getTotalFreeSpace() -> Float {
+    class  func getUsedSpace() -> Float {
         return self.getMemory(isTotal: false)
     }
     
@@ -33,7 +33,7 @@ class MemoryManager: NSObject {
                 totalFreeSpace = Float(freeFileSystemSize) / (1000.0 * 1000.0 * 1000.0)
             }
         }
-        return isTotal ? totalSpace:totalFreeSpace
+        return isTotal ? totalSpace:(totalSpace - totalFreeSpace)
         
     }
 }

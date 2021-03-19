@@ -4,3 +4,7 @@
 
 
 #import "ImageCompare.h"
+
+#import "CircularProgressView.h"
+
+

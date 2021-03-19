@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B676FA12601D870001825F2 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B676FA02601D870001825F2 /* VideoManager.swift */; };
-		0B724AA32600730900E3DAAC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B724AA02600730900E3DAAC /* opencv2.framework */; };
-		0B724AA42600730900E3DAAC /* ImageCompare.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AA12600730900E3DAAC /* ImageCompare.mm */; };
 		0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */; };
 		0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */; };
 		0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9A25FB46A100FA1CBC /* mainVC.swift */; };
@@ -21,15 +19,15 @@
 		0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79376F25FF3ECC00E2B5B1 /* File.swift */; };
 		0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79378025FF40A500E2B5B1 /* BaseNav.swift */; };
 		0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A0826032EC7007B195A /* MemoryManager.swift */; };
+		0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A112603378D007B195A /* ImageCompare.mm */; };
+		0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7B2A122603378D007B195A /* opencv2.framework */; };
+		0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A1926033B89007B195A /* CircularProgressView.m */; };
 		0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarManager.swift */; };
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B676FA02601D870001825F2 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
-		0B724AA02600730900E3DAAC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		0B724AA12600730900E3DAAC /* ImageCompare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageCompare.mm; sourceTree = "<group>"; };
-		0B724AA22600730900E3DAAC /* ImageCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCompare.h; sourceTree = "<group>"; };
 		0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		0B72BD9325FB46A100FA1CBC /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +42,11 @@
 		0B79377225FF3EFB00E2B5B1 /* Cleaner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cleaner-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B79378025FF40A500E2B5B1 /* BaseNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNav.swift; sourceTree = "<group>"; };
 		0B7B2A0826032EC7007B195A /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
+		0B7B2A102603378D007B195A /* ImageCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCompare.h; sourceTree = "<group>"; };
+		0B7B2A112603378D007B195A /* ImageCompare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageCompare.mm; sourceTree = "<group>"; };
+		0B7B2A122603378D007B195A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		0B7B2A1826033B88007B195A /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
+		0B7B2A1926033B89007B195A /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
 		0B7E1531260198F00070B02E /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.release.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.release.xcconfig"; sourceTree = "<group>"; };
 		C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B724AA32600730900E3DAAC /* opencv2.framework in Frameworks */,
+				0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */,
 				A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				0B79373C25FF015B00E2B5B1 /* Modules */,
+				0B7B2A0F2603378D007B195A /* ImageCompare */,
 				0B79373B25FF014900E2B5B1 /* Manager */,
 				0B79373825FF007400E2B5B1 /* Other */,
 			);
@@ -109,6 +113,8 @@
 		0B72BDAE25FB471200FA1CBC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B7B2A1826033B88007B195A /* CircularProgressView.h */,
+				0B7B2A1926033B89007B195A /* CircularProgressView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,9 +150,6 @@
 				0B7E1531260198F00070B02E /* CalendarManager.swift */,
 				0B676FA02601D870001825F2 /* VideoManager.swift */,
 				0B7B2A0826032EC7007B195A /* MemoryManager.swift */,
-				0B724AA22600730900E3DAAC /* ImageCompare.h */,
-				0B724AA12600730900E3DAAC /* ImageCompare.mm */,
-				0B724AA02600730900E3DAAC /* opencv2.framework */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -160,6 +163,16 @@
 				0B72BDAD25FB470D00FA1CBC /* Model */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		0B7B2A0F2603378D007B195A /* ImageCompare */ = {
+			isa = PBXGroup;
+			children = (
+				0B7B2A102603378D007B195A /* ImageCompare.h */,
+				0B7B2A112603378D007B195A /* ImageCompare.mm */,
+				0B7B2A122603378D007B195A /* opencv2.framework */,
+			);
+			path = ImageCompare;
 			sourceTree = "<group>";
 		};
 		9A5E119EE0B7D396B28743CC /* Frameworks */ = {
@@ -296,6 +309,7 @@
 			files = (
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */,
+				0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
 				0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */,
@@ -303,8 +317,8 @@
 				0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */,
 				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
+				0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
-				0B724AA42600730900E3DAAC /* ImageCompare.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +472,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Cleaner/PhotoManager",
+					"$(PROJECT_DIR)/Cleaner/ImageCompare",
 				);
 				INFOPLIST_FILE = Cleaner/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -486,7 +500,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Cleaner/PhotoManager",
+					"$(PROJECT_DIR)/Cleaner/ImageCompare",
 				);
 				INFOPLIST_FILE = Cleaner/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

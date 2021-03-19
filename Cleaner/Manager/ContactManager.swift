@@ -50,6 +50,18 @@ class ContactManager: NSObject {
         var contactDict:[String:[ContactModel]] = [:]
         var contactSectonModels:[ContactSectonModel] = []
         let contactStore = CNContactStore()
+        /*
+         
+         for (CNContact *contact in contacts) {
+             CNMutableContact *contact1 = [contact mutableCopy];
+             // 删除联系人
+             [saveRequest deleteContact:contact1];
+         }
+        */
+//        let re = CNSaveRequest()
+//        let contact = CNMutableContact()
+//        re.delete(contact)
+//        [store executeSaveRequest:saveRequest error:nil]
         let key = [CNContactFamilyNameKey,CNContactGivenNameKey,CNContactPhoneNumbersKey] as [CNKeyDescriptor]
         let request = CNContactFetchRequest(keysToFetch: key)
         do {

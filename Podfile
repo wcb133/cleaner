@@ -19,10 +19,10 @@ target 'Cleaner' do
 
   pod 'QMUIKit'
   pod 'iCarousel'
-#  pod 'RxSwift'
-#  pod 'RxCocoa'
-#  pod 'NSObject+Rx' #提供rx_disposeBag
-#  pod 'Moya'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'NSObject+Rx' #提供rx_disposeBag
+  pod 'Moya'
   pod 'SnapKit'
   pod 'SnapKitExtend', '~> 1.0.7'
 

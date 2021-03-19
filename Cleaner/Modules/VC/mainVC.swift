@@ -8,6 +8,8 @@
 import UIKit
 
 class mainVC: BaseVC {
+    
+    let circularProgressView =  CircularProgressView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +57,23 @@ class mainVC: BaseVC {
 //        MemoryManager.getTotalSpace()
         
         
+        
+        circularProgressView.progress = 10
+        self.view.addSubview(circularProgressView)
+        circularProgressView.backgroundColor = .green;
+        test()
     }
     
-    
-    
-    
+    func test()  {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.circularProgressView.progress = self.circularProgressView.progress + 1
+            if self.circularProgressView.progress < 100.0 {
+                self.test()
+            }
+            
+        }
+    }
+
     func setupUI() {
         for (row,photos) in PhotoManager.shared.similarArray.enumerated() {
             for (column,photo) in photos.enumerated() {
