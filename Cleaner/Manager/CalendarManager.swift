@@ -13,6 +13,8 @@ class CalendarEventModel: NSObject {
     var event:EKEvent!
     
     var reminder:EKReminder!
+    
+    var isSelected = true
 }
 
 class CalendarManager: NSObject {
@@ -72,15 +74,17 @@ class CalendarManager: NSObject {
     }
     
     //删除日历事件
-    func deleteEvents(eventMoels:[CalendarEventModel]) {
+    func deleteEvents(eventMoels:[CalendarEventModel],compelte:(Bool)->Void) {
         for eventMoel in eventMoels {
            try? self.eventStore.remove(eventMoel.event, span: .thisEvent, commit: false)
         }
         
         if let _ = try? self.eventStore.commit() {
             print("====删除成功")
+            compelte(true)
         }else{
             print("====删除失败")
+            compelte(false)
         }
        
     }
@@ -140,24 +144,32 @@ extension CalendarManager {
                         }
                     }
                 }
-                complete(reminderModels)
+                DispatchQueue.main.async {
+                    complete(reminderModels)
+                }
+                
             }else{
-                complete([])
+                DispatchQueue.main.async {
+                    complete([])
+                }
+                
             }
         }
     }
     
     
     //删除提醒事项
-    func deleteReminders(reminderModels:[CalendarEventModel]) {
+    func deleteReminders(reminderModels:[CalendarEventModel],compelte:(Bool)->Void) {
         for reminderModel in reminderModels {
             try? self.eventStore.remove(reminderModel.reminder, commit: false)
         }
         
         if let _ = try? self.eventStore.commit() {
             print("====删除成功")
+            compelte(true)
         }else{
             print("====删除失败")
+            compelte(false)
         }
        
     }

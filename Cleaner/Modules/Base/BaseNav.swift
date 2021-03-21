@@ -21,8 +21,8 @@ class BaseNav: QMUINavigationController {
             viewController.hidesBottomBarWhenPushed = true
         }
         if viewControllers.count >= 1 {
-            let leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "fanhui"), style: UIBarButtonItem.Style.done, target: self, action: #selector(backBtnClick))//
-            leftBarButtonItem.tintColor = .black
+            let leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "fanhui"), style: UIBarButtonItem.Style.done, target: self, action: #selector(backBtnClick))
+            leftBarButtonItem.tintColor = .white
             if #available(iOS 11.0, *){ // ios11 以上偏移
                 leftBarButtonItem.imageInsets = UIEdgeInsets(top: 2, left: -2, bottom: 0, right: 0)
                 viewController.navigationItem.leftBarButtonItem = leftBarButtonItem

@@ -42,12 +42,14 @@ class PhotoManager: NSObject {
     //这张图片和上一张是否相似
     var isSameWithLastImage = false
     
-    
+    //相似照片
     var similarArray:[[PhotoModel]] = []
     var similarSaveSpace = 0
-    
+    //截图
     var screenshotsArray:[PhotoModel] = []
+    //可以瘦身图片
     var thinPhotoArray:[PhotoModel] = []
+    //模糊图片
     var fuzzyPhotoArray:[PhotoModel] = []
     
     var thinPhotoSaveSpace:Int = 0

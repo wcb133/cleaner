@@ -58,10 +58,20 @@ class mainVC: BaseVC {
         
         
         
-        circularProgressView.progress = 10
-        self.view.addSubview(circularProgressView)
-        circularProgressView.backgroundColor = .green;
-        test()
+//        circularProgressView.progress = 10
+//        self.view.addSubview(circularProgressView)
+//        circularProgressView.backgroundColor = .green;
+//        test()
+        
+//        self.navigationController?.pushViewController(ContactVC(), animated: true)
+        
+//        self.navigationController?.pushViewController(CalendarMainVC(), animated: true)
+        
+        self.navigationController?.pushViewController(PhotoAndVideoClearVC(), animated: true)
+        
+        
+        
+        
     }
     
     func test()  {

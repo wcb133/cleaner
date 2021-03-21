@@ -23,6 +23,22 @@
 		0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7B2A122603378D007B195A /* opencv2.framework */; };
 		0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A1926033B89007B195A /* CircularProgressView.m */; };
 		0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarManager.swift */; };
+		0B91831826072143001CF4FF /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91831626072143001CF4FF /* ContactVC.swift */; };
+		0B91831926072143001CF4FF /* ContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B91831726072143001CF4FF /* ContactVC.xib */; };
+		0B918324260726F1001CF4FF /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B918322260726F1001CF4FF /* ContactCell.swift */; };
+		0B918325260726F1001CF4FF /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B918323260726F1001CF4FF /* ContactCell.xib */; };
+		0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8226072D7A003ECFF1 /* ContactHeaderView.swift */; };
+		0BBD8B87260748F0003ECFF1 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B86260748F0003ECFF1 /* UIView + Extension.swift */; };
+		0BBD8B8A26074D64003ECFF1 /* CalendarMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */; };
+		0BBD8B9026074F15003ECFF1 /* CalendarMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8E26074F15003ECFF1 /* CalendarMainCell.swift */; };
+		0BBD8B9126074F15003ECFF1 /* CalendarMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8F26074F15003ECFF1 /* CalendarMainCell.xib */; };
+		0BBD8B9526075969003ECFF1 /* DateOfOutCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9326075969003ECFF1 /* DateOfOutCalendarVC.swift */; };
+		0BBD8B9626075969003ECFF1 /* DateOfOutCalendarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9426075969003ECFF1 /* DateOfOutCalendarVC.xib */; };
+		0BBD8B9A26075BB3003ECFF1 /* DateOfOutCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9826075BB3003ECFF1 /* DateOfOutCalendarCell.swift */; };
+		0BBD8B9B26075BB3003ECFF1 /* DateOfOutCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9926075BB3003ECFF1 /* DateOfOutCalendarCell.xib */; };
+		0BBD8B9E26076BED003ECFF1 /* PhotoAndVideoClearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */; };
+		0BBD8BA226076C70003ECFF1 /* PhotoAndVideoClearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */; };
+		0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */; };
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +64,22 @@
 		0B7B2A1826033B88007B195A /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
 		0B7B2A1926033B89007B195A /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
 		0B7E1531260198F00070B02E /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		0B91831626072143001CF4FF /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
+		0B91831726072143001CF4FF /* ContactVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactVC.xib; sourceTree = "<group>"; };
+		0B918322260726F1001CF4FF /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		0B918323260726F1001CF4FF /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		0BBD8B8226072D7A003ECFF1 /* ContactHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeaderView.swift; sourceTree = "<group>"; };
+		0BBD8B86260748F0003ECFF1 /* UIView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainVC.swift; sourceTree = "<group>"; };
+		0BBD8B8E26074F15003ECFF1 /* CalendarMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainCell.swift; sourceTree = "<group>"; };
+		0BBD8B8F26074F15003ECFF1 /* CalendarMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarMainCell.xib; sourceTree = "<group>"; };
+		0BBD8B9326075969003ECFF1 /* DateOfOutCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfOutCalendarVC.swift; sourceTree = "<group>"; };
+		0BBD8B9426075969003ECFF1 /* DateOfOutCalendarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateOfOutCalendarVC.xib; sourceTree = "<group>"; };
+		0BBD8B9826075BB3003ECFF1 /* DateOfOutCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfOutCalendarCell.swift; sourceTree = "<group>"; };
+		0BBD8B9926075BB3003ECFF1 /* DateOfOutCalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateOfOutCalendarCell.xib; sourceTree = "<group>"; };
+		0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoClearVC.swift; sourceTree = "<group>"; };
+		0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoClearCell.swift; sourceTree = "<group>"; };
+		0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoAndVideoClearCell.xib; sourceTree = "<group>"; };
 		1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.release.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.release.xcconfig"; sourceTree = "<group>"; };
 		C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CA1EA0DA5BCD9B6E3C64ED /* Pods-Cleaner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.debug.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +119,7 @@
 		0B72BD9525FB46A100FA1CBC /* Cleaner */ = {
 			isa = PBXGroup;
 			children = (
+				0BBD8B85260748D6003ECFF1 /* Extension */,
 				0B79373C25FF015B00E2B5B1 /* Modules */,
 				0B7B2A0F2603378D007B195A /* ImageCompare */,
 				0B79373B25FF014900E2B5B1 /* Manager */,
@@ -99,6 +132,12 @@
 			isa = PBXGroup;
 			children = (
 				0B72BD9A25FB46A100FA1CBC /* mainVC.swift */,
+				0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */,
+				0BBD8B9326075969003ECFF1 /* DateOfOutCalendarVC.swift */,
+				0BBD8B9426075969003ECFF1 /* DateOfOutCalendarVC.xib */,
+				0B91831626072143001CF4FF /* ContactVC.swift */,
+				0B91831726072143001CF4FF /* ContactVC.xib */,
+				0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -115,6 +154,15 @@
 			children = (
 				0B7B2A1826033B88007B195A /* CircularProgressView.h */,
 				0B7B2A1926033B89007B195A /* CircularProgressView.m */,
+				0B918322260726F1001CF4FF /* ContactCell.swift */,
+				0B918323260726F1001CF4FF /* ContactCell.xib */,
+				0BBD8B8226072D7A003ECFF1 /* ContactHeaderView.swift */,
+				0BBD8B8E26074F15003ECFF1 /* CalendarMainCell.swift */,
+				0BBD8B8F26074F15003ECFF1 /* CalendarMainCell.xib */,
+				0BBD8B9826075BB3003ECFF1 /* DateOfOutCalendarCell.swift */,
+				0BBD8B9926075BB3003ECFF1 /* DateOfOutCalendarCell.xib */,
+				0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */,
+				0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +221,14 @@
 				0B7B2A122603378D007B195A /* opencv2.framework */,
 			);
 			path = ImageCompare;
+			sourceTree = "<group>";
+		};
+		0BBD8B85260748D6003ECFF1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0BBD8B86260748F0003ECFF1 /* UIView + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		9A5E119EE0B7D396B28743CC /* Frameworks */ = {
@@ -252,9 +308,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BBD8B9126074F15003ECFF1 /* CalendarMainCell.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
+				0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */,
+				0BBD8B9626075969003ECFF1 /* DateOfOutCalendarVC.xib in Resources */,
 				0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */,
+				0B918325260726F1001CF4FF /* ContactCell.xib in Resources */,
+				0B91831926072143001CF4FF /* ContactVC.xib in Resources */,
+				0BBD8B9B26075BB3003ECFF1 /* DateOfOutCalendarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,18 +369,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BBD8BA226076C70003ECFF1 /* PhotoAndVideoClearCell.swift in Sources */,
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
+				0BBD8B8A26074D64003ECFF1 /* CalendarMainVC.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */,
 				0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
+				0BBD8B87260748F0003ECFF1 /* UIView + Extension.swift in Sources */,
 				0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */,
 				0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */,
+				0BBD8B9526075969003ECFF1 /* DateOfOutCalendarVC.swift in Sources */,
+				0BBD8B9E26076BED003ECFF1 /* PhotoAndVideoClearVC.swift in Sources */,
 				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
+				0B91831826072143001CF4FF /* ContactVC.swift in Sources */,
+				0BBD8B9026074F15003ECFF1 /* CalendarMainCell.swift in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
 				0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */,
+				0B918324260726F1001CF4FF /* ContactCell.swift in Sources */,
+				0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
+				0BBD8B9A26075BB3003ECFF1 /* DateOfOutCalendarCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

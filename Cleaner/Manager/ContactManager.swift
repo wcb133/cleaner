@@ -17,6 +17,10 @@ class ContactSectonModel: NSObject {
 class ContactModel: NSObject {
     var name:String = ""
     var tel:String = ""
+    
+    var contact:CNContact!
+    
+    var isSelected = false
 }
 
 class ContactManager: NSObject {
@@ -25,6 +29,8 @@ class ContactManager: NSObject {
         let instance = ContactManager()
         return instance
     }()
+    
+    let contactStore = CNContactStore()
     
     //获取重复联系人
     func getRepeatContact(complete:@escaping ([ContactSectonModel],Int)->Void) {
@@ -49,19 +55,6 @@ class ContactManager: NSObject {
         
         var contactDict:[String:[ContactModel]] = [:]
         var contactSectonModels:[ContactSectonModel] = []
-        let contactStore = CNContactStore()
-        /*
-         
-         for (CNContact *contact in contacts) {
-             CNMutableContact *contact1 = [contact mutableCopy];
-             // 删除联系人
-             [saveRequest deleteContact:contact1];
-         }
-        */
-//        let re = CNSaveRequest()
-//        let contact = CNMutableContact()
-//        re.delete(contact)
-//        [store executeSaveRequest:saveRequest error:nil]
         let key = [CNContactFamilyNameKey,CNContactGivenNameKey,CNContactPhoneNumbersKey] as [CNKeyDescriptor]
         let request = CNContactFetchRequest(keysToFetch: key)
         do {
@@ -79,6 +72,7 @@ class ContactManager: NSObject {
                 let model = ContactModel()
                 
                 model.name = name
+                model.contact = contact
                 // 遍历电话号码
                 let phoneNums = contact.phoneNumbers
                 for phoneNumber in phoneNums {
@@ -93,6 +87,7 @@ class ContactManager: NSObject {
                 }
             })
             
+//            let keys = contactDict.sorted(by: {$0.0 < $1.0})
             for key in contactDict.keys {
                 let contactModels = contactDict[key] ?? []
                 if contactModels.count > 1 {
@@ -109,5 +104,15 @@ class ContactManager: NSObject {
             print("获取通讯录出错")
             return
         }
+    }
+    
+    //删除联系人
+    func deleteContacts(contacts:[ContactModel]) {
+        let re = CNSaveRequest()
+        for contact in contacts {
+            let contactM = contact.contact.mutableCopy() as! CNMutableContact
+            re.delete(contactM)
+        }
+        try? contactStore.execute(re)
     }
 }
