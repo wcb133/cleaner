@@ -40,6 +40,8 @@
 		0BBD8BA226076C70003ECFF1 /* PhotoAndVideoClearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */; };
 		0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */; };
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
+		E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57034322607821E00CD6517 /* CBDataOperationPieView.swift */; };
+		E57034392607826A00CD6517 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E57034382607826A00CD6517 /* UICountingLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,9 @@
 		1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.release.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.release.xcconfig"; sourceTree = "<group>"; };
 		C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CA1EA0DA5BCD9B6E3C64ED /* Pods-Cleaner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.debug.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.debug.xcconfig"; sourceTree = "<group>"; };
+		E57034322607821E00CD6517 /* CBDataOperationPieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBDataOperationPieView.swift; sourceTree = "<group>"; };
+		E57034372607826A00CD6517 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
+		E57034382607826A00CD6517 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 		0B72BD9525FB46A100FA1CBC /* Cleaner */ = {
 			isa = PBXGroup;
 			children = (
+				E57034352607826000CD6517 /* Lib */,
 				0BBD8B85260748D6003ECFF1 /* Extension */,
 				0B79373C25FF015B00E2B5B1 /* Modules */,
 				0B7B2A0F2603378D007B195A /* ImageCompare */,
@@ -163,6 +169,7 @@
 				0BBD8B9926075BB3003ECFF1 /* DateOfOutCalendarCell.xib */,
 				0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */,
 				0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */,
+				E57034322607821E00CD6517 /* CBDataOperationPieView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +253,23 @@
 				1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E57034352607826000CD6517 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				E57034362607826A00CD6517 /* UICountingLabel */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		E57034362607826A00CD6517 /* UICountingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				E57034372607826A00CD6517 /* UICountingLabel.h */,
+				E57034382607826A00CD6517 /* UICountingLabel.m */,
+			);
+			path = UICountingLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +400,7 @@
 				0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
 				0BBD8B87260748F0003ECFF1 /* UIView + Extension.swift in Sources */,
+				E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */,
 				0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */,
@@ -385,6 +410,7 @@
 				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
 				0B91831826072143001CF4FF /* ContactVC.swift in Sources */,
 				0BBD8B9026074F15003ECFF1 /* CalendarMainCell.swift in Sources */,
+				E57034392607826A00CD6517 /* UICountingLabel.m in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
 				0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */,
 				0B918324260726F1001CF4FF /* ContactCell.swift in Sources */,

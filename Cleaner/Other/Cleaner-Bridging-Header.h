@@ -6,5 +6,5 @@
 #import "ImageCompare.h"
 
 #import "CircularProgressView.h"
-
+#import "UICountingLabel.h"
 
