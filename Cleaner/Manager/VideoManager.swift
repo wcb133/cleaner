@@ -15,6 +15,9 @@ class VideoModel: NSObject {
     var videoAsset:AVAsset!
     //单位M
     var videoSize:Float = 0
+    
+    //是否选中
+    var isSelect = false
 
     init(asset:PHAsset,exactImage:UIImage,videoAsset:AVAsset,videoSize:Float) {
         super.init()
@@ -48,8 +51,17 @@ class VideoManager: NSObject {
     var isSameWithLastVideo = false
     
     var similarVideos:[[VideoModel]] = []
+    var similarVideoSpace:Float = 0
+    
     var sameVideoArray:[[VideoModel]] = []
+    //单位M
+    var sameVideoSpace:Float = 0
+    
+    var badVideoArray:[VideoModel] = []
+    var badVideoSpace:Float = 0
+    
     var bigVideoArray:[VideoModel] = []
+    var bigVideoSpace:Float = 0
     
     
     
@@ -65,11 +77,13 @@ class VideoManager: NSObject {
     
     
     //删除视频
-    class func deleteAsset(assets:[PHAsset],completionHandler:@escaping (Bool,Error?)->Void){
+    func deleteAsset(assets:[PHAsset],completionHandler:@escaping (Bool,Error?)->Void){
         PHPhotoLibrary.shared().performChanges {
             PHAssetChangeRequest.deleteAssets(assets as NSFastEnumeration)
         } completionHandler: { (success, error) in
-            completionHandler(success,error)
+            DispatchQueue.main.async {
+                completionHandler(success,error)
+            }
         }
     }
 
@@ -94,19 +108,27 @@ class VideoManager: NSObject {
     
     //获取所有相册
     func getAllAsset() {
-        let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let result = PHAsset.fetchAssets(with: options)
-        self.assetPhotos = result
-        self.requestImage(index: 0)
+        DispatchQueue.global().async {
+            let options = PHFetchOptions()
+            options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let result = PHAsset.fetchAssets(with: options)
+            self.assetPhotos = result
+            self.requestImage(index: 0)
+        }
     }
     
     func requestImage(index:Int) {
         guard let assetPhotos = self.assetPhotos else {  return }
-        self.processHandler(index,assetPhotos.count)
+        DispatchQueue.main.async {
+            self.processHandler(index,assetPhotos.count)
+        }
+        
         //遍历结束
         if index >= assetPhotos.count{
-            self.completionHandler(true,nil)
+            DispatchQueue.main.async {
+                self.completionHandler(true,nil)
+            }
+            
             return
         }
         
@@ -120,13 +142,16 @@ class VideoManager: NSObject {
         
         imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (avasset, audioMix, info) in
             if let tmpAvasset = avasset {
-                DispatchQueue.main.async {
+                DispatchQueue.global().async {
                     //获取第一帧
                     let firstImage = self.getVideoTargetImage(asset: tmpAvasset, targetTime: 0.0)
                     self.dealImage(index: index,exactImage:firstImage, videoAsset: tmpAvasset)
                 }
             }else{
-                self.requestImage(index: index + 1)
+                DispatchQueue.global().async {
+                    self.requestImage(index: index + 1)
+                }
+                
             }
         }
     }
@@ -174,7 +199,12 @@ class VideoManager: NSObject {
         if videoSize > 100.0 {
             let model = VideoModel(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
             self.bigVideoArray.append(model)
+            model.isSelect = true
+            self.sameVideoSpace = self.sameVideoSpace + videoSize
         }
+        //视频是否损坏
+        
+        
         
         self.lastAsset = asset
         self.lastImageOfVideo = exactImage
@@ -195,18 +225,22 @@ class VideoManager: NSObject {
                 }
             }
             let model = VideoModel(asset: self.lastAsset!, exactImage: self.lastImageOfVideo!, videoAsset: self.lastVideoAsset!, videoSize:lastVideoSize)
+            model.isSelect = false
+            self.similarVideoSpace = self.similarVideoSpace + lastVideoSize
             self.similarVideos.append([model])
             
         }
         
         if let lastSimilars = self.similarVideos.last {//添加相似图片到数组中
             let model = VideoModel(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
+            model.isSelect = true
             var imageModels:[VideoModel] = []
             imageModels.append(contentsOf: lastSimilars)
             imageModels.append(model)
             self.similarVideos.remove(at: self.similarVideos.count - 1)
             self.similarVideos.append(imageModels)
         }
+        self.similarVideoSpace = self.similarVideoSpace + videoSize
     }
     
     func updateSameVideos(asset:PHAsset,exactImage:UIImage,videoAsset:AVAsset,videoSize:Float) {
@@ -221,17 +255,20 @@ class VideoManager: NSObject {
                 }
             }
             let model = VideoModel(asset: self.lastAsset!, exactImage: self.lastImageOfVideo!, videoAsset: self.lastVideoAsset!, videoSize:lastVideoSize)
+            self.sameVideoSpace = self.sameVideoSpace + lastVideoSize
             self.sameVideoArray.append([model])
             
         }
         
         if let lastSimilars = self.sameVideoArray.last {//添加相似图片到数组中
             let model = VideoModel(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
+            model.isSelect = true
             var imageModels:[VideoModel] = []
             imageModels.append(contentsOf: lastSimilars)
             imageModels.append(model)
             self.sameVideoArray.remove(at: self.sameVideoArray.count - 1)
             self.sameVideoArray.append(imageModels)
+            self.sameVideoSpace = self.sameVideoSpace + videoSize
         }
     }
 }
@@ -258,6 +295,12 @@ extension VideoManager{
         similarVideos = []
         bigVideoArray  = []
         sameVideoArray = []
+        badVideoArray = []
+        
+        similarVideoSpace = 0
+        sameVideoSpace = 0
+        badVideoSpace = 0
+        bigVideoSpace = 0
     }
     
     //是否是同一天

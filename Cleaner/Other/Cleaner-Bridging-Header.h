@@ -8,3 +8,7 @@
 #import "CircularProgressView.h"
 #import "UICountingLabel.h"
 
+#import "TXUploadingProgressView.h"
+
+
+

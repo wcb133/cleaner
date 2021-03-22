@@ -21,7 +21,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66Y-VK-yIT" customClass="QMUIButton">
                     <rect key="frame" x="25" y="449" width="364" height="48"/>
-                    <color key="backgroundColor" red="0.13725490200000001" green="0.45098039220000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.24313725490196078" green="0.72156862745098038" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="9tJ-oz-fr8"/>
                     </constraints>

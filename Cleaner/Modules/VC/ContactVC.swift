@@ -67,7 +67,7 @@ class ContactVC: BaseVC {
         setupEmptyView()
         titleView?.title = "通讯录优化"
         titleView?.titleLabel.textColor = .white
-        self.topViewH.constant = iPhoneX ? 220: 200
+//        self.topViewH.constant = iPhoneX ? 220: 200
         deleteBtn.layer.cornerRadius = 24
         deleteBtn.layer.masksToBounds = true
         DispatchQueue.main.async {

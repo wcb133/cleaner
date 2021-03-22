@@ -14,6 +14,8 @@ class PhotoModel: NSObject {
     var exactImage:UIImage!
     var originImageData:Data!
     var originImageDataLength:Int = 0
+    //是否选中
+    var isSelect = false
     
     init(asset:PHAsset,exactImage:UIImage,originImageData:Data,originImageDataLength:Int) {
         super.init()
@@ -47,12 +49,14 @@ class PhotoManager: NSObject {
     var similarSaveSpace = 0
     //截图
     var screenshotsArray:[PhotoModel] = []
+    var screenshotsSaveSpace = 0
     //可以瘦身图片
     var thinPhotoArray:[PhotoModel] = []
+    var thinPhotoSaveSpace:Int = 0
     //模糊图片
     var fuzzyPhotoArray:[PhotoModel] = []
+    var fuzzyPhotoSaveSpace:Int = 0
     
-    var thinPhotoSaveSpace:Int = 0
     
     var processHandler:(Int,Int)->Void = {_,_ in}
     var completionHandler:(Bool,Error?)->Void = {_,_ in}
@@ -73,11 +77,13 @@ class PhotoManager: NSObject {
     
     
     //删除照片
-    class func deleteAsset(assets:[PHAsset],completionHandler:@escaping (Bool,Error?)->Void){
+    func deleteAsset(assets:[PHAsset],completionHandler:@escaping (Bool,Error?)->Void){
         PHPhotoLibrary.shared().performChanges {
             PHAssetChangeRequest.deleteAssets(assets as NSFastEnumeration)
         } completionHandler: { (success, error) in
-            completionHandler(success,error)
+            DispatchQueue.main.async {
+                completionHandler(success,error)
+            }
         }
     }
 
@@ -102,19 +108,26 @@ class PhotoManager: NSObject {
     
     //获取所有图片
     func getAllAsset() {
-        let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let result = PHAsset.fetchAssets(with: options)
-        self.assetPhotos = result
-        self.requestImage(index: 0)
+        
+        DispatchQueue.global().async {
+            let options = PHFetchOptions()
+            options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let result = PHAsset.fetchAssets(with: options)
+            self.assetPhotos = result
+            self.requestImage(index: 0)
+        }
     }
     
     func requestImage(index:Int) {
         guard let assetPhotos = self.assetPhotos else {  return }
-        self.processHandler(index,assetPhotos.count)
+        DispatchQueue.main.async {
+            self.processHandler(index,assetPhotos.count)
+        }
         //遍历结束
         if index >= assetPhotos.count{
-            self.completionHandler(true,nil)
+            DispatchQueue.main.async {
+                self.completionHandler(true,nil)
+            }
             return
         }
         
@@ -131,10 +144,16 @@ class PhotoManager: NSObject {
         imageManager.requestImage(for: asset, targetSize: CGSize(width: 125, height: 125), contentMode: .default, options: imageRequestOptions) { (image, info) in
             //获取原图
             imageManager.requestImageDataAndOrientation(for: asset, options: self.imageSizeRequestOptions) { (imageData, dataUTI, orientation, info) in
+//                print("线程====\(Thread.current)")
                 if imageData == nil {//为空是因为该图片的原图是在iclund上
-                    self.requestImage(index: index + 1)
+                    DispatchQueue.global().async {
+                        self.requestImage(index: index + 1)
+                    }
+                    
                 }else{
-                    self.dealImage(index: index, exactImage: image!, originImageData: imageData!)
+                    DispatchQueue.global().async {
+                        self.dealImage(index: index, exactImage: image!, originImageData: imageData!)
+                    }
                 }
                 
             }
@@ -162,6 +181,8 @@ class PhotoManager: NSObject {
         //是否截图
         if asset.mediaSubtypes == .photoScreenshot {
             let model = PhotoModel(asset: asset, exactImage: exactImage, originImageData: originImageData, originImageDataLength: originImageData.count)
+            self.screenshotsSaveSpace = self.screenshotsSaveSpace + originImageData.count
+            model.isSelect = true
             screenshotsArray.append(model)
         }
         
@@ -171,6 +192,8 @@ class PhotoManager: NSObject {
         let isFuzzy = ImageCompare.isImageFuzzy(UIImage(data: originImageData))
         if isFuzzy {
             let model = PhotoModel(asset: asset, exactImage: exactImage, originImageData: originImageData, originImageDataLength: originImageData.count)
+            self.fuzzyPhotoSaveSpace = self.fuzzyPhotoSaveSpace + originImageData.count
+            model.isSelect = true
             fuzzyPhotoArray.append(model)
         }
         
@@ -184,12 +207,15 @@ class PhotoManager: NSObject {
     func updateSimilarArr(asset:PHAsset,exactImage:UIImage,originImageData:Data) {
         if !self.isSameWithLastImage {//创建一组新的数据，因为是比较相似，把上一次的也添加进来
             let model = PhotoModel(asset: self.lastAsset!, exactImage: self.lastThumImage!, originImageData: self.lastOriImageData!, originImageDataLength: self.lastOriImageData!.count)
+            self.similarSaveSpace = self.similarSaveSpace + self.lastOriImageData!.count
+            //相似的第一张不选中
+            model.isSelect = false
             self.similarArray.append([model])
         }
         
         if let lastSimilars = self.similarArray.last {//添加相似图片到数组中
             let model = PhotoModel(asset: asset, exactImage: exactImage, originImageData: originImageData, originImageDataLength: originImageData.count)
-            
+            model.isSelect = true
             var imageModels:[PhotoModel] = []
             imageModels.append(contentsOf: lastSimilars)
             imageModels.append(model)
@@ -201,12 +227,13 @@ class PhotoManager: NSObject {
     }
     
     func dealThinPhoto(asset:PHAsset,exactImage:UIImage,originImageData:Data) {
-        //图片已经小于1M，无需瘦身
-        if originImageData.count < 1024 * 1024 * 1 { return }
+        //图片已经小于2M，无需瘦身
+        if originImageData.count < 1024 * 1024 * 2 { return }
         let model = PhotoModel(asset: asset, exactImage: exactImage, originImageData: originImageData, originImageDataLength: originImageData.count)
+        model.isSelect = true
         thinPhotoArray.append(model)
-        // 瘦身空间 = 原图大小 - 1024.0 * 1024.0
-        self.thinPhotoSaveSpace = self.thinPhotoSaveSpace + (originImageData.count - 1024 * 1024)
+        // 瘦身空间 = 原图大小 - 1024.0 * 1024.0 * 2
+        self.thinPhotoSaveSpace = self.thinPhotoSaveSpace + originImageData.count
     }
 }
 
@@ -233,11 +260,13 @@ extension PhotoManager{
          similarSaveSpace = 0
         
         screenshotsArray = []
+        screenshotsSaveSpace = 0
         
         thinPhotoArray  = []
         thinPhotoSaveSpace = 0
         
         fuzzyPhotoArray  = []
+        fuzzyPhotoSaveSpace = 0
         
         
     }

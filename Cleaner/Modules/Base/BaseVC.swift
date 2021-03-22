@@ -50,7 +50,7 @@ extension BaseVC {
     }
     
     override func navigationBarBackgroundImage() -> UIImage? {
-        return UIImage.qmui_image(with: HEX("2373F5"))
+        return UIImage.qmui_image(with: HEX("3EB769"))
     }
     
     override func navigationBarTintColor() -> UIColor? {

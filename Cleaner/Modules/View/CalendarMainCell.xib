@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="箭头" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-Ze-V8J">
-                        <rect key="frame" x="341" y="0.0" width="32" height="67"/>
+                        <rect key="frame" x="346" y="0.0" width="32" height="67"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="Shf-hU-kLt"/>
                         </constraints>
@@ -38,7 +38,7 @@
                     <constraint firstItem="gLc-Ze-V8J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AQh-45-jRa"/>
                     <constraint firstAttribute="bottom" secondItem="rqZ-Nd-Yya" secondAttribute="bottom" constant="10" id="MNk-79-VAC"/>
                     <constraint firstItem="rqZ-Nd-Yya" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="NjN-E0-LBn"/>
-                    <constraint firstAttribute="trailing" secondItem="gLc-Ze-V8J" secondAttribute="trailing" constant="15" id="W3M-0O-irU"/>
+                    <constraint firstAttribute="trailing" secondItem="gLc-Ze-V8J" secondAttribute="trailing" constant="10" id="W3M-0O-irU"/>
                     <constraint firstAttribute="bottom" secondItem="gLc-Ze-V8J" secondAttribute="bottom" id="WGH-tW-r5b"/>
                     <constraint firstItem="rqZ-Nd-Yya" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XRI-io-hbI"/>
                     <constraint firstItem="s9d-66-T6v" firstAttribute="centerY" secondItem="rqZ-Nd-Yya" secondAttribute="centerY" id="aAp-N3-KXG"/>

@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSRemindersUsageDescription</key>
-	<string>是否允许“清理助手”获取你的提醒事项用于查找清理过期提醒</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>是否允许“清理助手”获取你的日历事件用于优化日历</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>清理助手</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -24,8 +22,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>是否允许“清理助手”获取你的日历事件用于优化日历</string>
+	<key>NSContactsUsageDescription</key>
+	<string>是否允许“清理助手”获取你的通讯录用于优化通讯录？</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许“清理助手”获取你的相册权限用于获取本地照片？</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>是否允许“清理助手”获取你的提醒事项用于查找清理过期提醒</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -49,7 +53,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSContactsUsageDescription</key>
-	<string>是否允许“清理助手”获取你的通讯录用于优化通讯录？</string>
 </dict>
 </plist>

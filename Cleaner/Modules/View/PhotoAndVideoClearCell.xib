@@ -16,10 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="129"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-4I-2Kg">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-4I-2Kg">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="129"/>
                     </imageView>
-                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUv-Fv-xe8">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUv-Fv-xe8">
                         <rect key="frame" x="110" y="89" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="PIH-5f-5zU"/>
@@ -34,6 +34,13 @@
                             <action selector="selectBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="CGV-Lu-2mW"/>
                         </connections>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="播放" translatesAutoresizingMaskIntoConstraints="NO" id="YCh-yW-dK2">
+                        <rect key="frame" x="55" y="44.5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="RQn-zR-q2c"/>
+                            <constraint firstAttribute="height" constant="40" id="zue-2K-g8u"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,6 +48,8 @@
                 <constraint firstAttribute="trailing" secondItem="SgH-4I-2Kg" secondAttribute="trailing" id="89E-zH-kvj"/>
                 <constraint firstItem="SgH-4I-2Kg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FjK-0o-ztK"/>
                 <constraint firstItem="SgH-4I-2Kg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="N0t-gB-c59"/>
+                <constraint firstItem="YCh-yW-dK2" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="OnM-qk-KFP"/>
+                <constraint firstItem="YCh-yW-dK2" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="a4Z-K3-MrA"/>
                 <constraint firstAttribute="bottom" secondItem="SgH-4I-2Kg" secondAttribute="bottom" id="btK-oe-InE"/>
                 <constraint firstAttribute="bottom" secondItem="IUv-Fv-xe8" secondAttribute="bottom" id="ngW-9n-LT4"/>
                 <constraint firstAttribute="trailing" secondItem="IUv-Fv-xe8" secondAttribute="trailing" id="rPQ-38-5Ph"/>
@@ -48,12 +57,14 @@
             <size key="customSize" width="150" height="129"/>
             <connections>
                 <outlet property="imgView" destination="SgH-4I-2Kg" id="RS5-s0-5Vj"/>
+                <outlet property="playIcon" destination="YCh-yW-dK2" id="Sda-Km-fYE"/>
                 <outlet property="selectBtn" destination="IUv-Fv-xe8" id="exk-uP-NPp"/>
             </connections>
             <point key="canvasLocation" x="95.652173913043484" y="99.441964285714278"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="播放" width="32" height="32"/>
         <image name="未选中" width="16" height="16"/>
         <image name="选中" width="16" height="16"/>
         <systemColor name="linkColor">

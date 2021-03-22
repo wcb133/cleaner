@@ -18,6 +18,14 @@
 		0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */; };
 		0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79376F25FF3ECC00E2B5B1 /* File.swift */; };
 		0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79378025FF40A500E2B5B1 /* BaseNav.swift */; };
+		0B797B87260837A3009FB281 /* mainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B86260837A3009FB281 /* mainVC.xib */; };
+		0B797B8C2608478E009FB281 /* PhotoAndVideoScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B8A2608478E009FB281 /* PhotoAndVideoScanVC.swift */; };
+		0B797B8D2608478E009FB281 /* PhotoAndVideoScanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B8B2608478E009FB281 /* PhotoAndVideoScanVC.xib */; };
+		0B797B91260849BE009FB281 /* PhotoAndVideoScanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B8F260849BE009FB281 /* PhotoAndVideoScanCell.swift */; };
+		0B797B92260849BE009FB281 /* PhotoAndVideoScanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B90260849BE009FB281 /* PhotoAndVideoScanCell.xib */; };
+		0B797B9526084AAB009FB281 /* PhotoAndVideoScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B9426084AAB009FB281 /* PhotoAndVideoScanModel.swift */; };
+		0B797B9F26089C0A009FB281 /* TXUploadingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B9E26089C0A009FB281 /* TXUploadingProgressView.m */; };
+		0B797BA22608ADE9009FB281 /* NSMutableAttributedString+CSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797BA12608ADE9009FB281 /* NSMutableAttributedString+CSExtension.swift */; };
 		0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A0826032EC7007B195A /* MemoryManager.swift */; };
 		0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A112603378D007B195A /* ImageCompare.mm */; };
 		0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7B2A122603378D007B195A /* opencv2.framework */; };
@@ -59,6 +67,15 @@
 		0B79376F25FF3ECC00E2B5B1 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		0B79377225FF3EFB00E2B5B1 /* Cleaner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cleaner-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B79378025FF40A500E2B5B1 /* BaseNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNav.swift; sourceTree = "<group>"; };
+		0B797B86260837A3009FB281 /* mainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainVC.xib; sourceTree = "<group>"; };
+		0B797B8A2608478E009FB281 /* PhotoAndVideoScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoScanVC.swift; sourceTree = "<group>"; };
+		0B797B8B2608478E009FB281 /* PhotoAndVideoScanVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoAndVideoScanVC.xib; sourceTree = "<group>"; };
+		0B797B8F260849BE009FB281 /* PhotoAndVideoScanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoScanCell.swift; sourceTree = "<group>"; };
+		0B797B90260849BE009FB281 /* PhotoAndVideoScanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoAndVideoScanCell.xib; sourceTree = "<group>"; };
+		0B797B9426084AAB009FB281 /* PhotoAndVideoScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoScanModel.swift; sourceTree = "<group>"; };
+		0B797B9D26089C0A009FB281 /* TXUploadingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUploadingProgressView.h; sourceTree = "<group>"; };
+		0B797B9E26089C0A009FB281 /* TXUploadingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUploadingProgressView.m; sourceTree = "<group>"; };
+		0B797BA12608ADE9009FB281 /* NSMutableAttributedString+CSExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+CSExtension.swift"; sourceTree = "<group>"; };
 		0B7B2A0826032EC7007B195A /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
 		0B7B2A102603378D007B195A /* ImageCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCompare.h; sourceTree = "<group>"; };
 		0B7B2A112603378D007B195A /* ImageCompare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageCompare.mm; sourceTree = "<group>"; };
@@ -138,11 +155,14 @@
 			isa = PBXGroup;
 			children = (
 				0B72BD9A25FB46A100FA1CBC /* mainVC.swift */,
+				0B797B86260837A3009FB281 /* mainVC.xib */,
 				0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */,
 				0BBD8B9326075969003ECFF1 /* DateOfOutCalendarVC.swift */,
 				0BBD8B9426075969003ECFF1 /* DateOfOutCalendarVC.xib */,
 				0B91831626072143001CF4FF /* ContactVC.swift */,
 				0B91831726072143001CF4FF /* ContactVC.xib */,
+				0B797B8A2608478E009FB281 /* PhotoAndVideoScanVC.swift */,
+				0B797B8B2608478E009FB281 /* PhotoAndVideoScanVC.xib */,
 				0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */,
 			);
 			path = VC;
@@ -151,6 +171,7 @@
 		0B72BDAD25FB470D00FA1CBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0B797B9426084AAB009FB281 /* PhotoAndVideoScanModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +191,10 @@
 				0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */,
 				0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */,
 				E57034322607821E00CD6517 /* CBDataOperationPieView.swift */,
+				0B797B8F260849BE009FB281 /* PhotoAndVideoScanCell.swift */,
+				0B797B90260849BE009FB281 /* PhotoAndVideoScanCell.xib */,
+				0B797B9D26089C0A009FB281 /* TXUploadingProgressView.h */,
+				0B797B9E26089C0A009FB281 /* TXUploadingProgressView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +258,7 @@
 		0BBD8B85260748D6003ECFF1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0B797BA12608ADE9009FB281 /* NSMutableAttributedString+CSExtension.swift */,
 				0BBD8B86260748F0003ECFF1 /* UIView + Extension.swift */,
 			);
 			path = Extension;
@@ -333,7 +359,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBD8B9126074F15003ECFF1 /* CalendarMainCell.xib in Resources */,
+				0B797B87260837A3009FB281 /* mainVC.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
+				0B797B92260849BE009FB281 /* PhotoAndVideoScanCell.xib in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
 				0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */,
 				0BBD8B9626075969003ECFF1 /* DateOfOutCalendarVC.xib in Resources */,
@@ -341,6 +369,7 @@
 				0B918325260726F1001CF4FF /* ContactCell.xib in Resources */,
 				0B91831926072143001CF4FF /* ContactVC.xib in Resources */,
 				0BBD8B9B26075BB3003ECFF1 /* DateOfOutCalendarCell.xib in Resources */,
+				0B797B8D2608478E009FB281 /* PhotoAndVideoScanVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,10 +424,14 @@
 			files = (
 				0BBD8BA226076C70003ECFF1 /* PhotoAndVideoClearCell.swift in Sources */,
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
+				0B797BA22608ADE9009FB281 /* NSMutableAttributedString+CSExtension.swift in Sources */,
 				0BBD8B8A26074D64003ECFF1 /* CalendarMainVC.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */,
 				0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */,
+				0B797B91260849BE009FB281 /* PhotoAndVideoScanCell.swift in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
+				0B797B9F26089C0A009FB281 /* TXUploadingProgressView.m in Sources */,
+				0B797B9526084AAB009FB281 /* PhotoAndVideoScanModel.swift in Sources */,
 				0BBD8B87260748F0003ECFF1 /* UIView + Extension.swift in Sources */,
 				E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */,
 				0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */,
@@ -409,6 +442,7 @@
 				0BBD8B9E26076BED003ECFF1 /* PhotoAndVideoClearVC.swift in Sources */,
 				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
 				0B91831826072143001CF4FF /* ContactVC.swift in Sources */,
+				0B797B8C2608478E009FB281 /* PhotoAndVideoScanVC.swift in Sources */,
 				0BBD8B9026074F15003ECFF1 /* CalendarMainCell.swift in Sources */,
 				E57034392607826A00CD6517 /* UICountingLabel.m in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
