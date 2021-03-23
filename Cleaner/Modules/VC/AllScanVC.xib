@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllScanVC" customModule="Cleaner" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomInsetCons" destination="Y9o-Bx-rSu" id="F5p-ld-SpG"/>
+                <outlet property="deleteBtn" destination="3YQ-Gz-ZEE" id="vfC-hG-dHj"/>
+                <outlet property="topView" destination="NPU-km-zwH" id="wU2-P8-msD"/>
+                <outlet property="view" destination="pnW-de-VxQ" id="eWn-w9-V4j"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pnW-de-VxQ">
+            <rect key="frame" x="0.0" y="0.0" width="459" height="505"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPU-km-zwH">
+                    <rect key="frame" x="0.0" y="0.0" width="459" height="250"/>
+                    <color key="backgroundColor" red="0.15686274509803921" green="0.70196078431372544" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="xtP-JV-skM"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YQ-Gz-ZEE" customClass="QMUIButton">
+                    <rect key="frame" x="25" y="437" width="409" height="48"/>
+                    <color key="backgroundColor" red="0.15686274510000001" green="0.70196078429999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="7bH-pM-gJw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="清除选中">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="NPU-km-zwH" firstAttribute="top" secondItem="pnW-de-VxQ" secondAttribute="top" id="66s-Ts-W3L"/>
+                <constraint firstAttribute="trailing" secondItem="NPU-km-zwH" secondAttribute="trailing" id="Q37-8c-BWa"/>
+                <constraint firstItem="NPU-km-zwH" firstAttribute="leading" secondItem="pnW-de-VxQ" secondAttribute="leading" id="UXU-K1-BkJ"/>
+                <constraint firstAttribute="bottom" secondItem="3YQ-Gz-ZEE" secondAttribute="bottom" constant="20" id="Y9o-Bx-rSu"/>
+                <constraint firstAttribute="trailing" secondItem="3YQ-Gz-ZEE" secondAttribute="trailing" constant="25" id="jhV-z2-icI"/>
+                <constraint firstItem="3YQ-Gz-ZEE" firstAttribute="leading" secondItem="pnW-de-VxQ" secondAttribute="leading" constant="25" id="sZQ-7h-pv0"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="83.333333333333343" y="-34.486607142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

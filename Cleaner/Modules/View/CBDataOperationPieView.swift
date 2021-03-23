@@ -50,7 +50,7 @@ class CBDataOperationPieView: UIView {
             (value:CGFloat)-> NSAttributedString in
             let percentString = String(format: "%0.0f%%", value * 100)
             let attrPercentString = NSMutableAttributedString(string: percentString)
-            attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 42),.foregroundColor : HEX("#3EB769")], range: NSRange(location: 0, length: percentString.count))
+            attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 42),.foregroundColor : HEX("#28B3FF")], range: NSRange(location: 0, length: percentString.count))
             attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 18)], range: NSRange(location: percentString.count - 1, length: 1))
             return attrPercentString
         }
@@ -61,7 +61,7 @@ class CBDataOperationPieView: UIView {
         let lab = UILabel()
         lab.text = "--"
         lab.textAlignment = .center
-        lab.textColor = HEX("#3EB769")
+        lab.textColor = HEX("#28B3FF")
         lab.font = .systemFont(ofSize: 14)
         circleView.addSubview(lab)
         lab.snp.makeConstraints { (m) in
@@ -73,7 +73,7 @@ class CBDataOperationPieView: UIView {
         let tipslab = UILabel()
         tipslab.text = "已使用"
         tipslab.textAlignment = .center
-        tipslab.textColor = HEX("#3EB769")
+        tipslab.textColor = HEX("#28B3FF")
         tipslab.font = .systemFont(ofSize: 14)
         circleView.addSubview(tipslab)
         tipslab.snp.makeConstraints { (m) in
@@ -87,8 +87,8 @@ class CBDataOperationPieView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        arcFromColor = HEX("#3EB769")
-        arcToColor = HEX("#3EB769")
+        arcFromColor = HEX("#28B3FF")
+        arcToColor = HEX("#28B3FF")
         self.circleView.backgroundColor = .white
     }
     

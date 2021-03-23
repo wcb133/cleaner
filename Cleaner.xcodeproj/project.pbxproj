@@ -35,6 +35,11 @@
 		0B91831926072143001CF4FF /* ContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B91831726072143001CF4FF /* ContactVC.xib */; };
 		0B918324260726F1001CF4FF /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B918322260726F1001CF4FF /* ContactCell.swift */; };
 		0B918325260726F1001CF4FF /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B918323260726F1001CF4FF /* ContactCell.xib */; };
+		0BA71D6D26098F4E00A36914 /* AllScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71D6B26098F4E00A36914 /* AllScanVC.swift */; };
+		0BA71D6E26098F4E00A36914 /* AllScanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71D6C26098F4E00A36914 /* AllScanVC.xib */; };
+		0BA71D7226099C9900A36914 /* AllScanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71D7026099C9900A36914 /* AllScanCell.swift */; };
+		0BA71D7326099C9900A36914 /* AllScanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71D7126099C9900A36914 /* AllScanCell.xib */; };
+		0BA71D762609E19500A36914 /* AllScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71D752609E19500A36914 /* AllScanModel.swift */; };
 		0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8226072D7A003ECFF1 /* ContactHeaderView.swift */; };
 		0BBD8B87260748F0003ECFF1 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B86260748F0003ECFF1 /* UIView + Extension.swift */; };
 		0BBD8B8A26074D64003ECFF1 /* CalendarMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */; };
@@ -87,6 +92,11 @@
 		0B91831726072143001CF4FF /* ContactVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactVC.xib; sourceTree = "<group>"; };
 		0B918322260726F1001CF4FF /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		0B918323260726F1001CF4FF /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		0BA71D6B26098F4E00A36914 /* AllScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllScanVC.swift; sourceTree = "<group>"; };
+		0BA71D6C26098F4E00A36914 /* AllScanVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllScanVC.xib; sourceTree = "<group>"; };
+		0BA71D7026099C9900A36914 /* AllScanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllScanCell.swift; sourceTree = "<group>"; };
+		0BA71D7126099C9900A36914 /* AllScanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllScanCell.xib; sourceTree = "<group>"; };
+		0BA71D752609E19500A36914 /* AllScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllScanModel.swift; sourceTree = "<group>"; };
 		0BBD8B8226072D7A003ECFF1 /* ContactHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeaderView.swift; sourceTree = "<group>"; };
 		0BBD8B86260748F0003ECFF1 /* UIView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainVC.swift; sourceTree = "<group>"; };
@@ -164,6 +174,8 @@
 				0B797B8A2608478E009FB281 /* PhotoAndVideoScanVC.swift */,
 				0B797B8B2608478E009FB281 /* PhotoAndVideoScanVC.xib */,
 				0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */,
+				0BA71D6B26098F4E00A36914 /* AllScanVC.swift */,
+				0BA71D6C26098F4E00A36914 /* AllScanVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				0B797B9426084AAB009FB281 /* PhotoAndVideoScanModel.swift */,
+				0BA71D752609E19500A36914 /* AllScanModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +208,8 @@
 				0B797B90260849BE009FB281 /* PhotoAndVideoScanCell.xib */,
 				0B797B9D26089C0A009FB281 /* TXUploadingProgressView.h */,
 				0B797B9E26089C0A009FB281 /* TXUploadingProgressView.m */,
+				0BA71D7026099C9900A36914 /* AllScanCell.swift */,
+				0BA71D7126099C9900A36914 /* AllScanCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,12 +375,14 @@
 			files = (
 				0BBD8B9126074F15003ECFF1 /* CalendarMainCell.xib in Resources */,
 				0B797B87260837A3009FB281 /* mainVC.xib in Resources */,
+				0BA71D7326099C9900A36914 /* AllScanCell.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
 				0B797B92260849BE009FB281 /* PhotoAndVideoScanCell.xib in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
 				0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */,
 				0BBD8B9626075969003ECFF1 /* DateOfOutCalendarVC.xib in Resources */,
 				0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */,
+				0BA71D6E26098F4E00A36914 /* AllScanVC.xib in Resources */,
 				0B918325260726F1001CF4FF /* ContactCell.xib in Resources */,
 				0B91831926072143001CF4FF /* ContactVC.xib in Resources */,
 				0BBD8B9B26075BB3003ECFF1 /* DateOfOutCalendarCell.xib in Resources */,
@@ -443,11 +460,14 @@
 				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
 				0B91831826072143001CF4FF /* ContactVC.swift in Sources */,
 				0B797B8C2608478E009FB281 /* PhotoAndVideoScanVC.swift in Sources */,
+				0BA71D6D26098F4E00A36914 /* AllScanVC.swift in Sources */,
 				0BBD8B9026074F15003ECFF1 /* CalendarMainCell.swift in Sources */,
 				E57034392607826A00CD6517 /* UICountingLabel.m in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
+				0BA71D7226099C9900A36914 /* AllScanCell.swift in Sources */,
 				0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */,
 				0B918324260726F1001CF4FF /* ContactCell.swift in Sources */,
+				0BA71D762609E19500A36914 /* AllScanModel.swift in Sources */,
 				0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
 				0BBD8B9A26075BB3003ECFF1 /* DateOfOutCalendarCell.swift in Sources */,

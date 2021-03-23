@@ -15,8 +15,10 @@ class PhotoAndVideoScanVC: BaseVC {
     
     var isScanPhoto = true
     
-    var tableTopOffetConstraint:Constraint?
+    //是否完成分析
+    var isComplete = false
     
+    var tableTopOffetConstraint:Constraint?
     @IBOutlet weak var topView: UIView!
     lazy var tableContainerView:UIView = {
         let tableContainerView = UIView()
@@ -24,7 +26,7 @@ class PhotoAndVideoScanVC: BaseVC {
         self.view.addSubview(tableContainerView)
         tableContainerView.snp.makeConstraints { (m) in
             m.left.bottom.right.equalTo(0)
-            self.tableTopOffetConstraint = m.top.equalTo(self.topView.snp.bottom).offset(-8).constraint
+            self.tableTopOffetConstraint = m.top.equalTo(self.topView.snp.bottom).offset(-16).constraint
         }
         return tableContainerView
     }()
@@ -179,11 +181,19 @@ class PhotoAndVideoScanVC: BaseVC {
         self.tableView.reloadData()
         
         //获取数据
-        DispatchQueue.main.async {
-            if self.isScanPhoto {
-                self.loadPhoto()
+        if isComplete {//在外部已经获取好了数据
+            if self.isScanPhoto  {
+                self.refreshPhotoUI(isSuccess: true, animate: false)
             }else{
-                self.loadVideo()
+                self.refreshVideoUI(isSuccess: true, animate: false)
+            }
+        }else{
+            DispatchQueue.main.async {
+                if self.isScanPhoto {
+                    self.loadPhoto()
+                }else{
+                    self.loadVideo()
+                }
             }
         }
     }
@@ -195,83 +205,98 @@ class PhotoAndVideoScanVC: BaseVC {
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
         } completionHandler: { (isSuccess, error) in
             print("成功？ ===== \(isSuccess)")
-            self.bottomTipsLab.removeFromSuperview()
-            self.progressView.removeFromSuperview()
-            self.memoryLab.isHidden = false
-            self.memoryPercentLab.isHidden = false
-            
-            self.tableTopOffetConstraint?.uninstall()
-            self.tableContainerView.snp.makeConstraints { (m) in
-                self.tableTopOffetConstraint = m.top.equalTo(self.topView.snp.bottom).offset(-100).constraint
-            }
+            self.refreshPhotoUI(isSuccess: isSuccess,animate:true)
+        }
+    }
+    
+    //刷新UI
+    func refreshPhotoUI(isSuccess:Bool,animate:Bool) {
+        self.bottomTipsLab.removeFromSuperview()
+        self.progressView.removeFromSuperview()
+        self.memoryLab.isHidden = false
+        self.memoryPercentLab.isHidden = false
+        
+        self.tableTopOffetConstraint?.uninstall()
+        self.tableContainerView.snp.makeConstraints { (m) in
+            self.tableTopOffetConstraint = m.top.equalTo(self.topView.snp.bottom).offset(-100).constraint
+        }
+        if animate {
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
             }
-            
-            if isSuccess {
-                let spaces:[Int] = [PhotoManager.shared.fuzzyPhotoSaveSpace,PhotoManager.shared.similarSaveSpace,PhotoManager.shared.screenshotsSaveSpace,PhotoManager.shared.thinPhotoSaveSpace]
-                var similarCount:Int = 0
-                for items in PhotoManager.shared.similarArray {
-                    similarCount = similarCount + items.count
-                }
-                let nums:[Int] = [PhotoManager.shared.fuzzyPhotoArray.count,similarCount,PhotoManager.shared.screenshotsArray.count,PhotoManager.shared.thinPhotoArray.count]
-                
-                for (idx,item) in self.items.enumerated() {
-                    item.subTitle = String(format: "%d张，%.2fMB", nums[idx],Float(spaces[idx])  / (1024 * 1024))
-                    item.isDidCheck = true
-                }
-                self.tableView.reloadData()
-            }else{
-                for item in self.items {
-                    item.subTitle = "0张，0.00MB"
-                    item.isDidCheck = true
-                }
-                self.tableView.reloadData()
+        }
+        
+        if isSuccess {
+            let spaces:[Int] = [PhotoManager.shared.fuzzyPhotoSaveSpace,PhotoManager.shared.similarSaveSpace,PhotoManager.shared.screenshotsSaveSpace,PhotoManager.shared.thinPhotoSaveSpace]
+            var similarCount:Int = 0
+            for items in PhotoManager.shared.similarArray {
+                similarCount = similarCount + items.count
             }
+            let nums:[Int] = [PhotoManager.shared.fuzzyPhotoArray.count,similarCount,PhotoManager.shared.screenshotsArray.count,PhotoManager.shared.thinPhotoArray.count]
+            
+            for (idx,item) in self.items.enumerated() {
+                item.subTitle = String(format: "%d张，%.2fMB", nums[idx],Float(spaces[idx])  / (1024 * 1024))
+                item.isDidCheck = true
+            }
+            self.tableView.reloadData()
+        }else{
+            for item in self.items {
+                item.subTitle = "0张，0.00MB"
+                item.isDidCheck = true
+            }
+            self.tableView.reloadData()
         }
     }
+    
+    
     
     func loadVideo() {
         VideoManager.shared.loadVideo { (currentIndex, total) in
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
         } completionHandler: { (isSuccess, error) in
-            print("成功？ ===== \(isSuccess)")
-            self.bottomTipsLab.removeFromSuperview()
-            self.progressView.removeFromSuperview()
-            self.memoryLab.isHidden = false
-            self.memoryPercentLab.isHidden = false
-            self.tableTopOffetConstraint?.uninstall()
-            self.tableContainerView.snp.makeConstraints { (m) in
-                self.tableTopOffetConstraint = m.top.equalTo(self.topView.snp.bottom).offset(-100).constraint
-            }
+            self.refreshPhotoUI(isSuccess: isSuccess,animate:true)
+        }
+    }
+    
+    //刷新UI
+    func refreshVideoUI(isSuccess:Bool,animate:Bool){
+        self.bottomTipsLab.removeFromSuperview()
+        self.progressView.removeFromSuperview()
+        self.memoryLab.isHidden = false
+        self.memoryPercentLab.isHidden = false
+        self.tableTopOffetConstraint?.uninstall()
+        self.tableContainerView.snp.makeConstraints { (m) in
+            self.tableTopOffetConstraint = m.top.equalTo(self.topView.snp.bottom).offset(-100).constraint
+        }
+        if animate {
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
             }
-            if isSuccess {
-                let videoM = VideoManager.shared
-                let nums:[Int] = [videoM.sameVideoArray.count,videoM.similarVideos.count,videoM.badVideoArray.count,videoM.bigVideoArray.count]
-                let spaces:[Float] = [videoM.sameVideoSpace,videoM.similarVideoSpace,videoM.badVideoSpace,videoM.bigVideoSpace]
-                
-                for (idx,item) in self.items.enumerated() {
-                    item.subTitle = String(format: "%d个，%.2fMB", nums[idx],spaces[idx])
-                    item.isDidCheck = true
-                }
-                self.tableView.reloadData()
-            }else{
-                for item in self.items {
-                    item.subTitle = "0个，0.00MB"
-                    item.isDidCheck = true
-                }
-                self.tableView.reloadData()
+        }
+        if isSuccess {
+            let videoM = VideoManager.shared
+            let nums:[Int] = [videoM.sameVideoArray.count,videoM.similarVideos.count,videoM.badVideoArray.count,videoM.bigVideoArray.count]
+            let spaces:[Float] = [videoM.sameVideoSpace,videoM.similarVideoSpace,videoM.badVideoSpace,videoM.bigVideoSpace]
+            
+            for (idx,item) in self.items.enumerated() {
+                item.subTitle = String(format: "%d个，%.2fMB", nums[idx],spaces[idx])
+                item.isDidCheck = true
             }
+            self.tableView.reloadData()
+        }else{
+            for item in self.items {
+                item.subTitle = "0个，0.00MB"
+                item.isDidCheck = true
+            }
+            self.tableView.reloadData()
         }
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.tableContainerView.cornerWith(byRoundingCorners: [.topLeft,.topRight], radii: 8)
+        self.tableContainerView.cornerWith(byRoundingCorners: [.topLeft,.topRight], radii: 16)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

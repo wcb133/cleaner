@@ -152,7 +152,7 @@ class DateOfOutCalendarVC: BaseVC {
     }
     
     override func navigationBarBackgroundImage() -> UIImage? {
-        return UIImage.qmui_image(with: HEX("3EB769"))
+        return UIImage.qmui_image(with: HEX("28B3FF"))
     }
     
     override func navigationBarTintColor() -> UIColor? {

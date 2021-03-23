@@ -23,7 +23,7 @@ class PhotoAndVideoClearVC: BaseVC {
         let btn = QMUIButton()
         btn.addTarget(self, action: #selector(deleteBtnAction(btn:)), for: .touchUpInside)
         btn.setTitle("删除选中", for: .normal)
-        btn.backgroundColor = HEX("3EB769")
+        btn.backgroundColor = HEX("28B3FF")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16)
         btn.layer.cornerRadius = 24

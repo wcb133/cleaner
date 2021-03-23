@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactVC" customModule="Cleaner" customModuleProvider="target">
             <connections>
+                <outlet property="bottomInsetCons" destination="qJk-r8-wTG" id="Rte-Mi-qNa"/>
                 <outlet property="bottomLab" destination="YgN-UR-s7T" id="8lk-gK-iBh"/>
                 <outlet property="contactNumLab" destination="V98-oz-Dml" id="KPk-a8-3W8"/>
                 <outlet property="deleteBtn" destination="Vw5-j6-88f" id="UkD-dz-GXn"/>
@@ -59,7 +60,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.24313725490196078" green="0.72156862745098038" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.15686274509803921" green="0.70196078431372544" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="wk1-ue-K1f" secondAttribute="bottom" constant="55" id="5Kh-PJ-34m"/>
                         <constraint firstAttribute="height" constant="145" id="Gui-rH-akq"/>
@@ -78,8 +79,8 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw5-j6-88f" customClass="QMUIButton">
-                    <rect key="frame" x="25" y="794" width="364" height="48"/>
-                    <color key="backgroundColor" red="0.2817181624362074" green="0.75469148704002142" blue="0.46380344732070916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="25" y="814" width="364" height="48"/>
+                    <color key="backgroundColor" red="0.15686274509803921" green="0.70196078431372544" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="2zp-4M-oNf"/>
                     </constraints>
@@ -92,7 +93,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发现3个重复联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgN-UR-s7T">
-                    <rect key="frame" x="145.5" y="767" width="123" height="17"/>
+                    <rect key="frame" x="145.5" y="787" width="123" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -107,7 +108,7 @@
                 <constraint firstAttribute="trailing" secondItem="Vw5-j6-88f" secondAttribute="trailing" constant="25" id="HBn-Mw-pdI"/>
                 <constraint firstAttribute="trailing" secondItem="AQO-jG-LPB" secondAttribute="trailing" id="VoZ-1Y-yPa"/>
                 <constraint firstItem="Vw5-j6-88f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="XWS-YJ-WcO"/>
-                <constraint firstAttribute="bottom" secondItem="Vw5-j6-88f" secondAttribute="bottom" constant="54" id="qJk-r8-wTG"/>
+                <constraint firstAttribute="bottom" secondItem="Vw5-j6-88f" secondAttribute="bottom" constant="34" id="qJk-r8-wTG"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

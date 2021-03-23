@@ -23,22 +23,26 @@ class mainVC: BaseVC {
     
     lazy var startCheckBtn: QMUIButton = {
         let btn = QMUIButton()
-        btn.setTitle("推荐优化", for: .normal)
-        btn.backgroundColor = HEX("3EB769")
+        btn.setTitle("一键清理", for: .normal)
+        btn.backgroundColor = HEX("28B3FF")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20)
-        btn.layer.cornerRadius = 24
+        btn.addTarget(self, action: #selector(startCheckBtnAction(btn:)), for: .touchUpInside)
+        btn.layer.cornerRadius = 10
         btn.layer.masksToBounds = true
         self.view.addSubview(btn)
         btn.snp.makeConstraints { (m) in
             m.centerX.equalToSuperview()
             m.centerY.equalToSuperview().offset(0)
             m.height.equalTo(48)
-            m.left.equalTo(50)
-            m.right.equalTo(-50)
+            m.width.equalTo(170)
         }
         return btn
     }()
+    
+    @objc func startCheckBtnAction(btn:QMUIButton) {
+        self.navigationController?.pushViewController(AllScanVC(), animated: true)
+    }
     
     override func preferredNavigationBarHidden() -> Bool {
         return true

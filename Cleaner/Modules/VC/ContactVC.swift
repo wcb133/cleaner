@@ -23,6 +23,7 @@ class ContactVC: BaseVC {
     @IBOutlet weak var bottomLab: UILabel!
     @IBOutlet weak var deleteBtn: QMUIButton!
     
+    @IBOutlet weak var bottomInsetCons: NSLayoutConstraint!
     lazy var tableContainerView:UIView = {
         let tableContainerView = UIView()
         tableContainerView.backgroundColor = .white
@@ -64,6 +65,7 @@ class ContactVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         extendedLayoutIncludesOpaqueBars = false
+        self.bottomInsetCons.constant = 20 + cIndicatorHeight
         setupEmptyView()
         titleView?.title = "通讯录优化"
         titleView?.titleLabel.textColor = .white
