@@ -200,7 +200,7 @@ class PhotoAndVideoScanVC: BaseVC {
     
     
     func loadPhoto() {
-        PhotoManager.shared.loadPhoto { (currentIndex, total) in
+        PhotoAndVideoManager.shared.loadPhoto { (currentIndex, total) in
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
         } completionHandler: { (isSuccess, error) in
@@ -227,12 +227,12 @@ class PhotoAndVideoScanVC: BaseVC {
         }
         
         if isSuccess {
-            let spaces:[Int] = [PhotoManager.shared.fuzzyPhotoSaveSpace,PhotoManager.shared.similarSaveSpace,PhotoManager.shared.screenshotsSaveSpace,PhotoManager.shared.thinPhotoSaveSpace]
+            let spaces:[Int] = [PhotoAndVideoManager.shared.fuzzyPhotoSaveSpace,PhotoAndVideoManager.shared.similarSaveSpace,PhotoAndVideoManager.shared.screenshotsSaveSpace,PhotoAndVideoManager.shared.thinPhotoSaveSpace]
             var similarCount:Int = 0
-            for items in PhotoManager.shared.similarArray {
+            for items in PhotoAndVideoManager.shared.similarArray {
                 similarCount = similarCount + items.count
             }
-            let nums:[Int] = [PhotoManager.shared.fuzzyPhotoArray.count,similarCount,PhotoManager.shared.screenshotsArray.count,PhotoManager.shared.thinPhotoArray.count]
+            let nums:[Int] = [PhotoAndVideoManager.shared.fuzzyPhotoArray.count,similarCount,PhotoAndVideoManager.shared.screenshotsArray.count,PhotoAndVideoManager.shared.thinPhotoArray.count]
             
             for (idx,item) in self.items.enumerated() {
                 item.subTitle = String(format: "%d张，%.2fMB", nums[idx],Float(spaces[idx])  / (1024 * 1024))
@@ -251,11 +251,11 @@ class PhotoAndVideoScanVC: BaseVC {
     
     
     func loadVideo() {
-        VideoManager.shared.loadVideo { (currentIndex, total) in
+        PhotoAndVideoManager.shared.loadVideo { (currentIndex, total) in
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
         } completionHandler: { (isSuccess, error) in
-            self.refreshPhotoUI(isSuccess: isSuccess,animate:true)
+            self.refreshVideoUI(isSuccess: isSuccess,animate:true)
         }
     }
     
@@ -275,7 +275,7 @@ class PhotoAndVideoScanVC: BaseVC {
             }
         }
         if isSuccess {
-            let videoM = VideoManager.shared
+            let videoM = PhotoAndVideoManager.shared
             let nums:[Int] = [videoM.sameVideoArray.count,videoM.similarVideos.count,videoM.badVideoArray.count,videoM.bigVideoArray.count]
             let spaces:[Float] = [videoM.sameVideoSpace,videoM.similarVideoSpace,videoM.badVideoSpace,videoM.bigVideoSpace]
             
@@ -331,15 +331,15 @@ extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
         if !model.isDidCheck { return }//未分析完，不可点击
         
         if isScanPhoto {//查看照片
-            let allSimilarArray:[PhotoModel] = PhotoManager.shared.similarArray.flatMap { $0.map { $0 }}
-            let images:[[PhotoModel]] = [PhotoManager.shared.fuzzyPhotoArray,allSimilarArray,PhotoManager.shared.screenshotsArray,PhotoManager.shared.thinPhotoArray]
+            let allSimilarArray:[PhotoModel] = PhotoAndVideoManager.shared.similarArray.flatMap { $0.map { $0 }}
+            let images:[[PhotoModel]] = [PhotoAndVideoManager.shared.fuzzyPhotoArray,allSimilarArray,PhotoAndVideoManager.shared.screenshotsArray,PhotoAndVideoManager.shared.thinPhotoArray]
             let vc = PhotoAndVideoClearVC()
             vc.isPhoto = true
             vc.titleString = self.photoTitles[indexPath.row]
             vc.items = images[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }else{//查看视频
-            let videoM = VideoManager.shared
+            let videoM = PhotoAndVideoManager.shared
             
             let sameVideos = videoM.sameVideoArray.flatMap { $0.map { $0 }}
             let similarVideos = videoM.similarVideos.flatMap { $0.map { $0 }}

@@ -37,6 +37,9 @@
                     <state key="normal" title="清除选中">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="deleteBtnACtion:" destination="-1" eventType="touchUpInside" id="Qk9-ot-6Oi"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

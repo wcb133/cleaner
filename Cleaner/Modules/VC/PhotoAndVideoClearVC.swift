@@ -103,7 +103,7 @@ class PhotoAndVideoClearVC: BaseVC {
             return
         }
         QMUITips.showLoading(in: self.navigationController!.view)
-        PhotoManager.shared.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
+        PhotoAndVideoManager.shared.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
             QMUITips.hideAllTips()
             if isSuccess {
                 //移除数据源
@@ -139,7 +139,7 @@ class PhotoAndVideoClearVC: BaseVC {
         }
         QMUITips.showLoading(in: self.navigationController!.view)
 
-        VideoManager.shared.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
+        PhotoAndVideoManager.shared.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
             QMUITips.hideAllTips()
             if isSuccess {
                 //移除数据源

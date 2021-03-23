@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B676FA12601D870001825F2 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B676FA02601D870001825F2 /* VideoManager.swift */; };
 		0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */; };
 		0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */; };
 		0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9A25FB46A100FA1CBC /* mainVC.swift */; };
@@ -15,7 +14,6 @@
 		0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B72BD9F25FB46A400FA1CBC /* Assets.xcassets */; };
 		0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B72BDA125FB46A400FA1CBC /* LaunchScreen.storyboard */; };
 		0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373325FEF9B000E2B5B1 /* BaseVC.swift */; };
-		0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */; };
 		0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79376F25FF3ECC00E2B5B1 /* File.swift */; };
 		0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79378025FF40A500E2B5B1 /* BaseNav.swift */; };
 		0B797B87260837A3009FB281 /* mainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B86260837A3009FB281 /* mainVC.xib */; };
@@ -55,10 +53,12 @@
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 		E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57034322607821E00CD6517 /* CBDataOperationPieView.swift */; };
 		E57034392607826A00CD6517 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E57034382607826A00CD6517 /* UICountingLabel.m */; };
+		E5D85C7A260A26D0006F4447 /* PhotoAndVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */; };
+		E5D85C7E260A2C20006F4447 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C7D260A2C20006F4447 /* VideoModel.swift */; };
+		E5D85C81260A2C41006F4447 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C80260A2C41006F4447 /* PhotoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B676FA02601D870001825F2 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		0B72BD9325FB46A100FA1CBC /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +68,6 @@
 		0B72BDA225FB46A400FA1CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B72BDA425FB46A400FA1CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B79373325FEF9B000E2B5B1 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
-		0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		0B79376F25FF3ECC00E2B5B1 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		0B79377225FF3EFB00E2B5B1 /* Cleaner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cleaner-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B79378025FF40A500E2B5B1 /* BaseNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNav.swift; sourceTree = "<group>"; };
@@ -115,6 +114,9 @@
 		E57034322607821E00CD6517 /* CBDataOperationPieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBDataOperationPieView.swift; sourceTree = "<group>"; };
 		E57034372607826A00CD6517 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		E57034382607826A00CD6517 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
+		E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoManager.swift; sourceTree = "<group>"; };
+		E5D85C7D260A2C20006F4447 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		E5D85C80260A2C41006F4447 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,8 @@
 			children = (
 				0B797B9426084AAB009FB281 /* PhotoAndVideoScanModel.swift */,
 				0BA71D752609E19500A36914 /* AllScanModel.swift */,
+				E5D85C7D260A2C20006F4447 /* VideoModel.swift */,
+				E5D85C80260A2C41006F4447 /* PhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,11 +244,10 @@
 		0B79373B25FF014900E2B5B1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				0B79373D25FF019C00E2B5B1 /* PhotoManager.swift */,
 				0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */,
 				0B7E1531260198F00070B02E /* CalendarManager.swift */,
-				0B676FA02601D870001825F2 /* VideoManager.swift */,
 				0B7B2A0826032EC7007B195A /* MemoryManager.swift */,
+				E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -454,21 +457,22 @@
 				0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */,
-				0B79373E25FF019C00E2B5B1 /* PhotoManager.swift in Sources */,
 				0BBD8B9526075969003ECFF1 /* DateOfOutCalendarVC.swift in Sources */,
 				0BBD8B9E26076BED003ECFF1 /* PhotoAndVideoClearVC.swift in Sources */,
-				0B676FA12601D870001825F2 /* VideoManager.swift in Sources */,
+				E5D85C7A260A26D0006F4447 /* PhotoAndVideoManager.swift in Sources */,
 				0B91831826072143001CF4FF /* ContactVC.swift in Sources */,
 				0B797B8C2608478E009FB281 /* PhotoAndVideoScanVC.swift in Sources */,
 				0BA71D6D26098F4E00A36914 /* AllScanVC.swift in Sources */,
 				0BBD8B9026074F15003ECFF1 /* CalendarMainCell.swift in Sources */,
 				E57034392607826A00CD6517 /* UICountingLabel.m in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryManager.swift in Sources */,
+				E5D85C7E260A2C20006F4447 /* VideoModel.swift in Sources */,
 				0BA71D7226099C9900A36914 /* AllScanCell.swift in Sources */,
 				0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */,
 				0B918324260726F1001CF4FF /* ContactCell.swift in Sources */,
 				0BA71D762609E19500A36914 /* AllScanModel.swift in Sources */,
 				0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */,
+				E5D85C81260A2C41006F4447 /* PhotoModel.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
 				0BBD8B9A26075BB3003ECFF1 /* DateOfOutCalendarCell.swift in Sources */,
 			);

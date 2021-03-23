@@ -1,42 +1,30 @@
 //
-//  PhotoManager.swift
+//  PhotoAndVideoManager.swift
 //  Cleaner
 //
-//  Created by fst on 2021/3/15.
+//  Created by wcb on 2021/3/23.
 //
 
 import UIKit
 import Photos
 
-class PhotoModel: NSObject {
-    
-    var asset:PHAsset!
-    var exactImage:UIImage!
-    var originImageData:Data!
-    var originImageDataLength:Int = 0
-    //是否选中
-    var isSelect = false
-    
-    init(asset:PHAsset,exactImage:UIImage,originImageData:Data,originImageDataLength:Int) {
-        super.init()
-        self.asset = asset
-        self.exactImage = exactImage
-        self.originImageData = originImageData
-        self.originImageDataLength = originImageDataLength
-    }
-    
+enum AnalyseType {
+    case photo
+    case video
+    case all
 }
 
-class PhotoManager: NSObject {
-    static let shared: PhotoManager = {
-        let instance = PhotoManager()
+
+class PhotoAndVideoManager: NSObject {
+    static let shared: PhotoAndVideoManager = {
+        let instance = PhotoAndVideoManager()
         return instance
     }()
-    
+//图片
     //所有图片
     var assetPhotos:PHFetchResult<PHAsset>?
     //上一张图片
-    var lastAsset:PHAsset?
+    var lastImageAsset:PHAsset?
     //上一张缩略图
     var lastThumImage:UIImage?
     //上一张原图
@@ -57,6 +45,33 @@ class PhotoManager: NSObject {
     var fuzzyPhotoArray:[PhotoModel] = []
     var fuzzyPhotoSaveSpace:Int = 0
     
+//视频
+    //上一个视频资源
+    var lastAsset:PHAsset?
+    //上个视频的第一帧
+    var lastImageOfVideo:UIImage?
+    
+    //上一视频
+    var lastVideoAsset:AVAsset?
+    //这个视频和上一个是否相似
+    var isSimilarWithLastVideo = false
+    //这个视频和上一个是否相同
+    var isSameWithLastVideo = false
+    
+    var similarVideos:[[VideoModel]] = []
+    var similarVideoSpace:Float = 0
+    
+    var sameVideoArray:[[VideoModel]] = []
+    //单位M
+    var sameVideoSpace:Float = 0
+    
+    var badVideoArray:[VideoModel] = []
+    var badVideoSpace:Float = 0
+    
+    var bigVideoArray:[VideoModel] = []
+    var bigVideoSpace:Float = 0
+    
+    
     
     var processHandler:(Int,Int)->Void = {_,_ in}
     var completionHandler:(Bool,Error?)->Void = {_,_ in}
@@ -75,6 +90,13 @@ class PhotoManager: NSObject {
         return options
     }()
     
+    lazy var videoRequestOptions:PHVideoRequestOptions = {
+       let options = PHVideoRequestOptions()
+        options.version = .current
+        options.deliveryMode = .automatic
+        return options
+    }()
+    
     
     //删除照片
     func deleteAsset(assets:[PHAsset],completionHandler:@escaping (Bool,Error?)->Void){
@@ -86,19 +108,29 @@ class PhotoManager: NSObject {
             }
         }
     }
-
-    //加载图片
+    
+    //分析图片
     func loadPhoto(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
+        self.loadAsset(process: process, completionHandler: completionHandler,analyseType:.photo)
+    }
+    
+    //分析全部资源
+    func loadAllAsset(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
+        self.loadAsset(process: process, completionHandler: completionHandler,analyseType:.all)
+    }
+
+    //加载相册资源
+    private func loadAsset(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void,analyseType:AnalyseType) {
         resetData()
         self.processHandler = process
         self.completionHandler = completionHandler
         let authorizationStatus = PHPhotoLibrary.authorizationStatus()
         if authorizationStatus == .authorized {
-            getAllAsset()
+            getAllAsset(analyseType: analyseType)
         }else if authorizationStatus == .notDetermined {
             PHPhotoLibrary.requestAuthorization { (status) in
                 if status == .authorized {
-                    self.getAllAsset()
+                    self.getAllAsset(analyseType: analyseType)
                 }
             }
         }else{
@@ -107,18 +139,17 @@ class PhotoManager: NSObject {
     }
     
     //获取所有图片
-    func getAllAsset() {
-        
+    func getAllAsset(analyseType:AnalyseType) {
         DispatchQueue.global().async {
             let options = PHFetchOptions()
             options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             let result = PHAsset.fetchAssets(with: options)
             self.assetPhotos = result
-            self.requestImage(index: 0)
+            self.requestImage(index: 0,analyseType: analyseType)
         }
     }
     
-    func requestImage(index:Int) {
+    func requestImage(index:Int,analyseType:AnalyseType) {
         guard let assetPhotos = self.assetPhotos else {  return }
         DispatchQueue.main.async {
             self.processHandler(index,assetPhotos.count)
@@ -131,41 +162,58 @@ class PhotoManager: NSObject {
             return
         }
         
+        let imageManager = PHImageManager()
         let asset = assetPhotos[index]
-        if asset.mediaType != .image {//不是图片，取下一张图片
-            requestImage(index: index + 1)
+        if asset.mediaType == .image && (analyseType == .photo || analyseType == .all) {//不是图片，取下一张图片
+            imageManager.requestImage(for: asset, targetSize: CGSize(width: 125, height: 125), contentMode: .default, options: imageRequestOptions) { (image, info) in
+                //获取原图
+                imageManager.requestImageDataAndOrientation(for: asset, options: self.imageSizeRequestOptions) { (imageData, dataUTI, orientation, info) in
+                    if imageData == nil {//为空是因为该图片的原图是在iclund上
+                        DispatchQueue.global().async {
+                            self.requestImage(index: index + 1,analyseType: analyseType)
+                        }
+                        
+                    }else{
+                        DispatchQueue.global().async {
+                            self.dealImage(index: index, exactImage: image!, originImageData: imageData!,analyseType: analyseType)
+                        }
+                    }
+                    
+                }
+            }
+        }else if asset.mediaType == .video && (analyseType == .video || analyseType == .all) {
+            imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (avasset, audioMix, info) in
+                if let tmpAvasset = avasset {
+                    DispatchQueue.global().async {
+                        //获取第一帧
+                        let firstImage = self.getVideoTargetImage(asset: tmpAvasset, targetTime: 0.0)
+                        self.dealVideo(index: index,exactImage:firstImage, videoAsset: tmpAvasset,analyseType: analyseType)
+                    }
+                }else{
+                    DispatchQueue.global().async {
+                        self.requestImage(index: index + 1,analyseType: analyseType)
+                    }
+                    
+                }
+            }
+        }else{
+            requestImage(index: index + 1,analyseType: analyseType)
             return
         }
         
-        let imageManager = PHImageManager()
+        
 //        autoreleasepool {
 //
 //        }
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: 125, height: 125), contentMode: .default, options: imageRequestOptions) { (image, info) in
-            //获取原图
-            imageManager.requestImageDataAndOrientation(for: asset, options: self.imageSizeRequestOptions) { (imageData, dataUTI, orientation, info) in
-//                print("线程====\(Thread.current)")
-                if imageData == nil {//为空是因为该图片的原图是在iclund上
-                    DispatchQueue.global().async {
-                        self.requestImage(index: index + 1)
-                    }
-                    
-                }else{
-                    DispatchQueue.global().async {
-                        self.dealImage(index: index, exactImage: image!, originImageData: imageData!)
-                    }
-                }
-                
-            }
-        }
+
     }
     
-    func dealImage(index:Int,exactImage:UIImage,originImageData:Data) {
+    func dealImage(index:Int,exactImage:UIImage,originImageData:Data,analyseType:AnalyseType) {
         guard let assetPhotos = self.assetPhotos else {  return }
         let asset = assetPhotos[index]
         //是否相似
-        if let lastAsset = self.lastAsset {
-            let isSameDay = isTheSameDay(date1: lastAsset.creationDate, date2: asset.creationDate)
+        if let lastImageAsset = self.lastImageAsset {
+            let isSameDay = isTheSameDay(date1: lastImageAsset.creationDate, date2: asset.creationDate)
             let isLike = ImageCompare.isImage(self.lastThumImage, like: exactImage)
             if isSameDay && isLike {
                 self.updateSimilarArr(asset: asset, exactImage: exactImage, originImageData: originImageData)
@@ -197,16 +245,16 @@ class PhotoManager: NSObject {
             fuzzyPhotoArray.append(model)
         }
         
-        self.lastAsset = asset
+        self.lastImageAsset = asset
         self.lastThumImage = exactImage
         self.lastOriImageData = originImageData
-        self.requestImage(index: index + 1)
+        self.requestImage(index: index + 1,analyseType:analyseType)
     }
     
     //更新相似图片
     func updateSimilarArr(asset:PHAsset,exactImage:UIImage,originImageData:Data) {
         if !self.isSameWithLastImage {//创建一组新的数据，因为是比较相似，把上一次的也添加进来
-            let model = PhotoModel(asset: self.lastAsset!, exactImage: self.lastThumImage!, originImageData: self.lastOriImageData!, originImageDataLength: self.lastOriImageData!.count)
+            let model = PhotoModel(asset: self.lastImageAsset!, exactImage: self.lastThumImage!, originImageData: self.lastOriImageData!, originImageDataLength: self.lastOriImageData!.count)
             self.similarSaveSpace = self.similarSaveSpace + self.lastOriImageData!.count
             //相似的第一张不选中
             model.isSelect = false
@@ -237,7 +285,130 @@ class PhotoManager: NSObject {
     }
 }
 
-extension PhotoManager{
+extension PhotoAndVideoManager {
+    //加载视频
+    func loadVideo(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
+        self.loadAsset(process: process, completionHandler: completionHandler,analyseType: .video)
+    }
+    
+    func dealVideo(index:Int,exactImage:UIImage,videoAsset:AVAsset,analyseType:AnalyseType) {
+        guard let assetPhotos = self.assetPhotos else {  return }
+        let asset = assetPhotos[index]
+        
+        //视频大小
+        var videoSize:Float = 0
+        if let urlAsset = videoAsset as? AVURLAsset  {
+            var size:AnyObject?
+           try? (urlAsset.url as NSURL).getResourceValue(&size, forKey: .fileSizeKey)
+            if let sizeNum = size as? NSNumber {
+                videoSize = sizeNum.floatValue / (1024.0 * 1024.0)
+            }
+        }
+        
+        //是否是相似视频
+        if let lastAsset = self.lastAsset {
+            let isSameDay = isTheSameDay(date1: lastAsset.creationDate, date2: asset.creationDate)
+            let isLike = ImageCompare.isImage(self.lastImageOfVideo, like: exactImage)
+            if isSameDay && isLike {
+                self.updateSimilarVideos(asset: asset, exactImage: exactImage, videoAsset: videoAsset,videoSize:videoSize)
+                self.isSimilarWithLastVideo = true
+                //是否相同
+                if lastVideoAsset!.duration == videoAsset.duration {
+                    self.updateSameVideos(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
+                    self.isSameWithLastVideo = true
+                }else{
+                    self.isSameWithLastVideo = false
+                }
+
+            }else{
+                self.isSimilarWithLastVideo = false
+                self.isSameWithLastVideo = false
+            }
+        } else {
+            self.isSimilarWithLastVideo = false
+            self.isSameWithLastVideo = false
+        }
+        
+
+        //是否是大视频
+        if videoSize > 100.0 {
+            let model = VideoModel(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
+            self.bigVideoArray.append(model)
+            model.isSelect = true
+            self.sameVideoSpace = self.sameVideoSpace + videoSize
+        }
+        //视频是否损坏
+        
+        
+        
+        self.lastAsset = asset
+        self.lastImageOfVideo = exactImage
+        self.lastVideoAsset = videoAsset
+        self.requestImage(index: index + 1,analyseType: analyseType)
+    }
+    
+    //更新相似图片
+    func updateSimilarVideos(asset:PHAsset,exactImage:UIImage,videoAsset:AVAsset,videoSize:Float) {
+            
+        if !self.isSimilarWithLastVideo {//创建一组新的数据，因为是比较相似，把上一次的也添加进来
+            var lastVideoSize:Float = 0
+            if let urlAsset = videoAsset as? AVURLAsset  {
+               var size:AnyObject?
+               try? (urlAsset.url as NSURL).getResourceValue(&size, forKey: .fileSizeKey)
+                if let sizeNum = size as? NSNumber {
+                    lastVideoSize = sizeNum.floatValue / (1024.0 * 1024.0)
+                }
+            }
+            let model = VideoModel(asset: self.lastAsset!, exactImage: self.lastImageOfVideo!, videoAsset: self.lastVideoAsset!, videoSize:lastVideoSize)
+            model.isSelect = false
+            self.similarVideoSpace = self.similarVideoSpace + lastVideoSize
+            self.similarVideos.append([model])
+            
+        }
+        
+        if let lastSimilars = self.similarVideos.last {//添加相似图片到数组中
+            let model = VideoModel(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
+            model.isSelect = true
+            var imageModels:[VideoModel] = []
+            imageModels.append(contentsOf: lastSimilars)
+            imageModels.append(model)
+            self.similarVideos.remove(at: self.similarVideos.count - 1)
+            self.similarVideos.append(imageModels)
+        }
+        self.similarVideoSpace = self.similarVideoSpace + videoSize
+    }
+    
+    func updateSameVideos(asset:PHAsset,exactImage:UIImage,videoAsset:AVAsset,videoSize:Float) {
+            
+        if !self.isSameWithLastVideo {//创建一组新的数据，因为是比较相同，把上一次的也添加进来
+            var lastVideoSize:Float = 0
+            if let urlAsset = videoAsset as? AVURLAsset  {
+               var size:AnyObject?
+               try? (urlAsset.url as NSURL).getResourceValue(&size, forKey: .fileSizeKey)
+                if let sizeNum = size as? NSNumber {
+                    lastVideoSize = sizeNum.floatValue / (1024.0 * 1024.0)
+                }
+            }
+            let model = VideoModel(asset: self.lastAsset!, exactImage: self.lastImageOfVideo!, videoAsset: self.lastVideoAsset!, videoSize:lastVideoSize)
+            self.sameVideoSpace = self.sameVideoSpace + lastVideoSize
+            self.sameVideoArray.append([model])
+            
+        }
+        
+        if let lastSimilars = self.sameVideoArray.last {//添加相似图片到数组中
+            let model = VideoModel(asset: asset, exactImage: exactImage, videoAsset: videoAsset, videoSize: videoSize)
+            model.isSelect = true
+            var imageModels:[VideoModel] = []
+            imageModels.append(contentsOf: lastSimilars)
+            imageModels.append(model)
+            self.sameVideoArray.remove(at: self.sameVideoArray.count - 1)
+            self.sameVideoArray.append(imageModels)
+            self.sameVideoSpace = self.sameVideoSpace + videoSize
+        }
+    }
+}
+
+extension PhotoAndVideoManager{
     
     //弹框提示开启权限
     func noticeAlert() {
@@ -268,6 +439,18 @@ extension PhotoManager{
         fuzzyPhotoArray  = []
         fuzzyPhotoSaveSpace = 0
         
+            
+        
+        similarVideos = []
+        bigVideoArray  = []
+        sameVideoArray = []
+        badVideoArray = []
+        
+        similarVideoSpace = 0
+        sameVideoSpace = 0
+        badVideoSpace = 0
+        bigVideoSpace = 0
+        
         
     }
     
@@ -289,9 +472,8 @@ extension PhotoManager{
     }
 }
 
-extension PhotoManager {
+extension PhotoAndVideoManager {
     
-    // 压缩照片
     func compressImageWithData(imageData:Data,completionHandler:@escaping (UIImage,Int)->Void) {
         if let image = UIImage(data: imageData) {
             let imageDataLength = imageData.count
@@ -345,3 +527,20 @@ extension PhotoManager {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
+
+extension PhotoAndVideoManager {
+    //获取视频的任意一帧
+    func getVideoTargetImage(asset:AVAsset,targetTime:Float64) -> UIImage {
+        let gen = AVAssetImageGenerator(asset: asset)
+        gen.requestedTimeToleranceAfter = .zero
+        gen.requestedTimeToleranceBefore = .zero
+        gen.appliesPreferredTrackTransform = true
+        let time = CMTimeMakeWithSeconds(targetTime, preferredTimescale: 600)
+        var actualTime:CMTime = CMTime()
+        if let iamge = try? gen.copyCGImage(at: time, actualTime: &actualTime) {
+            return UIImage(cgImage: iamge)
+        }
+        return UIImage()
+    }
+}
+

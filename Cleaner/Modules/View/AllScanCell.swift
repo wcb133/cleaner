@@ -24,6 +24,8 @@ class AllScanCell: UITableViewCell {
     
     @IBOutlet weak var bgView: UIView!
     
+    var selectBtnClickBlock:()->Void = {}
+    
     let indicatorView = UIActivityIndicatorView(style: .medium)
     
     override func awakeFromNib() {
@@ -43,7 +45,12 @@ class AllScanCell: UITableViewCell {
         bgView.layer.shadowRadius = 5
         bgView.layer.shadowOpacity = 0.2
         
-        
+        self.selectBtn.addTarget(self, action: #selector(selectBtnAction), for: .touchUpInside)
+    }
+    
+    @objc func selectBtnAction(btn:UIButton) {
+        btn.isSelected = !btn.isSelected
+        selectBtnClickBlock()
     }
     
     var dataModel = AllScanModel(){

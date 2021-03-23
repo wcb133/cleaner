@@ -40,6 +40,7 @@ class AllScanVC: BaseVC {
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
         tableView.rowHeight = 90
+        tableView.isScrollEnabled = false
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
@@ -111,10 +112,10 @@ class AllScanVC: BaseVC {
         return progressView
     }()
     
-    //图片分析完成信号
-    let hpotoSubject = PublishSubject<String>()
-    //视频分析完成信号
-    let videoSubject = PublishSubject<String>()
+//    //图片分析完成信号
+//    let hpotoSubject = PublishSubject<String>()
+//    //视频分析完成信号
+//    let videoSubject = PublishSubject<String>()
     
     
     override func viewDidLoad() {
@@ -124,6 +125,7 @@ class AllScanVC: BaseVC {
         deleteBtn.layer.masksToBounds = true
         self.bottomInsetCons.constant = 20 + cIndicatorHeight
         self.percentLab.text = "0%"
+        self.bottomTipsLab.backgroundColor = .clear
         let titles = ["照片清理","通讯录优化","日历及提醒","视频清理"]
         for title in titles {
             let model = AllScanModel()
@@ -131,30 +133,24 @@ class AllScanVC: BaseVC {
             self.items.append(model)
         }
         self.tableView.reloadData()
-        
-        
-        
-        
-        
-        
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
+        DispatchQueue.main.async {
+            //开始分析
+            self.startAnalysis()
+        }
+    }
+    
+    func startAnalysis()  {
+        let manager = PhotoAndVideoManager.shared
+        manager.loadAllAsset { (currentIndex, total) in
+            let percent = Float(currentIndex) / Float(total)
+            self.percentLab.text = String(format: "%.0f%%", percent * 100)
+        } completionHandler: { (isSuccess, error) in
             self.titleView?.title = "可清理的文件"
             
             self.tableTopOffetConstraint?.uninstall()
             self.tableContainerView.snp.makeConstraints { (m) in
                 self.tableTopOffetConstraint = m.top.equalTo(0).constraint
             }
-            
-            for model in self.items {
-                model.subTitle = "122个"
-                model.isDidCheck = true
-            }
-            self.tableView.reloadData()
-            self.isComplete = true
-            
             
             UIView.animate(withDuration: 0.25) {
                 self.bottomTipsLab.isHidden = true
@@ -165,23 +161,23 @@ class AllScanVC: BaseVC {
                 self.bottomTipsLab.removeFromSuperview()
                 self.progressView.removeFromSuperview()
             }
-        }
-    }
-    
-    func startAnalysis()  {
-        PhotoManager.shared.loadPhoto { (currentIndex, total) in
-            let percent = Float(currentIndex) / Float(total)
-            self.percentLab.text = String(format: "%.0f%%", percent * 100)
-        } completionHandler: { (isSuccess, error) in
-            print("成功？ ===== \(isSuccess)")
-//            self.refreshPhotoUI(isSuccess: isSuccess,animate:true)
-        }
-        
-        VideoManager.shared.loadVideo { (currentIndex, total) in
-            let percent = Float(currentIndex) / Float(total)
-            self.percentLab.text = String(format: "%.0f%%", percent * 100)
-        } completionHandler: { (isSuccess, error) in
-//            self.refreshPhotoUI(isSuccess: isSuccess,animate:true)
+            
+            let photoModel = self.items[0]
+            let videoModel = self.items[3]
+            photoModel.isDidCheck = true
+            videoModel.isDidCheck = true
+            if isSuccess {
+                let photoNums = manager.similarArray.count + manager.fuzzyPhotoArray.count + manager.screenshotsArray.count + manager.thinPhotoArray.count
+                let videoNums = manager.similarVideos.count + manager.sameVideoArray.count + manager.badVideoArray.count + manager.bigVideoArray.count
+                photoModel.subTitle = "可清理照片\(photoNums)张"
+                videoModel.subTitle = "可清理视频\(videoNums)张"
+            }else{
+                photoModel.subTitle = "暂无可优化项"
+                videoModel.subTitle = "暂无可优化项"
+            }
+            self.tableView.reloadData()
+            self.isComplete = true
+            
         }
         
         //联系人分析
@@ -191,16 +187,18 @@ class AllScanVC: BaseVC {
             item.isDidCheck = true
         }
         
-        //过期节日、过期提醒
-        CalendarManager.shared.getOutOfDateCalendarEvent { calendarEventModels in
-            CalendarManager.shared.getOutOfDateReminder { reminders in
-                let reminderNums = calendarEventModels.count + calendarEventModels.count
-                let item = self.items[2]
-                item.subTitle = "\(reminderNums)个提醒"
-                item.isDidCheck = true
-            }
+        //过期提醒
+        CalendarManager.shared.getOutOfDateReminder { reminders in
+            let item = self.items[2]
+            item.subTitle = "\(reminders.count)个提醒"
+            item.isDidCheck = true
         }
     }
+    
+    @IBAction func deleteBtnACtion(_ sender: QMUIButton) {
+        
+    }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -226,7 +224,11 @@ extension AllScanVC:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: allScanCellID, for: indexPath) as! AllScanCell
-        cell.dataModel = items[indexPath.row]
+        let dataModel = items[indexPath.row]
+        cell.dataModel = dataModel
+        cell.selectBtnClickBlock = {
+            dataModel.isSelect = !dataModel.isSelect
+        }
         return cell
     }
 
@@ -238,8 +240,24 @@ extension AllScanVC:UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = items[indexPath.row]
         if !model.isDidCheck { return }//未分析完，不可点击
-        model.isSelect = !model.isSelect
-        self.tableView.reloadRows(at: [indexPath], with: .none)
+        switch indexPath.row {
+        case 0:
+            let vc = PhotoAndVideoScanVC()
+            vc.isScanPhoto = true
+            vc.isComplete = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            self.navigationController?.pushViewController(ContactVC(), animated: true)
+        case 2:
+            self.navigationController?.pushViewController(CalendarMainVC(), animated: true)
+        case 3:
+            let vc = PhotoAndVideoScanVC()
+            vc.isScanPhoto = false
+            vc.isComplete = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
     }
 }
 
