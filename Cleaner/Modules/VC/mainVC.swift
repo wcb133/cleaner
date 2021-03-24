@@ -41,7 +41,11 @@ class mainVC: BaseVC {
     }()
     
     @objc func startCheckBtnAction(btn:QMUIButton) {
-        self.navigationController?.pushViewController(AllScanVC(), animated: true)
+        let vc = AllScanVC()
+        vc.refreshMemeryBlock = {
+            self.refreshPieViewData()
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func preferredNavigationBarHidden() -> Bool {
@@ -51,15 +55,7 @@ class mainVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPview()
-        let views:[UIView] = [photoItem,contactItem,calendarItem,videoItem]
-        for itemView in views {
-            itemView.layer.cornerRadius = 8
-            itemView.layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor
-            itemView.layer.shadowOffset = CGSize(width: 0, height: 0)
-            itemView.layer.shadowRadius = 3
-            itemView.layer.shadowOpacity = 0.2
-        }
-
+        refreshPieViewData()
     }
     
     func setupPview() {
@@ -70,6 +66,10 @@ class mainVC: BaseVC {
              m.bottom.equalTo(self.startCheckBtn.snp.top).offset(-35)
              m.width.height.equalTo(200)
          }
+
+    }
+    
+    func refreshPieViewData()  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let usedSpace = MemoryManager.getUsedSpace()
             let totalSpace = MemoryManager.getTotalSpace()
@@ -87,15 +87,24 @@ class mainVC: BaseVC {
     @IBAction func menuBtanAction(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            self.navigationController?.pushViewController(PhotoAndVideoScanVC(), animated: true)
+            let vc = PhotoAndVideoScanVC()
+            vc.refreshMemeryBlock = {
+                self.refreshPieViewData()
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
             break
         case 1:
-            self.navigationController?.pushViewController(ContactVC(), animated: true)
+            let vc = ContactVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         case 2:
-            self.navigationController?.pushViewController(CalendarMainVC(), animated: true)
+            let vc = CalendarMainVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         case 3:
             let vc = PhotoAndVideoScanVC()
             vc.isScanPhoto = false
+            vc.refreshMemeryBlock = {
+                self.refreshPieViewData()
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         default:
             break

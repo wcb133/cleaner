@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B70464F260B456900542A5D /* PaymentTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70464E260B456900542A5D /* PaymentTool.swift */; };
 		0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */; };
 		0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */; };
 		0B72BD9B25FB46A100FA1CBC /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9A25FB46A100FA1CBC /* mainVC.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B70464E260B456900542A5D /* PaymentTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTool.swift; sourceTree = "<group>"; };
 		0B724AAA2600BF1D00E3DAAC /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		0B72BD9325FB46A100FA1CBC /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				0B7E1531260198F00070B02E /* CalendarManager.swift */,
 				0B7B2A0826032EC7007B195A /* MemoryManager.swift */,
 				E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */,
+				0B70464E260B456900542A5D /* PaymentTool.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				0B918324260726F1001CF4FF /* ContactCell.swift in Sources */,
 				0BA71D762609E19500A36914 /* AllScanModel.swift in Sources */,
 				0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */,
+				0B70464F260B456900542A5D /* PaymentTool.swift in Sources */,
 				E5D85C81260A2C41006F4447 /* PhotoModel.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
 				0BBD8B9A26075BB3003ECFF1 /* DateOfOutCalendarCell.swift in Sources */,
@@ -635,7 +639,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.gadfad.Cleaner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cleaner.wcb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cleaner/Other/Cleaner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -663,7 +667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.gadfad.Cleaner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cleaner.wcb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cleaner/Other/Cleaner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

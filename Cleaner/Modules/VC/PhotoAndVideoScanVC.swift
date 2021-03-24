@@ -18,6 +18,8 @@ class PhotoAndVideoScanVC: BaseVC {
     //是否完成分析
     var isComplete = false
     
+    var refreshMemeryBlock:()->Void = {}
+    
     var tableTopOffetConstraint:Constraint?
     @IBOutlet weak var topView: UIView!
     lazy var tableContainerView:UIView = {
@@ -145,23 +147,14 @@ class PhotoAndVideoScanVC: BaseVC {
         self.bottomTipsLab.textColor = .white
         
         
-        //内存使用
-        let usedSpace = MemoryManager.getUsedSpace()
-        let totalSpace = MemoryManager.getTotalSpace()
-        let freeSpace = totalSpace - usedSpace
-        
-        let memoryString = String(format: "剩余%.2fGB",freeSpace)
-        let highLightString = String(format: "%.2f",freeSpace)
-        self.memoryLab.attributedText = NSMutableAttributedString.highLightText(memoryString, highLight: highLightString, font: .systemFont(ofSize: 15), highLightFont: MediumFont(size: 38)!, color: .white, highLightColor: .white)
-        
-        self.memoryPercentLab.text = String(format: "已使用%.2f%%", usedSpace / totalSpace * 100)
+        self.loadMemeryData()
         
         
         //从0开始
         self.percentLab.text = "0%"
 
         if isScanPhoto {
-            let icons = ["提醒","提醒","提醒","提醒"]
+            let icons = ["模糊照片_icon","相似照片_icon","屏幕截图_icon","超大图片_icon"]
             for (idx,icon) in icons.enumerated() {
                 let model = PhotoAndVideoScanModel()
                 model.title = photoTitles[idx]
@@ -169,7 +162,7 @@ class PhotoAndVideoScanVC: BaseVC {
                 self.items.append(model)
             }
         }else{
-            let icons = ["提醒","提醒","提醒","提醒"]
+            let icons = ["重复视频_icon","相似视频_icon","损坏视频_icon","超大视频_icon"]
             for (idx,icon) in icons.enumerated() {
                 let model = PhotoAndVideoScanModel()
                 model.title = videoTitles[idx]
@@ -196,6 +189,19 @@ class PhotoAndVideoScanVC: BaseVC {
                 }
             }
         }
+    }
+    
+    func loadMemeryData() {
+        //内存使用
+        let usedSpace = MemoryManager.getUsedSpace()
+        let totalSpace = MemoryManager.getTotalSpace()
+        let freeSpace = totalSpace - usedSpace
+        
+        let memoryString = String(format: "剩余%.2fGB",freeSpace)
+        let highLightString = String(format: "%.2f",freeSpace)
+        self.memoryLab.attributedText = NSMutableAttributedString.highLightText(memoryString, highLight: highLightString, font: .systemFont(ofSize: 15), highLightFont: MediumFont(size: 38)!, color: .white, highLightColor: .white)
+        
+        self.memoryPercentLab.text = String(format: "已使用%.2f%%", usedSpace / totalSpace * 100)
     }
     
     
@@ -334,6 +340,10 @@ extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
             let allSimilarArray:[PhotoModel] = PhotoAndVideoManager.shared.similarArray.flatMap { $0.map { $0 }}
             let images:[[PhotoModel]] = [PhotoAndVideoManager.shared.fuzzyPhotoArray,allSimilarArray,PhotoAndVideoManager.shared.screenshotsArray,PhotoAndVideoManager.shared.thinPhotoArray]
             let vc = PhotoAndVideoClearVC()
+            vc.refreshMemeryBlock = {
+                self.loadMemeryData()
+                self.refreshMemeryBlock()
+            }
             vc.isPhoto = true
             vc.titleString = self.photoTitles[indexPath.row]
             vc.items = images[indexPath.row]
@@ -349,6 +359,10 @@ extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
             vc.isPhoto = false
             vc.titleString = self.videoTitles[indexPath.row]
             vc.videoItems = videoItems[indexPath.row]
+            vc.refreshMemeryBlock = {
+                self.loadMemeryData()
+                self.refreshMemeryBlock()
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

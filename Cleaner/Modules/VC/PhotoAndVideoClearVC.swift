@@ -19,6 +19,8 @@ class PhotoAndVideoClearVC: BaseVC {
     //标题
     var titleString = ""
     
+    var refreshMemeryBlock:()->Void = {}
+    
     lazy var deleteBtn: QMUIButton = {
         let btn = QMUIButton()
         btn.addTarget(self, action: #selector(deleteBtnAction(btn:)), for: .touchUpInside)
@@ -85,7 +87,12 @@ class PhotoAndVideoClearVC: BaseVC {
     }
     
     @objc func deleteBtnAction(btn:QMUIButton) {
-        self.isPhoto ? deletePhotos():deleteVideos()
+        let message = self.isPhoto ? "删除后将无法恢复，确定删除选中的照片？":"删除后将无法恢复，确定删除选中的视频？"
+        PhotoAndVideoManager.shared.tipWith(message: message) {
+            self.isPhoto ? self.deletePhotos():self.deleteVideos()
+        }
+        
+        
     }
     
     func deletePhotos()  {
@@ -116,6 +123,7 @@ class PhotoAndVideoClearVC: BaseVC {
                 self.items = itemModels
                 self.colltionView.reloadData()
                 QMUITips.show(withText: "已删除")
+                self.refreshMemeryBlock()
                 if self.items.isEmpty {
                     self.showEmptyView()
                     self.deleteBtn.isHidden = true
@@ -152,6 +160,7 @@ class PhotoAndVideoClearVC: BaseVC {
                 self.videoItems = itemModels
                 self.colltionView.reloadData()
                 QMUITips.show(withText: "已删除")
+                self.refreshMemeryBlock()
                 if self.videoItems.isEmpty {
                     self.showEmptyView()
                     self.deleteBtn.isHidden = true
@@ -161,8 +170,8 @@ class PhotoAndVideoClearVC: BaseVC {
     }
     
     func setupEmptyView() {
-        showEmptyView(with: nil, text: "清理完毕，暂未发现可清理项", detailText: nil, buttonTitle: "", buttonAction: nil)
-        emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+        showEmptyView(with: UIImage(named: "无内容"), text: "未发现可清理项", detailText: nil, buttonTitle: "", buttonAction: nil)
+        emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
         emptyView?.textLabelFont = .systemFont(ofSize: 14)
         emptyView?.textLabelTextColor = HEX("#7C8A9C")
         emptyView?.verticalOffset = 0

@@ -10,17 +10,22 @@ import SnapKit
 import QMUIKit
 import RxSwift
 import RxCocoa
+import NSObject_Rx
 
 class AllScanVC: BaseVC {
 
     @IBOutlet weak var topView: UIView!
     
     var items:[AllScanModel] = []
+    var contactSectonModels:[ContactSectonModel] = []
+    var reminders:[CalendarEventModel] = []
     var tableTopOffetConstraint:Constraint?
     
     @IBOutlet weak var bottomInsetCons: NSLayoutConstraint!
     
     @IBOutlet weak var deleteBtn: QMUIButton!
+    
+    var refreshMemeryBlock:()->Void = {}
     
     //是否分析完成
     var isComplete = false
@@ -112,15 +117,18 @@ class AllScanVC: BaseVC {
         return progressView
     }()
     
-//    //图片分析完成信号
-//    let hpotoSubject = PublishSubject<String>()
-//    //视频分析完成信号
-//    let videoSubject = PublishSubject<String>()
+    //图片分析完成信号
+    let photoVideoSubject = PublishSubject<String>()
+    //联系人分析完成信号
+    let contactSubject = PublishSubject<String>()
+    //联系人分析完成信号
+    let reminderSubject = PublishSubject<String>()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleView?.title = "优化中"
+        titleView?.title = "分析中"
+        self.deleteBtn.isHidden = true
         deleteBtn.layer.cornerRadius = 24
         deleteBtn.layer.masksToBounds = true
         self.bottomInsetCons.constant = 20 + cIndicatorHeight
@@ -133,8 +141,33 @@ class AllScanVC: BaseVC {
             self.items.append(model)
         }
         self.tableView.reloadData()
+        //分析完成监听回调
+        let sigOne = Observable.zip(self.photoVideoSubject, self.contactSubject, self.reminderSubject)
+        sigOne.subscribe(onNext: {[weak self] (text) in
+            guard let self = self else { return }
+            self.titleView?.title = "可清理的文件"
+            
+            self.tableTopOffetConstraint?.uninstall()
+            self.tableContainerView.snp.makeConstraints { (m) in
+                self.tableTopOffetConstraint = m.top.equalTo(0).constraint
+            }
+            
+            UIView.animate(withDuration: 0.25) {
+                self.deleteBtn.isHidden = false
+                self.bottomTipsLab.isHidden = true
+                self.progressView.isHidden = true
+                self.view.layoutIfNeeded()
+            } completion: { (iSuccess) in
+                self.tableContainerView.cornerWith(byRoundingCorners: [.topLeft,.topRight], radii: 0)
+                self.bottomTipsLab.removeFromSuperview()
+                self.progressView.removeFromSuperview()
+            }
+            self.tableView.reloadData()
+            self.isComplete = true
+            
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        //开始分析
         DispatchQueue.main.async {
-            //开始分析
             self.startAnalysis()
         }
     }
@@ -145,39 +178,22 @@ class AllScanVC: BaseVC {
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
         } completionHandler: { (isSuccess, error) in
-            self.titleView?.title = "可清理的文件"
-            
-            self.tableTopOffetConstraint?.uninstall()
-            self.tableContainerView.snp.makeConstraints { (m) in
-                self.tableTopOffetConstraint = m.top.equalTo(0).constraint
-            }
-            
-            UIView.animate(withDuration: 0.25) {
-                self.bottomTipsLab.isHidden = true
-                self.progressView.isHidden = true
-                self.view.layoutIfNeeded()
-            } completion: { (iSuccess) in
-                self.tableContainerView.cornerWith(byRoundingCorners: [.topLeft,.topRight], radii: 0)
-                self.bottomTipsLab.removeFromSuperview()
-                self.progressView.removeFromSuperview()
-            }
             
             let photoModel = self.items[0]
             let videoModel = self.items[3]
             photoModel.isDidCheck = true
             videoModel.isDidCheck = true
             if isSuccess {
-                let photoNums = manager.similarArray.count + manager.fuzzyPhotoArray.count + manager.screenshotsArray.count + manager.thinPhotoArray.count
-                let videoNums = manager.similarVideos.count + manager.sameVideoArray.count + manager.badVideoArray.count + manager.bigVideoArray.count
-                photoModel.subTitle = "可清理照片\(photoNums)张"
-                videoModel.subTitle = "可清理视频\(videoNums)张"
+                let photoNums = manager.similarArray.count
+                let videoNums = manager.similarVideos.count
+                photoModel.subTitle = "\(photoNums)张相似照片"
+                videoModel.subTitle = "\(videoNums)个相似视频"
             }else{
-                photoModel.subTitle = "暂无可优化项"
-                videoModel.subTitle = "暂无可优化项"
+                photoModel.subTitle = "0张相似照片"
+                videoModel.subTitle = "0个相似视频"
             }
-            self.tableView.reloadData()
-            self.isComplete = true
             
+            self.photoVideoSubject.onNext("")
         }
         
         //联系人分析
@@ -185,6 +201,7 @@ class AllScanVC: BaseVC {
             let item = self.items[1]
             item.subTitle = "\(contactSectonModels.count)个重复联系人"
             item.isDidCheck = true
+            self.contactSubject.onNext("")
         }
         
         //过期提醒
@@ -192,11 +209,73 @@ class AllScanVC: BaseVC {
             let item = self.items[2]
             item.subTitle = "\(reminders.count)个提醒"
             item.isDidCheck = true
+            self.reminderSubject.onNext("")
         }
     }
     
+    
+    
     @IBAction func deleteBtnACtion(_ sender: QMUIButton) {
         
+        let message = "文件清除后将无法恢复，确定清除选中的所有文件?"
+        PhotoAndVideoManager.shared.tipWith(message: message) {
+            let manager = PhotoAndVideoManager.shared
+            var deleteAssets:[PHAsset] = []
+            QMUITips.showLoading(in: self.view)
+            for (idx,item) in self.items.enumerated() {
+                if !item.isSelect { continue }
+                if idx == 0 {
+                    let similarArray = PhotoAndVideoManager.shared.similarArray.flatMap{$0.map{$0.asset}}
+                    deleteAssets.append(contentsOf: similarArray)
+                }else if idx == 1{//删除联系人
+                    var selectContactModels:[ContactModel] = []
+                    for contactSectonModel in self.contactSectonModels {
+                        for model in contactSectonModel.contactModels {
+                            if model.isSelected {
+                                selectContactModels.append(model)
+                            }
+                        }
+                    }
+                    if !selectContactModels.isEmpty {
+                        self.contactSectonModels = []
+                        ContactManager.shared.deleteContacts(contacts: selectContactModels)
+                    }
+                }else if idx == 2{
+                    if !self.reminders.isEmpty {
+                        CalendarManager.shared.deleteReminders(reminderModels: self.reminders) {isSuccess  in
+                            if isSuccess {
+                                self.reminders = []
+                            }
+                        }
+                    }
+                }else{
+                    let similarVideos = PhotoAndVideoManager.shared.similarVideos.flatMap{$0.map{$0.asset}}
+                    deleteAssets.append(contentsOf: similarVideos)
+                }
+            }
+            
+             //清除相片和视频
+             manager.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
+                QMUITips.hideAllTips()
+                if isSuccess {
+                    let photoModel = self.items[0]
+                    let videoModel = self.items[3]
+                    if photoModel.isSelect {
+                        manager.similarArray = []
+                    }
+                    if videoModel.isSelect {
+                        manager.similarVideos = []
+                    }
+                    
+                    let subTitles = ["0张相似照片","0个重复联系人","0个提醒","0个相似视频"]
+                    for (idx,item) in self.items.enumerated() {
+                        item.subTitle = subTitles[idx]
+                    }
+                    self.tableView.reloadData()
+                    QMUITips.show(withText: "清除成功")
+                }
+            }
+        }
     }
     
     

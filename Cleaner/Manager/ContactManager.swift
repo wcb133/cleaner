@@ -38,14 +38,18 @@ class ContactManager: NSObject {
         if status == .notDetermined {
             let contactStore = CNContactStore()
             contactStore.requestAccess(for: CNEntityType.contacts) { (granted, error) in
-                if granted {
-                    self.loadContact(complete: complete)
+                DispatchQueue.main.async {
+                    if granted {
+                        self.loadContact(complete: complete)
+                    }else{
+                            self.noticeAlert()
+                        }
                 }
             }
         }else if status == .authorized {//已授权
             self.loadContact(complete: complete)
         }else{//拒绝授权，弹框提示
-            
+            self.noticeAlert()
         }
     }
     
@@ -80,6 +84,8 @@ class ContactManager: NSObject {
                 }
                 
                 if var contactModels = contactDict[name] {
+                    //选中重复的联系人
+                    model.isSelected = true
                     contactModels.append(model)
                     contactDict[name] = contactModels
                 }else{
@@ -98,6 +104,7 @@ class ContactManager: NSObject {
                     contactSectonModels.append(contactSectonModel)
                 }
             }
+            
             complete(contactSectonModels,contactCount)
             
         } catch  {
@@ -114,5 +121,20 @@ class ContactManager: NSObject {
             re.delete(contactM)
         }
         try? contactStore.execute(re)
+    }
+    
+    //弹框提示开启权限
+    func noticeAlert() {
+        let alert = UIAlertController(title: "此功能需要通讯录授权", message: "请您在设置系统中打开授权开关", preferredStyle: .alert);
+        let left = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let right = UIAlertAction(title: "前往设置", style: .default) { (action) in
+            if let url = URL(string: UIApplication.openSettingsURLString){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alert.addAction(left)
+        alert.addAction(right)
+        let vc = cKeyWindow!.rootViewController
+        vc?.present(alert, animated: true, completion: nil)
     }
 }

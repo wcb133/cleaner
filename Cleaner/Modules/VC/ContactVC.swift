@@ -87,8 +87,8 @@ class ContactVC: BaseVC {
         }
     }
     func setupEmptyView() {
-        showEmptyView(with: nil, text: "清理完毕，暂未发现重复联系人", detailText: nil, buttonTitle: "", buttonAction: nil)
-        emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+        showEmptyView(with: UIImage(named: "无内容"), text: "未发现重复联系人", detailText: nil, buttonTitle: "", buttonAction: nil)
+        emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
         emptyView?.textLabelFont = .systemFont(ofSize: 14)
         emptyView?.textLabelTextColor = HEX("#7C8A9C")
         emptyView?.verticalOffset = 0
@@ -112,37 +112,38 @@ class ContactVC: BaseVC {
     
     @IBAction func deleteBtnAction(_ sender: QMUIButton) {
         
-        var selectContactModels:[ContactModel] = []
-        for itemData in itemDatas {
-            for model in itemData.contactModels {
-                if model.isSelected {
-                    selectContactModels.append(model)
+        PhotoAndVideoManager.shared.tipWith(message: "删除后将无法恢复，确定删除所选联系人?") {
+            var selectContactModels:[ContactModel] = []
+            for itemData in self.itemDatas {
+                for model in itemData.contactModels {
+                    if model.isSelected {
+                        selectContactModels.append(model)
+                    }
                 }
             }
-        }
-        
-        if selectContactModels.isEmpty {
-            QMUITips.show(withText: "请勾选要删除的联系人")
-            return
-        }
-        
-        QMUITips.showLoading(in: self.navigationController!.view)
-        ContactManager.shared.deleteContacts(contacts: selectContactModels)
-        //移除数据源
-        for itemData in itemDatas {
-            var sourceContactModels = itemData.contactModels
-            for (idx,model) in itemData.contactModels.enumerated() {
-                if model.isSelected {
-                    sourceContactModels.remove(at: idx)
-                }
-            }
-            itemData.contactModels = sourceContactModels
             
+            if selectContactModels.isEmpty {
+                QMUITips.show(withText: "请勾选要删除的联系人")
+                return
+            }
+            
+            QMUITips.showLoading(in: self.navigationController!.view)
+            ContactManager.shared.deleteContacts(contacts: selectContactModels)
+            //移除数据源
+            for itemData in self.itemDatas {
+                var sourceContactModels = itemData.contactModels
+                for (idx,model) in itemData.contactModels.enumerated() {
+                    if model.isSelected {
+                        sourceContactModels.remove(at: idx)
+                    }
+                }
+                itemData.contactModels = sourceContactModels
+                
+            }
+            self.tableView.reloadData()
+            QMUITips.hideAllTips()
+            QMUITips.show(withText: "已删除")
         }
-        self.tableView.reloadData()
-        QMUITips.hideAllTips()
-        QMUITips.show(withText: "已删除")
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

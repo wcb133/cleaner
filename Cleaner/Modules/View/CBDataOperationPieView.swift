@@ -85,6 +85,12 @@ class CBDataOperationPieView: UIView {
         return lab
     }()
     
+    var circleLayer:CAShapeLayer?
+    
+    weak var circleShapeLayer:CAShapeLayer?
+    
+    var gradientLayer:CAGradientLayer?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         arcFromColor = HEX("#28B3FF")
@@ -110,27 +116,35 @@ class CBDataOperationPieView: UIView {
     }
     
     private func addBgLayer(arcCenter:CGPoint) {
+        if self.circleLayer != nil { return }
         let bgLayer = CAShapeLayer()
         bgLayer.strokeColor = UIColor.qmui_color(withHexString: "ECEDEF")?.cgColor
         bgLayer.fillColor = UIColor.clear.cgColor
         bgLayer.path = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true).cgPath
         bgLayer.lineWidth = 2
         layer.addSublayer(bgLayer)
+        self.circleLayer = bgLayer
     }
     
     private  func addArcCircleLayer(path:UIBezierPath)
     {
+        self.circleShapeLayer?.removeFromSuperlayer()
         let shapeLayer = CAShapeLayer()
+        self.circleShapeLayer = shapeLayer
         shapeLayer.strokeColor = UIColor.white.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.path = path.cgPath
         shapeLayer.lineWidth = lineWidth
         shapeLayer.lineCap = .round
         //渐变图层
-        let gradientLayer = creatGradientLayer(fromColor: arcFromColor, toColor: arcToColor)
-        gradientLayer.frame = self.bounds
-        gradientLayer.mask = shapeLayer
-        layer.addSublayer(gradientLayer)
+        if gradientLayer == nil {
+            let gLayer = creatGradientLayer(fromColor: arcFromColor, toColor: arcToColor)
+            gLayer.frame = self.bounds
+            gLayer.mask = shapeLayer
+            layer.addSublayer(gLayer)
+            self.gradientLayer = gLayer
+        }
+        
         
         let strokeAnimation:CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         strokeAnimation.fromValue = 0

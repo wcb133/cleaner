@@ -40,14 +40,20 @@ class CalendarManager: NSObject {
         let status = EKEventStore.authorizationStatus(for: .event)
         if status == .notDetermined {
             self.eventStore.requestAccess(to: .event) { (granted, error) in
-                if granted{
-                    self.loadCalendarEvent(complete: complete)
+                DispatchQueue.main.async {
+                    if granted{
+                        self.loadCalendarEvent(complete: complete)
+                    }else{
+                        DispatchQueue.main.async {
+                            self.noticeAlert()
+                        }
+                    }
                 }
             }
         }else if status == .authorized {//已授权
             self.loadCalendarEvent(complete: complete)
         }else{//拒绝授权，弹框提示
-            
+            self.noticeAlert()
         }
     }
     
@@ -89,6 +95,21 @@ class CalendarManager: NSObject {
        
     }
     
+    //弹框提示开启权限
+    func noticeAlert() {
+        let alert = UIAlertController(title: "此功能需要日历授权", message: "请您在设置系统中打开授权开关", preferredStyle: .alert);
+        let left = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let right = UIAlertAction(title: "前往设置", style: .default) { (action) in
+            if let url = URL(string: UIApplication.openSettingsURLString){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alert.addAction(left)
+        alert.addAction(right)
+        let vc = cKeyWindow!.rootViewController
+        vc?.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension CalendarManager {
@@ -98,14 +119,19 @@ extension CalendarManager {
         let status = EKEventStore.authorizationStatus(for: .reminder)
         if status == .notDetermined {
             self.eventStore.requestAccess(to: .reminder) { (granted, error) in
-                if granted{
-                    self.loadReminder(complete: complete)
+                DispatchQueue.main.async {
+                    if granted{
+                        self.loadReminder(complete: complete)
+                    }else{
+                        
+                            self.noticeAlert()
+                        }
                 }
             }
         }else if status == .authorized {//已授权
             self.loadReminder(complete: complete)
         }else{//拒绝授权，弹框提示
-            
+            self.noticeAlert()
         }
     }
     

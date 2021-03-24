@@ -131,6 +131,10 @@ class PhotoAndVideoManager: NSObject {
             PHPhotoLibrary.requestAuthorization { (status) in
                 if status == .authorized {
                     self.getAllAsset(analyseType: analyseType)
+                }else{
+                    DispatchQueue.main.async {
+                        self.noticeAlert()
+                    }
                 }
             }
         }else{
@@ -182,20 +186,28 @@ class PhotoAndVideoManager: NSObject {
                 }
             }
         }else if asset.mediaType == .video && (analyseType == .video || analyseType == .all) {
-            imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (avasset, audioMix, info) in
-                if let tmpAvasset = avasset {
-                    DispatchQueue.global().async {
-                        //获取第一帧
-                        let firstImage = self.getVideoTargetImage(asset: tmpAvasset, targetTime: 0.0)
-                        self.dealVideo(index: index,exactImage:firstImage, videoAsset: tmpAvasset,analyseType: analyseType)
+            imageManager.requestImage(for: asset, targetSize: CGSize(width: 125, height: 125), contentMode: .default, options: imageRequestOptions) { (image, info) in
+                imageManager.requestAVAsset(forVideo: asset, options: self.videoRequestOptions) { (avasset, audioMix, info) in
+                    if let tmpAvasset = avasset {
+                        DispatchQueue.global().async {
+                            
+                            var firstImage:UIImage = UIImage()
+                            if let tmpImage = image{
+                                firstImage = tmpImage
+                            }else{//系统没有缩略图就获取第一帧
+                                firstImage = self.getVideoTargetImage(asset: tmpAvasset, targetTime: 0.0)
+                            }
+                            self.dealVideo(index: index,exactImage:firstImage, videoAsset: tmpAvasset,analyseType: analyseType)
+                        }
+                    }else{
+                        DispatchQueue.global().async {
+                            self.requestImage(index: index + 1,analyseType: analyseType)
+                        }
+                        
                     }
-                }else{
-                    DispatchQueue.global().async {
-                        self.requestImage(index: index + 1,analyseType: analyseType)
-                    }
-                    
                 }
             }
+
         }else{
             requestImage(index: index + 1,analyseType: analyseType)
             return
@@ -409,22 +421,7 @@ extension PhotoAndVideoManager {
 }
 
 extension PhotoAndVideoManager{
-    
-    //弹框提示开启权限
-    func noticeAlert() {
-        let alert = UIAlertController(title: "此功能需要相册授权", message: "请您在设置系统中打开授权开关", preferredStyle: .alert);
-        let left = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        let right = UIAlertAction(title: "前往设置", style: .default) { (action) in
-            if let url = URL(string: UIApplication.openSettingsURLString){
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
-        alert.addAction(left)
-        alert.addAction(right)
-        let vc = cKeyWindow!.rootViewController
-        vc?.present(alert, animated: true, completion: nil)
-    }
-    
+        
     //清除旧数据
     private func resetData() {
          similarArray = []
@@ -463,10 +460,37 @@ extension PhotoAndVideoManager{
         return cmp1.year == cmp2.year && cmp1.month == cmp2.month && cmp1.day == cmp2.day
     }
     
-    class func tipWith(message:String){
-        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert);
+    //弹框提示开启权限
+    func noticeAlert() {
+        let alert = UIAlertController(title: "此功能需要相册授权", message: "请您在设置系统中打开授权开关", preferredStyle: .alert);
+        let left = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let right = UIAlertAction(title: "前往设置", style: .default) { (action) in
+            if let url = URL(string: UIApplication.openSettingsURLString){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alert.addAction(left)
+        alert.addAction(right)
+        let vc = cKeyWindow!.rootViewController
+        vc?.present(alert, animated: true, completion: nil)
+    }
+    
+    func tipWith(message:String){
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert);
         let left = UIAlertAction(title: "确定", style: .default, handler: nil)
         alert.addAction(left)
+        let vc = cKeyWindow!.rootViewController
+        vc?.present(alert, animated: true, completion: nil)
+    }
+    
+    func tipWith(message:String,checkHandle:@escaping ()->Void){
+        let alert = UIAlertController(title: "温馨提示", message: message, preferredStyle: .alert)
+        let left = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let right = UIAlertAction(title: "确定", style: .default) { action in
+            checkHandle()
+        }
+        alert.addAction(left)
+        alert.addAction(right)
         let vc = cKeyWindow!.rootViewController
         vc?.present(alert, animated: true, completion: nil)
     }

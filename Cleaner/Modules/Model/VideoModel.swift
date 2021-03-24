@@ -10,7 +10,7 @@ import Photos
 
 class VideoModel: NSObject {
 
-    var asset:PHAsset!
+    var asset:PHAsset = PHAsset()
     var exactImage:UIImage!
     var videoAsset:AVAsset!
     //单位M

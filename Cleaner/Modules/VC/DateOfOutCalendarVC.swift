@@ -79,6 +79,13 @@ class DateOfOutCalendarVC: BaseVC {
     
     @IBAction func deleteBtnAction(_ sender: QMUIButton) {
         
+        let message = self.isCalendar ?"确定删除所选过期节日?":"确定删除所选过期事项?"
+        PhotoAndVideoManager.shared.tipWith(message: message) {
+            self.deleteData()
+        }
+    }
+    
+    func deleteData() {
         var deleteEvents:[CalendarEventModel] = []
         for itemData in itemDatas {
             if itemData.isSelected {
@@ -86,7 +93,7 @@ class DateOfOutCalendarVC: BaseVC {
             }
         }
         if deleteEvents.isEmpty {
-            QMUITips.show(withText: isCalendar ? "请勾选要删除的日期":"请勾选要删除的事项")
+            QMUITips.show(withText: isCalendar ? "请勾选要删除的节日":"请勾选要删除的事项")
             return
         }
         
@@ -130,8 +137,8 @@ class DateOfOutCalendarVC: BaseVC {
     }
     
     func setupEmptyView() {
-        showEmptyView(with: nil, text: "清理完毕，暂未可清理文件", detailText: nil, buttonTitle: "", buttonAction: nil)
-        emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+        showEmptyView(with: UIImage(named: "无内容"), text: "未发现可优化项目", detailText: nil, buttonTitle: "", buttonAction: nil)
+        emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
         emptyView?.textLabelFont = .systemFont(ofSize: 14)
         emptyView?.textLabelTextColor = HEX("#7C8A9C")
         emptyView?.verticalOffset = 0

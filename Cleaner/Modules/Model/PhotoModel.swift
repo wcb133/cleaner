@@ -10,7 +10,7 @@ import Photos
 
 class PhotoModel: NSObject {
     
-    var asset:PHAsset!
+    var asset:PHAsset = PHAsset()
     var exactImage:UIImage!
     var originImageData:Data!
     var originImageDataLength:Int = 0
