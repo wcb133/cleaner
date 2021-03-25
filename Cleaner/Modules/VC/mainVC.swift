@@ -41,6 +41,14 @@ class mainVC: BaseVC {
     }()
     
     @objc func startCheckBtnAction(btn:QMUIButton) {
+        
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
+        
         let vc = AllScanVC()
         vc.refreshMemeryBlock = {
             self.refreshPieViewData()
@@ -85,6 +93,14 @@ class mainVC: BaseVC {
     
     
     @IBAction func menuBtanAction(_ sender: UIButton) {
+        
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
+        
         switch sender.tag {
         case 0:
             let vc = PhotoAndVideoScanVC()

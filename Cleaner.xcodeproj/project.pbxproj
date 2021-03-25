@@ -30,6 +30,11 @@
 		0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7B2A122603378D007B195A /* opencv2.framework */; };
 		0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A1926033B89007B195A /* CircularProgressView.m */; };
 		0B7E1532260198F00070B02E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarManager.swift */; };
+		0B844D3E260C79E500B4C5DF /* JSONArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */; };
+		0B844D3F260C79E500B4C5DF /* HRNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3D260C79E500B4C5DF /* HRNetwork.swift */; };
+		0B844D69260CB7CC00B4C5DF /* SubscribeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D67260CB7CC00B4C5DF /* SubscribeVC.swift */; };
+		0B844D6A260CB7CC00B4C5DF /* SubscribeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B844D68260CB7CC00B4C5DF /* SubscribeVC.xib */; };
+		0B844D6D260CC79600B4C5DF /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D6C260CC79600B4C5DF /* DateManager.swift */; };
 		0B91831826072143001CF4FF /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91831626072143001CF4FF /* ContactVC.swift */; };
 		0B91831926072143001CF4FF /* ContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B91831726072143001CF4FF /* ContactVC.xib */; };
 		0B918324260726F1001CF4FF /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B918322260726F1001CF4FF /* ContactCell.swift */; };
@@ -89,6 +94,11 @@
 		0B7B2A1826033B88007B195A /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
 		0B7B2A1926033B89007B195A /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
 		0B7E1531260198F00070B02E /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONArrayEncoding.swift; sourceTree = "<group>"; };
+		0B844D3D260C79E500B4C5DF /* HRNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRNetwork.swift; sourceTree = "<group>"; };
+		0B844D67260CB7CC00B4C5DF /* SubscribeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeVC.swift; sourceTree = "<group>"; };
+		0B844D68260CB7CC00B4C5DF /* SubscribeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscribeVC.xib; sourceTree = "<group>"; };
+		0B844D6C260CC79600B4C5DF /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		0B91831626072143001CF4FF /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		0B91831726072143001CF4FF /* ContactVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactVC.xib; sourceTree = "<group>"; };
 		0B918322260726F1001CF4FF /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 		0B72BD9525FB46A100FA1CBC /* Cleaner */ = {
 			isa = PBXGroup;
 			children = (
+				0B844D3A260C79D200B4C5DF /* Tool */,
 				E57034352607826000CD6517 /* Lib */,
 				0BBD8B85260748D6003ECFF1 /* Extension */,
 				0B79373C25FF015B00E2B5B1 /* Modules */,
@@ -180,6 +191,8 @@
 				0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */,
 				0BA71D6B26098F4E00A36914 /* AllScanVC.swift */,
 				0BA71D6C26098F4E00A36914 /* AllScanVC.xib */,
+				0B844D67260CB7CC00B4C5DF /* SubscribeVC.swift */,
+				0B844D68260CB7CC00B4C5DF /* SubscribeVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -250,6 +263,7 @@
 				0B7E1531260198F00070B02E /* CalendarManager.swift */,
 				0B7B2A0826032EC7007B195A /* MemoryManager.swift */,
 				E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */,
+				0B844D6C260CC79600B4C5DF /* DateManager.swift */,
 				0B70464E260B456900542A5D /* PaymentTool.swift */,
 			);
 			path = Manager;
@@ -274,6 +288,23 @@
 				0B7B2A122603378D007B195A /* opencv2.framework */,
 			);
 			path = ImageCompare;
+			sourceTree = "<group>";
+		};
+		0B844D3A260C79D200B4C5DF /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0B844D3B260C79E500B4C5DF /* NetWork */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		0B844D3B260C79E500B4C5DF /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */,
+				0B844D3D260C79E500B4C5DF /* HRNetwork.swift */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		0BBD8B85260748D6003ECFF1 /* Extension */ = {
@@ -387,6 +418,7 @@
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
 				0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */,
 				0BBD8B9626075969003ECFF1 /* DateOfOutCalendarVC.xib in Resources */,
+				0B844D6A260CB7CC00B4C5DF /* SubscribeVC.xib in Resources */,
 				0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */,
 				0BA71D6E26098F4E00A36914 /* AllScanVC.xib in Resources */,
 				0B918325260726F1001CF4FF /* ContactCell.xib in Resources */,
@@ -450,6 +482,8 @@
 				0B797BA22608ADE9009FB281 /* NSMutableAttributedString+CSExtension.swift in Sources */,
 				0BBD8B8A26074D64003ECFF1 /* CalendarMainVC.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* BaseNav.swift in Sources */,
+				0B844D69260CB7CC00B4C5DF /* SubscribeVC.swift in Sources */,
+				0B844D3E260C79E500B4C5DF /* JSONArrayEncoding.swift in Sources */,
 				0B7B2A132603378D007B195A /* ImageCompare.mm in Sources */,
 				0B797B91260849BE009FB281 /* PhotoAndVideoScanCell.swift in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
@@ -462,6 +496,7 @@
 				0B79373425FEF9B000E2B5B1 /* BaseVC.swift in Sources */,
 				0BBD8B9526075969003ECFF1 /* DateOfOutCalendarVC.swift in Sources */,
 				0BBD8B9E26076BED003ECFF1 /* PhotoAndVideoClearVC.swift in Sources */,
+				0B844D6D260CC79600B4C5DF /* DateManager.swift in Sources */,
 				E5D85C7A260A26D0006F4447 /* PhotoAndVideoManager.swift in Sources */,
 				0B91831826072143001CF4FF /* ContactVC.swift in Sources */,
 				0B797B8C2608478E009FB281 /* PhotoAndVideoScanVC.swift in Sources */,
@@ -474,6 +509,7 @@
 				0B7B2A1A26033B89007B195A /* CircularProgressView.m in Sources */,
 				0B918324260726F1001CF4FF /* ContactCell.swift in Sources */,
 				0BA71D762609E19500A36914 /* AllScanModel.swift in Sources */,
+				0B844D3F260C79E500B4C5DF /* HRNetwork.swift in Sources */,
 				0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */,
 				0B70464F260B456900542A5D /* PaymentTool.swift in Sources */,
 				E5D85C81260A2C41006F4447 /* PhotoModel.swift in Sources */,
