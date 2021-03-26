@@ -21,6 +21,13 @@ class DateManager: NSObject {
         return value
     }
     
+    //保存有效期
+    func saveValidTime(validTime:Int64)  {
+        let time = Double(validTime) * 0.001
+        UserDefaults.standard.set(time, forKey: TimeKey)
+        UserDefaults.standard.synchronize()
+    }
+    
     //订阅是否过期
     func isExpired() -> Bool {
         let currentDate = Date()
@@ -33,7 +40,7 @@ class DateManager: NSObject {
         let isExpired = self.isExpired()
         if isExpired {
             let currentDate = Date()
-            let interval = currentDate.timeIntervalSince1970 * 7 * 24 * 3600
+            let interval = currentDate.timeIntervalSince1970 + 7 * 24 * 3600
             UserDefaults.standard.set(interval, forKey: TimeKey)
             UserDefaults.standard.synchronize()
         }else{
@@ -47,7 +54,7 @@ class DateManager: NSObject {
         let isExpired = self.isExpired()
         if isExpired {
             let currentDate = Date()
-            let interval = currentDate.timeIntervalSince1970 * 30 * 24 * 60 * 60
+            let interval = currentDate.timeIntervalSince1970 + 30 * 24 * 60 * 60
             UserDefaults.standard.set(interval, forKey: TimeKey)
             UserDefaults.standard.synchronize()
         }else{
@@ -61,7 +68,7 @@ class DateManager: NSObject {
         let isExpired = self.isExpired()
         if isExpired {
             let currentDate = Date()
-            let interval = currentDate.timeIntervalSince1970 * 3 * 30 * 24 * 60 * 60
+            let interval = currentDate.timeIntervalSince1970 + 3 * 30 * 24 * 60 * 60
             UserDefaults.standard.set(interval, forKey: TimeKey)
             UserDefaults.standard.synchronize()
         }else{

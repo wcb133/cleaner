@@ -89,7 +89,7 @@ class CBDataOperationPieView: UIView {
     
     weak var circleShapeLayer:CAShapeLayer?
     
-    var gradientLayer:CAGradientLayer?
+    weak var gradientLayer:CAGradientLayer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -137,13 +137,13 @@ class CBDataOperationPieView: UIView {
         shapeLayer.lineWidth = lineWidth
         shapeLayer.lineCap = .round
         //渐变图层
-        if gradientLayer == nil {
-            let gLayer = creatGradientLayer(fromColor: arcFromColor, toColor: arcToColor)
-            gLayer.frame = self.bounds
-            gLayer.mask = shapeLayer
-            layer.addSublayer(gLayer)
-            self.gradientLayer = gLayer
-        }
+        self.gradientLayer?.removeFromSuperlayer()
+        let gLayer = creatGradientLayer(fromColor: arcFromColor, toColor: arcToColor)
+        gLayer.frame = self.bounds
+        gLayer.mask = shapeLayer
+        layer.addSublayer(gLayer)
+        self.gradientLayer = gLayer
+        
         
         
         let strokeAnimation:CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")

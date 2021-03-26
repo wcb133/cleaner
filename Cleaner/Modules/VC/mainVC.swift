@@ -23,7 +23,7 @@ class mainVC: BaseVC {
     
     lazy var startCheckBtn: QMUIButton = {
         let btn = QMUIButton()
-        btn.setTitle("一键清理", for: .normal)
+        btn.setTitle("推荐清理", for: .normal)
         btn.backgroundColor = HEX("28B3FF")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20)
@@ -44,6 +44,14 @@ class mainVC: BaseVC {
         
         if DateManager.shared.isExpired() {
             let vc = SubscribeVC()
+            vc.successBlock = {
+                //继续之前的操作
+                let vc = AllScanVC()
+                vc.refreshMemeryBlock = {
+                    self.refreshPieViewData()
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: nil)
             return
@@ -96,12 +104,18 @@ class mainVC: BaseVC {
         
         if DateManager.shared.isExpired() {
             let vc = SubscribeVC()
+            vc.successBlock = {
+                self.turnToMenuItem(idx: sender.tag)
+            }
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: nil)
             return
         }
-        
-        switch sender.tag {
+        self.turnToMenuItem(idx: sender.tag)
+    }
+    
+    func turnToMenuItem(idx:Int) {
+        switch idx {
         case 0:
             let vc = PhotoAndVideoScanVC()
             vc.refreshMemeryBlock = {

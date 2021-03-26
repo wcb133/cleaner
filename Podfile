@@ -25,5 +25,8 @@ target 'Cleaner' do
   pod 'Moya'
   pod 'SnapKit'
   pod 'SnapKitExtend', '~> 1.0.7'
+  pod 'BaiduMobStatCodeless' #无埋点
+#  pod 'JPush'
+  pod 'UMCCommon'
 
 end

@@ -15,7 +15,7 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
     //是否已经支付
 //    var isDidPay = false
     //是否向苹果服务器验证
-    var checkAfterPay = true
+    var checkAfterPay = false
     
     //购买结果回调
     var completeBlock:(Bool)->Void = {_ in}
@@ -36,7 +36,6 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
     }
     
     func requestProducts(productArray:[String]) {
-        QMUITips.showLoading(in: cKeyWindow!)
         // 能够销售的商品
         let set = Set(productArray)
         // "异步"询问苹果能否销售
@@ -48,11 +47,13 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
     
     //购买产品
     func buyProduct(productID:String,completeBlock:@escaping (Bool)->Void)  {
+        QMUITips.showLoading(in: cKeyWindow!)
         self.completeBlock = completeBlock
         if let product = self.productDict[productID] {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         }else{
+            QMUITips.hideAllTips()
             self.completeBlock(false)
             QMUITips.show(withText: "暂无对应商品")
         }
@@ -82,17 +83,33 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
             guard let responseDict = response as? [String:Any] else { return }
             guard let status = responseDict["status"] as? Int else { return }
             if status == 0 {//验证成功
+                //更新过期时间
+                let latestReceiptInfos:[[String:Any]] = responseDict["latest_receipt_info"] as? [[String:Any]] ?? []
+                if let latestReceiptInfo = latestReceiptInfos.first{
+                    let time = latestReceiptInfo["expires_date_ms"] as? Int64 ?? 0
+                    DateManager.shared.saveValidTime(validTime: time)
+                }
+                
                 self.completeBlock(true)
-            }else if status == 21007 {//沙箱测试返回结果
+            }else if status == 21007 {//验证发送到了测试环境
                 self.isSandbox = true
                 self.verifyPruchase(productID: productID)
-            } else if status == 21008 {//正式环境返回结果,再次请求验证
+            } else if status == 21008 {//验证发送到了正式环境
                 self.isSandbox = false
                 self.verifyPruchase(productID: productID)
             }else{//验证失败
                 QMUITips.show(withText: "购买失败")
                 self.completeBlock(false)
             }
+            
+//            NSArray *arr = json1[@"latest_receipt_info"];
+//            NSDictionary *rd = arr.firstObject;
+//            NSString *time = rd[@"expires_date_ms"];
+//            _settings = [NSUserDefaults standardUserDefaults];
+//            NSString *expires_date =[self ConvertStrToTime:time];
+//            [_settings setObject:expires_date forKey:@"expires_date"];
+            
+            
                  
         } failure: { (moyaError) in
             QMUITips.hideAllTips()
@@ -104,7 +121,7 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
 }
 
 extension PaymentTool{
-    //购买队列状态变化,,判断购买状态是否成功
+    //购买队列状态变化,判断购买状态是否成功
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
@@ -113,20 +130,30 @@ extension PaymentTool{
                 if let original = transaction.original {//自动续订
                     
                 }
-                if checkAfterPay {
+                if checkAfterPay {//做校验
                     verifyPruchase(productID: transaction.payment.productIdentifier)
-                }else{
+                }else{//不验证
+                    let productID = transaction.payment.productIdentifier
+                    if productID == subscribeItems[0] {
+                        DateManager.shared.addWeek()
+                    }else if productID == subscribeItems[1] {
+                        DateManager.shared.addMonth()
+                    }else if productID == subscribeItems[2]{
+                        DateManager.shared.addQuarter()
+                    }
                     self.completeBlock(true)
                 }
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .restored://恢复购买
                 QMUITips.hideAllTips()
+                print("恢复购买")
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .failed://购买失败
                 QMUITips.hideAllTips()
+                print("购买失败")
                 self.completeBlock(false)
                 SKPaymentQueue.default().finishTransaction(transaction)
-            case .purchasing:
+            case .purchasing://正在购买
                 break
             default://已经购买
                 QMUITips.hideAllTips()

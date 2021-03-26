@@ -15,12 +15,18 @@ let quarterSub = "w03"
 
 let subscribeItems = [weekSub,monthSub,quarterSub]
 
+//友盟key
+let UMentKeyStr = "605db577b8c8d45c13b23381"
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //百度统计
+        BaiduMobStat.default().start(withAppId: "111912a685")
         
+        //设置友盟appkey
+        UMConfigure.initWithAppkey(UMentKeyStr, channel: "App Store")
         
         
         window = UIWindow(frame: UIScreen.main.bounds)

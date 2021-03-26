@@ -103,13 +103,12 @@ class DateOfOutCalendarVC: BaseVC {
             CalendarManager.shared.deleteEvents(eventMoels: deleteEvents) { isSuccess in
                 QMUITips.hideAllTips()
                 if isSuccess {
-                    var tmpItemDatas = self.itemDatas
-                    for (idx,itemData) in itemDatas.enumerated() {
-                        if itemData.isSelected {
-                            tmpItemDatas.remove(at: idx)
-                        }
+                    
+                    self.itemDatas.removeAll { eventModel -> Bool in
+                        return eventModel.isSelected
                     }
-                    self.itemDatas = tmpItemDatas
+                    
+                    
                     QMUITips.show(withText: "已删除")
                     self.tableView.reloadData()
                 }else{
@@ -120,13 +119,9 @@ class DateOfOutCalendarVC: BaseVC {
             CalendarManager.shared.deleteReminders(reminderModels: deleteEvents) {isSuccess  in
                 QMUITips.hideAllTips()
                 if isSuccess {
-                    var tmpItemDatas = self.itemDatas
-                    for (idx,itemData) in itemDatas.enumerated() {
-                        if itemData.isSelected {
-                            tmpItemDatas.remove(at: idx)
-                        }
+                    self.itemDatas.removeAll { eventModel -> Bool in
+                        return eventModel.isSelected
                     }
-                    self.itemDatas = tmpItemDatas
                     QMUITips.show(withText: "已删除")
                     self.tableView.reloadData()
                 }else{

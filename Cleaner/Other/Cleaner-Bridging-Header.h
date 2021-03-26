@@ -9,6 +9,9 @@
 #import "UICountingLabel.h"
 
 #import "TXUploadingProgressView.h"
+#import <BaiduMobStatCodeless/BaiduMobStat.h>
 
+//导入UMCommon的OC的头文件
+#import <UMCommon/UMCommon.h>
 
 

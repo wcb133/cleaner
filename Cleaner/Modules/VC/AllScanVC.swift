@@ -272,6 +272,7 @@ class AllScanVC: BaseVC {
                         item.subTitle = subTitles[idx]
                     }
                     self.tableView.reloadData()
+                    self.refreshMemeryBlock()
                     QMUITips.show(withText: "清除成功")
                 }
             }

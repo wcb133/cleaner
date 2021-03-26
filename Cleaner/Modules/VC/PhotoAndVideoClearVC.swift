@@ -91,8 +91,6 @@ class PhotoAndVideoClearVC: BaseVC {
         PhotoAndVideoManager.shared.tipWith(message: message) {
             self.isPhoto ? self.deletePhotos():self.deleteVideos()
         }
-        
-        
     }
     
     func deletePhotos()  {
@@ -114,13 +112,14 @@ class PhotoAndVideoClearVC: BaseVC {
             QMUITips.hideAllTips()
             if isSuccess {
                 //移除数据源
-                var itemModels = self.items
-                for (idx,item) in self.items.enumerated() {
-                    if item.isSelect {
-                        itemModels.remove(at: idx)
-                    }
+                self.items.removeAll { photoModel -> Bool in
+                    return photoModel.isSelect
                 }
-                self.items = itemModels
+                
+//                for <#item#> in PhotoAndVideoManager.shared. {
+//                    
+//                }
+                
                 self.colltionView.reloadData()
                 QMUITips.show(withText: "已删除")
                 self.refreshMemeryBlock()
@@ -151,13 +150,10 @@ class PhotoAndVideoClearVC: BaseVC {
             QMUITips.hideAllTips()
             if isSuccess {
                 //移除数据源
-                var itemModels = self.videoItems
-                for (idx,item) in self.videoItems.enumerated() {
-                    if item.isSelect {
-                        itemModels.remove(at: idx)
-                    }
+                self.videoItems.removeAll { videoModel -> Bool in
+                    return videoModel.isSelect
                 }
-                self.videoItems = itemModels
+            
                 self.colltionView.reloadData()
                 QMUITips.show(withText: "已删除")
                 self.refreshMemeryBlock()

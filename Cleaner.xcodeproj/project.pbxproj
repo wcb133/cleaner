@@ -56,6 +56,7 @@
 		0BBD8B9E26076BED003ECFF1 /* PhotoAndVideoClearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */; };
 		0BBD8BA226076C70003ECFF1 /* PhotoAndVideoClearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */; };
 		0BBD8BA326076C70003ECFF1 /* PhotoAndVideoClearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */; };
+		0BC4193A260DE58C0033623F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC41939260DE58C0033623F /* AssetsLibrary.framework */; };
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 		E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57034322607821E00CD6517 /* CBDataOperationPieView.swift */; };
 		E57034392607826A00CD6517 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E57034382607826A00CD6517 /* UICountingLabel.m */; };
@@ -120,6 +121,7 @@
 		0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoClearVC.swift; sourceTree = "<group>"; };
 		0BBD8BA026076C70003ECFF1 /* PhotoAndVideoClearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoClearCell.swift; sourceTree = "<group>"; };
 		0BBD8BA126076C70003ECFF1 /* PhotoAndVideoClearCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoAndVideoClearCell.xib; sourceTree = "<group>"; };
+		0BC41939260DE58C0033623F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.release.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.release.xcconfig"; sourceTree = "<group>"; };
 		C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CA1EA0DA5BCD9B6E3C64ED /* Pods-Cleaner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.debug.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC4193A260DE58C0033623F /* AssetsLibrary.framework in Frameworks */,
 				0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */,
 				A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */,
 			);
@@ -319,6 +322,7 @@
 		9A5E119EE0B7D396B28743CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BC41939260DE58C0033623F /* AssetsLibrary.framework */,
 				C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */,
 			);
 			name = Frameworks;

@@ -131,14 +131,10 @@ class ContactVC: BaseVC {
             ContactManager.shared.deleteContacts(contacts: selectContactModels)
             //移除数据源
             for itemData in self.itemDatas {
-                var sourceContactModels = itemData.contactModels
-                for (idx,model) in itemData.contactModels.enumerated() {
-                    if model.isSelected {
-                        sourceContactModels.remove(at: idx)
-                    }
-                }
-                itemData.contactModels = sourceContactModels
                 
+                itemData.contactModels.removeAll { contactModel -> Bool in
+                    contactModel.isSelected
+                }
             }
             self.tableView.reloadData()
             QMUITips.hideAllTips()
