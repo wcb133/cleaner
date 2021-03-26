@@ -92,6 +92,13 @@ class mainVC: BaseVC {
             self.pview.memoryUseLab.text = String(format: "%0.2f/%0.2fGB", usedSpace,totalSpace)
             let percent = usedSpace / totalSpace
             self.pview.setupData(percent: CGFloat(percent))
+            if percent > 0.75 {
+                self.startCheckBtn.backgroundColor = HEX("F15D64")
+            }else if percent < 0.75 && percent > 0.25 {
+                self.startCheckBtn.backgroundColor = HEX("FDCC33")
+            }else{
+                self.startCheckBtn.backgroundColor = HEX("28B3FF")
+            }
         }
     }
     

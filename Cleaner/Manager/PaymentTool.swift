@@ -56,6 +56,9 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
             QMUITips.hideAllTips()
             self.completeBlock(false)
             QMUITips.show(withText: "暂无对应商品")
+            if self.productDict.isEmpty {
+                self.requestProducts(productArray: subscribeItems)
+            }
         }
     }
     
@@ -101,15 +104,6 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
                 QMUITips.show(withText: "购买失败")
                 self.completeBlock(false)
             }
-            
-//            NSArray *arr = json1[@"latest_receipt_info"];
-//            NSDictionary *rd = arr.firstObject;
-//            NSString *time = rd[@"expires_date_ms"];
-//            _settings = [NSUserDefaults standardUserDefaults];
-//            NSString *expires_date =[self ConvertStrToTime:time];
-//            [_settings setObject:expires_date forKey:@"expires_date"];
-            
-            
                  
         } failure: { (moyaError) in
             QMUITips.hideAllTips()

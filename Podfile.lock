@@ -2,9 +2,6 @@ PODS:
   - Alamofire (4.9.1)
   - BaiduMobStatCodeless (5.3.2)
   - iCarousel (1.8.3)
-  - JCore (2.6.2)
-  - JPush (3.4.0):
-    - JCore (< 3.0.0, >= 2.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -339,7 +336,6 @@ PODS:
 DEPENDENCIES:
   - BaiduMobStatCodeless
   - iCarousel
-  - JPush
   - Moya
   - "NSObject+Rx"
   - QMUIKit
@@ -354,8 +350,6 @@ SPEC REPOS:
     - Alamofire
     - BaiduMobStatCodeless
     - iCarousel
-    - JCore
-    - JPush
     - Moya
     - "NSObject+Rx"
     - QMUIKit
@@ -373,8 +367,6 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BaiduMobStatCodeless: 46c511fd4a699b50c90e892356db10dfa00aba0a
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
-  JCore: 0cb4fc5892bc97af4f27283875369ead3eaa3067
-  JPush: defaa108c38806f6efdcfaf4c416854d25fca8e5
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   QMUIKit: 1063a99f90aedd6e2dd65026ce0df46e6785e67b
@@ -388,6 +380,6 @@ SPEC CHECKSUMS:
   UMCCommon: f7480d316381612f90cdde3a3c0f39a7e2c0a788
   UMDevice: 28d21a568c8e8322e5a03bbd53b138d0c098d3b3
 
-PODFILE CHECKSUM: 7aebf7c992a7e8e2d71974f090e65b80555b5c0e
+PODFILE CHECKSUM: bff9ca52bba8e9b543121d38034f68c18edc928a
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.8.4

@@ -18,6 +18,8 @@ class CBDataOperationPieView: UIView {
     var arcFromColor:UIColor?
     var arcToColor:UIColor?
     
+    let tipslab = UILabel()
+    
     lazy var circleView: UIView = {
         let w = radius * 2 - lineWidth - 40
         let circleView = UIView()
@@ -70,7 +72,7 @@ class CBDataOperationPieView: UIView {
             m.width.equalToSuperview().offset(-8)
         }
         
-        let tipslab = UILabel()
+        
         tipslab.text = "已使用"
         tipslab.textAlignment = .center
         tipslab.textColor = HEX("#28B3FF")
@@ -89,12 +91,12 @@ class CBDataOperationPieView: UIView {
     
     weak var circleShapeLayer:CAShapeLayer?
     
-    weak var gradientLayer:CAGradientLayer?
+    weak var gradientLayer:CALayer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        arcFromColor = HEX("#28B3FF")
-        arcToColor = HEX("#28B3FF")
+        arcFromColor = HEX("F15D64")
+        arcToColor = HEX("FDCC33")
         self.circleView.backgroundColor = .white
     }
     
@@ -106,10 +108,50 @@ class CBDataOperationPieView: UIView {
         self.layoutIfNeeded()
         DispatchQueue.main.async {
             let arcCenter = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
-            let path = UIBezierPath(arcCenter: arcCenter, radius: self.radius, startAngle: 1.5 * .pi, endAngle: 1.5 * .pi + percent * .pi * 2, clockwise: true)
+            //这一步是为了让图形好看
+            let tmpPercent = percent > 0.96 &&  percent < 1.0 ? 0.96:percent
+            let path = UIBezierPath(arcCenter: arcCenter, radius: self.radius, startAngle: 1.5 * .pi + (self.lineWidth * 0.5) / self.radius, endAngle: 1.5 * .pi + tmpPercent * .pi * 2, clockwise: true)
             //灰色背景圆环
             self.addBgLayer(arcCenter: arcCenter)
-            self.addArcCircleLayer(path: path)
+            self.addArcCircleLayer(path: path,percent: tmpPercent)
+            
+            
+            if tmpPercent > 0.75 {
+                self.percentLab.attributedFormatBlock = {
+                    (value:CGFloat)-> NSAttributedString in
+                    let percentString = String(format: "%0.0f%%", value * 100)
+                    let attrPercentString = NSMutableAttributedString(string: percentString)
+                    attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 42),.foregroundColor : HEX("F15D64")], range: NSRange(location: 0, length: percentString.count))
+                    attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 18)], range: NSRange(location: percentString.count - 1, length: 1))
+                    return attrPercentString
+                }
+                
+                self.memoryUseLab.textColor = HEX("F15D64")
+                self.tipslab.textColor = HEX("F15D64")
+                
+            }else if percent < 0.75 && percent > 0.25 {
+                self.percentLab.attributedFormatBlock = {
+                    (value:CGFloat)-> NSAttributedString in
+                    let percentString = String(format: "%0.0f%%", value * 100)
+                    let attrPercentString = NSMutableAttributedString(string: percentString)
+                    attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 42),.foregroundColor : HEX("FDCC33")], range: NSRange(location: 0, length: percentString.count))
+                    attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 18)], range: NSRange(location: percentString.count - 1, length: 1))
+                    return attrPercentString
+                }
+                self.memoryUseLab.textColor = HEX("FDCC33")
+                self.tipslab.textColor = HEX("FDCC33")
+            }else{
+                self.percentLab.attributedFormatBlock = {
+                    (value:CGFloat)-> NSAttributedString in
+                    let percentString = String(format: "%0.0f%%", value * 100)
+                    let attrPercentString = NSMutableAttributedString(string: percentString)
+                    attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 42),.foregroundColor : HEX("#28B3FF")], range: NSRange(location: 0, length: percentString.count))
+                    attrPercentString.addAttributes([.font : UIFont.boldSystemFont(ofSize: 18)], range: NSRange(location: percentString.count - 1, length: 1))
+                    return attrPercentString
+                }
+                self.memoryUseLab.textColor = HEX("#28B3FF")
+                self.tipslab.textColor = HEX("#28B3FF")
+            }
             self.percentLab.countFromZero(to: percent)
 
         }
@@ -126,7 +168,7 @@ class CBDataOperationPieView: UIView {
         self.circleLayer = bgLayer
     }
     
-    private  func addArcCircleLayer(path:UIBezierPath)
+    private  func addArcCircleLayer(path:UIBezierPath,percent:CGFloat)
     {
         self.circleShapeLayer?.removeFromSuperlayer()
         let shapeLayer = CAShapeLayer()
@@ -135,15 +177,35 @@ class CBDataOperationPieView: UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.path = path.cgPath
         shapeLayer.lineWidth = lineWidth
-        shapeLayer.lineCap = .round
-        //渐变图层
-        self.gradientLayer?.removeFromSuperlayer()
-        let gLayer = creatGradientLayer(fromColor: arcFromColor, toColor: arcToColor)
-        gLayer.frame = self.bounds
-        gLayer.mask = shapeLayer
-        layer.addSublayer(gLayer)
-        self.gradientLayer = gLayer
+        var offset:CGFloat = 0
+        shapeLayer.lineCap =  .round
+        if percent < 1.0 {
+            shapeLayer.lineCap =  .round
+        }else{
+            offset = 0
+        }
         
+        //渐变图层
+        
+        let containerLayer = CALayer()
+        
+        self.gradientLayer?.removeFromSuperlayer()
+        containerLayer.frame = self.bounds
+
+        let thirstLayer = creatGradientLayer(fromColor: arcFromColor, toColor: arcToColor)
+        thirstLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width * 0.5 - offset, height: self.bounds.size.height)
+        
+        let tmpFromColor = HEX("28B3FF")
+        let toFromColor = HEX("FDCC33")
+        let secondLayer = creatGradientLayer(fromColor: tmpFromColor, toColor: toFromColor)
+        secondLayer.frame = CGRect(x: self.bounds.size.width * 0.5 - offset, y: 0, width: self.bounds.size.width * 0.5 + offset, height: self.bounds.size.height)
+        
+        containerLayer.addSublayer(secondLayer)
+        containerLayer.addSublayer(thirstLayer)
+        
+        containerLayer.mask = shapeLayer
+        layer.addSublayer(containerLayer)
+        self.gradientLayer = containerLayer
         
         
         let strokeAnimation:CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")

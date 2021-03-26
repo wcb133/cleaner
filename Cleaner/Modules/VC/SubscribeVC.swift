@@ -52,6 +52,10 @@ class SubscribeVC: BaseVC {
         
         self.topInsetCons.constant = iPhoneX ? 30 : 0
         self.topViewHeightCons.constant = iPhoneX ? 340 :280
+        
+        if PaymentTool.shared.productDict.isEmpty {
+            PaymentTool.shared.requestProducts(productArray: subscribeItems)
+        }
     }
     
     override func viewDidLayoutSubviews() {
