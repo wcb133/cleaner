@@ -16,6 +16,8 @@ class PhotoAndVideoClearVC: BaseVC {
     var videoItems:[VideoModel] = []
     
     var isPhoto = true
+    //上一界面传入
+    var  index:Int = 0
     //标题
     var titleString = ""
     
@@ -87,8 +89,18 @@ class PhotoAndVideoClearVC: BaseVC {
     }
     
     @objc func deleteBtnAction(btn:QMUIButton) {
+        
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
+        
+        
         let message = self.isPhoto ? "删除后将无法恢复，确定删除选中的照片？":"删除后将无法恢复，确定删除选中的视频？"
-        PhotoAndVideoManager.shared.tipWith(message: message) {
+        PhotoAndVideoManager.shared.tipWith(message: message) {[weak self] in
+            guard let self = self else { return }
             self.isPhoto ? self.deletePhotos():self.deleteVideos()
         }
     }
@@ -107,8 +119,10 @@ class PhotoAndVideoClearVC: BaseVC {
             QMUITips.show(withText: "请勾选要删除的图片")
             return
         }
+        let manager = PhotoAndVideoManager.shared
         QMUITips.showLoading(in: self.navigationController!.view)
-        PhotoAndVideoManager.shared.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
+        manager.deleteAsset(assets: deleteAssets) {[weak self] (isSuccess, error) in
+            guard let self = self else { return }
             QMUITips.hideAllTips()
             if isSuccess {
                 //移除数据源
@@ -116,9 +130,35 @@ class PhotoAndVideoClearVC: BaseVC {
                     return photoModel.isSelect
                 }
                 
-//                for <#item#> in PhotoAndVideoManager.shared. {
-//                    
-//                }
+                if self.index == 0 {
+                    manager.fuzzyPhotoArray.removeAll { photoModel -> Bool in
+                        return photoModel.isSelect
+                    }
+                }else if self.index == 1 {
+                    for (idx,similars) in manager.similarArray.enumerated() {
+                        var tmpSimilars = similars
+                        tmpSimilars.removeAll { photoModel -> Bool in
+                            return photoModel.isSelect
+                        }
+                        
+                        manager.similarArray.remove(at: idx)
+                        manager.similarArray.insert(tmpSimilars, at: idx)
+                        //移除空的
+                        manager.similarArray.removeAll { (array) -> Bool in
+                            return array.isEmpty
+                        }
+                    }
+                    
+                } else if self.index == 2 {
+                    manager.screenshotsArray.removeAll { photoModel -> Bool in
+                        return photoModel.isSelect
+                    }
+                }else if self.index == 3 {
+                    manager.thinPhotoArray.removeAll { photoModel -> Bool in
+                        return photoModel.isSelect
+                    }
+                }
+    
                 
                 self.colltionView.reloadData()
                 QMUITips.show(withText: "已删除")
@@ -145,13 +185,53 @@ class PhotoAndVideoClearVC: BaseVC {
             return
         }
         QMUITips.showLoading(in: self.navigationController!.view)
-
-        PhotoAndVideoManager.shared.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
+        let manager = PhotoAndVideoManager.shared
+        manager.deleteAsset(assets: deleteAssets) { [weak self] (isSuccess, error) in
+            guard let self = self else { return }
             QMUITips.hideAllTips()
             if isSuccess {
                 //移除数据源
                 self.videoItems.removeAll { videoModel -> Bool in
                     return videoModel.isSelect
+                }
+                
+                if self.index == 0 {
+                    
+                    for (idx,sameVideos) in manager.sameVideoArray.enumerated() {
+                        var tmpSameVideos = sameVideos
+                        tmpSameVideos.removeAll { videoModel -> Bool in
+                            return videoModel.isSelect
+                        }
+                        manager.sameVideoArray.remove(at: idx)
+                        manager.sameVideoArray.insert(tmpSameVideos, at: idx)
+                        //移除空的
+                        manager.sameVideoArray.removeAll { (array) -> Bool in
+                            return array.isEmpty
+                        }
+                    }
+                }else if self.index == 1 {
+                    for (idx,similars) in manager.similarVideos.enumerated() {
+                        var tmpSimilars = similars
+                        tmpSimilars.removeAll { videoModel -> Bool in
+                            return videoModel.isSelect
+                        }
+                        
+                        manager.similarVideos.remove(at: idx)
+                        manager.similarVideos.insert(tmpSimilars, at: idx)
+                        //移除空的
+                        manager.similarVideos.removeAll { (array) -> Bool in
+                            return array.isEmpty
+                        }
+                    }
+                    
+                } else if self.index == 2 {
+                    manager.badVideoArray.removeAll { photoModel -> Bool in
+                        return photoModel.isSelect
+                    }
+                }else if self.index == 3 {
+                    manager.bigVideoArray.removeAll { photoModel -> Bool in
+                        return photoModel.isSelect
+                    }
                 }
             
                 self.colltionView.reloadData()
@@ -214,6 +294,13 @@ extension PhotoAndVideoClearVC:UICollectionViewDelegate,UICollectionViewDataSour
             let model = self.items[indexPath.row]
             model.isSelect = !model.isSelect
             collectionView.reloadItems(at: [indexPath])
+            
+            #if DEBUG
+                let vc = PhotoCheckVC()
+            vc.image = model.exactImage
+                self.navigationController?.pushViewController(vc, animated: true)
+            #endif
+            
         }else{
             let model = self.videoItems[indexPath.row]
             model.isSelect = !model.isSelect

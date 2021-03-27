@@ -23,6 +23,8 @@ class ContactVC: BaseVC {
     @IBOutlet weak var bottomLab: UILabel!
     @IBOutlet weak var deleteBtn: QMUIButton!
     
+    var refreshUIBlock:()->Void = {}
+    
     @IBOutlet weak var bottomInsetCons: NSLayoutConstraint!
     lazy var tableContainerView:UIView = {
         let tableContainerView = UIView()
@@ -112,6 +114,14 @@ class ContactVC: BaseVC {
     
     @IBAction func deleteBtnAction(_ sender: QMUIButton) {
         
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
+        
+        
         PhotoAndVideoManager.shared.tipWith(message: "删除后将无法恢复，确定删除所选联系人?") {
             var selectContactModels:[ContactModel] = []
             for itemData in self.itemDatas {
@@ -138,6 +148,7 @@ class ContactVC: BaseVC {
             }
             self.tableView.reloadData()
             QMUITips.hideAllTips()
+            self.refreshUIBlock()
             QMUITips.show(withText: "已删除")
         }
     }

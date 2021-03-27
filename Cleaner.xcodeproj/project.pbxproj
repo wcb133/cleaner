@@ -60,6 +60,8 @@
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 		E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57034322607821E00CD6517 /* CBDataOperationPieView.swift */; };
 		E57034392607826A00CD6517 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E57034382607826A00CD6517 /* UICountingLabel.m */; };
+		E5982DE5260ECB8B00E07965 /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5982DE3260ECB8B00E07965 /* PhotoCheckVC.swift */; };
+		E5982DE6260ECB8B00E07965 /* PhotoCheckVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5982DE4260ECB8B00E07965 /* PhotoCheckVC.xib */; };
 		E5D85C7A260A26D0006F4447 /* PhotoAndVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */; };
 		E5D85C7E260A2C20006F4447 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C7D260A2C20006F4447 /* VideoModel.swift */; };
 		E5D85C81260A2C41006F4447 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C80260A2C41006F4447 /* PhotoModel.swift */; };
@@ -128,6 +130,8 @@
 		E57034322607821E00CD6517 /* CBDataOperationPieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBDataOperationPieView.swift; sourceTree = "<group>"; };
 		E57034372607826A00CD6517 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		E57034382607826A00CD6517 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
+		E5982DE3260ECB8B00E07965 /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
+		E5982DE4260ECB8B00E07965 /* PhotoCheckVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCheckVC.xib; sourceTree = "<group>"; };
 		E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoManager.swift; sourceTree = "<group>"; };
 		E5D85C7D260A2C20006F4447 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		E5D85C80260A2C41006F4447 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				0B797B8A2608478E009FB281 /* PhotoAndVideoScanVC.swift */,
 				0B797B8B2608478E009FB281 /* PhotoAndVideoScanVC.xib */,
 				0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */,
+				E5982DE3260ECB8B00E07965 /* PhotoCheckVC.swift */,
+				E5982DE4260ECB8B00E07965 /* PhotoCheckVC.xib */,
 				0BA71D6B26098F4E00A36914 /* AllScanVC.swift */,
 				0BA71D6C26098F4E00A36914 /* AllScanVC.xib */,
 				0B844D67260CB7CC00B4C5DF /* SubscribeVC.swift */,
@@ -416,6 +422,7 @@
 			files = (
 				0BBD8B9126074F15003ECFF1 /* CalendarMainCell.xib in Resources */,
 				0B797B87260837A3009FB281 /* mainVC.xib in Resources */,
+				E5982DE6260ECB8B00E07965 /* PhotoCheckVC.xib in Resources */,
 				0BA71D7326099C9900A36914 /* AllScanCell.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
 				0B797B92260849BE009FB281 /* PhotoAndVideoScanCell.xib in Resources */,
@@ -492,6 +499,7 @@
 				0B797B91260849BE009FB281 /* PhotoAndVideoScanCell.swift in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactManager.swift in Sources */,
 				0B797B9F26089C0A009FB281 /* TXUploadingProgressView.m in Sources */,
+				E5982DE5260ECB8B00E07965 /* PhotoCheckVC.swift in Sources */,
 				0B797B9526084AAB009FB281 /* PhotoAndVideoScanModel.swift in Sources */,
 				0BBD8B87260748F0003ECFF1 /* UIView + Extension.swift in Sources */,
 				E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */,
@@ -595,7 +603,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -650,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -668,6 +676,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = WX972HMPDB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -696,6 +705,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = WX972HMPDB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

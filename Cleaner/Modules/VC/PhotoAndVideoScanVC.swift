@@ -206,10 +206,13 @@ class PhotoAndVideoScanVC: BaseVC {
     
     
     func loadPhoto() {
-        PhotoAndVideoManager.shared.loadPhoto { (currentIndex, total) in
+        let manager = PhotoAndVideoManager.shared
+        manager.loadPhoto {[weak self] (currentIndex, total) in
+            guard let self = self else { return }
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
-        } completionHandler: { (isSuccess, error) in
+        } completionHandler: {[weak self] (isSuccess, error) in
+            guard let self = self else { return }
             print("成功？ ===== \(isSuccess)")
             self.refreshPhotoUI(isSuccess: isSuccess,animate:true)
         }
@@ -257,7 +260,9 @@ class PhotoAndVideoScanVC: BaseVC {
     
     
     func loadVideo() {
-        PhotoAndVideoManager.shared.loadVideo { (currentIndex, total) in
+        let manager = PhotoAndVideoManager.shared
+        manager.isStopScan = false
+        manager.loadVideo { (currentIndex, total) in
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
         } completionHandler: { (isSuccess, error) in
@@ -309,6 +314,12 @@ class PhotoAndVideoScanVC: BaseVC {
         return .lightContent
     }
     
+    deinit {
+        PhotoAndVideoManager.shared.isStopScan = true
+        PhotoAndVideoManager.shared.resetData()
+        
+    }
+    
 }
 
 extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
@@ -343,8 +354,10 @@ extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
             vc.refreshMemeryBlock = {
                 self.loadMemeryData()
                 self.refreshMemeryBlock()
+                self.refreshPhotoUI(isSuccess: true, animate: false)
             }
             vc.isPhoto = true
+            vc.index = indexPath.row
             vc.titleString = self.photoTitles[indexPath.row]
             vc.items = images[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
@@ -357,11 +370,13 @@ extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
             let videoItems:[[VideoModel]] = [sameVideos,similarVideos,videoM.badVideoArray,videoM.bigVideoArray]
             let vc = PhotoAndVideoClearVC()
             vc.isPhoto = false
+            vc.index = indexPath.row
             vc.titleString = self.videoTitles[indexPath.row]
             vc.videoItems = videoItems[indexPath.row]
             vc.refreshMemeryBlock = {
                 self.loadMemeryData()
                 self.refreshMemeryBlock()
+                self.refreshVideoUI(isSuccess: true, animate: false)
             }
             self.navigationController?.pushViewController(vc, animated: true)
         }

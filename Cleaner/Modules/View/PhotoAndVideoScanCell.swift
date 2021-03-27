@@ -27,7 +27,7 @@ class PhotoAndVideoScanCell: UITableViewCell {
 //    let containerLayer = CAReplicatorLayer()
 //    let subLayer = CALayer()
     
-    let indicatorView = UIActivityIndicatorView(style: .medium)
+    let indicatorView = UIActivityIndicatorView(style: .gray)
     
     override func awakeFromNib() {
         super.awakeFromNib()

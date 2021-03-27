@@ -90,7 +90,11 @@ class SubscribeVC: BaseVC {
     }
     
     @IBAction func restoreBtnAction(_ sender: QMUIButton) {
-        PaymentTool.shared.restorePurchase()
+        PaymentTool.shared.restorePurchase { (isSuccess) in
+            self.dismiss(animated: true) {
+                self.successBlock()
+            }
+        }
     }
     
 }

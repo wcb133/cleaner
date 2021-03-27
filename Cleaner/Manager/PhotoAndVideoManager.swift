@@ -72,21 +72,27 @@ class PhotoAndVideoManager: NSObject {
     var bigVideoSpace:Float = 0
     
     
+    //停止扫描
+    var isStopScan = false
+    
     
     var processHandler:(Int,Int)->Void = {_,_ in}
     var completionHandler:(Bool,Error?)->Void = {_,_ in}
     
+    let imageManager = PHImageManager()
+    
     lazy var imageRequestOptions:PHImageRequestOptions = {
        let options = PHImageRequestOptions()
-        options.resizeMode = .none
+        options.resizeMode = .fast
         options.deliveryMode = .highQualityFormat
         return options
     }()
     
     lazy var imageSizeRequestOptions:PHImageRequestOptions = {
        let options = PHImageRequestOptions()
-        options.resizeMode = .exact
+        options.resizeMode = .fast
         options.deliveryMode = .highQualityFormat
+//        options.isNetworkAccessAllowed
         return options
     }()
     
@@ -144,6 +150,7 @@ class PhotoAndVideoManager: NSObject {
     
     //获取所有图片
     func getAllAsset(analyseType:AnalyseType) {
+        self.isStopScan = false
         DispatchQueue.global().async {
             let options = PHFetchOptions()
             options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
@@ -154,40 +161,59 @@ class PhotoAndVideoManager: NSObject {
     }
     
     func requestImage(index:Int,analyseType:AnalyseType) {
+        if  self.isStopScan {//停止扫描
+            self.isStopScan = false//恢复可扫描
+            return
+        }
         guard let assetPhotos = self.assetPhotos else {  return }
         DispatchQueue.main.async {
             self.processHandler(index,assetPhotos.count)
         }
         //遍历结束
-        if index >= assetPhotos.count{
+        if index >= assetPhotos.count {
             DispatchQueue.main.async {
                 self.completionHandler(true,nil)
+                //释放资源
+                self.assetPhotos = nil
             }
             return
         }
         
-        let imageManager = PHImageManager()
         let asset = assetPhotos[index]
         if asset.mediaType == .image && (analyseType == .photo || analyseType == .all) {//不是图片，取下一张图片
-            imageManager.requestImage(for: asset, targetSize: CGSize(width: 125, height: 125), contentMode: .default, options: imageRequestOptions) { (image, info) in
-                //获取原图
-                imageManager.requestImageDataAndOrientation(for: asset, options: self.imageSizeRequestOptions) { (imageData, dataUTI, orientation, info) in
-                    if imageData == nil {//为空是因为该图片的原图是在iclund上
-                        DispatchQueue.global().async {
-                            self.requestImage(index: index + 1,analyseType: analyseType)
+           let _ = autoreleasepool {
+                imageManager.requestImage(for: asset, targetSize: CGSize(width: 600, height: 800), contentMode: .default, options: imageRequestOptions) { (image, info) in
+                    //获取原图
+                    if #available(iOS 13.0, *) {
+                        self.imageManager.requestImageDataAndOrientation(for: asset, options: self.imageSizeRequestOptions) { (imageData, dataUTI, orientation, info) in
+                            if imageData == nil {//为空是因为该图片的原图是在iclound上
+                                DispatchQueue.global().async {
+                                    self.requestImage(index: index + 1,analyseType: analyseType)
+                                }
+                            }else{
+                                DispatchQueue.global().async {
+                                    self.dealImage(index: index, exactImage: image!, originImageData: imageData!,analyseType: analyseType)
+                                }
+                            }
                         }
-                        
                     }else{
-                        DispatchQueue.global().async {
-                            self.dealImage(index: index, exactImage: image!, originImageData: imageData!,analyseType: analyseType)
+                        self.imageManager.requestImageData(for: asset, options: self.imageSizeRequestOptions) { (imageData, dataUTI, orientation, info) in
+                            if imageData == nil {//为空是因为该图片的原图是在iclound上
+                                DispatchQueue.global().async {
+                                    self.requestImage(index: index + 1,analyseType: analyseType)
+                                }
+                            }else{
+                                DispatchQueue.global().async {
+                                    self.dealImage(index: index, exactImage: image!, originImageData: imageData!,analyseType: analyseType)
+                                }
+                            }
                         }
                     }
-                    
                 }
             }
         }else if asset.mediaType == .video && (analyseType == .video || analyseType == .all) {
-            imageManager.requestImage(for: asset, targetSize: CGSize(width: 125, height: 125), contentMode: .default, options: imageRequestOptions) { (image, info) in
-                imageManager.requestAVAsset(forVideo: asset, options: self.videoRequestOptions) { (avasset, audioMix, info) in
+            imageManager.requestImage(for: asset, targetSize: CGSize(width: 600, height: 800), contentMode: .default, options: imageRequestOptions) { (image, info) in
+                self.imageManager.requestAVAsset(forVideo: asset, options: self.videoRequestOptions) { (avasset, audioMix, info) in
                     if let tmpAvasset = avasset {
                         DispatchQueue.global().async {
                             
@@ -212,11 +238,7 @@ class PhotoAndVideoManager: NSObject {
             requestImage(index: index + 1,analyseType: analyseType)
             return
         }
-        
-        
-//        autoreleasepool {
-//
-//        }
+
 
     }
     
@@ -249,7 +271,7 @@ class PhotoAndVideoManager: NSObject {
         //是否可瘦身
         dealThinPhoto(asset: asset, exactImage: exactImage, originImageData: originImageData)
         //模糊图片
-        let isFuzzy = ImageCompare.isImageFuzzy(UIImage(data: originImageData))
+        let isFuzzy = ImageCompare.isImageFuzzy(exactImage)
         if isFuzzy {
             let model = PhotoModel(asset: asset, exactImage: exactImage, originImageData: originImageData, originImageDataLength: originImageData.count)
             self.fuzzyPhotoSaveSpace = self.fuzzyPhotoSaveSpace + originImageData.count
@@ -423,7 +445,7 @@ extension PhotoAndVideoManager {
 extension PhotoAndVideoManager{
         
     //清除旧数据
-    private func resetData() {
+    func resetData() {
          similarArray = []
          similarSaveSpace = 0
         

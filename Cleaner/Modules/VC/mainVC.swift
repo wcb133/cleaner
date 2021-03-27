@@ -42,20 +42,20 @@ class mainVC: BaseVC {
     
     @objc func startCheckBtnAction(btn:QMUIButton) {
         
-        if DateManager.shared.isExpired() {
-            let vc = SubscribeVC()
-            vc.successBlock = {
-                //继续之前的操作
-                let vc = AllScanVC()
-                vc.refreshMemeryBlock = {
-                    self.refreshPieViewData()
-                }
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(vc, animated: true, completion: nil)
-            return
-        }
+//        if DateManager.shared.isExpired() {
+//            let vc = SubscribeVC()
+//            vc.successBlock = {
+//                //继续之前的操作
+//                let vc = AllScanVC()
+//                vc.refreshMemeryBlock = {
+//                    self.refreshPieViewData()
+//                }
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//            vc.modalPresentationStyle = .fullScreen
+//            self.navigationController?.present(vc, animated: true, completion: nil)
+//            return
+//        }
         
         let vc = AllScanVC()
         vc.refreshMemeryBlock = {
@@ -92,13 +92,17 @@ class mainVC: BaseVC {
             self.pview.memoryUseLab.text = String(format: "%0.2f/%0.2fGB", usedSpace,totalSpace)
             let percent = usedSpace / totalSpace
             self.pview.setupData(percent: CGFloat(percent))
-            if percent > 0.75 {
+            if percent > 0.5 {
                 self.startCheckBtn.backgroundColor = HEX("F15D64")
-            }else if percent < 0.75 && percent > 0.25 {
-                self.startCheckBtn.backgroundColor = HEX("FDCC33")
-            }else{
+            }else {
                 self.startCheckBtn.backgroundColor = HEX("28B3FF")
             }
+            
+            /*
+             if percent < 0.75 && percent > 0.25 {
+                 self.startCheckBtn.backgroundColor = HEX("FDCC33")
+             }else
+             */
         }
     }
     
@@ -108,16 +112,6 @@ class mainVC: BaseVC {
     
     
     @IBAction func menuBtanAction(_ sender: UIButton) {
-        
-        if DateManager.shared.isExpired() {
-            let vc = SubscribeVC()
-            vc.successBlock = {
-                self.turnToMenuItem(idx: sender.tag)
-            }
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(vc, animated: true, completion: nil)
-            return
-        }
         self.turnToMenuItem(idx: sender.tag)
     }
     

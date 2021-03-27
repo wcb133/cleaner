@@ -63,7 +63,9 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
     }
     
     //恢复购买
-    func restorePurchase() {
+    func restorePurchase(completeBlock:@escaping (Bool)->Void) {
+        self.completeBlock = completeBlock
+        QMUITips.showLoading(in: cKeyWindow!)
         //恢复已经完成的所有交易.（仅限永久有效商品）
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -140,8 +142,21 @@ extension PaymentTool{
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .restored://恢复购买
                 QMUITips.hideAllTips()
+                QMUITips.show(withText: "已恢复订阅")
                 print("恢复购买")
+                let productID = transaction.payment.productIdentifier
                 SKPaymentQueue.default().finishTransaction(transaction)
+                if DateManager.shared.isExpired() {
+                    if productID == subscribeItems[0] {
+                        DateManager.shared.addWeek()
+                    }else if productID == subscribeItems[1] {
+                        DateManager.shared.addMonth()
+                    }else if productID == subscribeItems[2]{
+                        DateManager.shared.addQuarter()
+                    }
+                    self.completeBlock(true)
+                    print("======恢复购买")
+                }
             case .failed://购买失败
                 QMUITips.hideAllTips()
                 print("购买失败")

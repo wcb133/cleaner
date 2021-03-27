@@ -23,6 +23,7 @@ class AllScanVC: BaseVC {
     
     @IBOutlet weak var bottomInsetCons: NSLayoutConstraint!
     
+    @IBOutlet weak var deleteBtnHeightCons: NSLayoutConstraint!
     @IBOutlet weak var deleteBtn: QMUIButton!
     
     var refreshMemeryBlock:()->Void = {}
@@ -44,7 +45,7 @@ class AllScanVC: BaseVC {
     
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
-        tableView.rowHeight = 90
+        tableView.rowHeight = iPhoneX ? 90:84
         tableView.isScrollEnabled = false
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
@@ -129,6 +130,7 @@ class AllScanVC: BaseVC {
         super.viewDidLoad()
         titleView?.title = "分析中"
         self.deleteBtn.isHidden = true
+        self.deleteBtnHeightCons.constant = 0
         deleteBtn.layer.cornerRadius = 24
         deleteBtn.layer.masksToBounds = true
         self.bottomInsetCons.constant = 20 + cIndicatorHeight
@@ -162,6 +164,7 @@ class AllScanVC: BaseVC {
                 self.bottomTipsLab.removeFromSuperview()
                 self.progressView.removeFromSuperview()
             }
+            self.deleteBtnHeightCons.constant = 48
             self.tableView.reloadData()
             self.isComplete = true
             
@@ -174,11 +177,12 @@ class AllScanVC: BaseVC {
     
     func startAnalysis()  {
         let manager = PhotoAndVideoManager.shared
-        manager.loadAllAsset { (currentIndex, total) in
+        manager.loadAllAsset {[weak  self] (currentIndex, total) in
+            guard let self = self else { return }
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)
-        } completionHandler: { (isSuccess, error) in
-            
+        } completionHandler: {[weak self] (isSuccess, error) in
+            guard let self = self else { return }
             let photoModel = self.items[0]
             let videoModel = self.items[3]
             photoModel.isDidCheck = true
@@ -197,7 +201,8 @@ class AllScanVC: BaseVC {
         }
         
         //联系人分析
-        ContactManager.shared.getRepeatContact { (contactSectonModels, total) in
+        ContactManager.shared.getRepeatContact {[weak self] (contactSectonModels, total) in
+            guard let self = self else { return }
             let item = self.items[1]
             item.subTitle = "\(contactSectonModels.count)个重复联系人"
             item.isDidCheck = true
@@ -205,7 +210,8 @@ class AllScanVC: BaseVC {
         }
         
         //过期提醒
-        CalendarManager.shared.getOutOfDateReminder { reminders in
+        CalendarManager.shared.getOutOfDateReminder {[weak self] reminders in
+            guard let self = self else { return }
             let item = self.items[2]
             item.subTitle = "\(reminders.count)个提醒"
             item.isDidCheck = true
@@ -217,8 +223,16 @@ class AllScanVC: BaseVC {
     
     @IBAction func deleteBtnACtion(_ sender: QMUIButton) {
         
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
+        
         let message = "文件清除后将无法恢复，确定清除选中的所有文件?"
-        PhotoAndVideoManager.shared.tipWith(message: message) {
+        PhotoAndVideoManager.shared.tipWith(message: message) { [weak self]in
+            guard let self = self else { return }
             let manager = PhotoAndVideoManager.shared
             var deleteAssets:[PHAsset] = []
             QMUITips.showLoading(in: self.view)
@@ -255,7 +269,8 @@ class AllScanVC: BaseVC {
             }
             
              //清除相片和视频
-             manager.deleteAsset(assets: deleteAssets) { (isSuccess, error) in
+             manager.deleteAsset(assets: deleteAssets) {[weak self] (isSuccess, error) in
+                guard let self = self else { return }
                 QMUITips.hideAllTips()
                 if isSuccess {
                     let photoModel = self.items[0]
@@ -290,6 +305,10 @@ class AllScanVC: BaseVC {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    deinit {
+        PhotoAndVideoManager.shared.isStopScan = true
+    }
 }
 
 extension AllScanVC:UITableViewDelegate,UITableViewDataSource {
@@ -320,18 +339,59 @@ extension AllScanVC:UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = items[indexPath.row]
         if !model.isDidCheck { return }//未分析完，不可点击
+        let manager = PhotoAndVideoManager.shared
         switch indexPath.row {
-        case 0:
+        case 0://照片清理
             let vc = PhotoAndVideoScanVC()
+            vc.refreshMemeryBlock = {
+                let photoModel = self.items[0]
+                let photoNums = manager.similarArray.count
+                photoModel.subTitle = "\(photoNums)张相似照片"
+                self.refreshMemeryBlock()
+            }
             vc.isScanPhoto = true
             vc.isComplete = true
             self.navigationController?.pushViewController(vc, animated: true)
-        case 1:
-            self.navigationController?.pushViewController(ContactVC(), animated: true)
-        case 2:
-            self.navigationController?.pushViewController(CalendarMainVC(), animated: true)
-        case 3:
+        case 1://通讯录
+            let vc = ContactVC()
+            vc.refreshUIBlock = {
+                //联系人分析
+                DispatchQueue.global().async {
+                    ContactManager.shared.getRepeatContact {[weak self] (contactSectonModels, total) in
+                        guard let self = self else { return }
+                        DispatchQueue.main.async {
+                            let item = self.items[1]
+                            item.subTitle = "\(contactSectonModels.count)个重复联系人"
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+                
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2://日历
+            let vc = CalendarMainVC()
+            vc.refreshUIBlock = {
+                DispatchQueue.global().async {
+                    CalendarManager.shared.getOutOfDateReminder {[weak self] reminders in
+                        guard let self = self else { return }
+                        DispatchQueue.main.async {
+                            let item = self.items[2]
+                            item.subTitle = "\(reminders.count)个提醒"
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 3://视频清理
             let vc = PhotoAndVideoScanVC()
+            vc.refreshMemeryBlock = {
+                let videoModel = self.items[3]
+                let videoNums = manager.similarVideos.count
+                videoModel.subTitle = "\(videoNums)个相似视频"
+                self.refreshMemeryBlock()
+            }
             vc.isScanPhoto = false
             vc.isComplete = true
             self.navigationController?.pushViewController(vc, animated: true)

@@ -44,6 +44,8 @@ class CalendarMainVC: BaseVC {
         return tableView
     }()
     
+    var refreshUIBlock:()->Void = {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleView?.title = "日历及提醒"
@@ -67,6 +69,7 @@ extension CalendarMainVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = DateOfOutCalendarVC()
+        vc.refreshUIBlock = self.refreshUIBlock
         vc.isCalendar = indexPath.row == 0
         self.navigationController?.pushViewController(vc, animated: true)
     }

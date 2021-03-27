@@ -19,6 +19,8 @@ class DateOfOutCalendarVC: BaseVC {
     
     var itemDatas:[CalendarEventModel] = []
     
+    var refreshUIBlock:()->Void = {}
+    
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
         tableView.rowHeight = 65
@@ -79,6 +81,14 @@ class DateOfOutCalendarVC: BaseVC {
     
     @IBAction func deleteBtnAction(_ sender: QMUIButton) {
         
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
+        
+        
         let message = self.isCalendar ?"确定删除所选过期节日?":"确定删除所选过期事项?"
         PhotoAndVideoManager.shared.tipWith(message: message) {
             self.deleteData()
@@ -108,7 +118,7 @@ class DateOfOutCalendarVC: BaseVC {
                         return eventModel.isSelected
                     }
                     
-                    
+                    self.refreshUIBlock()
                     QMUITips.show(withText: "已删除")
                     self.tableView.reloadData()
                 }else{

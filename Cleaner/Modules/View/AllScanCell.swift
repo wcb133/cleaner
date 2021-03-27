@@ -26,7 +26,7 @@ class AllScanCell: UITableViewCell {
     
     var selectBtnClickBlock:()->Void = {}
     
-    let indicatorView = UIActivityIndicatorView(style: .medium)
+    let indicatorView = UIActivityIndicatorView(style: .gray)
     
     override func awakeFromNib() {
         super.awakeFromNib()
