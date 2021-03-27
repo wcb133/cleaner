@@ -62,5 +62,7 @@
 	<string>0</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许“清理助手”获取你的相机权限用于优化照片？</string>
 </dict>
 </plist>
