@@ -223,12 +223,12 @@ class AllScanVC: BaseVC {
     
     @IBAction func deleteBtnACtion(_ sender: QMUIButton) {
         
-        if DateManager.shared.isExpired() {
-            let vc = SubscribeVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(vc, animated: true, completion: nil)
-            return
-        }
+//        if DateManager.shared.isExpired() {
+//            let vc = SubscribeVC()
+//            vc.modalPresentationStyle = .fullScreen
+//            self.navigationController?.present(vc, animated: true, completion: nil)
+//            return
+//        }
         
         let message = "文件清除后将无法恢复，确定清除选中的所有文件?"
         PhotoAndVideoManager.shared.tipWith(message: message) { [weak self]in

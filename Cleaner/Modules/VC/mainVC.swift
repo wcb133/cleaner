@@ -18,12 +18,13 @@ class mainVC: BaseVC {
     
     @IBOutlet weak var videoItem: UIView!
     
+    @IBOutlet weak var aboutBtnTopInsetCons: NSLayoutConstraint!
     
     let pview = CBDataOperationPieView()
     
     lazy var startCheckBtn: QMUIButton = {
         let btn = QMUIButton()
-        btn.setTitle("推荐清理", for: .normal)
+        btn.setTitle("一键清理", for: .normal)
         btn.backgroundColor = HEX("28B3FF")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20)
@@ -40,22 +41,27 @@ class mainVC: BaseVC {
         return btn
     }()
     
+  
+    @IBAction func aboutBtnAction(_ sender: UIButton) {
+        self.navigationController?.pushViewController(AboutVC(), animated: true)
+    }
+    
     @objc func startCheckBtnAction(btn:QMUIButton) {
         
-//        if DateManager.shared.isExpired() {
-//            let vc = SubscribeVC()
-//            vc.successBlock = {
-//                //继续之前的操作
-//                let vc = AllScanVC()
-//                vc.refreshMemeryBlock = {
-//                    self.refreshPieViewData()
-//                }
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//            vc.modalPresentationStyle = .fullScreen
-//            self.navigationController?.present(vc, animated: true, completion: nil)
-//            return
-//        }
+        if DateManager.shared.isExpired() {
+            let vc = SubscribeVC()
+            vc.successBlock = {
+                //继续之前的操作
+                let vc = AllScanVC()
+                vc.refreshMemeryBlock = {
+                    self.refreshPieViewData()
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return
+        }
         
         let vc = AllScanVC()
         vc.refreshMemeryBlock = {
@@ -72,6 +78,7 @@ class mainVC: BaseVC {
         super.viewDidLoad()
         setupPview()
         refreshPieViewData()
+        self.aboutBtnTopInsetCons.constant = iPhoneX ? 48 : 22
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,7 +95,6 @@ class mainVC: BaseVC {
              m.bottom.equalTo(self.startCheckBtn.snp.top).offset(-35)
              m.width.height.equalTo(200)
          }
-
     }
     
     func refreshPieViewData()  {
@@ -103,12 +109,6 @@ class mainVC: BaseVC {
             }else {
                 self.startCheckBtn.backgroundColor = HEX("28B3FF")
             }
-            
-            /*
-             if percent < 0.75 && percent > 0.25 {
-                 self.startCheckBtn.backgroundColor = HEX("FDCC33")
-             }else
-             */
         }
     }
     

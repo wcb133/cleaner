@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="mainVC" customModule="Cleaner" customModuleProvider="target">
             <connections>
+                <outlet property="aboutBtnTopInsetCons" destination="wBC-cf-x3o" id="0hA-fO-2Ki"/>
                 <outlet property="calendarItem" destination="Nms-ru-hIa" id="pOa-aX-UYB"/>
                 <outlet property="contactItem" destination="fii-Wk-uAB" id="YG8-7T-z67"/>
                 <outlet property="photoItem" destination="FKe-aN-mHZ" id="YcM-ur-rb3"/>
@@ -186,12 +188,25 @@
                         <constraint firstItem="yE4-bE-s0o" firstAttribute="width" secondItem="FKe-aN-mHZ" secondAttribute="width" id="zE9-I4-bxq"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zi-Hz-k4I">
+                    <rect key="frame" x="351" y="26" width="60" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="T1a-Ck-NqK"/>
+                        <constraint firstAttribute="width" constant="60" id="aL0-hI-XGG"/>
+                    </constraints>
+                    <state key="normal" image="关于"/>
+                    <connections>
+                        <action selector="aboutBtnAction:" destination="-1" eventType="touchUpInside" id="vh2-L4-Ghx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="5hQ-2A-GEr" secondAttribute="trailing" id="4ZK-Q8-WBc"/>
+                <constraint firstAttribute="trailing" secondItem="1zi-Hz-k4I" secondAttribute="trailing" constant="3" id="e3m-t1-cM6"/>
                 <constraint firstItem="5hQ-2A-GEr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nut-i4-LRS"/>
                 <constraint firstAttribute="bottom" secondItem="5hQ-2A-GEr" secondAttribute="bottom" id="t5a-ya-vHn"/>
+                <constraint firstItem="1zi-Hz-k4I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="wBC-cf-x3o"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -200,6 +215,7 @@
         </view>
     </objects>
     <resources>
+        <image name="关于" width="32" height="32"/>
         <image name="日历清理" width="35" height="35"/>
         <image name="照片清理" width="35" height="35"/>
         <image name="视频清理" width="35" height="35"/>

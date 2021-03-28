@@ -60,6 +60,8 @@
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 		E57034332607821E00CD6517 /* CBDataOperationPieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57034322607821E00CD6517 /* CBDataOperationPieView.swift */; };
 		E57034392607826A00CD6517 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E57034382607826A00CD6517 /* UICountingLabel.m */; };
+		E57A71EA26107D4100765937 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A71E926107D4100765937 /* AboutVC.swift */; };
+		E57A71ED26107FB200765937 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A71EC26107FB200765937 /* WebVC.swift */; };
 		E5982DE5260ECB8B00E07965 /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5982DE3260ECB8B00E07965 /* PhotoCheckVC.swift */; };
 		E5982DE6260ECB8B00E07965 /* PhotoCheckVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5982DE4260ECB8B00E07965 /* PhotoCheckVC.xib */; };
 		E5D85C7A260A26D0006F4447 /* PhotoAndVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */; };
@@ -130,6 +132,8 @@
 		E57034322607821E00CD6517 /* CBDataOperationPieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBDataOperationPieView.swift; sourceTree = "<group>"; };
 		E57034372607826A00CD6517 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		E57034382607826A00CD6517 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
+		E57A71E926107D4100765937 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		E57A71EC26107FB200765937 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		E5982DE3260ECB8B00E07965 /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
 		E5982DE4260ECB8B00E07965 /* PhotoCheckVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCheckVC.xib; sourceTree = "<group>"; };
 		E5D85C79260A26D0006F4447 /* PhotoAndVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAndVideoManager.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 			children = (
 				0B72BD9A25FB46A100FA1CBC /* mainVC.swift */,
 				0B797B86260837A3009FB281 /* mainVC.xib */,
+				E57A71E926107D4100765937 /* AboutVC.swift */,
+				E57A71EC26107FB200765937 /* WebVC.swift */,
 				0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */,
 				0BBD8B9326075969003ECFF1 /* DateOfOutCalendarVC.swift */,
 				0BBD8B9426075969003ECFF1 /* DateOfOutCalendarVC.xib */,
@@ -524,6 +530,8 @@
 				0B844D3F260C79E500B4C5DF /* HRNetwork.swift in Sources */,
 				0BBD8B8326072D7A003ECFF1 /* ContactHeaderView.swift in Sources */,
 				0B70464F260B456900542A5D /* PaymentTool.swift in Sources */,
+				E57A71EA26107D4100765937 /* AboutVC.swift in Sources */,
+				E57A71ED26107FB200765937 /* WebVC.swift in Sources */,
 				E5D85C81260A2C41006F4447 /* PhotoModel.swift in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
 				0BBD8B9A26075BB3003ECFF1 /* DateOfOutCalendarCell.swift in Sources */,
