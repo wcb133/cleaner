@@ -83,8 +83,9 @@ class DateOfOutCalendarVC: BaseVC {
         
         if DateManager.shared.isExpired() {
             let vc = SubscribeVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(vc, animated: true, completion: nil)
+            let nav = BaseNav(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true, completion: nil)
             return
         }
         

@@ -73,7 +73,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="隐私服务"/>
                             <connections>
-                                <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="06g-QL-Fhy"/>
+                                <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="YgT-lT-FKd"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRF-rW-cDg" customClass="QMUIButton">
@@ -95,7 +95,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="使用条款"/>
                             <connections>
-                                <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="W2P-5m-xCk"/>
+                                <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="aCy-wm-IiP"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxG-Pb-Zo0">

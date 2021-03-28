@@ -63,6 +63,10 @@ class SubscribeVC: BaseVC {
         self.topView.cornerWith(byRoundingCorners: [.bottomLeft,.bottomRight], radii: 20)
     }
     
+    override func preferredNavigationBarHidden() -> Bool {
+        return true
+    }
+    
     
     @IBAction func itemACtion(_ sender: UIButton) {
         selectBtn?.isSelected = false

@@ -58,8 +58,9 @@ class mainVC: BaseVC {
                 }
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(vc, animated: true, completion: nil)
+            let nav = BaseNav(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true, completion: nil)
             return
         }
         
