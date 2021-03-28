@@ -74,6 +74,12 @@ class mainVC: BaseVC {
         refreshPieViewData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PhotoAndVideoManager.shared.isStopScan = true
+        PhotoAndVideoManager.shared.resetData()
+    }
+    
     func setupPview() {
         self.pview.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         self.view.addSubview(self.pview)

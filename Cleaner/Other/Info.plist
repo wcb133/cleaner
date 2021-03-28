@@ -29,6 +29,8 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>是否允许“清理助手”获取你的日历事件用于优化日历</string>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许“清理助手”获取你的相机权限用于优化照片？</string>
 	<key>NSContactsUsageDescription</key>
 	<string>是否允许“清理助手”获取你的通讯录用于优化通讯录？</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -56,13 +58,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>mtj_appkey</key>
 	<string>111912a685</string>
 	<key>mtj_debuglog</key>
 	<string>0</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>NSCameraUsageDescription</key>
-	<string>是否允许“清理助手”获取你的相机权限用于优化照片？</string>
 </dict>
 </plist>

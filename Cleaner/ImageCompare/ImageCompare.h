@@ -14,9 +14,6 @@
 /// 是否相似
 + (BOOL)isImage:(UIImage *)image1 likeImage:(UIImage *)image2;
 
-/// 获取相似度
-+ (float)isImageFloat:(UIImage *)image1 likeImage:(UIImage *)image2;
-
 ///图片是否模糊
 + (BOOL) isImageFuzzy:(UIImage*)image;
 

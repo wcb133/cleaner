@@ -16,14 +16,61 @@ const double delta = 10;
 
 // 是否相似
 + (BOOL)isImage:(UIImage *)image1 likeImage:(UIImage *)image2 {
-    IplImage *iplimage1 = [self convertToIplImage:[self OriginImage:image1 scaleToSize:CGSizeMake(320, 320)]];
-    IplImage *iplimage2 = [self convertToIplImage:[self OriginImage:image2 scaleToSize:CGSizeMake(320, 320)]];
-    double sililary = [self ComparePPKHist:iplimage1 withParam2:iplimage2];
-    if (sililary < 0.1) {
-        return YES;
-    }
-    return NO;
+    cv::Mat mat1 = [self cvMatFromUIImage:image1];
+    cv::Mat mat2 = [self cvMatFromUIImage:image2];
+    return  aHash(mat1, mat2) <= 5;
 }
+
+//获取相似度
+int aHash(cv::Mat matSrc1, cv::Mat matSrc2)
+{
+    cv::Mat matDst1, matDst2;
+    cv::resize(matSrc1, matDst1, cv::Size(8, 8), 0, 0, cv::INTER_CUBIC);
+    cv::resize(matSrc2, matDst2, cv::Size(8, 8), 0, 0, cv::INTER_CUBIC);
+ 
+    cv::cvtColor(matDst1, matDst1, CV_BGR2GRAY);
+    cv::cvtColor(matDst2, matDst2, CV_BGR2GRAY);
+ 
+    int iAvg1 = 0, iAvg2 = 0;
+    int arr1[64], arr2[64];
+ 
+    for (int i = 0; i < 8; i++)
+    {
+        uchar* data1 = matDst1.ptr<uchar>(i);
+        uchar* data2 = matDst2.ptr<uchar>(i);
+ 
+        int tmp = i * 8;
+ 
+        for (int j = 0; j < 8; j++)
+        {
+            int tmp1 = tmp + j;
+ 
+            arr1[tmp1] = data1[j] / 4 * 4;
+            arr2[tmp1] = data2[j] / 4 * 4;
+ 
+            iAvg1 += arr1[tmp1];
+            iAvg2 += arr2[tmp1];
+        }
+    }
+ 
+    iAvg1 /= 64;
+    iAvg2 /= 64;
+ 
+    for (int i = 0; i < 64; i++)
+    {
+        arr1[i] = (arr1[i] >= iAvg1) ? 1 : 0;
+        arr2[i] = (arr2[i] >= iAvg2) ? 1 : 0;
+    }
+ 
+    int iDiffNum = 0;
+ 
+    for (int i = 0; i < 64; i++)
+        if (arr1[i] != arr2[i])
+            ++iDiffNum;
+ 
+    return iDiffNum;
+}
+
 
 // 缩小尺寸
 + (UIImage *)OriginImage:(UIImage *)image scaleToSize:(CGSize)size {
@@ -33,210 +80,6 @@ const double delta = 10;
     UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return scaledImage;
-}
-
-// 获取相似度
-+ (float)isImageFloat:(UIImage *)image1 likeImage:(UIImage *)image2 {
-    IplImage *iplimage1 = [self convertToIplImage:image1];
-    IplImage *iplimage2 = [self convertToIplImage:image2];
-    double sililary = [self ComparePPKHist:iplimage1 withParam2:iplimage2];
-    return sililary;
-}
-
-// 比较
-+ (double)ComparePPKHist:(IplImage *)srcIpl withParam2:(IplImage *)srcIpl1 {
-    if (srcIpl->width==srcIpl1->width && srcIpl->height==srcIpl1->height) {
-        return [self CompareHist:srcIpl withParam2:srcIpl1];
-    }
-    else if (srcIpl->width<srcIpl1->width && srcIpl->height==srcIpl1->height) {
-        return [self CompareHistWithSmallWidthIpl:srcIpl withBigWidthIplImg:srcIpl1];
-    }
-    else if (srcIpl->width>srcIpl1->width && srcIpl->height==srcIpl1->height) {
-        return [self CompareHistWithSmallWidthIpl:srcIpl1 withBigWidthIplImg:srcIpl];
-    }
-    else if (srcIpl->width==srcIpl1->width && srcIpl->height<srcIpl1->height) {
-        return [self CompareHistWithSmallHeightIpl:srcIpl withBigHeightIplImg:srcIpl1];
-    }
-    else if (srcIpl->width==srcIpl1->width && srcIpl->height>srcIpl1->height) {
-        return [self CompareHistWithSmallHeightIpl:srcIpl1 withBigHeightIplImg:srcIpl];
-    }
-    else if (srcIpl->width<srcIpl1->width && srcIpl->height<srcIpl1->height) {
-        return [self CompareHistWithSmallIpl:srcIpl withBigIplImg:srcIpl1];
-    }
-    else if (srcIpl->width>srcIpl1->width && srcIpl->height>srcIpl1->height)
-    {
-        return [self CompareHistWithSmallIpl:srcIpl1 withBigIplImg:srcIpl];
-    }
-
-    return 1.f;
-}
-
-+ (double)CompareHistWithSmallWidthIpl:(IplImage*)srcIpl withBigWidthIplImg:(IplImage*)srcIpl1 {
-    // 当前匹配结果，越接近于0.0匹配度越高
-    double dbRst=1.0;
-    // 匹配结果，-1表示正在匹配，0表示匹配失败，1表示匹配成功
-    int tfFound = -1;
-    // 裁剪后的图片
-    IplImage *cropImage;
-    for (int j=0; j<srcIpl1->width-srcIpl->width; j++) {
-        // 裁剪图片
-        cvSetImageROI(srcIpl1, cvRect(j, 0, srcIpl->width, srcIpl->height));
-        cropImage = cvCreateImage(cvGetSize(srcIpl), IPL_DEPTH_8U, 3);
-        cvCopy(srcIpl1, cropImage);
-        cvResetImageROI(srcIpl1);
-        
-        // 匹配图片
-        double dbRst1 =[self CompareHist:srcIpl withParam2:cropImage];
-        printf("匹配结果为:%f\n",dbRst1);
-        if (dbRst1<=0.01) {
-            // 匹配成功
-            tfFound = 1;
-            break;
-        }
-        
-        else if(dbRst==1.0 || dbRst1<dbRst) {
-            // 本次匹配有进步，更新结果
-            cvReleaseImage(&cropImage);
-            dbRst = dbRst1;
-        }
-        
-        else if(dbRst1>dbRst) {
-            cvReleaseImage(&cropImage);
-        }
-    }
-    
-    return dbRst;
-}
-
-+ (double)CompareHistWithSmallHeightIpl:(IplImage*)srcIpl withBigHeightIplImg:(IplImage*)srcIpl1 {
-    // 当前匹配结果，越接近于0.0匹配度越高
-    double dbRst=1.0;
-    // 匹配结果，-1表示正在匹配，0表示匹配失败，1表示匹配成功
-    int tfFound = -1;
-    // 裁剪后的图片
-    IplImage *cropImage;
-    for (int j=0; j<srcIpl1->height-srcIpl->height; j++) {
-        // 裁剪图片
-        cvSetImageROI(srcIpl1, cvRect(0, j, srcIpl->height, srcIpl->height));
-        cropImage = cvCreateImage(cvGetSize(srcIpl), IPL_DEPTH_8U, 3);
-        cvCopy(srcIpl1, cropImage);
-        cvResetImageROI(srcIpl1);
-        
-        // 匹配图片
-        double dbRst1 =[self CompareHist:srcIpl withParam2:cropImage];
-        printf("匹配结果为:%f\n",dbRst1);
-        if (dbRst1<=0.01) {
-            // 匹配成功
-            tfFound = 1;
-            break;
-        }
-        else if(dbRst==1.0 || dbRst1<dbRst) {
-            // 本次匹配有进步，更新结果
-            cvReleaseImage(&cropImage);
-            dbRst = dbRst1;
-        }
-        
-        else if(dbRst1>dbRst) {
-            cvReleaseImage(&cropImage);
-        }
-    }
-    
-    return dbRst;
-}
-
-+ (double)CompareHistWithSmallIpl:(IplImage*)srcIpl withBigIplImg:(IplImage*)srcIpl1 {
-    // 当前匹配结果，越接近于0.0匹配度越高
-    double dbRst=1.0;
-    // 水平、竖直偏移量
-    int xSub=0,ySub=0;
-    // 匹配结果，-1表示正在匹配，0表示匹配失败，1表示匹配成功
-    int tfFound = -1;
-    // 裁剪后的图片
-    IplImage *cropImage;
-    
-    // 遍历方式：先竖后横
-    for (int j=0; j<srcIpl1->width-srcIpl->width; j++) {
-        for (int i=ySub; i<srcIpl1->height-srcIpl->height; i++) {
-            // 裁剪图片
-            cvSetImageROI(srcIpl1, cvRect(j, i, srcIpl->width, srcIpl->height));
-            cropImage = cvCreateImage(cvGetSize(srcIpl), IPL_DEPTH_8U, 3);
-            cvCopy(srcIpl1, cropImage);
-            cvResetImageROI(srcIpl1);
-            
-            // 匹配图片
-            double dbRst1 =[self CompareHist:srcIpl withParam2:cropImage];
-            
-            printf("(x=%d,y=%d),竖直匹配结果为:%f\n",j,i,dbRst1);
-            if (dbRst1<=0.0375) {
-                // 匹配成功
-                tfFound = 1;
-                break;
-            } else if(dbRst==1.0 || dbRst1<dbRst) {
-                // 本次匹配有进步，更新结果
-                cvReleaseImage(&cropImage);
-                dbRst = dbRst1;
-            } else if(dbRst1>dbRst) {
-                cvReleaseImage(&cropImage);
-                // 竖直移动到点了,该水平移动了
-                ySub = i-1;
-                for (int k=j+1;k<srcIpl1->width-srcIpl->width; k++) {
-                    // 裁切图片
-                    cvSetImageROI(srcIpl1, cvRect(k, i, srcIpl->width, srcIpl->height));
-                    cropImage = cvCreateImage(cvGetSize(srcIpl), IPL_DEPTH_8U, 3);
-                    cvCopy(srcIpl1, cropImage);
-                    cvResetImageROI(srcIpl1);
-                    
-                    // 匹配图片
-                    double dbRst1 =[self CompareHist:srcIpl withParam2:cropImage];
-                    printf("(x=%d,y=%d),水平移动匹配结果为:%f\n",k,i,dbRst1);
-                    if (dbRst1<=0.0375) {
-                        // 匹配成功
-                        tfFound = 1;
-                        xSub = k;
-                        break;
-                    } else if(dbRst1<dbRst) {
-                        // 本次匹配有进步，更新结果
-                        cvReleaseImage(&cropImage);
-                        xSub = k;
-                        j = xSub;
-                        dbRst = dbRst1;
-                    } else {
-                        cvReleaseImage(&cropImage);
-                        xSub = k;
-                        j = xSub;
-                        break;
-                    }
-                }
-            }
-            
-            if (tfFound==1 || tfFound==0) {
-                break;
-            }
-        }
-        
-        if (tfFound==1 || tfFound==0) {
-            break;
-        }
-    }
-    
-    return dbRst;
-}
-
-// 多通道彩色图片的直方图比对
-+ (double)CompareHist:(IplImage*)image1 withParam2:(IplImage*)image2 {
-    int hist_size = 256;
-    IplImage *gray_plane = cvCreateImage(cvGetSize(image1), 8, 1);
-    cvCvtColor(image1, gray_plane, CV_BGR2GRAY);
-    
-    CvHistogram *gray_hist = cvCreateHist(1, &hist_size, CV_HIST_ARRAY);
-    cvCalcHist(&gray_plane, gray_hist);
-    
-    IplImage *gray_plane2 = cvCreateImage(cvGetSize(image2), 8, 1);
-    cvCvtColor(image2, gray_plane2, CV_BGR2GRAY);
-    CvHistogram *gray_hist2 = cvCreateHist(1, &hist_size, CV_HIST_ARRAY);
-    cvCalcHist(&gray_plane2, gray_hist2);
-
-    return cvCompareHist(gray_hist, gray_hist2, CV_COMP_BHATTACHARYYA);
 }
 
 // 单通道彩色图片的直方图
@@ -319,6 +162,7 @@ const double delta = 10;
     CGContextDrawImage(contextRef, CGRectMake(0, 0, image.size.width, image.size.height), imageRef);
     CGContextRelease(contextRef);
     CGColorSpaceRelease(colorSpace);
+//    CGImageRelease(imageRef);
     
     IplImage *ret = cvCreateImage(cvGetSize(iplImage), IPL_DEPTH_8U, 3);
     cvCvtColor(iplImage, ret, CV_RGB2BGR);
