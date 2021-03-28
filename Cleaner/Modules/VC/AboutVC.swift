@@ -47,7 +47,7 @@ class AboutVC: BaseVC {
     }()
     
     let items = ["隐私政策","用户协议","常见问题"]
-    let urls = ["http://www.baidu.com","",""]
+    let urls = ["https://shimo.im/docs/TcWH8jx8pyTyq8Rk","https://shimo.im/docs/TcWH8jx8pyTyq8Rk","https://shimo.im/docs/TvHTcgq3rDkk6hCC/"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

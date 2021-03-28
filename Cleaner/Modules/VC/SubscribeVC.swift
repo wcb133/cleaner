@@ -97,4 +97,12 @@ class SubscribeVC: BaseVC {
         }
     }
     
+    
+    @IBAction func protocolBtn(_ sender: UIButton) {
+        let vc = WebVC()
+        vc.titleStr = sender.tag == 0 ? "用户协议":"隐私政策"
+        vc.url = "https://shimo.im/docs/TcWH8jx8pyTyq8Rk"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
