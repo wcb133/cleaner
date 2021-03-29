@@ -80,6 +80,7 @@ class mainVC: BaseVC {
         setupPview()
         refreshPieViewData()
         self.aboutBtnTopInsetCons.constant = iPhoneX ? 48 : 22
+//        self.view.backgroundColor = HEX("588DFC")
     }
     
     override func viewDidAppear(_ animated: Bool) {

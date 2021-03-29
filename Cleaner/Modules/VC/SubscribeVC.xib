@@ -79,7 +79,9 @@
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClU-Fm-CIp">
                                             <rect key="frame" x="261" y="305" width="60" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="隐私服务"/>
+                                            <state key="normal" title="隐私服务">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="DAR-LM-Mlb"/>
                                             </connections>
@@ -105,7 +107,9 @@
                                                 <constraint firstAttribute="width" constant="60" id="oT7-15-fZ0"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="使用条款"/>
+                                            <state key="normal" title="使用条款">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="P70-AM-OSY"/>
                                             </connections>
@@ -198,7 +202,9 @@
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lao-fU-byI">
                                             <rect key="frame" x="164" y="305" width="60" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="恢复购买"/>
+                                            <state key="normal" title="恢复购买">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="restoreBtnActionWithBtn:" destination="-1" eventType="touchUpInside" id="Oa6-6C-l1T"/>
                                             </connections>
