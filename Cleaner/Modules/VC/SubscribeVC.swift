@@ -7,11 +7,11 @@
 
 import UIKit
 import QMUIKit
+import RxSwift
+import RxCocoa
 
 class SubscribeVC: BaseVC {
-    
-    @IBOutlet weak var restoreBtn: QMUIButton!
-    
+   
     
     @IBOutlet weak var weekBTn: UIButton!
     
@@ -24,9 +24,16 @@ class SubscribeVC: BaseVC {
 
     
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var topInsetCons: NSLayoutConstraint!
     
     @IBOutlet weak var topViewHeightCons: NSLayoutConstraint!
+    
+    @IBOutlet weak var itemTopInsetCons: NSLayoutConstraint!
+    
+    @IBOutlet weak var useProtocolBtn: UIButton!
+    
+    @IBOutlet weak var privateProtocolBtn: UIButton!
+    
+    @IBOutlet weak var restoreBtn: UIButton!
     
     //成功订阅block
     var successBlock:()->Void = { }
@@ -36,6 +43,8 @@ class SubscribeVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        extendedLayoutIncludesOpaqueBars = true
+        
         selectBtn = weekBTn
         productID = subscribeItems[0]
         self.view.backgroundColor = HEX("28B3FF")
@@ -50,12 +59,34 @@ class SubscribeVC: BaseVC {
         subscribeBtn.layer.cornerRadius = 30
         subscribeBtn.layer.masksToBounds = true
         
-        self.topInsetCons.constant = iPhoneX ? 30 : 0
         self.topViewHeightCons.constant = iPhoneX ? 340 :280
+        self.itemTopInsetCons.constant = iPhoneX ? 70 :40
         
         if PaymentTool.shared.productDict.isEmpty {
             PaymentTool.shared.requestProducts(productArray: subscribeItems)
         }
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.qmui_item(with: UIImage(named: "close"), target: self, action: #selector(closeBtnACtion))
+
+        let str = NSMutableAttributedString(string: "使用条款")
+        let strRange = NSRange(location: 0, length: str.length)
+        str.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange)
+        useProtocolBtn.setAttributedTitle(str, for: .normal)
+        
+        let str2 = NSMutableAttributedString(string: "隐私政策")
+        let strRange2 = NSRange(location: 0, length: str.length)
+        str2.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange2)
+        privateProtocolBtn.setAttributedTitle(str2, for: .normal)
+        
+        let str3 = NSMutableAttributedString(string: "恢复购买")
+        let strRange3 = NSRange(location: 0, length: str.length)
+        str3.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange3)
+        restoreBtn.setAttributedTitle(str3, for: .normal)
+        
+//        NotificationCenter.default.rx.notification(UIResponder.keyboardDidHideNotification).subscribe(onNext: { noti in
+//               QMUITips.hideAllTips()
+//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,7 +95,15 @@ class SubscribeVC: BaseVC {
     }
     
     override func preferredNavigationBarHidden() -> Bool {
-        return true
+        return false
+    }
+    
+    override func navigationBarBackgroundImage() -> UIImage? {
+        return UIImage.qmui_image(with: .white)
+    }
+    
+    override func navigationBarTintColor() -> UIColor? {
+        return HEX("28B3FF")
     }
     
     
@@ -89,11 +128,11 @@ class SubscribeVC: BaseVC {
     }
     
     
-    @IBAction func closeBtnACtion(_ sender: UIButton) {
+     @objc func closeBtnACtion() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func restoreBtnAction(_ sender: QMUIButton) {
+    @IBAction func restoreBtnAction(btn:UIButton) {
         PaymentTool.shared.restorePurchase { (isSuccess) in
             self.dismiss(animated: true) {
                 self.successBlock()

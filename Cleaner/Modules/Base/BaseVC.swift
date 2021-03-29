@@ -18,7 +18,6 @@ class BaseVC: QMUICommonViewController {
         navigationController?.navigationBar.isTranslucent = false
         view.backgroundColor = .white
         titleView?.titleLabel.font = UIFont(name: "PingFang-SC-Medium", size: 18)!
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         bindViewModel()
     }
 

@@ -176,30 +176,6 @@ class AllScanVC: BaseVC {
     }
     
     func startAnalysis()  {
-        let manager = PhotoAndVideoManager.shared
-        manager.loadAllAsset {[weak  self] (currentIndex, total) in
-            guard let self = self else { return }
-            let percent = Float(currentIndex) / Float(total)
-            self.percentLab.text = String(format: "%.0f%%", percent * 100)
-        } completionHandler: {[weak self] (isSuccess, error) in
-            guard let self = self else { return }
-            let photoModel = self.items[0]
-            let videoModel = self.items[3]
-            photoModel.isDidCheck = true
-            videoModel.isDidCheck = true
-            if isSuccess {
-                let photoNums = manager.similarArray.count
-                let videoNums = manager.similarVideos.count
-                photoModel.subTitle = "\(photoNums)张相似照片"
-                videoModel.subTitle = "\(videoNums)个相似视频"
-            }else{
-                photoModel.subTitle = "0张相似照片"
-                videoModel.subTitle = "0个相似视频"
-            }
-            
-            self.photoVideoSubject.onNext("")
-        }
-        
         //联系人分析
         ContactManager.shared.getRepeatContact {[weak self] (contactSectonModels, total) in
             guard let self = self else { return }
@@ -216,6 +192,30 @@ class AllScanVC: BaseVC {
             item.subTitle = "\(reminders.count)个提醒"
             item.isDidCheck = true
             self.reminderSubject.onNext("")
+        }
+        
+        let manager = PhotoAndVideoManager.shared
+        manager.loadAllAsset {[weak  self] (currentIndex, total) in
+            guard let self = self else { return }
+            let percent = Float(currentIndex) / Float(total)
+            self.percentLab.text = String(format: "%.0f%%", percent * 100)
+        } completionHandler: {[weak self] (isSuccess, error) in
+            guard let self = self else { return }
+            let photoModel = self.items[0]
+            let videoModel = self.items[3]
+            photoModel.isDidCheck = true
+            videoModel.isDidCheck = true
+            if isSuccess {
+                let photoNums = manager.similarArray.flatMap{$0.map{$0}}.count
+                let videoNums = manager.similarVideos.flatMap{$0.map{$0}}.count
+                photoModel.subTitle = "\(photoNums)张相似照片"
+                videoModel.subTitle = "\(videoNums)个相似视频"
+            }else{
+                photoModel.subTitle = "0张相似照片"
+                videoModel.subTitle = "0个相似视频"
+            }
+            
+            self.photoVideoSubject.onNext("")
         }
     }
     

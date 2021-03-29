@@ -12,8 +12,6 @@ import QMUIKit
 
 class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelegate {
     
-    //是否已经支付
-//    var isDidPay = false
     //是否向苹果服务器验证
     var checkAfterPay = false
     
@@ -68,6 +66,10 @@ class PaymentTool: NSObject,SKPaymentTransactionObserver,SKProductsRequestDelega
         QMUITips.showLoading(in: cKeyWindow!)
         //恢复已经完成的所有交易.（仅限永久有效商品）
         SKPaymentQueue.default().restoreCompletedTransactions()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            QMUITips.hideAllTips()
+        }
     }
     
     //向苹果服务器验证 验证购买凭据
@@ -159,14 +161,14 @@ extension PaymentTool{
                 }
             case .failed://购买失败
                 QMUITips.hideAllTips()
-                print("购买失败")
+                print("购买失败，稍后再试")
                 self.completeBlock(false)
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .purchasing://正在购买
                 break
             default://已经购买
                 QMUITips.hideAllTips()
-                self.completeBlock(true)
+                self.completeBlock(false)
                 SKPaymentQueue.default().finishTransaction(transaction)
                 break
             }

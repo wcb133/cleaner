@@ -192,6 +192,8 @@
 			children = (
 				0B72BD9A25FB46A100FA1CBC /* mainVC.swift */,
 				0B797B86260837A3009FB281 /* mainVC.xib */,
+				0BA71D6B26098F4E00A36914 /* AllScanVC.swift */,
+				0BA71D6C26098F4E00A36914 /* AllScanVC.xib */,
 				E57A71E926107D4100765937 /* AboutVC.swift */,
 				E57A71EC26107FB200765937 /* WebVC.swift */,
 				0BBD8B8926074D64003ECFF1 /* CalendarMainVC.swift */,
@@ -204,8 +206,6 @@
 				0BBD8B9D26076BED003ECFF1 /* PhotoAndVideoClearVC.swift */,
 				E5982DE3260ECB8B00E07965 /* PhotoCheckVC.swift */,
 				E5982DE4260ECB8B00E07965 /* PhotoCheckVC.xib */,
-				0BA71D6B26098F4E00A36914 /* AllScanVC.swift */,
-				0BA71D6C26098F4E00A36914 /* AllScanVC.xib */,
 				0B844D67260CB7CC00B4C5DF /* SubscribeVC.swift */,
 				0B844D68260CB7CC00B4C5DF /* SubscribeVC.xib */,
 			);

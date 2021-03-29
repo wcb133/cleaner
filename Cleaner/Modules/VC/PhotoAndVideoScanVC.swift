@@ -287,7 +287,20 @@ class PhotoAndVideoScanVC: BaseVC {
         }
         if isSuccess {
             let videoM = PhotoAndVideoManager.shared
-            let nums:[Int] = [videoM.sameVideoArray.count,videoM.similarVideos.count,videoM.badVideoArray.count,videoM.bigVideoArray.count]
+            
+            var similarCount:Int = 0
+            for items in PhotoAndVideoManager.shared.similarVideos {
+                similarCount = similarCount + items.count
+                
+            }
+            
+            var sameCount:Int = 0
+            for items in PhotoAndVideoManager.shared.sameVideoArray {
+                sameCount = sameCount + items.count
+                
+            }
+            
+            let nums:[Int] = [sameCount,similarCount,videoM.badVideoArray.count,videoM.bigVideoArray.count]
             let spaces:[Float] = [videoM.sameVideoSpace,videoM.similarVideoSpace,videoM.badVideoSpace,videoM.bigVideoSpace]
             
             for (idx,item) in self.items.enumerated() {
@@ -313,13 +326,6 @@ class PhotoAndVideoScanVC: BaseVC {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    deinit {
-        PhotoAndVideoManager.shared.isStopScan = true
-        PhotoAndVideoManager.shared.resetData()
-        
-    }
-    
 }
 
 extension PhotoAndVideoScanVC:UITableViewDelegate,UITableViewDataSource {
