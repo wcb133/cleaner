@@ -58,7 +58,7 @@ class HomeVC: AppBaseVC {
                 }
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            let nav = BaseNav(rootViewController: vc)
+            let nav = AppBaseNav(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true, completion: nil)
             return
@@ -81,6 +81,9 @@ class HomeVC: AppBaseVC {
         refreshPieViewData()
         self.aboutBtnTopInsetCons.constant = iPhoneX ? 48 : 22
 //        self.view.backgroundColor = HEX("588DFC")
+        
+        //杂代码
+        let vc = MaintenanceVC()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BKCommentInputView" customModule="班客车生活" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="181"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfX-PY-AZJ">
+                    <rect key="frame" x="18" y="0.0" width="378" height="181"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6y-G9-X8t" customClass="QMUITextView">
+                            <rect key="frame" x="16" y="16" width="346" height="80"/>
+                            <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="qs5-ah-0mq"/>
+                            </constraints>
+                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请填写评论，不少于8个字"/>
+                            </userDefinedRuntimeAttributes>
+                        </textView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="添加图片按钮" translatesAutoresizingMaskIntoConstraints="NO" id="ett-Lk-XSl">
+                            <rect key="frame" x="16" y="105" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="lWd-NE-uR1"/>
+                                <constraint firstAttribute="height" constant="60" id="zQr-6s-ZZR"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="添加图片按钮" translatesAutoresizingMaskIntoConstraints="NO" id="MNT-FW-rPl">
+                            <rect key="frame" x="92" y="105" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="9iT-od-lMR"/>
+                                <constraint firstAttribute="width" constant="60" id="Qg7-jA-CDZ"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="添加图片按钮" translatesAutoresizingMaskIntoConstraints="NO" id="pEl-yz-fKB">
+                            <rect key="frame" x="168" y="105" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="X3b-L6-t5v"/>
+                                <constraint firstAttribute="height" constant="60" id="cU5-2e-7LG"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-4X-pbg">
+                            <rect key="frame" x="66" y="95" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="2pr-0K-89V"/>
+                                <constraint firstAttribute="height" constant="20" id="ExL-aM-gma"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="删除图片按钮"/>
+                            <connections>
+                                <action selector="deleteAction1:" destination="iN0-l3-epB" eventType="touchUpInside" id="Y8k-78-DGC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxm-Ph-TkD">
+                            <rect key="frame" x="142" y="95" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="QNJ-yZ-U9a"/>
+                                <constraint firstAttribute="width" constant="20" id="Rku-Fg-0wX"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="删除图片按钮"/>
+                            <connections>
+                                <action selector="deleteAction2:" destination="iN0-l3-epB" eventType="touchUpInside" id="M4F-cz-B5E"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dn-Ov-xqC">
+                            <rect key="frame" x="218" y="95" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="AvN-ez-W0k"/>
+                                <constraint firstAttribute="height" constant="20" id="Eqo-qF-4Vu"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="删除图片按钮"/>
+                            <connections>
+                                <action selector="deleteAction3:" destination="iN0-l3-epB" eventType="touchUpInside" id="570-cr-EAn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="3dn-Ov-xqC" firstAttribute="trailing" secondItem="pEl-yz-fKB" secondAttribute="trailing" constant="10" id="1Xm-mI-4jm"/>
+                        <constraint firstItem="Xxm-Ph-TkD" firstAttribute="trailing" secondItem="MNT-FW-rPl" secondAttribute="trailing" constant="10" id="4HY-ui-Qwo"/>
+                        <constraint firstItem="MNT-FW-rPl" firstAttribute="leading" secondItem="ett-Lk-XSl" secondAttribute="trailing" constant="16" id="7gs-Ua-pF0"/>
+                        <constraint firstAttribute="trailing" secondItem="Q6y-G9-X8t" secondAttribute="trailing" constant="16" id="BQz-Pd-Ffn"/>
+                        <constraint firstItem="Q6y-G9-X8t" firstAttribute="leading" secondItem="hfX-PY-AZJ" secondAttribute="leading" constant="16" id="GN7-33-oEe"/>
+                        <constraint firstItem="Jwu-4X-pbg" firstAttribute="top" secondItem="ett-Lk-XSl" secondAttribute="top" constant="-10" id="U49-Dy-cbz"/>
+                        <constraint firstAttribute="bottom" secondItem="ett-Lk-XSl" secondAttribute="bottom" constant="16" id="VUM-Hc-Gbw"/>
+                        <constraint firstItem="Xxm-Ph-TkD" firstAttribute="top" secondItem="MNT-FW-rPl" secondAttribute="top" constant="-10" id="bgc-i0-l4c"/>
+                        <constraint firstItem="Jwu-4X-pbg" firstAttribute="trailing" secondItem="ett-Lk-XSl" secondAttribute="trailing" constant="10" id="bw3-WY-V5K"/>
+                        <constraint firstItem="3dn-Ov-xqC" firstAttribute="top" secondItem="pEl-yz-fKB" secondAttribute="top" constant="-10" id="hC7-0W-lRw"/>
+                        <constraint firstItem="MNT-FW-rPl" firstAttribute="centerY" secondItem="ett-Lk-XSl" secondAttribute="centerY" id="jnW-zQ-4lK"/>
+                        <constraint firstItem="pEl-yz-fKB" firstAttribute="leading" secondItem="MNT-FW-rPl" secondAttribute="trailing" constant="16" id="kcX-OH-hpW"/>
+                        <constraint firstItem="ett-Lk-XSl" firstAttribute="leading" secondItem="hfX-PY-AZJ" secondAttribute="leading" constant="16" id="mii-vb-WM1"/>
+                        <constraint firstItem="Q6y-G9-X8t" firstAttribute="top" secondItem="hfX-PY-AZJ" secondAttribute="top" constant="16" id="pUb-yU-wap"/>
+                        <constraint firstItem="pEl-yz-fKB" firstAttribute="centerY" secondItem="MNT-FW-rPl" secondAttribute="centerY" id="ve7-2C-Uxi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hfX-PY-AZJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="bxk-a0-zr2"/>
+                <constraint firstAttribute="bottom" secondItem="hfX-PY-AZJ" secondAttribute="bottom" id="ePd-KU-Yd4"/>
+                <constraint firstAttribute="trailing" secondItem="hfX-PY-AZJ" secondAttribute="trailing" constant="18" id="o48-fe-RHG"/>
+                <constraint firstItem="hfX-PY-AZJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ymc-Z7-tuW"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="hfX-PY-AZJ" id="rch-tP-Kds"/>
+                <outlet property="deleteBtn1" destination="Jwu-4X-pbg" id="T6P-9t-Hyl"/>
+                <outlet property="deleteBtn2" destination="Xxm-Ph-TkD" id="rOm-PY-qZV"/>
+                <outlet property="deleteBtn3" destination="3dn-Ov-xqC" id="GWd-9Y-MnD"/>
+                <outlet property="img1" destination="ett-Lk-XSl" id="XxQ-bu-tgJ"/>
+                <outlet property="img2" destination="MNT-FW-rPl" id="MiX-Ke-6s7"/>
+                <outlet property="img3" destination="pEl-yz-fKB" id="pYZ-N8-OLJ"/>
+                <outlet property="textView" destination="Q6y-G9-X8t" id="vrH-cV-0kC"/>
+            </connections>
+            <point key="canvasLocation" x="-265" y="101"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="删除图片按钮" width="20" height="20"/>
+        <image name="添加图片按钮" width="60" height="60"/>
+    </resources>
+</document>

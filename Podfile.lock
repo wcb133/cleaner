@@ -1,7 +1,9 @@
 PODS:
   - Alamofire (4.9.1)
   - BaiduMobStatCodeless (5.3.2)
+  - HandyJSON (5.0.2)
   - iCarousel (1.8.3)
+  - MJRefresh (3.5.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -332,10 +334,13 @@ PODS:
     - UMAPM
     - UMDevice
   - UMDevice (1.1.0)
+  - WMPageController (2.5.2)
 
 DEPENDENCIES:
   - BaiduMobStatCodeless
+  - HandyJSON (~> 5.0.0)
   - iCarousel
+  - MJRefresh
   - Moya
   - "NSObject+Rx"
   - QMUIKit
@@ -344,12 +349,15 @@ DEPENDENCIES:
   - SnapKit
   - SnapKitExtend (~> 1.0.7)
   - UMCCommon
+  - WMPageController
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
     - BaiduMobStatCodeless
+    - HandyJSON
     - iCarousel
+    - MJRefresh
     - Moya
     - "NSObject+Rx"
     - QMUIKit
@@ -362,11 +370,14 @@ SPEC REPOS:
     - UMAPM
     - UMCCommon
     - UMDevice
+    - WMPageController
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BaiduMobStatCodeless: 46c511fd4a699b50c90e892356db10dfa00aba0a
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   QMUIKit: 1063a99f90aedd6e2dd65026ce0df46e6785e67b
@@ -379,7 +390,8 @@ SPEC CHECKSUMS:
   UMAPM: d0623e0b3ca8b1a1df855e0bddb91b5c002d097d
   UMCCommon: f7480d316381612f90cdde3a3c0f39a7e2c0a788
   UMDevice: 28d21a568c8e8322e5a03bbd53b138d0c098d3b3
+  WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: b6c9261d55c327cbaaba954e0dae7d3d35546b34
+PODFILE CHECKSUM: cb53e35796da832d171ee27849e4287e22cd0f16
 
 COCOAPODS: 1.10.1

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BKShowReadMeInfoView" customModule="班客车生活" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="324"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X96-xl-IGm">
+                    <rect key="frame" x="0.0" y="0.0" width="326" height="253.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开票须知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlJ-wH-I28">
+                            <rect key="frame" x="130" y="19.5" width="66" height="15.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15.5" id="Lul-wF-voF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tk4-ay-XWy" customClass="QMUILabel">
+                            <rect key="frame" x="18" y="53" width="290" height="143.5"/>
+                            <string key="text">开票方式会影响租赁金额到账的方式，选择“代开开票”，租赁金额会在规定时间自行到账。选择“本人开票”，需在您本人开票完成及平台确定收到票据原件后，租赁金额才会到账；本人开票时，为减轻您的工作量，个税统一平台预扣。
+具体开票流程请在“我的页面”中“开票管理”查看并处理。</string>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="tk4-ay-XWy" firstAttribute="leading" secondItem="X96-xl-IGm" secondAttribute="leading" constant="18" id="Nac-gD-tVR"/>
+                        <constraint firstAttribute="height" constant="253.5" id="Z3O-wl-WBS"/>
+                        <constraint firstAttribute="trailing" secondItem="tk4-ay-XWy" secondAttribute="trailing" constant="18" id="ZTI-hu-gJh"/>
+                        <constraint firstItem="BlJ-wH-I28" firstAttribute="top" secondItem="X96-xl-IGm" secondAttribute="top" constant="19.5" id="bC1-xc-iVm"/>
+                        <constraint firstItem="tk4-ay-XWy" firstAttribute="top" secondItem="BlJ-wH-I28" secondAttribute="bottom" constant="18" id="gXC-kB-afM"/>
+                        <constraint firstItem="BlJ-wH-I28" firstAttribute="centerX" secondItem="X96-xl-IGm" secondAttribute="centerX" id="vah-EL-w7l"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uj-9q-GU6">
+                    <rect key="frame" x="145.5" y="283.5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="jvK-d4-XdO"/>
+                        <constraint firstAttribute="height" constant="35" id="k49-6M-Ba9"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="关闭按钮"/>
+                    <connections>
+                        <action selector="closeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="IP9-Tw-fLf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="X96-xl-IGm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JTB-mx-evp"/>
+                <constraint firstItem="7uj-9q-GU6" firstAttribute="top" secondItem="X96-xl-IGm" secondAttribute="bottom" constant="30" id="KzX-mq-08j"/>
+                <constraint firstItem="7uj-9q-GU6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qq6-Q4-3HG"/>
+                <constraint firstAttribute="trailing" secondItem="X96-xl-IGm" secondAttribute="trailing" id="gKE-s4-fQr"/>
+                <constraint firstItem="X96-xl-IGm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="h41-Fi-Rb4"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="X96-xl-IGm" id="gh9-tf-HGk"/>
+                <outlet property="contentLabel" destination="tk4-ay-XWy" id="GFl-6x-xSS"/>
+            </connections>
+            <point key="canvasLocation" x="76.811594202898561" y="135.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="关闭按钮" width="35" height="35"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MaintenanceVC" customModule="班客车生活" customModuleProvider="target">
+            <connections>
+                <outlet property="carBranchLab" destination="Svj-p2-ltK" id="9bZ-3g-OsI"/>
+                <outlet property="carLogo" destination="Zt7-6o-cpg" id="JU1-p0-6u0"/>
+                <outlet property="carStyleLab" destination="GmV-6h-h2p" id="fol-Nj-l9W"/>
+                <outlet property="selectCarBtn" destination="uZJ-Ka-DCL" id="cY2-5v-npN"/>
+                <outlet property="selectCarContainerView" destination="eNB-CB-vtk" id="JYi-YE-Buv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="677"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maintenance_banner" translatesAutoresizingMaskIntoConstraints="NO" id="S98-fk-FZ1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="S98-fk-FZ1" secondAttribute="height" multiplier="138:53" id="ZG1-2f-37G"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-CB-vtk">
+                    <rect key="frame" x="0.0" y="164" width="414" height="75"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mantenacen_car_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-6o-cpg">
+                            <rect key="frame" x="18" y="10" width="55" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Zt7-6o-cpg" secondAttribute="height" multiplier="1:1" id="wsX-QD-L4t"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加车辆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svj-p2-ltK">
+                            <rect key="frame" x="86" y="19" width="57.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生成专属保养数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmV-6h-h2p">
+                            <rect key="frame" x="86" y="41" width="114.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZJ-Ka-DCL">
+                            <rect key="frame" x="321" y="22" width="78" height="31"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                            <state key="normal" title="选择车辆" backgroundImage="圆角矩形 _icon3"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Zt7-6o-cpg" firstAttribute="leading" secondItem="eNB-CB-vtk" secondAttribute="leading" constant="18" id="CJG-Cy-wvx"/>
+                        <constraint firstItem="Zt7-6o-cpg" firstAttribute="top" secondItem="eNB-CB-vtk" secondAttribute="top" constant="10" id="EHU-Nk-cwP"/>
+                        <constraint firstItem="GmV-6h-h2p" firstAttribute="leading" secondItem="Svj-p2-ltK" secondAttribute="leading" id="HoT-dE-sY8"/>
+                        <constraint firstAttribute="height" constant="75" id="LXd-gY-8mL"/>
+                        <constraint firstItem="Svj-p2-ltK" firstAttribute="centerY" secondItem="eNB-CB-vtk" secondAttribute="centerY" constant="-10" id="MO3-6p-tA1"/>
+                        <constraint firstItem="GmV-6h-h2p" firstAttribute="top" secondItem="Svj-p2-ltK" secondAttribute="bottom" constant="5" id="O8e-mD-kM0"/>
+                        <constraint firstItem="Svj-p2-ltK" firstAttribute="leading" secondItem="Zt7-6o-cpg" secondAttribute="trailing" constant="13" id="l0g-Ro-5h6"/>
+                        <constraint firstAttribute="trailing" secondItem="uZJ-Ka-DCL" secondAttribute="trailing" constant="15" id="rT3-IH-8w1"/>
+                        <constraint firstAttribute="bottom" secondItem="Zt7-6o-cpg" secondAttribute="bottom" constant="10" id="xRm-2Y-yfg"/>
+                        <constraint firstItem="uZJ-Ka-DCL" firstAttribute="centerY" secondItem="eNB-CB-vtk" secondAttribute="centerY" id="zLt-Lw-QsZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S98-fk-FZ1" secondAttribute="trailing" id="B9y-fJ-zrX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNB-CB-vtk" secondAttribute="trailing" id="PQC-07-qVh"/>
+                <constraint firstItem="eNB-CB-vtk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WbE-Ca-Kdz"/>
+                <constraint firstItem="S98-fk-FZ1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ne1-cz-KpR"/>
+                <constraint firstItem="eNB-CB-vtk" firstAttribute="top" secondItem="S98-fk-FZ1" secondAttribute="bottom" constant="5" id="pz7-6v-N4g"/>
+                <constraint firstItem="S98-fk-FZ1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="s0U-r2-lao"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-230.43478260869566" y="-32.477678571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="maintenance_banner" width="375" height="159"/>
+        <image name="mantenacen_car_logo" width="54" height="54"/>
+        <image name="圆角矩形 _icon3" width="78" height="31"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -116,7 +116,7 @@ class AddressBookVC: AppBaseVC {
         
         if DateTool.shared.isExpired() {
             let vc = PurchaseServiceVC()
-            let nav = BaseNav(rootViewController: vc)
+            let nav = AppBaseNav(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true, completion: nil)
             return

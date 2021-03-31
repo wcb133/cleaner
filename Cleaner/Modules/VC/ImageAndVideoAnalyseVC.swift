@@ -147,7 +147,7 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
         self.bottomTipsLab.textColor = .white
         
         
-        self.loadMemeryData()
+        self.reloadMemeryDataAction()
         
         
         //从0开始
@@ -191,7 +191,7 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
         }
     }
     
-    func loadMemeryData() {
+    func reloadMemeryDataAction() {
         //内存使用
         let usedSpace = MemoryAnalyseTool.getUsedSpace()
         let totalSpace = MemoryAnalyseTool.getTotalSpace()
@@ -199,7 +199,7 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
         
         let memoryString = String(format: "剩余%.2fGB",freeSpace)
         let highLightString = String(format: "%.2f",freeSpace)
-        self.memoryLab.attributedText = NSMutableAttributedString.highLightText(memoryString, highLight: highLightString, font: .systemFont(ofSize: 15), highLightFont: MediumFont(size: 38)!, color: .white, highLightColor: .white)
+        self.memoryLab.attributedText = NSMutableAttributedString.highText(memoryString, highLight: highLightString, font: .systemFont(ofSize: 15), highLightFont: MediumFont(size: 38)!, color: .white, highLightColor: .white)
         
         self.memoryPercentLab.text = String(format: "已使用%.2f%%", usedSpace / totalSpace * 100)
     }
@@ -358,7 +358,7 @@ extension ImageAndVideoAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             let images:[[ImageModel]] = [ImageAndVideoAnalyseTool.shared.fuzzyPhotoArray,allSimilarArray,ImageAndVideoAnalyseTool.shared.screenshotsArray,ImageAndVideoAnalyseTool.shared.thinPhotoArray]
             let vc = ImageAndVideoDealVC()
             vc.refreshMemeryBlock = {
-                self.loadMemeryData()
+                self.reloadMemeryDataAction()
                 self.refreshMemeryBlock()
                 self.refreshPhotoUI(isSuccess: true, animate: false)
             }
@@ -380,7 +380,7 @@ extension ImageAndVideoAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             vc.titleString = self.videoTitles[indexPath.row]
             vc.videoItems = videoItems[indexPath.row]
             vc.refreshMemeryBlock = {
-                self.loadMemeryData()
+                self.reloadMemeryDataAction()
                 self.refreshMemeryBlock()
                 self.refreshVideoUI(isSuccess: true, animate: false)
             }

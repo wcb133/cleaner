@@ -83,7 +83,7 @@ class CalendarAndReminderVC: AppBaseVC {
         
         if DateTool.shared.isExpired() {
             let vc = PurchaseServiceVC()
-            let nav = BaseNav(rootViewController: vc)
+            let nav = AppBaseNav(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true, completion: nil)
             return
@@ -92,11 +92,11 @@ class CalendarAndReminderVC: AppBaseVC {
         
         let message = self.isCalendar ?"确定删除所选过期节日?":"确定删除所选过期事项?"
         ImageAndVideoAnalyseTool.shared.tipWith(message: message) {
-            self.deleteData()
+            self.deleteSelectDataAction()
         }
     }
     
-    func deleteData() {
+    func deleteSelectDataAction() {
         var deleteEvents:[CalendarEventModel] = []
         for itemData in itemDatas {
             if itemData.isSelected {

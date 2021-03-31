@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let vc = HomeVC()
-        let navVc = BaseNav(rootViewController: vc)
+        let navVc = AppBaseNav(rootViewController: vc)
         window?.rootViewController = navVc
         
         //qmui全局设置

@@ -8,7 +8,7 @@
 
 import QMUIKit
 
-class BaseNav: QMUINavigationController {
+class AppBaseNav: QMUINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -92,7 +92,7 @@ class ImageAndVideoDealVC: AppBaseVC {
         
         if DateTool.shared.isExpired() {
             let vc = PurchaseServiceVC()
-            let nav = BaseNav(rootViewController: vc)
+            let nav = AppBaseNav(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true, completion: nil)
             return
@@ -102,7 +102,7 @@ class ImageAndVideoDealVC: AppBaseVC {
         let message = self.isPhoto ? "删除后将无法恢复，确定删除选中的照片？":"删除后将无法恢复，确定删除选中的视频？"
         ImageAndVideoAnalyseTool.shared.tipWith(message: message) {[weak self] in
             guard let self = self else { return }
-            self.isPhoto ? self.deletePhotos():self.deleteVideos()
+            self.isPhoto ? self.deletePhotos():self.deleteSelectVideos()
         }
     }
     
@@ -171,7 +171,7 @@ class ImageAndVideoDealVC: AppBaseVC {
             }
         }
     }
-    func deleteVideos()  {
+    func deleteSelectVideos()  {
         var selectItems:[VideoModel] = []
         var deleteAssets:[PHAsset] = []
         for item in videoItems {

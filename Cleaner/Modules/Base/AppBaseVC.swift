@@ -34,7 +34,7 @@ extension AppBaseVC {
     
     /// 自定义导航栏返回item或隐藏导航栏之后，侧滑功能是否打开
     override func forceEnableInteractivePopGestureRecognizer() -> Bool {
-        if BaseNav.currentNavigationController()?.viewControllers.count ?? 0 > 1 {
+        if AppBaseNav.currentNavigationController()?.viewControllers.count ?? 0 > 1 {
             return true
         }
         return false

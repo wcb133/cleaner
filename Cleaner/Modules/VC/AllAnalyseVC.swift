@@ -171,11 +171,11 @@ class AllAnalyseVC: AppBaseVC {
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
         //开始分析
         DispatchQueue.main.async {
-            self.startAnalysis()
+            self.startAllScanAction()
         }
     }
     
-    func startAnalysis()  {
+    func startAllScanAction()  {
         //联系人分析
         ContactAnalyseTool.shared.getRepeatContact {[weak self] (contactSectonModels, total) in
             guard let self = self else { return }

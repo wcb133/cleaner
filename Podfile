@@ -28,5 +28,11 @@ target 'Cleaner' do
   pod 'BaiduMobStatCodeless' #无埋点
 #  pod 'JPush'
   pod 'UMCCommon'
+  
+  
+  ##useless
+  pod 'MJRefresh'
+  pod 'WMPageController'
+  pod 'HandyJSON','~> 5.0.0'
 
 end

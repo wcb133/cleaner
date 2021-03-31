@@ -50,7 +50,7 @@ extension NSMutableAttributedString {
     ///   - highLightFont:高亮文字字体大小
     ///   - color: 普通文字颜色
     ///   - highLightColor: 高亮文字颜色
-    static func highLightText(_ normal: String, highLight: String, font: UIFont,highLightFont:UIFont, color: UIColor, highLightColor: UIColor) -> NSMutableAttributedString {
+    static func highText(_ normal: String, highLight: String, font: UIFont,highLightFont:UIFont, color: UIColor, highLightColor: UIColor) -> NSMutableAttributedString {
         //定义富文本即有格式的字符串
         let attributedStrM : NSMutableAttributedString = NSMutableAttributedString()
         let strings = normal.components(separatedBy: highLight)
