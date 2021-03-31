@@ -3,12 +3,12 @@
 //
 
 
-#import "ImageCompare.h"
+#import "ImageCompareTool.h"
 
-#import "CircularProgressView.h"
+#import "CircularView.h"
 #import "UICountingLabel.h"
 
-#import "TXUploadingProgressView.h"
+#import "TXScanProgressView.h"
 #import <BaiduMobStatCodeless/BaiduMobStat.h>
 
 //导入UMCommon的OC的头文件

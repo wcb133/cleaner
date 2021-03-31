@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
-        let vc = mainVC()
+        let vc = HomeVC()
         let navVc = BaseNav(rootViewController: vc)
         window?.rootViewController = navVc
         
@@ -42,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config?.automaticCustomNavigationBarTransitionStyle = false
         
         //订阅监听
-        PaymentTool.shared.addObserver()
-        PaymentTool.shared.requestProducts(productArray: subscribeItems)
+        PaymentManager.shared.addObserver()
+        PaymentManager.shared.requestProducts(productArray: subscribeItems)
         
         return true
     }

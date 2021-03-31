@@ -18,23 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="aLB-xO-dEe">
-                                <rect key="frame" x="37" y="216" width="324" height="324"/>
+                                <rect key="frame" x="37" y="276" width="324" height="324"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aLB-xO-dEe" secondAttribute="height" multiplier="1:1" id="YAo-3P-fWd"/>
                                 </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="RVF-Om-XLS">
-                                <rect key="frame" x="136" y="813" width="142" height="34"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aLB-xO-dEe" secondAttribute="trailing" constant="53" id="0Bc-CN-QW8"/>
-                            <constraint firstItem="RVF-Om-XLS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-15" id="aC8-bk-uOC"/>
-                            <constraint firstItem="aLB-xO-dEe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-70" id="cwC-0k-raD"/>
+                            <constraint firstItem="aLB-xO-dEe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-10" id="cwC-0k-raD"/>
                             <constraint firstItem="aLB-xO-dEe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="z5e-Hb-5ch"/>
-                            <constraint firstItem="RVF-Om-XLS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zzk-1g-eJw"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,7 +40,6 @@
     </scenes>
     <resources>
         <image name="background" width="326" height="326"/>
-        <image name="icon" width="142" height="34"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
