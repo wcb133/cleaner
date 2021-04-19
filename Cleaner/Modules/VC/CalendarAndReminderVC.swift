@@ -56,7 +56,7 @@ class CalendarAndReminderVC: AppBaseVC {
         self.bottomInsetCons.constant = 20 + cIndicatorHeight
         DispatchQueue.main.async {
             if self.isCalendar {
-                CalendarAnalyseTool.shared.getOutOfDateCalendarEvent { calendarEventModels in
+                CalendarAnalyseTool.shared.getAllOutOfDateCalendarEvents { calendarEventModels in
                     QMUITips.hideAllTips()
                     self.itemDatas = calendarEventModels
                     if calendarEventModels.isEmpty {
@@ -66,7 +66,7 @@ class CalendarAndReminderVC: AppBaseVC {
                     self.tableView.reloadData()
                 }
             }else{
-                CalendarAnalyseTool.shared.getOutOfDateReminder { calendarEventModels in
+                CalendarAnalyseTool.shared.getAllOutOfDateReminders { calendarEventModels in
                     QMUITips.hideAllTips()
                     self.itemDatas = calendarEventModels
                     if calendarEventModels.isEmpty {
@@ -97,13 +97,13 @@ class CalendarAndReminderVC: AppBaseVC {
     }
     
     func deleteSelectDataAction() {
-        var deleteEvents:[CalendarEventModel] = []
+        var deleteSelectEvents:[CalendarEventModel] = []
         for itemData in itemDatas {
             if itemData.isSelected {
-                deleteEvents.append(itemData)
+                deleteSelectEvents.append(itemData)
             }
         }
-        if deleteEvents.isEmpty {
+        if deleteSelectEvents.isEmpty {
             QMUITips.show(withText: isCalendar ? "请勾选要删除的节日":"请勾选要删除的事项")
             return
         }
@@ -111,7 +111,7 @@ class CalendarAndReminderVC: AppBaseVC {
         QMUITips.showLoading(in: self.navigationController!.view)
         
         if isCalendar {
-            CalendarAnalyseTool.shared.deleteEvents(eventMoels: deleteEvents) { isSuccess in
+            CalendarAnalyseTool.shared.deleteSelectEvents(eventMoels: deleteSelectEvents) { isSuccess in
                 QMUITips.hideAllTips()
                 if isSuccess {
                     
@@ -127,7 +127,7 @@ class CalendarAndReminderVC: AppBaseVC {
                 }
             }
         }else{
-            CalendarAnalyseTool.shared.deleteReminders(reminderModels: deleteEvents) {isSuccess  in
+            CalendarAnalyseTool.shared.deleteSelectReminders(reminderModels: deleteSelectEvents) {isSuccess  in
                 QMUITips.hideAllTips()
                 if isSuccess {
                     self.itemDatas.removeAll { eventModel -> Bool in

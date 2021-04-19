@@ -177,7 +177,7 @@ class AllAnalyseVC: AppBaseVC {
     
     func startAllScanAction()  {
         //联系人分析
-        ContactAnalyseTool.shared.getRepeatContact {[weak self] (contactSectonModels, total) in
+        ContactAnalyseTool.shared.getAllRepeatContacts {[weak self] (contactSectonModels, total) in
             guard let self = self else { return }
             let item = self.items[1]
             item.subTitle = "\(contactSectonModels.count)个重复联系人"
@@ -186,7 +186,7 @@ class AllAnalyseVC: AppBaseVC {
         }
         
         //过期提醒
-        CalendarAnalyseTool.shared.getOutOfDateReminder {[weak self] reminders in
+        CalendarAnalyseTool.shared.getAllOutOfDateReminders {[weak self] reminders in
             guard let self = self else { return }
             let item = self.items[2]
             item.subTitle = "\(reminders.count)个提醒"
@@ -252,11 +252,11 @@ class AllAnalyseVC: AppBaseVC {
                     }
                     if !selectContactModels.isEmpty {
                         self.contactSectonModels = []
-                        ContactAnalyseTool.shared.deleteContacts(contacts: selectContactModels)
+                        ContactAnalyseTool.shared.deleteSelectContacts(contacts: selectContactModels)
                     }
                 }else if idx == 2{
                     if !self.reminders.isEmpty {
-                        CalendarAnalyseTool.shared.deleteReminders(reminderModels: self.reminders) {isSuccess  in
+                        CalendarAnalyseTool.shared.deleteSelectReminders(reminderModels: self.reminders) {isSuccess  in
                             if isSuccess {
                                 self.reminders = []
                             }
@@ -353,11 +353,11 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             vc.isComplete = true
             self.navigationController?.pushViewController(vc, animated: true)
         case 1://通讯录
-            let vc = AddressBookVC()
+            let vc = AddressBookManagerVC()
             vc.refreshUIBlock = {
                 //联系人分析
                 DispatchQueue.global().async {
-                    ContactAnalyseTool.shared.getRepeatContact {[weak self] (contactSectonModels, total) in
+                    ContactAnalyseTool.shared.getAllRepeatContacts {[weak self] (contactSectonModels, total) in
                         guard let self = self else { return }
                         DispatchQueue.main.async {
                             let item = self.items[1]
@@ -371,9 +371,10 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case 2://日历
             let vc = CalendarManagerVC()
+            vc.setup()
             vc.refreshUIBlock = {
                 DispatchQueue.global().async {
-                    CalendarAnalyseTool.shared.getOutOfDateReminder {[weak self] reminders in
+                    CalendarAnalyseTool.shared.getAllOutOfDateReminders {[weak self] reminders in
                         guard let self = self else { return }
                         DispatchQueue.main.async {
                             let item = self.items[2]

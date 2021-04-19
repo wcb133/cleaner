@@ -75,7 +75,7 @@ class AddressBookVC: AppBaseVC {
         deleteBtn.layer.cornerRadius = 24
         deleteBtn.layer.masksToBounds = true
         DispatchQueue.main.async {
-            ContactAnalyseTool.shared.getRepeatContact { (contactSectonModels, total) in
+            ContactAnalyseTool.shared.getAllRepeatContacts { (contactSectonModels, total) in
                 self.itemDatas = contactSectonModels
                 self.contactNumLab.text = "\(total)"
                 self.bottomLab.text = "发现\(contactSectonModels.count)个重复联系人"
@@ -139,7 +139,7 @@ class AddressBookVC: AppBaseVC {
             }
             
             QMUITips.showLoading(in: self.navigationController!.view)
-            ContactAnalyseTool.shared.deleteContacts(contacts: selectContactModels)
+            ContactAnalyseTool.shared.deleteSelectContacts(contacts: selectContactModels)
             //移除数据源
             for itemData in self.itemDatas {
                 

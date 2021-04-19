@@ -9,6 +9,7 @@ import UIKit
 import QMUIKit
 
 
+
 let weekSub = "w01"
 let monthSub = "w02"
 let quarterSub = "w03"
@@ -23,11 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //百度统计
-        BaiduMobStat.default().start(withAppId: "111912a685")
+        #if true
+            BaiduMobStat.default().start(withAppId: "111912a685")
+        #else
+            BaiduMobStat.default().start(withAppId: "9ff5e41c7e")
+        
+        #endif
         
         //设置友盟appkey
         UMConfigure.initWithAppkey(UMentKeyStr, channel: "App Store")
-        
+        //leancloud
+        AVOSCloud.setApplicationId("BCyffpvafyN9QkcxC6TCaVaR-gzGzoHsz", clientKey: "gxG1YQc15y60r8hDWulAh5GR", serverURLString: "https://bcyffpva.lc-cn-n1-shared.com")
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white

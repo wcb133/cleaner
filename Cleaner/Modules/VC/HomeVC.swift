@@ -136,10 +136,11 @@ class HomeVC: AppBaseVC {
             self.navigationController?.pushViewController(vc, animated: true)
             break
         case 1:
-            let vc = AddressBookVC()
+            let vc = AddressBookManagerVC()
             self.navigationController?.pushViewController(vc, animated: true)
         case 2:
             let vc = CalendarManagerVC()
+            vc.setup()
             self.navigationController?.pushViewController(vc, animated: true)
         case 3:
             let vc = ImageAndVideoAnalyseVC()

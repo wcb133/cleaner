@@ -35,14 +35,14 @@ class CalendarAnalyseTool: NSObject {
     }()
     
     //获取过期日历
-    func getOutOfDateCalendarEvent(complete:@escaping ([CalendarEventModel])->Void) {
+    func getAllOutOfDateCalendarEvents(complete:@escaping ([CalendarEventModel])->Void) {
         //授权状态
         let status = EKEventStore.authorizationStatus(for: .event)
         if status == .notDetermined {
             self.eventStore.requestAccess(to: .event) { (granted, error) in
                 DispatchQueue.main.async {
                     if granted{
-                        self.loadCalendarEvent(complete: complete)
+                        self.loadAllCalendarEvents(complete: complete)
                     }else{
                         DispatchQueue.main.async {
                             self.noticeAlert()
@@ -51,13 +51,13 @@ class CalendarAnalyseTool: NSObject {
                 }
             }
         }else if status == .authorized {//已授权
-            self.loadCalendarEvent(complete: complete)
+            self.loadAllCalendarEvents(complete: complete)
         }else{//拒绝授权，弹框提示
             self.noticeAlert()
         }
     }
     
-    private func loadCalendarEvent(complete:@escaping ([CalendarEventModel])->Void) {
+    private func loadAllCalendarEvents(complete:@escaping ([CalendarEventModel])->Void) {
         let tempCalendars = self.eventStore.calendars(for: .event)
         var calendars:[EKCalendar] = []
         for tempCalendar in tempCalendars {
@@ -80,7 +80,7 @@ class CalendarAnalyseTool: NSObject {
     }
     
     //删除日历事件
-    func deleteEvents(eventMoels:[CalendarEventModel],compelte:(Bool)->Void) {
+    func deleteSelectEvents(eventMoels:[CalendarEventModel],compelte:(Bool)->Void) {
         for eventMoel in eventMoels {
            try? self.eventStore.remove(eventMoel.event, span: .thisEvent, commit: false)
         }
@@ -114,14 +114,14 @@ class CalendarAnalyseTool: NSObject {
 
 extension CalendarAnalyseTool {
     //获取过期提醒
-    func getOutOfDateReminder(complete:@escaping ([CalendarEventModel])->Void) {
+    func getAllOutOfDateReminders(complete:@escaping ([CalendarEventModel])->Void) {
         //授权状态
         let status = EKEventStore.authorizationStatus(for: .reminder)
         if status == .notDetermined {
             self.eventStore.requestAccess(to: .reminder) { (granted, error) in
                 DispatchQueue.main.async {
                     if granted{
-                        self.loadReminder(complete: complete)
+                        self.loadAllReminders(complete: complete)
                     }else{
                         
                             self.noticeAlert()
@@ -129,13 +129,13 @@ extension CalendarAnalyseTool {
                 }
             }
         }else if status == .authorized {//已授权
-            self.loadReminder(complete: complete)
+            self.loadAllReminders(complete: complete)
         }else{//拒绝授权，弹框提示
             self.noticeAlert()
         }
     }
     
-    private func loadReminder(complete:@escaping([CalendarEventModel])->Void)  {
+    private func loadAllReminders(complete:@escaping([CalendarEventModel])->Void)  {
         let eventReminders = self.eventStore.calendars(for: .reminder)
         var array:[EKCalendar] = []
         for reminder in eventReminders {
@@ -185,7 +185,7 @@ extension CalendarAnalyseTool {
     
     
     //删除提醒事项
-    func deleteReminders(reminderModels:[CalendarEventModel],compelte:(Bool)->Void) {
+    func deleteSelectReminders(reminderModels:[CalendarEventModel],compelte:(Bool)->Void) {
         for reminderModel in reminderModels {
             try? self.eventStore.remove(reminderModel.reminder, commit: false)
         }

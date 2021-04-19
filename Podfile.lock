@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - AVOSCloud (12.3.3)
   - BaiduMobStatCodeless (5.3.2)
   - HandyJSON (5.0.2)
   - iCarousel (1.8.3)
@@ -337,6 +338,7 @@ PODS:
   - WMPageController (2.5.2)
 
 DEPENDENCIES:
+  - AVOSCloud
   - BaiduMobStatCodeless
   - HandyJSON (~> 5.0.0)
   - iCarousel
@@ -354,6 +356,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
+    - AVOSCloud
     - BaiduMobStatCodeless
     - HandyJSON
     - iCarousel
@@ -374,6 +377,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AVOSCloud: 70bbf2d1ffcf587cb69e1eb3fff8f4e29046da44
   BaiduMobStatCodeless: 46c511fd4a699b50c90e892356db10dfa00aba0a
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
@@ -392,6 +396,6 @@ SPEC CHECKSUMS:
   UMDevice: 28d21a568c8e8322e5a03bbd53b138d0c098d3b3
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: cb53e35796da832d171ee27849e4287e22cd0f16
+PODFILE CHECKSUM: 93c76f3092c2707b9057ce190812c176f405ddc9
 
 COCOAPODS: 1.10.1

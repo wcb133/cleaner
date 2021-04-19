@@ -183,7 +183,7 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
         }else{
             DispatchQueue.main.async {
                 if self.isScanPhoto {
-                    self.loadPhoto()
+                    self.loadAndAnalysePhoto()
                 }else{
                     self.loadVideo()
                 }
@@ -205,9 +205,9 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
     }
     
     
-    func loadPhoto() {
+    func loadAndAnalysePhoto() {
         let manager = ImageAndVideoAnalyseTool.shared
-        manager.loadPhoto {[weak self] (currentIndex, total) in
+        manager.loadAndAnalysePhoto {[weak self] (currentIndex, total) in
             guard let self = self else { return }
             let percent = Float(currentIndex) / Float(total)
             self.percentLab.text = String(format: "%.0f%%", percent * 100)

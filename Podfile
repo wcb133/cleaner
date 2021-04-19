@@ -28,6 +28,8 @@ target 'Cleaner' do
   pod 'BaiduMobStatCodeless' #无埋点
 #  pod 'JPush'
   pod 'UMCCommon'
+  pod 'AVOSCloud'
+  pod 'WMPageController'
   
   
   ##useless

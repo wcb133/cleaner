@@ -1,5 +1,5 @@
 //
-//  PurchaseServiceVC.swift
+//  SubscribeVC.swift
 //  Cleaner
 //
 //  Created by fst on 2021/3/25.
@@ -9,6 +9,7 @@ import UIKit
 import QMUIKit
 import RxSwift
 import RxCocoa
+
 
 class PurchaseServiceVC: AppBaseVC {
    
@@ -27,13 +28,21 @@ class PurchaseServiceVC: AppBaseVC {
     
     @IBOutlet weak var topViewHeightCons: NSLayoutConstraint!
     
-    @IBOutlet weak var itemTopInsetCons: NSLayoutConstraint!
-    
     @IBOutlet weak var useProtocolBtn: UIButton!
     
     @IBOutlet weak var privateProtocolBtn: UIButton!
     
     @IBOutlet weak var restoreBtn: UIButton!
+    
+    
+    //无试用期的label
+    
+    @IBOutlet weak var weekLab: UILabel!
+    
+    @IBOutlet weak var monthLab: UILabel!
+    
+    @IBOutlet weak var quarterLab: UILabel!
+    
     
     //成功订阅block
     var successBlock:()->Void = { }
@@ -59,13 +68,17 @@ class PurchaseServiceVC: AppBaseVC {
         subscribeBtn.layer.cornerRadius = 30
         subscribeBtn.layer.masksToBounds = true
         
-        self.topViewHeightCons.constant = iPhoneX ? 340 :280
-        self.itemTopInsetCons.constant = iPhoneX ? 70 :40
+        self.topViewHeightCons.constant = iPhoneX ? 365 :320
         
         if PaymentManager.shared.productDict.isEmpty {
             PaymentManager.shared.requestProducts(productArray: subscribeItems)
         }
         
+        //需要展示试用期
+        self.weekLab.isHidden = AppManager.shared.isShowTry
+        self.monthLab.isHidden = AppManager.shared.isShowTry
+        self.quarterLab.isHidden = AppManager.shared.isShowTry
+
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.qmui_item(with: UIImage(named: "close"), target: self, action: #selector(closeBtnACtion))
 
         let str = NSMutableAttributedString(string: "使用条款")
@@ -86,7 +99,7 @@ class PurchaseServiceVC: AppBaseVC {
 //        NotificationCenter.default.rx.notification(UIResponder.keyboardDidHideNotification).subscribe(onNext: { noti in
 //               QMUITips.hideAllTips()
 //        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
-        
+  
     }
     
     override func viewDidLayoutSubviews() {

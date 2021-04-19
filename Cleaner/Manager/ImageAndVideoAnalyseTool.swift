@@ -118,17 +118,17 @@ class ImageAndVideoAnalyseTool: NSObject {
     }
     
     //分析图片
-    func loadPhoto(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
-        self.loadAsset(process: process, completionHandler: completionHandler,analyseType:.photo)
+    func loadAndAnalysePhoto(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
+        self.loadTargetAssets(process: process, completionHandler: completionHandler,analyseType:.photo)
     }
     
     //分析全部资源
     func loadAllAsset(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
-        self.loadAsset(process: process, completionHandler: completionHandler,analyseType:.all)
+        self.loadTargetAssets(process: process, completionHandler: completionHandler,analyseType:.all)
     }
 
     //加载相册资源
-    private func loadAsset(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void,analyseType:AnalyseType) {
+    private func loadTargetAssets(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void,analyseType:AnalyseType) {
         resetData()
         self.processHandler = process
         self.completionHandler = completionHandler
@@ -338,7 +338,7 @@ class ImageAndVideoAnalyseTool: NSObject {
 extension ImageAndVideoAnalyseTool {
     //加载视频
     func loadVideo(process:@escaping (Int,Int)->Void,completionHandler:@escaping (Bool,Error?)->Void) {
-        self.loadAsset(process: process, completionHandler: completionHandler,analyseType: .video)
+        self.loadTargetAssets(process: process, completionHandler: completionHandler,analyseType: .video)
     }
     
     func dealVideo(index:Int,exactImage:UIImage,videoAsset:AVAsset,analyseType:AnalyseType) {

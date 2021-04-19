@@ -33,27 +33,27 @@ class ContactAnalyseTool: NSObject {
     let contactStore = CNContactStore()
     
     //获取重复联系人
-    func getRepeatContact(complete:@escaping ([ContactSectonModel],Int)->Void) {
+    func getAllRepeatContacts(complete:@escaping ([ContactSectonModel],Int)->Void) {
         let status = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         if status == .notDetermined {
             let contactStore = CNContactStore()
             contactStore.requestAccess(for: CNEntityType.contacts) { (granted, error) in
                 DispatchQueue.main.async {
                     if granted {
-                        self.loadContact(complete: complete)
+                        self.loadAllContacts(complete: complete)
                     }else{
                             self.noticeAlert()
                         }
                 }
             }
         }else if status == .authorized {//已授权
-            self.loadContact(complete: complete)
+            self.loadAllContacts(complete: complete)
         }else{//拒绝授权，弹框提示
             self.noticeAlert()
         }
     }
     
-    private func loadContact(complete:@escaping ([ContactSectonModel],Int)->Void) {
+    private func loadAllContacts(complete:@escaping ([ContactSectonModel],Int)->Void) {
         
         var contactCount = 0
         
@@ -114,7 +114,7 @@ class ContactAnalyseTool: NSObject {
     }
     
     //删除联系人
-    func deleteContacts(contacts:[ContactModel]) {
+    func deleteSelectContacts(contacts:[ContactModel]) {
         let re = CNSaveRequest()
         for contact in contacts {
             let contactM = contact.contact.mutableCopy() as! CNMutableContact

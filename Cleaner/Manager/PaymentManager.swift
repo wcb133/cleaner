@@ -1,5 +1,5 @@
 //
-//  PaymentTool.swift
+//  PaymentManager.swift
 //  Cleaner
 //
 //  Created by fst on 2021/3/24.

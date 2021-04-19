@@ -16,3 +16,5 @@
 #import <QMUIKit/QMUIKit.h>
 
 
+#import "AVOSCloud.h"
+
