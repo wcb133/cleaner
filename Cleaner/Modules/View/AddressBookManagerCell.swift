@@ -16,6 +16,7 @@ class AddressBookManagerCell: UITableViewCell {
     
     @IBOutlet weak var titleLab: UILabel!
     
+    @IBOutlet weak var numLab: UILabel!
     
     
     
@@ -23,6 +24,7 @@ class AddressBookManagerCell: UITableViewCell {
         didSet{
             self.imgView.image = UIImage(named: self.dataModel.imgName)
             self.titleLab.text = self.dataModel.titleString
+            self.numLab.text = "\(self.dataModel.num)"
         }
     }
 }

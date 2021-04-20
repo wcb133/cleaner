@@ -16,15 +16,32 @@ class AddressBookCell: UITableViewCell {
     
     @IBOutlet weak var telLab: UILabel!
     
+    @IBOutlet weak var mainLab: UILabel!
     
     @IBOutlet weak var selectStatuBtn: UIButton!
     
+    var isOnlyShowMainLab = false
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
     
     var dataModel = ContactModel(){
         didSet{
-            self.nameLab.text = dataModel.name
-            self.telLab.text = dataModel.tel
             self.selectStatuBtn.isSelected = dataModel.isSelected
+            if self.isOnlyShowMainLab {
+                self.nameLab.isHidden = true
+                self.telLab.isHidden = true
+                self.mainLab.isHidden = false
+                self.mainLab.text = self.dataModel.name.isEmpty ? dataModel.tel:dataModel.name
+            }else{
+                self.nameLab.isHidden = false
+                self.telLab.isHidden = false
+                self.mainLab.isHidden = true
+                self.nameLab.text = dataModel.name
+                self.telLab.text = dataModel.tel
+            }
         }
     }
     

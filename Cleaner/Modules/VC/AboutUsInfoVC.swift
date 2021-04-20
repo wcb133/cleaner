@@ -47,12 +47,22 @@ class AboutUsInfoVC: AppBaseVC {
     }()
     
     let items = ["隐私政策","用户协议","常见问题"]
-    let urls = ["https://shimo.im/docs/TcWH8jx8pyTyq8Rk","https://shimo.im/docs/TcWH8jx8pyTyq8Rk","https://shimo.im/docs/TvHTcgq3rDkk6hCC/"]
+    var paths:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleView?.title = "关于"
         self.tableView.backgroundColor = .white
+        
+        let pathOne = Bundle.main.path(forResource: "隐私政策", ofType: "html") ?? ""
+        let pathTwo =  pathOne
+        let pathThree = Bundle.main.path(forResource: "常见问题", ofType: "html") ?? ""
+        paths.append(pathOne)
+        paths.append(pathTwo)
+        paths.append(pathThree)
+        
+        
+        
     }
     
 }
@@ -76,7 +86,7 @@ extension AboutUsInfoVC:UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = AppWebVC()
         vc.titleStr = items[indexPath.row]
-        vc.url = urls[indexPath.row]
+        vc.path = paths[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

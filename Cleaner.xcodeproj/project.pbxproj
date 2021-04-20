@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0B70464F260B456900542A5D /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70464E260B456900542A5D /* PaymentManager.swift */; };
+		0B7119FB262E861C00749CFA /* ContactBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7119F9262E861C00749CFA /* ContactBookVC.swift */; };
+		0B7119FC262E861C00749CFA /* ContactBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7119FA262E861C00749CFA /* ContactBookVC.xib */; };
+		0B711A04262EB1BF00749CFA /* XLWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B711A00262EB1BF00749CFA /* XLWave.m */; };
+		0B711A05262EB1BF00749CFA /* XLWaveProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B711A03262EB1BF00749CFA /* XLWaveProgress.m */; };
+		0B711A0A262EB3CD00749CFA /* CRGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B711A08262EB3CD00749CFA /* CRGCDTimer.m */; };
+		0B711A17262EE3FF00749CFA /* 常见问题.html in Resources */ = {isa = PBXBuildFile; fileRef = 0B711A15262EE3FF00749CFA /* 常见问题.html */; };
+		0B711A18262EE3FF00749CFA /* 隐私政策.html in Resources */ = {isa = PBXBuildFile; fileRef = 0B711A16262EE3FF00749CFA /* 隐私政策.html */; };
 		0B724AAB2600BF1D00E3DAAC /* ContactAnalyseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B724AAA2600BF1D00E3DAAC /* ContactAnalyseTool.swift */; };
 		0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */; };
 		0B72BD9B25FB46A100FA1CBC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B72BD9A25FB46A100FA1CBC /* HomeVC.swift */; };
@@ -109,7 +116,6 @@
 		0B8726CA262D5E65000ADA0B /* UIBezierPath+CRExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872666262D5E65000ADA0B /* UIBezierPath+CRExtension.m */; };
 		0B8726CB262D5E65000ADA0B /* NSNumber+CRDealDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872667262D5E65000ADA0B /* NSNumber+CRDealDecimal.m */; };
 		0B8726CC262D5E65000ADA0B /* UIColor+Y_StockChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872668262D5E65000ADA0B /* UIColor+Y_StockChart.m */; };
-		0B8726CD262D5E65000ADA0B /* CRGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87266C262D5E65000ADA0B /* CRGCDTimer.m */; };
 		0B8726CE262D5E65000ADA0B /* LSLaunchAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87266E262D5E65000ADA0B /* LSLaunchAD.m */; };
 		0B8726CF262D5E65000ADA0B /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872670262D5E65000ADA0B /* BaseModel.swift */; };
 		0B8726D0262D5E65000ADA0B /* MaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872673262D5E65000ADA0B /* MaintenanceVC.swift */; };
@@ -170,6 +176,16 @@
 
 /* Begin PBXFileReference section */
 		0B70464E260B456900542A5D /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		0B7119F9262E861C00749CFA /* ContactBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBookVC.swift; sourceTree = "<group>"; };
+		0B7119FA262E861C00749CFA /* ContactBookVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactBookVC.xib; sourceTree = "<group>"; };
+		0B711A00262EB1BF00749CFA /* XLWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLWave.m; sourceTree = "<group>"; };
+		0B711A01262EB1BF00749CFA /* XLWaveProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLWaveProgress.h; sourceTree = "<group>"; };
+		0B711A02262EB1BF00749CFA /* XLWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLWave.h; sourceTree = "<group>"; };
+		0B711A03262EB1BF00749CFA /* XLWaveProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLWaveProgress.m; sourceTree = "<group>"; };
+		0B711A08262EB3CD00749CFA /* CRGCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRGCDTimer.m; sourceTree = "<group>"; };
+		0B711A09262EB3CD00749CFA /* CRGCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRGCDTimer.h; sourceTree = "<group>"; };
+		0B711A15262EE3FF00749CFA /* 常见问题.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "常见问题.html"; sourceTree = "<group>"; };
+		0B711A16262EE3FF00749CFA /* 隐私政策.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "隐私政策.html"; sourceTree = "<group>"; };
 		0B724AAA2600BF1D00E3DAAC /* ContactAnalyseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAnalyseTool.swift; sourceTree = "<group>"; };
 		0B72BD9325FB46A100FA1CBC /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -291,8 +307,6 @@
 		0B872667262D5E65000ADA0B /* NSNumber+CRDealDecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+CRDealDecimal.m"; sourceTree = "<group>"; };
 		0B872668262D5E65000ADA0B /* UIColor+Y_StockChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Y_StockChart.m"; sourceTree = "<group>"; };
 		0B872669262D5E65000ADA0B /* UIBezierPath+CRExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+CRExtension.h"; sourceTree = "<group>"; };
-		0B87266B262D5E65000ADA0B /* CRGCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRGCDTimer.h; sourceTree = "<group>"; };
-		0B87266C262D5E65000ADA0B /* CRGCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRGCDTimer.m; sourceTree = "<group>"; };
 		0B87266E262D5E65000ADA0B /* LSLaunchAD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLaunchAD.m; sourceTree = "<group>"; };
 		0B87266F262D5E65000ADA0B /* LSLaunchAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLaunchAD.h; sourceTree = "<group>"; };
 		0B872670262D5E65000ADA0B /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -385,6 +399,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7119FF262EB1BF00749CFA /* XLWaveProgress */ = {
+			isa = PBXGroup;
+			children = (
+				0B711A09262EB3CD00749CFA /* CRGCDTimer.h */,
+				0B711A08262EB3CD00749CFA /* CRGCDTimer.m */,
+				0B711A02262EB1BF00749CFA /* XLWave.h */,
+				0B711A00262EB1BF00749CFA /* XLWave.m */,
+				0B711A01262EB1BF00749CFA /* XLWaveProgress.h */,
+				0B711A03262EB1BF00749CFA /* XLWaveProgress.m */,
+			);
+			path = XLWaveProgress;
+			sourceTree = "<group>";
+		};
 		0B72BD8A25FB46A100FA1CBC = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +459,8 @@
 				0B872733262D907D000ADA0B /* AddressBookManagerVC.swift */,
 				0B91831626072143001CF4FF /* AddressBookVC.swift */,
 				0B91831726072143001CF4FF /* AddressBookVC.xib */,
+				0B7119F9262E861C00749CFA /* ContactBookVC.swift */,
+				0B7119FA262E861C00749CFA /* ContactBookVC.xib */,
 				0B797B8A2608478E009FB281 /* ImageAndVideoAnalyseVC.swift */,
 				0B797B8B2608478E009FB281 /* ImageAndVideoAnalyseVC.xib */,
 				0BBD8B9D26076BED003ECFF1 /* ImageAndVideoDealVC.swift */,
@@ -459,11 +488,11 @@
 			children = (
 				0B7B2A1826033B88007B195A /* CircularView.h */,
 				0B7B2A1926033B89007B195A /* CircularView.m */,
+				0BBD8B8E26074F15003ECFF1 /* AddressBookManagerCell.swift */,
+				0BBD8B8F26074F15003ECFF1 /* AddressBookManagerCell.xib */,
 				0B918322260726F1001CF4FF /* AddressBookCell.swift */,
 				0B918323260726F1001CF4FF /* AddressBookCell.xib */,
 				0BBD8B8226072D7A003ECFF1 /* AddressBookHeaderView.swift */,
-				0BBD8B8E26074F15003ECFF1 /* AddressBookManagerCell.swift */,
-				0BBD8B8F26074F15003ECFF1 /* AddressBookManagerCell.xib */,
 				0BBD8B9826075BB3003ECFF1 /* CalendarAndReminderCell.swift */,
 				0BBD8B9926075BB3003ECFF1 /* CalendarAndReminderCell.xib */,
 				0BBD8BA026076C70003ECFF1 /* ImageAndVideoDealCell.swift */,
@@ -491,6 +520,8 @@
 		0B79373825FF007400E2B5B1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				0B711A15262EE3FF00749CFA /* 常见问题.html */,
+				0B711A16262EE3FF00749CFA /* 隐私政策.html */,
 				0B79376F25FF3ECC00E2B5B1 /* File.swift */,
 				0B72BD9625FB46A100FA1CBC /* AppDelegate.swift */,
 				0B72BD9C25FB46A100FA1CBC /* Main.storyboard */,
@@ -564,7 +595,6 @@
 				0B872647262D5E65000ADA0B /* Extension */,
 				0B872655262D5E65000ADA0B /* XWTransition */,
 				0B872663262D5E65000ADA0B /* Category */,
-				0B87266A262D5E65000ADA0B /* CRGCDTimer */,
 				0B87266D262D5E65000ADA0B /* LSLaunchAD */,
 				0B872670262D5E65000ADA0B /* BaseModel.swift */,
 				0B872671262D5E65000ADA0B /* 保养手册 */,
@@ -760,15 +790,6 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		0B87266A262D5E65000ADA0B /* CRGCDTimer */ = {
-			isa = PBXGroup;
-			children = (
-				0B87266B262D5E65000ADA0B /* CRGCDTimer.h */,
-				0B87266C262D5E65000ADA0B /* CRGCDTimer.m */,
-			);
-			path = CRGCDTimer;
-			sourceTree = "<group>";
-		};
 		0B87266D262D5E65000ADA0B /* LSLaunchAD */ = {
 			isa = PBXGroup;
 			children = (
@@ -905,6 +926,7 @@
 		E57034352607826000CD6517 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				0B7119FF262EB1BF00749CFA /* XLWaveProgress */,
 				E57034362607826A00CD6517 /* UICountingLabel */,
 			);
 			path = Lib;
@@ -989,6 +1011,7 @@
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
 				0B797B92260849BE009FB281 /* ImageAndVideoAnalyseCell.xib in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
+				0B711A18262EE3FF00749CFA /* 隐私政策.html in Resources */,
 				0B87269D262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.xib in Resources */,
 				0B872701262D5FDB000ADA0B /* PurchaseServiceVC.xib in Resources */,
 				0BBD8BA326076C70003ECFF1 /* ImageAndVideoDealCell.xib in Resources */,
@@ -1005,12 +1028,14 @@
 				0B8726AA262D5E65000ADA0B /* BKOrderNumInfoView.xib in Resources */,
 				0B872690262D5E65000ADA0B /* BKCommentInputView.xib in Resources */,
 				0B91831926072143001CF4FF /* AddressBookVC.xib in Resources */,
+				0B7119FC262E861C00749CFA /* ContactBookVC.xib in Resources */,
 				0B87269F262D5E65000ADA0B /* BKRecevieAddressView.xib in Resources */,
 				0BBD8B9B26075BB3003ECFF1 /* CalendarAndReminderCell.xib in Resources */,
 				0B8726A1262D5E65000ADA0B /* BKNeedPayMoneyInfoView.xib in Resources */,
 				0B8726B0262D5E65000ADA0B /* BKShopFooterView.xib in Resources */,
 				0B797B8D2608478E009FB281 /* ImageAndVideoAnalyseVC.xib in Resources */,
 				0B8726A5262D5E65000ADA0B /* BKInvoceView.xib in Resources */,
+				0B711A17262EE3FF00749CFA /* 常见问题.html in Resources */,
 				0B8726B4262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib in Resources */,
 				0B872699262D5E65000ADA0B /* BKShopOrderCell.xib in Resources */,
 				0B8726B5262D5E65000ADA0B /* BKOrderCell.xib in Resources */,
@@ -1072,6 +1097,7 @@
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
 				0B8726F7262D5F2F000ADA0B /* NSString+BlankString.m in Sources */,
 				0B797BA22608ADE9009FB281 /* NSMutableAttributedString+Ex.swift in Sources */,
+				0B711A0A262EB3CD00749CFA /* CRGCDTimer.m in Sources */,
 				0B8726C5262D5E65000ADA0B /* UINavigationController+XWTransition.m in Sources */,
 				0B8726FB262D5F2F000ADA0B /* NSArray+matching.m in Sources */,
 				0B8726F3262D5F2F000ADA0B /* SOAutoHideMessageView.m in Sources */,
@@ -1104,8 +1130,8 @@
 				0B872683262D5E65000ADA0B /* BKOrderDetailVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* AppBaseVC.swift in Sources */,
 				0B8726C4262D5E65000ADA0B /* UITextField + Extension.swift in Sources */,
-				0B8726CD262D5E65000ADA0B /* CRGCDTimer.m in Sources */,
 				0B8726D6262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				0B711A04262EB1BF00749CFA /* XLWave.m in Sources */,
 				0B8726FA262D5F2F000ADA0B /* NSString+UserDataPath.m in Sources */,
 				0B872691262D5E65000ADA0B /* BKShopCommentHeadView.swift in Sources */,
 				0B872692262D5E65000ADA0B /* BKShopFooterView.swift in Sources */,
@@ -1128,6 +1154,7 @@
 				0B797B8C2608478E009FB281 /* ImageAndVideoAnalyseVC.swift in Sources */,
 				0BA71D6D26098F4E00A36914 /* AllAnalyseVC.swift in Sources */,
 				0B872734262D907D000ADA0B /* AddressBookManagerVC.swift in Sources */,
+				0B7119FB262E861C00749CFA /* ContactBookVC.swift in Sources */,
 				0B8726F8262D5F2F000ADA0B /* NSArray+Safe.m in Sources */,
 				0B8726AB262D5E65000ADA0B /* BKLogisticsInfoCell.swift in Sources */,
 				0B8726AE262D5E65000ADA0B /* BKShopOrderDetailFootView.swift in Sources */,
@@ -1135,6 +1162,7 @@
 				0BBD8B9026074F15003ECFF1 /* AddressBookManagerCell.swift in Sources */,
 				0B8726A3262D5E65000ADA0B /* BKInvoceInfoCell.swift in Sources */,
 				0B872687262D5E65000ADA0B /* BKOrderManagerVC.swift in Sources */,
+				0B711A05262EB1BF00749CFA /* XLWaveProgress.m in Sources */,
 				E57034392607826A00CD6517 /* UICountingLabel.m in Sources */,
 				0B872698262D5E65000ADA0B /* BKOrderCell.swift in Sources */,
 				0B8726C0262D5E65000ADA0B /* NSString+CRDealDecimal.m in Sources */,

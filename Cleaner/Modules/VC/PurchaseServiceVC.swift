@@ -156,8 +156,9 @@ class PurchaseServiceVC: AppBaseVC {
     
     @IBAction func protocolBtn(_ sender: UIButton) {
         let vc = AppWebVC()
-        vc.titleStr = sender.tag == 0 ? "用户协议":"隐私政策"
-        vc.url = "https://shimo.im/docs/TcWH8jx8pyTyq8Rk"
+        vc.titleStr = sender.tag == 0 ? "使用条款":"隐私政策"
+        let pathOne = Bundle.main.path(forResource: "隐私政策", ofType: "html") ?? ""
+        vc.path = pathOne
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

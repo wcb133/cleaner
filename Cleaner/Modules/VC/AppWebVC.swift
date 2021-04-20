@@ -12,7 +12,7 @@ import WebKit
 class AppWebVC: AppBaseVC {
     
     var titleStr = ""
-    var url = ""
+    var path = ""
     var webView = WKWebView()
     // 进度条
     lazy var progressView:UIProgressView = {
@@ -41,7 +41,7 @@ class AppWebVC: AppBaseVC {
             m.edges.equalToSuperview()
         }
         webView.navigationDelegate = self
-        let mapwayURL = URL(string: url)!
+        let mapwayURL = URL(fileURLWithPath: path)
         let mapwayRequest = URLRequest(url: mapwayURL)
         webView.load(mapwayRequest)
         

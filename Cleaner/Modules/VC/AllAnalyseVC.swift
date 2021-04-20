@@ -177,10 +177,10 @@ class AllAnalyseVC: AppBaseVC {
     
     func startAllScanAction()  {
         //联系人分析
-        ContactAnalyseTool.shared.getAllRepeatContacts {[weak self] (contactSectonModels, total) in
+        ContactAnalyseTool.shared.getAllRepeatContacts { [weak self] in
             guard let self = self else { return }
             let item = self.items[1]
-            item.subTitle = "\(contactSectonModels.count)个重复联系人"
+            item.subTitle = "\(ContactAnalyseTool.shared.repeatContacts.count)个重复联系人"
             item.isDidCheck = true
             self.contactSubject.onNext("")
         }
@@ -223,12 +223,13 @@ class AllAnalyseVC: AppBaseVC {
     
     @IBAction func deleteBtnACtion(_ sender: QMUIButton) {
         
-//        if DateTool.shared.isExpired() {
-//            let vc = PurchaseServiceVC()
-//            vc.modalPresentationStyle = .fullScreen
-//            self.navigationController?.present(vc, animated: true, completion: nil)
-//            return
-//        }
+        if DateTool.shared.isExpired() {
+            let vc = PurchaseServiceVC()
+            let nav = AppBaseNav(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true, completion: nil)
+            return
+        }
         
         let message = "文件清除后将无法恢复，确定清除选中的所有文件?"
         ImageAndVideoAnalyseTool.shared.tipWith(message: message) { [weak self]in
@@ -357,11 +358,11 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             vc.refreshUIBlock = {
                 //联系人分析
                 DispatchQueue.global().async {
-                    ContactAnalyseTool.shared.getAllRepeatContacts {[weak self] (contactSectonModels, total) in
+                    ContactAnalyseTool.shared.getAllRepeatContacts {[weak self]  in
                         guard let self = self else { return }
                         DispatchQueue.main.async {
                             let item = self.items[1]
-                            item.subTitle = "\(contactSectonModels.count)个重复联系人"
+                            item.subTitle = "\(ContactAnalyseTool.shared.repeatContacts.count)个重复联系人"
                             self.tableView.reloadData()
                         }
                     }

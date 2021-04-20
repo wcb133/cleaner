@@ -20,11 +20,11 @@ class HomeVC: AppBaseVC {
     
     @IBOutlet weak var aboutBtnTopInsetCons: NSLayoutConstraint!
     
-    let pview = HomeCircleView()
+    let pview = XLWaveProgress(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     
     lazy var clearAllBtn: QMUIButton = {
         let btn = QMUIButton()
-        btn.setTitle("一键清理", for: .normal)
+        btn.setTitle("快速清理", for: .normal)
         btn.backgroundColor = HEX("28B3FF")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20)
@@ -48,21 +48,21 @@ class HomeVC: AppBaseVC {
     
     @objc func clearAllBtnAction(btn:QMUIButton) {
         
-        if DateTool.shared.isExpired() {
-            let vc = PurchaseServiceVC()
-            vc.successBlock = {
-                //继续之前的操作
-                let vc = AllAnalyseVC()
-                vc.refreshMemeryBlock = {
-                    self.refreshPieViewData()
-                }
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            let nav = AppBaseNav(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(nav, animated: true, completion: nil)
-            return
-        }
+//        if DateTool.shared.isExpired() {
+//            let vc = PurchaseServiceVC()
+//            vc.successBlock = {
+//                //继续之前的操作
+//                let vc = AllAnalyseVC()
+//                vc.refreshMemeryBlock = {
+//                    self.refreshPieViewData()
+//                }
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//            let nav = AppBaseNav(rootViewController: vc)
+//            nav.modalPresentationStyle = .fullScreen
+//            self.navigationController?.present(nav, animated: true, completion: nil)
+//            return
+//        }
         
         let vc = AllAnalyseVC()
         vc.refreshMemeryBlock = {
@@ -80,10 +80,11 @@ class HomeVC: AppBaseVC {
         setupPview()
         refreshPieViewData()
         self.aboutBtnTopInsetCons.constant = iPhoneX ? 48 : 22
+        self.view.backgroundColor = HEX("#F7F8FB")
 //        self.view.backgroundColor = HEX("588DFC")
         
         //杂代码
-        let vc = MaintenanceVC()
+        _ = MaintenanceVC()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,7 +94,6 @@ class HomeVC: AppBaseVC {
     }
     
     func setupPview() {
-        self.pview.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         self.view.addSubview(self.pview)
         self.pview.snp.makeConstraints { (m) in
              m.centerX.equalToSuperview()
@@ -106,14 +106,14 @@ class HomeVC: AppBaseVC {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let usedSpace = MemoryAnalyseTool.getUsedSpace()
             let totalSpace = MemoryAnalyseTool.getTotalSpace()
-            self.pview.memoryUseLab.text = String(format: "%0.2f/%0.2fGB", usedSpace,totalSpace)
+            self.pview.memeryLab.text = String(format: "%0.2f/%0.2fGB", usedSpace,totalSpace)
             let percent = usedSpace / totalSpace
-            self.pview.setupData(percent: CGFloat(percent))
-            if percent > 0.5 {
-                self.clearAllBtn.backgroundColor = HEX("F15D64")
-            }else {
-                self.clearAllBtn.backgroundColor = HEX("28B3FF")
-            }
+            self.pview.progress = CGFloat(percent)
+//            if percent > 0.5 {
+//                self.clearAllBtn.backgroundColor = HEX("F15D64")
+//            }else {
+//                self.clearAllBtn.backgroundColor = HEX("28B3FF")
+//            }
         }
     }
     

@@ -8,6 +8,7 @@
 import UIKit
 
 class AddressBookManagerModel: NSObject {
+    var num = 0
     var imgName = ""
     var titleString = ""
 }
@@ -28,7 +29,7 @@ class AddressBookManagerVC: AppBaseVC {
     
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
-        tableView.rowHeight = 54
+        tableView.rowHeight = 58
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
@@ -59,14 +60,37 @@ class AddressBookManagerVC: AppBaseVC {
         titleView?.title = "通讯录优化"
         self.tableView.backgroundColor = .white
         
-        let imgs = ["","",""]
-        let titles = ["重复联系人","无号码","无姓名"]
+        let imgs = ["1","3","2"]
+        let titles = ["重复联系人","空号码","无姓名"]
         
         for (idx,title) in titles.enumerated() {
             let model = AddressBookManagerModel()
             model.imgName = imgs[idx]
             model.titleString = title
             self.items.append(model)
+        }
+        self.tableView.reloadData()
+        loadData()
+        
+    }
+    
+    func loadData() {
+        DispatchQueue.main.async {
+            let analyseTool = ContactAnalyseTool.shared
+            analyseTool.getAllRepeatContacts { [weak self] in
+                guard let self = self else { return }
+                self.refreshData()
+
+            }
+        }
+    }
+    
+    func refreshData() {
+        let analyseTool = ContactAnalyseTool.shared
+        let nums:[Int] = [analyseTool.repeatContacts.count,analyseTool.noTelContactModels.count,analyseTool.noNameContactModels.count]
+        for (idx,model) in self.items.enumerated() {
+            let num = nums[idx]
+            model.num = num
         }
         self.tableView.reloadData()
     }
@@ -91,6 +115,26 @@ extension AddressBookManagerVC:UITableViewDelegate,UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let vc = AddressBookVC()
+            vc.refreshUIBlock = {
+                self.refreshData()
+                self.refreshUIBlock()
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            let vc = ContactBookVC()
+            vc.isNoNameData = false
+            vc.refreshUIBlock = {
+                self.refreshData()
+                self.refreshUIBlock()
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = ContactBookVC()
+            vc.isNoNameData = true
+            vc.refreshUIBlock = {
+                self.refreshData()
+                self.refreshUIBlock()
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         default:
             break

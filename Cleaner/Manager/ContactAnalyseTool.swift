@@ -25,6 +25,14 @@ class ContactModel: NSObject {
 
 class ContactAnalyseTool: NSObject {
     
+    var allContacts:[ContactModel] = []
+    
+    var repeatContacts:[ContactSectonModel] = []
+    
+    var noTelContactModels:[ContactModel] = []
+    
+    var noNameContactModels:[ContactModel] = []
+
     static let shared: ContactAnalyseTool = {
         let instance = ContactAnalyseTool()
         return instance
@@ -33,7 +41,7 @@ class ContactAnalyseTool: NSObject {
     let contactStore = CNContactStore()
     
     //获取重复联系人
-    func getAllRepeatContacts(complete:@escaping ([ContactSectonModel],Int)->Void) {
+    func getAllRepeatContacts(complete:@escaping ()->Void) {
         let status = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         if status == .notDetermined {
             let contactStore = CNContactStore()
@@ -53,12 +61,16 @@ class ContactAnalyseTool: NSObject {
         }
     }
     
-    private func loadAllContacts(complete:@escaping ([ContactSectonModel],Int)->Void) {
+    //获取联系人、重复联系人、无号码、无姓名
+    private func loadAllContacts(complete:@escaping ()->Void) {
+        
+        allContacts = []
+        noTelContactModels = []
+        noNameContactModels = []
         
         var contactCount = 0
         
-        var contactDict:[String:[ContactModel]] = [:]
-        var contactSectonModels:[ContactSectonModel] = []
+        
         let key = [CNContactFamilyNameKey,CNContactGivenNameKey,CNContactPhoneNumbersKey] as [CNKeyDescriptor]
         let request = CNContactFetchRequest(keysToFetch: key)
         do {
@@ -82,30 +94,11 @@ class ContactAnalyseTool: NSObject {
                 for phoneNumber in phoneNums {
                     model.tel = phoneNumber.value.stringValue
                 }
-                
-                if var contactModels = contactDict[name] {
-                    //选中重复的联系人
-                    model.isSelected = true
-                    contactModels.append(model)
-                    contactDict[name] = contactModels
-                }else{
-                    contactDict[name] = [model]
-                }
+                self.allContacts.append(model)
             })
             
-//            let keys = contactDict.sorted(by: {$0.0 < $1.0})
-            for key in contactDict.keys {
-                let contactModels = contactDict[key] ?? []
-                if contactModels.count > 1 {
-                    print("重复的姓名：\(key)")
-                    let contactSectonModel = ContactSectonModel()
-                    contactSectonModel.name = key
-                    contactSectonModel.contactModels = contactModels
-                    contactSectonModels.append(contactSectonModel)
-                }
-            }
-            
-            complete(contactSectonModels,contactCount)
+            self.refreshArrary(isNeedSetSelect: true)
+            complete()
             
         } catch  {
             print("获取通讯录出错")
@@ -115,6 +108,16 @@ class ContactAnalyseTool: NSObject {
     
     //删除联系人
     func deleteSelectContacts(contacts:[ContactModel]) {
+
+        for deleteContact in contacts {
+            allContacts.removeAll { contact -> Bool in
+                return deleteContact === contact
+            }
+        }
+        
+        self.refreshArrary(isNeedSetSelect: false)
+        
+        
         let re = CNSaveRequest()
         for contact in contacts {
             let contactM = contact.contact.mutableCopy() as! CNMutableContact
@@ -137,4 +140,52 @@ class ContactAnalyseTool: NSObject {
         let vc = cKeyWindow!.rootViewController
         vc?.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
+    func refreshArrary(isNeedSetSelect:Bool) {
+        var contactDict:[String:[ContactModel]] = [:]
+        var contactSectonModels:[ContactSectonModel] = []
+        self.noTelContactModels = []
+        self.noNameContactModels = []
+        for model in self.allContacts {
+            if var contactModels = contactDict[model.name] {
+                //选中重复的联系人
+                if isNeedSetSelect {
+                    model.isSelected = true
+                }
+                
+                contactModels.append(model)
+                contactDict[model.name] = contactModels
+            }else{
+                contactDict[model.name] = [model]
+            }
+            
+            if model.tel.isEmpty {
+                if isNeedSetSelect {
+                    model.isSelected = true
+                }
+                self.noTelContactModels.append(model)
+            }
+           
+            if model.name.isEmpty {
+                if isNeedSetSelect {
+                    model.isSelected = true
+                }
+                self.noNameContactModels.append(model)
+            }
+        }
+            for key in contactDict.keys {
+                let contactModels = contactDict[key] ?? []
+                if contactModels.count > 1 {
+                    let contactSectonModel = ContactSectonModel()
+                    contactSectonModel.name = key
+                    contactSectonModel.contactModels = contactModels
+                    contactSectonModels.append(contactSectonModel)
+                }
+            }
+            self.repeatContacts = contactSectonModels
+    }
+    
+    
 }

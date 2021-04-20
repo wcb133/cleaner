@@ -23,8 +23,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9d-66-T6v">
-                        <rect key="frame" x="80" y="23.5" width="40" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="80" y="23.5" width="41.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,20 +34,30 @@
                             <constraint firstAttribute="width" constant="32" id="Shf-hU-kLt"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90U-1E-PcC">
+                        <rect key="frame" x="336" y="0.0" width="10" height="67"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="90U-1E-PcC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2MD-vM-Tto"/>
                     <constraint firstItem="gLc-Ze-V8J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AQh-45-jRa"/>
+                    <constraint firstAttribute="bottom" secondItem="90U-1E-PcC" secondAttribute="bottom" id="GVQ-Yl-Ljj"/>
                     <constraint firstAttribute="bottom" secondItem="rqZ-Nd-Yya" secondAttribute="bottom" constant="10" id="MNk-79-VAC"/>
                     <constraint firstItem="rqZ-Nd-Yya" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="NjN-E0-LBn"/>
                     <constraint firstAttribute="trailing" secondItem="gLc-Ze-V8J" secondAttribute="trailing" constant="10" id="W3M-0O-irU"/>
                     <constraint firstAttribute="bottom" secondItem="gLc-Ze-V8J" secondAttribute="bottom" id="WGH-tW-r5b"/>
                     <constraint firstItem="rqZ-Nd-Yya" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XRI-io-hbI"/>
+                    <constraint firstItem="gLc-Ze-V8J" firstAttribute="leading" secondItem="90U-1E-PcC" secondAttribute="trailing" id="a7J-Ls-3ZM"/>
                     <constraint firstItem="s9d-66-T6v" firstAttribute="centerY" secondItem="rqZ-Nd-Yya" secondAttribute="centerY" id="aAp-N3-KXG"/>
                     <constraint firstItem="s9d-66-T6v" firstAttribute="leading" secondItem="rqZ-Nd-Yya" secondAttribute="trailing" constant="15" id="gqq-oB-1C0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgView" destination="rqZ-Nd-Yya" id="HJ7-h9-ml1"/>
+                <outlet property="numLab" destination="90U-1E-PcC" id="lWs-Xg-esU"/>
                 <outlet property="titleLab" destination="s9d-66-T6v" id="SVj-ji-eqN"/>
             </connections>
             <point key="canvasLocation" x="189.85507246376812" y="135.60267857142856"/>

@@ -14,6 +14,7 @@
 //导入UMCommon的OC的头文件
 #import <UMCommon/UMCommon.h>
 #import <QMUIKit/QMUIKit.h>
+#import "XLWaveProgress.h"
 
 
 #import "AVOSCloud.h"

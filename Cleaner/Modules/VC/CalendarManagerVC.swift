@@ -76,7 +76,7 @@ class CalendarManagerVC: WMPageController {
     
     override func pageController(_ pageController: WMPageController, preferredFrameForContentView contentView: WMScrollView) -> CGRect {
         guard let menuView = menuView  else { return CGRect.zero }
-        menuView.backgroundColor = HEX("#F9F9F9")
+        menuView.backgroundColor = HEX("#F7F8FB")
         let originY:CGFloat = self.pageController(pageController, preferredFrameFor: menuView).maxY
         return CGRect(x: 0, y: originY, width: self.view.qmui_width, height: self.view.qmui_height - originY);
     }
