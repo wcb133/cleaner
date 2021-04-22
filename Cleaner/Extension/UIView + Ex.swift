@@ -98,14 +98,14 @@ extension LoadNibable where Self : UIView {
 extension UIButton {
     
     func addGradientLayer()  {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.qmui_width, height: self.qmui_height)
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        let from = HEX("#51DAFF")
-        let to = HEX("28B3FF")
-        gradientLayer.colors = [from.cgColor,to.cgColor]
-        gradientLayer.locations = [0,1]
-        self.layer.insertSublayer(gradientLayer, at: 0)
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.qmui_width, height: self.qmui_height)
+//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+//        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+//        let from = HEX("#51DAFF")
+//        let to = HEX("28B3FF")
+//        gradientLayer.colors = [from.cgColor,to.cgColor]
+//        gradientLayer.locations = [0,1]
+//        self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
