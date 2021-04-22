@@ -87,6 +87,11 @@ class HomeVC: AppBaseVC {
         _ = MaintenanceVC()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.clearAllBtn.addGradientLayer()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ImageAndVideoAnalyseTool.shared.isStopScan = true

@@ -301,6 +301,7 @@ class AllAnalyseVC: AppBaseVC {
         if !self.isComplete {
             self.tableContainerView.cornerWith(byRoundingCorners: [.topLeft,.topRight], radii: 16)
         }
+        self.deleteBtn.addGradientLayer()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

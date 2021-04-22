@@ -351,6 +351,7 @@ class ImageAndVideoDealVC: AppBaseVC {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         emptyView?.frame = CGRect(x: 0, y: 0, width: cScreenWidth, height: colltionView.qmui_height)
+        self.deleteBtn.addGradientLayer()
     }
 }
 

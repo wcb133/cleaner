@@ -97,6 +97,7 @@ class AddressBookVC: AppBaseVC {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         emptyView?.frame = CGRect(x: 0, y: 0, width: cScreenWidth, height: tableView.qmui_height)
+        self.deleteBtn.addGradientLayer()
     }
     
     

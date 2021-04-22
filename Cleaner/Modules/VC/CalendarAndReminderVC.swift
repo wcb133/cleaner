@@ -162,7 +162,9 @@ class CalendarAndReminderVC: AppBaseVC {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         emptyView?.frame = CGRect(x: 0, y: 0, width: cScreenWidth, height: tableView.qmui_height)
+        self.deleteBtn.addGradientLayer()
     }
+
     
     override func navigationBarBackgroundImage() -> UIImage? {
         return UIImage.qmui_image(with: HEX("28B3FF"))
