@@ -7,6 +7,9 @@
 
 import UIKit
 import QMUIKit
+import AVKit
+import RxSwift
+import RxCocoa
 
 class ImageAndVideoDealVC: AppBaseVC {
     
@@ -68,24 +71,106 @@ class ImageAndVideoDealVC: AppBaseVC {
         return colltionView
     }()
     
+    lazy var playerController: AVPlayerViewController = {
+        let playerController = AVPlayerViewController()
+        playerController.allowsPictureInPicturePlayback = true
+        return playerController
+    }()
+    
+    lazy var rightBtn: UIButton = {
+        let rightBtn = UIButton()
+        rightBtn.setTitle("全选", for: .normal)
+        rightBtn.setTitleColor(HEX("FDCC33"), for: .normal)
+        rightBtn.addTarget(self, action: #selector(rightBtnAction(btn:)), for: .touchUpInside)
+        rightBtn.qmui_height = 44
+        rightBtn.qmui_width = 75
+        rightBtn.contentHorizontalAlignment = .right
+        rightBtn.titleLabel?.font = MediumFont(size: 17)
+        return rightBtn
+    }()
+    
+    @objc dynamic var selectNum = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupEmptyView()
         titleView?.title = titleString
         colltionView.reloadData()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         
+        
+        self.rx.observeWeakly(Int.self, "selectNum").asObservable().subscribe(onNext: { [weak self] num in
+            guard let self = self else { return }
+            if self.isPhoto {
+                if num == self.items.count {
+                    self.rightBtn.setTitle("取消全选", for: .normal)
+                }else{
+                    self.rightBtn.setTitle("全选", for: .normal)
+                }
+            }else{
+                if num == self.videoItems.count {
+                    self.rightBtn.setTitle("取消全选", for: .normal)
+                }else{
+                    self.rightBtn.setTitle("全选", for: .normal)
+                }
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        
+   
         if isPhoto {
             if self.items.isEmpty {
                 showEmptyView()
                 self.deleteBtn.isHidden = true
+                self.navigationItem.rightBarButtonItem = nil
+            }
+            
+            for item in self.items {
+                if item.isSelect {
+                    selectNum += 1
+                }
             }
         }else{
             if self.videoItems.isEmpty {
                 showEmptyView()
                 self.deleteBtn.isHidden = true
+                self.navigationItem.rightBarButtonItem = nil
+            }
+            for item in self.videoItems {
+                if item.isSelect {
+                    selectNum += 1
+                }
             }
         }
         
+    }
+    
+    @objc  func rightBtnAction(btn:UIButton)  {
+        let titleString = btn.currentTitle ?? ""
+        if titleString == "全选" {
+            self.selectNum = isPhoto ? self.items.count:self.videoItems.count
+            if isPhoto {
+                self.items.forEach { model in
+                    model.isSelect = true
+                }
+            }else{
+                self.videoItems.forEach { model in
+                    model.isSelect = true
+                }
+            }
+            self.colltionView.reloadData()
+        }else{
+            self.selectNum = 0
+            if isPhoto {
+                self.items.forEach { model in
+                    model.isSelect = false
+                }
+            }else{
+                self.videoItems.forEach { model in
+                    model.isSelect = false
+                }
+            }
+            self.colltionView.reloadData()
+        }
     }
     
     @objc func deleteBtnAction(btn:QMUIButton) {
@@ -282,6 +367,29 @@ extension ImageAndVideoDealVC:UICollectionViewDelegate,UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoAndVideoClearCellID, for: indexPath) as! ImageAndVideoDealCell
+        cell.selectBtnActionBlock = { [weak self] in
+            guard let self  = self else { return }
+            if self.isPhoto {
+                let model = self.items[indexPath.row]
+                model.isSelect = !model.isSelect
+                collectionView.reloadItems(at: [indexPath])
+                if model.isSelect {
+                    self.selectNum += 1
+                }else{
+                    self.selectNum -= 1
+                }
+            }else{
+                let model = self.videoItems[indexPath.row]
+                model.isSelect = !model.isSelect
+                collectionView.reloadItems(at: [indexPath])
+                if model.isSelect {
+                    self.selectNum += 1
+                }else{
+                    self.selectNum -= 1
+                }
+            }
+            
+        }
         if isPhoto {
             cell.item = items[indexPath.row]
         }else{
@@ -293,19 +401,20 @@ extension ImageAndVideoDealVC:UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isPhoto {
             let model = self.items[indexPath.row]
-            model.isSelect = !model.isSelect
-            collectionView.reloadItems(at: [indexPath])
-            
-            #if DEBUG
-                let vc = ImagePreviewVC()
+            let vc = ImagePreviewVC()
             vc.image = model.exactImage
-                self.navigationController?.pushViewController(vc, animated: true)
-            #endif
+            self.navigationController?.pushViewController(vc, animated: true)
             
         }else{
+//            if self.presentedViewController != nil { return }
             let model = self.videoItems[indexPath.row]
-            model.isSelect = !model.isSelect
-            collectionView.reloadItems(at: [indexPath])
+            let playerItem = AVPlayerItem(asset: model.videoAsset)
+            let player = AVPlayer(playerItem: playerItem)
+            self.playerController.player = player
+            self.navigationController?.present(self.playerController, animated: true, completion: nil)
+            self.playerController.player?.play()
+
+            
         }
         
     }

@@ -29,14 +29,14 @@ class HomeVC: AppBaseVC {
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20)
         btn.addTarget(self, action: #selector(clearAllBtnAction(btn:)), for: .touchUpInside)
-        btn.layer.cornerRadius = 10
+        btn.layer.cornerRadius = 26
         btn.layer.masksToBounds = true
         self.view.addSubview(btn)
         btn.snp.makeConstraints { (m) in
             m.centerX.equalToSuperview()
             m.centerY.equalToSuperview().offset(0)
-            m.height.equalTo(48)
-            m.width.equalTo(170)
+            m.height.equalTo(52)
+            m.width.equalTo(180)
         }
         return btn
     }()

@@ -244,13 +244,13 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
             let nums:[Int] = [ImageAndVideoAnalyseTool.shared.fuzzyPhotoArray.count,similarCount,ImageAndVideoAnalyseTool.shared.screenshotsArray.count,ImageAndVideoAnalyseTool.shared.thinPhotoArray.count]
             
             for (idx,item) in self.items.enumerated() {
-                item.subTitle = String(format: "%d张，%.2fMB", nums[idx],Float(spaces[idx])  / (1024 * 1024))
+                item.subTitle = String(format: "%d张，共占用 %.2fMB", nums[idx],Float(spaces[idx])  / (1024 * 1024))
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
         }else{
             for item in self.items {
-                item.subTitle = "0张，0.00MB"
+                item.subTitle = "0张，共占用 0.00MB"
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
@@ -304,13 +304,13 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
             let spaces:[Float] = [videoM.sameVideoSpace,videoM.similarVideoSpace,videoM.badVideoSpace,videoM.bigVideoSpace]
             
             for (idx,item) in self.items.enumerated() {
-                item.subTitle = String(format: "%d个，%.2fMB", nums[idx],spaces[idx])
+                item.subTitle = String(format: "%d个，共占用 %.2fMB", nums[idx],spaces[idx])
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
         }else{
             for item in self.items {
-                item.subTitle = "0个，0.00MB"
+                item.subTitle = "0个，共占用 0.00MB"
                 item.isDidCheck = true
             }
             self.tableView.reloadData()

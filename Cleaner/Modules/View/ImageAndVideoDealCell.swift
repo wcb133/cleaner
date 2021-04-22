@@ -16,6 +16,9 @@ class ImageAndVideoDealCell: UICollectionViewCell {
     
     
     @IBOutlet weak var playIcon: UIImageView!
+    
+    var selectBtnActionBlock:()->Void = {}
+    
     var item:ImageModel? {
         didSet{
             guard let model = self.item else { return }
@@ -41,6 +44,7 @@ class ImageAndVideoDealCell: UICollectionViewCell {
     }
     
     @IBAction func selectBtnAction(_ sender: UIButton) {
+        self.selectBtnActionBlock()
     }
     
 

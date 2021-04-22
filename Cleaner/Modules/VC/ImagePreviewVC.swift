@@ -15,7 +15,7 @@ class ImagePreviewVC: AppBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imgView.image = image
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .black
+        titleView?.title = "预览大图"
     }
-
 }
