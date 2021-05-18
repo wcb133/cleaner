@@ -9,44 +9,15 @@ import UIKit
 import QMUIKit
 
 class HomeVC: AppBaseVC {
+
     
-    @IBOutlet weak var photoItem: UIView!
+    @IBOutlet weak var clearAllBtn: QMUIButton!
     
-    @IBOutlet weak var contactItem: UIView!
+    @IBOutlet weak var memeryLab: UILabel!
     
-    @IBOutlet weak var calendarItem: UIView!
+    @IBOutlet weak var bottomHeightCons: NSLayoutConstraint!
     
-    @IBOutlet weak var videoItem: UIView!
-    
-    @IBOutlet weak var aboutBtnTopInsetCons: NSLayoutConstraint!
-    
-    let pview = XLWaveProgress(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-    
-    lazy var clearAllBtn: QMUIButton = {
-        let btn = QMUIButton()
-        btn.setTitle("快速清理", for: .normal)
-        btn.backgroundColor = HEX("28B3FF")
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 20)
-        btn.addTarget(self, action: #selector(clearAllBtnAction(btn:)), for: .touchUpInside)
-        btn.layer.cornerRadius = 26
-        btn.layer.masksToBounds = true
-        self.view.addSubview(btn)
-        btn.snp.makeConstraints { (m) in
-            m.centerX.equalToSuperview()
-            m.centerY.equalToSuperview().offset(0)
-            m.height.equalTo(52)
-            m.width.equalTo(180)
-        }
-        return btn
-    }()
-    
-  
-    @IBAction func aboutBtnAction(_ sender: UIButton) {
-        self.navigationController?.pushViewController(AboutUsInfoVC(), animated: true)
-    }
-    
-    @objc func clearAllBtnAction(btn:QMUIButton) {
+    @IBAction func clearAllBtnAction(btn:QMUIButton) {
         
 //        if DateTool.shared.isExpired() {
 //            let vc = PurchaseServiceVC()
@@ -77,11 +48,11 @@ class HomeVC: AppBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPview()
         refreshPieViewData()
-        self.aboutBtnTopInsetCons.constant = iPhoneX ? 48 : 22
-        self.view.backgroundColor = HEX("#F7F8FB")
-//        self.view.backgroundColor = HEX("588DFC")
+        self.bottomHeightCons.constant = 340 + cIndicatorHeight
+        clearAllBtn.layer.cornerRadius = 24
+        clearAllBtn.layer.masksToBounds = true
+        self.view.backgroundColor = HEX("#B9DFE8")
         
         //杂代码
         _ = MaintenanceVC()
@@ -98,27 +69,13 @@ class HomeVC: AppBaseVC {
         ImageAndVideoAnalyseTool.shared.resetData()
     }
     
-    func setupPview() {
-        self.view.addSubview(self.pview)
-        self.pview.snp.makeConstraints { (m) in
-             m.centerX.equalToSuperview()
-             m.bottom.equalTo(self.clearAllBtn.snp.top).offset(-35)
-             m.width.height.equalTo(200)
-         }
-    }
-    
     func refreshPieViewData()  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let usedSpace = MemoryAnalyseTool.getUsedSpace()
             let totalSpace = MemoryAnalyseTool.getTotalSpace()
-            self.pview.memeryLab.text = String(format: "%0.2f/%0.2fGB", usedSpace,totalSpace)
+//            self.pview.memeryLab.text = String(format: "%0.2f/%0.2fGB", usedSpace,totalSpace)
             let percent = usedSpace / totalSpace
-            self.pview.progress = CGFloat(percent)
-//            if percent > 0.5 {
-//                self.clearAllBtn.backgroundColor = HEX("F15D64")
-//            }else {
-//                self.clearAllBtn.backgroundColor = HEX("28B3FF")
-//            }
+            self.memeryLab.text = String(format: "%0.2f%%", percent * 100.0)
         }
     }
     
@@ -154,6 +111,10 @@ class HomeVC: AppBaseVC {
                 self.refreshPieViewData()
             }
             self.navigationController?.pushViewController(vc, animated: true)
+        case 4:
+            self.navigationController?.pushViewController(EquipmentInfoVC(), animated: true)
+        case 5:
+            self.navigationController?.pushViewController(AboutUsInfoVC(), animated: true)
         default:
             break
         }

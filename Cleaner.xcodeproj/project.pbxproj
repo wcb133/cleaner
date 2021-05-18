@@ -37,6 +37,10 @@
 		0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7B2A122603378D007B195A /* opencv2.framework */; };
 		0B7B2A1A26033B89007B195A /* CircularView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A1926033B89007B195A /* CircularView.m */; };
 		0B7E1532260198F00070B02E /* CalendarAnalyseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarAnalyseTool.swift */; };
+		0B80059F2653A2F9003FF8B7 /* EquipmentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */; };
+		0B8005A32653A333003FF8B7 /* EquipmentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */; };
+		0B8005A42653A333003FF8B7 /* EquipmentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8005A22653A333003FF8B7 /* EquipmentInfoCell.swift */; };
+		0B8005A72653A345003FF8B7 /* EquipmentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8005A62653A345003FF8B7 /* EquipmentInfoModel.swift */; };
 		0B844D3E260C79E500B4C5DF /* JSONArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */; };
 		0B844D3F260C79E500B4C5DF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3D260C79E500B4C5DF /* Network.swift */; };
 		0B844D6D260CC79600B4C5DF /* DateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D6C260CC79600B4C5DF /* DateTool.swift */; };
@@ -214,6 +218,10 @@
 		0B7B2A1826033B88007B195A /* CircularView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularView.h; sourceTree = "<group>"; };
 		0B7B2A1926033B89007B195A /* CircularView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularView.m; sourceTree = "<group>"; };
 		0B7E1531260198F00070B02E /* CalendarAnalyseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyseTool.swift; sourceTree = "<group>"; };
+		0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentInfoVC.swift; sourceTree = "<group>"; };
+		0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentInfoCell.xib; sourceTree = "<group>"; };
+		0B8005A22653A333003FF8B7 /* EquipmentInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentInfoCell.swift; sourceTree = "<group>"; };
+		0B8005A62653A345003FF8B7 /* EquipmentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentInfoModel.swift; sourceTree = "<group>"; };
 		0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONArrayEncoding.swift; sourceTree = "<group>"; };
 		0B844D3D260C79E500B4C5DF /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		0B844D6C260CC79600B4C5DF /* DateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTool.swift; sourceTree = "<group>"; };
@@ -468,6 +476,7 @@
 				E5982DE4260ECB8B00E07965 /* ImagePreviewVC.xib */,
 				0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */,
 				0B8726FF262D5FDA000ADA0B /* PurchaseServiceVC.xib */,
+				0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -479,6 +488,7 @@
 				0BA71D752609E19500A36914 /* AllAnalyseResultModel.swift */,
 				E5D85C7D260A2C20006F4447 /* VideoModel.swift */,
 				E5D85C80260A2C41006F4447 /* ImageModel.swift */,
+				0B8005A62653A345003FF8B7 /* EquipmentInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,6 +514,8 @@
 				0B797B9E26089C0A009FB281 /* TXScanProgressView.m */,
 				0BA71D7026099C9900A36914 /* AllAnalyseCell.swift */,
 				0BA71D7126099C9900A36914 /* AllAnalyseCell.xib */,
+				0B8005A22653A333003FF8B7 /* EquipmentInfoCell.swift */,
+				0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1039,6 +1051,7 @@
 				0B8726B4262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib in Resources */,
 				0B872699262D5E65000ADA0B /* BKShopOrderCell.xib in Resources */,
 				0B8726B5262D5E65000ADA0B /* BKOrderCell.xib in Resources */,
+				0B8005A32653A333003FF8B7 /* EquipmentInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,6 +1112,7 @@
 				0B797BA22608ADE9009FB281 /* NSMutableAttributedString+Ex.swift in Sources */,
 				0B711A0A262EB3CD00749CFA /* CRGCDTimer.m in Sources */,
 				0B8726C5262D5E65000ADA0B /* UINavigationController+XWTransition.m in Sources */,
+				0B8005A72653A345003FF8B7 /* EquipmentInfoModel.swift in Sources */,
 				0B8726FB262D5F2F000ADA0B /* NSArray+matching.m in Sources */,
 				0B8726F3262D5F2F000ADA0B /* SOAutoHideMessageView.m in Sources */,
 				0BBD8B8A26074D64003ECFF1 /* CalendarManagerVC.swift in Sources */,
@@ -1111,6 +1125,7 @@
 				0B7B2A132603378D007B195A /* ImageCompareTool.mm in Sources */,
 				0B797B91260849BE009FB281 /* ImageAndVideoAnalyseCell.swift in Sources */,
 				0B8726AC262D5E65000ADA0B /* BKOrderDetailBlueHeadView.swift in Sources */,
+				0B8005A42653A333003FF8B7 /* EquipmentInfoCell.swift in Sources */,
 				0B872684262D5E65000ADA0B /* BKShopOrderDetailVC.swift in Sources */,
 				0B8726A4262D5E65000ADA0B /* BKNeedPayMoneyInfoView.swift in Sources */,
 				0B87269A262D5E65000ADA0B /* BKShopOrderCell.swift in Sources */,
@@ -1204,6 +1219,7 @@
 				0B87269C262D5E65000ADA0B /* BKOrderDetailInvoiceView.swift in Sources */,
 				0B8726D2262D5E65000ADA0B /* HCLoginCustomTool.swift in Sources */,
 				0B8726AD262D5E65000ADA0B /* BKInvoceView.swift in Sources */,
+				0B80059F2653A2F9003FF8B7 /* EquipmentInfoVC.swift in Sources */,
 				0B8726D5262D5E65000ADA0B /* UIView+SDAutoLayout.m in Sources */,
 				0B872688262D5E65000ADA0B /* BKLogisticsInfoVC.swift in Sources */,
 				0B87271A262D6117000ADA0B /* AppManager.swift in Sources */,

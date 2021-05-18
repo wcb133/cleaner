@@ -17,4 +17,8 @@
 ///图片是否模糊
 + (BOOL) isImageFuzzy:(UIImage*)image;
 
+- (NSString *)getDeviceName;
+
+- (NSString *) bootTime;
+
 @end

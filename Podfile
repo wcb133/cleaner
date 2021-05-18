@@ -34,7 +34,6 @@ target 'Cleaner' do
   
   ##useless
   pod 'MJRefresh'
-  pod 'WMPageController'
   pod 'HandyJSON','~> 5.0.0'
 
 end
