@@ -319,7 +319,7 @@
                                 <constraint firstAttribute="height" constant="48" id="x0O-a1-hoO"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <state key="normal" title="一键优化"/>
+                            <state key="normal" title="快速清理"/>
                             <connections>
                                 <action selector="clearAllBtnActionWithBtn:" destination="-1" eventType="touchUpInside" id="7Jh-jM-h7P"/>
                             </connections>

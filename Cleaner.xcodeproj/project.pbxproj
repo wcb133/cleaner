@@ -44,102 +44,6 @@
 		0B844D3E260C79E500B4C5DF /* JSONArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */; };
 		0B844D3F260C79E500B4C5DF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3D260C79E500B4C5DF /* Network.swift */; };
 		0B844D6D260CC79600B4C5DF /* DateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D6C260CC79600B4C5DF /* DateTool.swift */; };
-		0B872681262D5E65000ADA0B /* BKShopOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872606262D5E65000ADA0B /* BKShopOrderVC.swift */; };
-		0B872682262D5E65000ADA0B /* BKInvoceInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872607262D5E65000ADA0B /* BKInvoceInfoVC.swift */; };
-		0B872683262D5E65000ADA0B /* BKOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872608262D5E65000ADA0B /* BKOrderDetailVC.swift */; };
-		0B872684262D5E65000ADA0B /* BKShopOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872609262D5E65000ADA0B /* BKShopOrderDetailVC.swift */; };
-		0B872685262D5E65000ADA0B /* BKShopOrderCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87260A262D5E65000ADA0B /* BKShopOrderCommentVC.swift */; };
-		0B872686262D5E65000ADA0B /* BKOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87260B262D5E65000ADA0B /* BKOrderVC.swift */; };
-		0B872687262D5E65000ADA0B /* BKOrderManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87260C262D5E65000ADA0B /* BKOrderManagerVC.swift */; };
-		0B872688262D5E65000ADA0B /* BKLogisticsInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87260D262D5E65000ADA0B /* BKLogisticsInfoVC.swift */; };
-		0B872689262D5E65000ADA0B /* BKShopOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87260F262D5E65000ADA0B /* BKShopOrderModel.swift */; };
-		0B87268A262D5E65000ADA0B /* BKOrderLogistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872610262D5E65000ADA0B /* BKOrderLogistics.swift */; };
-		0B87268B262D5E65000ADA0B /* BKAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872611262D5E65000ADA0B /* BKAddressModel.swift */; };
-		0B87268C262D5E65000ADA0B /* BKOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872612262D5E65000ADA0B /* BKOrderModel.swift */; };
-		0B87268D262D5E65000ADA0B /* BKShopCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872614262D5E65000ADA0B /* BKShopCommentView.swift */; };
-		0B87268E262D5E65000ADA0B /* BKOrderDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872615262D5E65000ADA0B /* BKOrderDetailCell.swift */; };
-		0B87268F262D5E65000ADA0B /* BKShowReadMeInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872616262D5E65000ADA0B /* BKShowReadMeInfoView.xib */; };
-		0B872690262D5E65000ADA0B /* BKCommentInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872617262D5E65000ADA0B /* BKCommentInputView.xib */; };
-		0B872691262D5E65000ADA0B /* BKShopCommentHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872618262D5E65000ADA0B /* BKShopCommentHeadView.swift */; };
-		0B872692262D5E65000ADA0B /* BKShopFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872619262D5E65000ADA0B /* BKShopFooterView.swift */; };
-		0B872693262D5E65000ADA0B /* BKOrderDetaiByPersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87261A262D5E65000ADA0B /* BKOrderDetaiByPersonCell.swift */; };
-		0B872694262D5E65000ADA0B /* BKShowReadMeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87261B262D5E65000ADA0B /* BKShowReadMeInfoView.swift */; };
-		0B872695262D5E65000ADA0B /* BKOrderDetailBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87261C262D5E65000ADA0B /* BKOrderDetailBottomCell.swift */; };
-		0B872696262D5E65000ADA0B /* BKDetialHeadSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87261D262D5E65000ADA0B /* BKDetialHeadSelectView.xib */; };
-		0B872697262D5E65000ADA0B /* BKCommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87261E262D5E65000ADA0B /* BKCommentInputView.swift */; };
-		0B872698262D5E65000ADA0B /* BKOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87261F262D5E65000ADA0B /* BKOrderCell.swift */; };
-		0B872699262D5E65000ADA0B /* BKShopOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872620262D5E65000ADA0B /* BKShopOrderCell.xib */; };
-		0B87269A262D5E65000ADA0B /* BKShopOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872621262D5E65000ADA0B /* BKShopOrderCell.swift */; };
-		0B87269B262D5E65000ADA0B /* BKOrderDetaiByPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872622262D5E65000ADA0B /* BKOrderDetaiByPersonCell.xib */; };
-		0B87269C262D5E65000ADA0B /* BKOrderDetailInvoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872623262D5E65000ADA0B /* BKOrderDetailInvoiceView.swift */; };
-		0B87269D262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872624262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.xib */; };
-		0B87269E262D5E65000ADA0B /* BKOrderNumInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872626262D5E65000ADA0B /* BKOrderNumInfoView.swift */; };
-		0B87269F262D5E65000ADA0B /* BKRecevieAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872627262D5E65000ADA0B /* BKRecevieAddressView.xib */; };
-		0B8726A0262D5E65000ADA0B /* BKBillInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872628262D5E65000ADA0B /* BKBillInfoView.swift */; };
-		0B8726A1262D5E65000ADA0B /* BKNeedPayMoneyInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872629262D5E65000ADA0B /* BKNeedPayMoneyInfoView.xib */; };
-		0B8726A2262D5E65000ADA0B /* BKRecevieAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87262A262D5E65000ADA0B /* BKRecevieAddressView.swift */; };
-		0B8726A3262D5E65000ADA0B /* BKInvoceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87262B262D5E65000ADA0B /* BKInvoceInfoCell.swift */; };
-		0B8726A4262D5E65000ADA0B /* BKNeedPayMoneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87262C262D5E65000ADA0B /* BKNeedPayMoneyInfoView.swift */; };
-		0B8726A5262D5E65000ADA0B /* BKInvoceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87262D262D5E65000ADA0B /* BKInvoceView.xib */; };
-		0B8726A6262D5E65000ADA0B /* BKLogisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87262E262D5E65000ADA0B /* BKLogisticsView.swift */; };
-		0B8726A7262D5E65000ADA0B /* BKBillInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87262F262D5E65000ADA0B /* BKBillInfoView.xib */; };
-		0B8726A8262D5E65000ADA0B /* BKOrderDetailBlueHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872630262D5E65000ADA0B /* BKOrderDetailBlueHeadView.xib */; };
-		0B8726A9262D5E65000ADA0B /* BKShopOrderDetailHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872631262D5E65000ADA0B /* BKShopOrderDetailHeadView.swift */; };
-		0B8726AA262D5E65000ADA0B /* BKOrderNumInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872632262D5E65000ADA0B /* BKOrderNumInfoView.xib */; };
-		0B8726AB262D5E65000ADA0B /* BKLogisticsInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872633262D5E65000ADA0B /* BKLogisticsInfoCell.swift */; };
-		0B8726AC262D5E65000ADA0B /* BKOrderDetailBlueHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872634262D5E65000ADA0B /* BKOrderDetailBlueHeadView.swift */; };
-		0B8726AD262D5E65000ADA0B /* BKInvoceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872635262D5E65000ADA0B /* BKInvoceView.swift */; };
-		0B8726AE262D5E65000ADA0B /* BKShopOrderDetailFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872636262D5E65000ADA0B /* BKShopOrderDetailFootView.swift */; };
-		0B8726AF262D5E65000ADA0B /* BKLogisticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872637262D5E65000ADA0B /* BKLogisticsView.xib */; };
-		0B8726B0262D5E65000ADA0B /* BKShopFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872638262D5E65000ADA0B /* BKShopFooterView.xib */; };
-		0B8726B1262D5E65000ADA0B /* BKDetialHeadSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872639262D5E65000ADA0B /* BKDetialHeadSelectView.swift */; };
-		0B8726B2262D5E65000ADA0B /* BKOrderDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87263A262D5E65000ADA0B /* BKOrderDetailBottomCell.xib */; };
-		0B8726B3262D5E65000ADA0B /* BKShopCommentHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87263B262D5E65000ADA0B /* BKShopCommentHeadView.xib */; };
-		0B8726B4262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87263C262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib */; };
-		0B8726B5262D5E65000ADA0B /* BKOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B87263D262D5E65000ADA0B /* BKOrderCell.xib */; };
-		0B8726B6262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87263E262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.swift */; };
-		0B8726B7262D5E65000ADA0B /* KSGuaidViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872641262D5E65000ADA0B /* KSGuaidViewManager.m */; };
-		0B8726B8262D5E65000ADA0B /* KSGuaidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872644262D5E65000ADA0B /* KSGuaidViewController.m */; };
-		0B8726B9262D5E65000ADA0B /* KSGuaidViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872645262D5E65000ADA0B /* KSGuaidViewCell.m */; };
-		0B8726BA262D5E65000ADA0B /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872646262D5E65000ADA0B /* JsonUtil.swift */; };
-		0B8726BB262D5E65000ADA0B /* NSString+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87264A262D5E65000ADA0B /* NSString+tool.m */; };
-		0B8726BC262D5E65000ADA0B /* NSMutableAttributedString+CSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87264B262D5E65000ADA0B /* NSMutableAttributedString+CSExtension.swift */; };
-		0B8726BD262D5E65000ADA0B /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87264C262D5E65000ADA0B /* UIButton + Extension.swift */; };
-		0B8726BE262D5E65000ADA0B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87264D262D5E65000ADA0B /* String+Extension.swift */; };
-		0B8726BF262D5E65000ADA0B /* UserDefaults+CSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87264E262D5E65000ADA0B /* UserDefaults+CSExtension.swift */; };
-		0B8726C0262D5E65000ADA0B /* NSString+CRDealDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87264F262D5E65000ADA0B /* NSString+CRDealDecimal.m */; };
-		0B8726C1262D5E65000ADA0B /* NSDictionary+AscendingKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872650262D5E65000ADA0B /* NSDictionary+AscendingKey.m */; };
-		0B8726C2262D5E65000ADA0B /* HCDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872652262D5E65000ADA0B /* HCDateFormatter.swift */; };
-		0B8726C3262D5E65000ADA0B /* AppDelegate+UMPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872653262D5E65000ADA0B /* AppDelegate+UMPush.swift */; };
-		0B8726C4262D5E65000ADA0B /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872654262D5E65000ADA0B /* UITextField + Extension.swift */; };
-		0B8726C5262D5E65000ADA0B /* UINavigationController+XWTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872657262D5E65000ADA0B /* UINavigationController+XWTransition.m */; };
-		0B8726C6262D5E65000ADA0B /* UIViewController+XWTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87265A262D5E65000ADA0B /* UIViewController+XWTransition.m */; };
-		0B8726C7262D5E65000ADA0B /* XWInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87265E262D5E65000ADA0B /* XWInteractiveTransition.m */; };
-		0B8726C8262D5E65000ADA0B /* XWTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87265F262D5E65000ADA0B /* XWTransitionAnimator.m */; };
-		0B8726C9262D5E65000ADA0B /* XWCircleSpreadAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872661262D5E65000ADA0B /* XWCircleSpreadAnimator.m */; };
-		0B8726CA262D5E65000ADA0B /* UIBezierPath+CRExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872666262D5E65000ADA0B /* UIBezierPath+CRExtension.m */; };
-		0B8726CB262D5E65000ADA0B /* NSNumber+CRDealDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872667262D5E65000ADA0B /* NSNumber+CRDealDecimal.m */; };
-		0B8726CC262D5E65000ADA0B /* UIColor+Y_StockChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872668262D5E65000ADA0B /* UIColor+Y_StockChart.m */; };
-		0B8726CE262D5E65000ADA0B /* LSLaunchAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87266E262D5E65000ADA0B /* LSLaunchAD.m */; };
-		0B8726CF262D5E65000ADA0B /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872670262D5E65000ADA0B /* BaseModel.swift */; };
-		0B8726D0262D5E65000ADA0B /* MaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872673262D5E65000ADA0B /* MaintenanceVC.swift */; };
-		0B8726D1262D5E65000ADA0B /* MaintenanceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B872674262D5E65000ADA0B /* MaintenanceVC.xib */; };
-		0B8726D2262D5E65000ADA0B /* HCLoginCustomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872675262D5E65000ADA0B /* HCLoginCustomTool.swift */; };
-		0B8726D3262D5E65000ADA0B /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872677262D5E65000ADA0B /* NullSafe.m */; };
-		0B8726D4262D5E65000ADA0B /* ZJPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B872679262D5E65000ADA0B /* ZJPickerView.m */; };
-		0B8726D5262D5E65000ADA0B /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87267C262D5E65000ADA0B /* UIView+SDAutoLayout.m */; };
-		0B8726D6262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B87267F262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.m */; };
-		0B8726F3262D5F2F000ADA0B /* SOAutoHideMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726DD262D5F2F000ADA0B /* SOAutoHideMessageView.m */; };
-		0B8726F4262D5F2F000ADA0B /* NSString+SOAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726DE262D5F2F000ADA0B /* NSString+SOAdditions.m */; };
-		0B8726F5262D5F2F000ADA0B /* NSData+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726DF262D5F2F000ADA0B /* NSData+Additions.m */; };
-		0B8726F6262D5F2F000ADA0B /* UIAlertController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726E0262D5F2F000ADA0B /* UIAlertController+Extension.m */; };
-		0B8726F7262D5F2F000ADA0B /* NSString+BlankString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726E5262D5F2F000ADA0B /* NSString+BlankString.m */; };
-		0B8726F8262D5F2F000ADA0B /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726E8262D5F2F000ADA0B /* NSArray+Safe.m */; };
-		0B8726F9262D5F2F000ADA0B /* NSMutableArray+matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726E9262D5F2F000ADA0B /* NSMutableArray+matching.m */; };
-		0B8726FA262D5F2F000ADA0B /* NSString+UserDataPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726EA262D5F2F000ADA0B /* NSString+UserDataPath.m */; };
-		0B8726FB262D5F2F000ADA0B /* NSArray+matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726EB262D5F2F000ADA0B /* NSArray+matching.m */; };
-		0B8726FC262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726EC262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.m */; };
-		0B8726FD262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8726F2262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.m */; };
 		0B872701262D5FDB000ADA0B /* PurchaseServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8726FF262D5FDA000ADA0B /* PurchaseServiceVC.xib */; };
 		0B872702262D5FDB000ADA0B /* PurchaseServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */; };
 		0B87271A262D6117000ADA0B /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872719262D6117000ADA0B /* AppManager.swift */; };
@@ -225,133 +129,6 @@
 		0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONArrayEncoding.swift; sourceTree = "<group>"; };
 		0B844D3D260C79E500B4C5DF /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		0B844D6C260CC79600B4C5DF /* DateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTool.swift; sourceTree = "<group>"; };
-		0B872606262D5E65000ADA0B /* BKShopOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderVC.swift; sourceTree = "<group>"; };
-		0B872607262D5E65000ADA0B /* BKInvoceInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKInvoceInfoVC.swift; sourceTree = "<group>"; };
-		0B872608262D5E65000ADA0B /* BKOrderDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetailVC.swift; sourceTree = "<group>"; };
-		0B872609262D5E65000ADA0B /* BKShopOrderDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderDetailVC.swift; sourceTree = "<group>"; };
-		0B87260A262D5E65000ADA0B /* BKShopOrderCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderCommentVC.swift; sourceTree = "<group>"; };
-		0B87260B262D5E65000ADA0B /* BKOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderVC.swift; sourceTree = "<group>"; };
-		0B87260C262D5E65000ADA0B /* BKOrderManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderManagerVC.swift; sourceTree = "<group>"; };
-		0B87260D262D5E65000ADA0B /* BKLogisticsInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKLogisticsInfoVC.swift; sourceTree = "<group>"; };
-		0B87260F262D5E65000ADA0B /* BKShopOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderModel.swift; sourceTree = "<group>"; };
-		0B872610262D5E65000ADA0B /* BKOrderLogistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderLogistics.swift; sourceTree = "<group>"; };
-		0B872611262D5E65000ADA0B /* BKAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKAddressModel.swift; sourceTree = "<group>"; };
-		0B872612262D5E65000ADA0B /* BKOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderModel.swift; sourceTree = "<group>"; };
-		0B872614262D5E65000ADA0B /* BKShopCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopCommentView.swift; sourceTree = "<group>"; };
-		0B872615262D5E65000ADA0B /* BKOrderDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetailCell.swift; sourceTree = "<group>"; };
-		0B872616262D5E65000ADA0B /* BKShowReadMeInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKShowReadMeInfoView.xib; sourceTree = "<group>"; };
-		0B872617262D5E65000ADA0B /* BKCommentInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKCommentInputView.xib; sourceTree = "<group>"; };
-		0B872618262D5E65000ADA0B /* BKShopCommentHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopCommentHeadView.swift; sourceTree = "<group>"; };
-		0B872619262D5E65000ADA0B /* BKShopFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopFooterView.swift; sourceTree = "<group>"; };
-		0B87261A262D5E65000ADA0B /* BKOrderDetaiByPersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetaiByPersonCell.swift; sourceTree = "<group>"; };
-		0B87261B262D5E65000ADA0B /* BKShowReadMeInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShowReadMeInfoView.swift; sourceTree = "<group>"; };
-		0B87261C262D5E65000ADA0B /* BKOrderDetailBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetailBottomCell.swift; sourceTree = "<group>"; };
-		0B87261D262D5E65000ADA0B /* BKDetialHeadSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKDetialHeadSelectView.xib; sourceTree = "<group>"; };
-		0B87261E262D5E65000ADA0B /* BKCommentInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKCommentInputView.swift; sourceTree = "<group>"; };
-		0B87261F262D5E65000ADA0B /* BKOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderCell.swift; sourceTree = "<group>"; };
-		0B872620262D5E65000ADA0B /* BKShopOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKShopOrderCell.xib; sourceTree = "<group>"; };
-		0B872621262D5E65000ADA0B /* BKShopOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderCell.swift; sourceTree = "<group>"; };
-		0B872622262D5E65000ADA0B /* BKOrderDetaiByPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderDetaiByPersonCell.xib; sourceTree = "<group>"; };
-		0B872623262D5E65000ADA0B /* BKOrderDetailInvoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetailInvoiceView.swift; sourceTree = "<group>"; };
-		0B872624262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderDetaiShowMoreCell.xib; sourceTree = "<group>"; };
-		0B872626262D5E65000ADA0B /* BKOrderNumInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderNumInfoView.swift; sourceTree = "<group>"; };
-		0B872627262D5E65000ADA0B /* BKRecevieAddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKRecevieAddressView.xib; sourceTree = "<group>"; };
-		0B872628262D5E65000ADA0B /* BKBillInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKBillInfoView.swift; sourceTree = "<group>"; };
-		0B872629262D5E65000ADA0B /* BKNeedPayMoneyInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKNeedPayMoneyInfoView.xib; sourceTree = "<group>"; };
-		0B87262A262D5E65000ADA0B /* BKRecevieAddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKRecevieAddressView.swift; sourceTree = "<group>"; };
-		0B87262B262D5E65000ADA0B /* BKInvoceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKInvoceInfoCell.swift; sourceTree = "<group>"; };
-		0B87262C262D5E65000ADA0B /* BKNeedPayMoneyInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNeedPayMoneyInfoView.swift; sourceTree = "<group>"; };
-		0B87262D262D5E65000ADA0B /* BKInvoceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKInvoceView.xib; sourceTree = "<group>"; };
-		0B87262E262D5E65000ADA0B /* BKLogisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKLogisticsView.swift; sourceTree = "<group>"; };
-		0B87262F262D5E65000ADA0B /* BKBillInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKBillInfoView.xib; sourceTree = "<group>"; };
-		0B872630262D5E65000ADA0B /* BKOrderDetailBlueHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderDetailBlueHeadView.xib; sourceTree = "<group>"; };
-		0B872631262D5E65000ADA0B /* BKShopOrderDetailHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderDetailHeadView.swift; sourceTree = "<group>"; };
-		0B872632262D5E65000ADA0B /* BKOrderNumInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderNumInfoView.xib; sourceTree = "<group>"; };
-		0B872633262D5E65000ADA0B /* BKLogisticsInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKLogisticsInfoCell.swift; sourceTree = "<group>"; };
-		0B872634262D5E65000ADA0B /* BKOrderDetailBlueHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetailBlueHeadView.swift; sourceTree = "<group>"; };
-		0B872635262D5E65000ADA0B /* BKInvoceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKInvoceView.swift; sourceTree = "<group>"; };
-		0B872636262D5E65000ADA0B /* BKShopOrderDetailFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKShopOrderDetailFootView.swift; sourceTree = "<group>"; };
-		0B872637262D5E65000ADA0B /* BKLogisticsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKLogisticsView.xib; sourceTree = "<group>"; };
-		0B872638262D5E65000ADA0B /* BKShopFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKShopFooterView.xib; sourceTree = "<group>"; };
-		0B872639262D5E65000ADA0B /* BKDetialHeadSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKDetialHeadSelectView.swift; sourceTree = "<group>"; };
-		0B87263A262D5E65000ADA0B /* BKOrderDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderDetailBottomCell.xib; sourceTree = "<group>"; };
-		0B87263B262D5E65000ADA0B /* BKShopCommentHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKShopCommentHeadView.xib; sourceTree = "<group>"; };
-		0B87263C262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderDetailInvoiceView.xib; sourceTree = "<group>"; };
-		0B87263D262D5E65000ADA0B /* BKOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKOrderCell.xib; sourceTree = "<group>"; };
-		0B87263E262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKOrderDetaiShowMoreCell.swift; sourceTree = "<group>"; };
-		0B872640262D5E65000ADA0B /* KSGuaidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewController.h; sourceTree = "<group>"; };
-		0B872641262D5E65000ADA0B /* KSGuaidViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewManager.m; sourceTree = "<group>"; };
-		0B872642262D5E65000ADA0B /* KSGuaidViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewCell.h; sourceTree = "<group>"; };
-		0B872643262D5E65000ADA0B /* KSGuaidViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewManager.h; sourceTree = "<group>"; };
-		0B872644262D5E65000ADA0B /* KSGuaidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewController.m; sourceTree = "<group>"; };
-		0B872645262D5E65000ADA0B /* KSGuaidViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewCell.m; sourceTree = "<group>"; };
-		0B872646262D5E65000ADA0B /* JsonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
-		0B872648262D5E65000ADA0B /* NSDictionary+AscendingKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AscendingKey.h"; sourceTree = "<group>"; };
-		0B872649262D5E65000ADA0B /* NSString+CRDealDecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CRDealDecimal.h"; sourceTree = "<group>"; };
-		0B87264A262D5E65000ADA0B /* NSString+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+tool.m"; sourceTree = "<group>"; };
-		0B87264B262D5E65000ADA0B /* NSMutableAttributedString+CSExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+CSExtension.swift"; sourceTree = "<group>"; };
-		0B87264C262D5E65000ADA0B /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
-		0B87264D262D5E65000ADA0B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		0B87264E262D5E65000ADA0B /* UserDefaults+CSExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CSExtension.swift"; sourceTree = "<group>"; };
-		0B87264F262D5E65000ADA0B /* NSString+CRDealDecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CRDealDecimal.m"; sourceTree = "<group>"; };
-		0B872650262D5E65000ADA0B /* NSDictionary+AscendingKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AscendingKey.m"; sourceTree = "<group>"; };
-		0B872651262D5E65000ADA0B /* NSString+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+tool.h"; sourceTree = "<group>"; };
-		0B872652262D5E65000ADA0B /* HCDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCDateFormatter.swift; sourceTree = "<group>"; };
-		0B872653262D5E65000ADA0B /* AppDelegate+UMPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UMPush.swift"; sourceTree = "<group>"; };
-		0B872654262D5E65000ADA0B /* UITextField + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
-		0B872657262D5E65000ADA0B /* UINavigationController+XWTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+XWTransition.m"; sourceTree = "<group>"; };
-		0B872658262D5E65000ADA0B /* UIViewController+XWTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XWTransition.h"; sourceTree = "<group>"; };
-		0B872659262D5E65000ADA0B /* UINavigationController+XWTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+XWTransition.h"; sourceTree = "<group>"; };
-		0B87265A262D5E65000ADA0B /* UIViewController+XWTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XWTransition.m"; sourceTree = "<group>"; };
-		0B87265C262D5E65000ADA0B /* XWInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWInteractiveTransition.h; sourceTree = "<group>"; };
-		0B87265D262D5E65000ADA0B /* XWTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTransitionAnimator.h; sourceTree = "<group>"; };
-		0B87265E262D5E65000ADA0B /* XWInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWInteractiveTransition.m; sourceTree = "<group>"; };
-		0B87265F262D5E65000ADA0B /* XWTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTransitionAnimator.m; sourceTree = "<group>"; };
-		0B872661262D5E65000ADA0B /* XWCircleSpreadAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCircleSpreadAnimator.m; sourceTree = "<group>"; };
-		0B872662262D5E65000ADA0B /* XWCircleSpreadAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCircleSpreadAnimator.h; sourceTree = "<group>"; };
-		0B872664262D5E65000ADA0B /* NSNumber+CRDealDecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+CRDealDecimal.h"; sourceTree = "<group>"; };
-		0B872665262D5E65000ADA0B /* UIColor+Y_StockChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Y_StockChart.h"; sourceTree = "<group>"; };
-		0B872666262D5E65000ADA0B /* UIBezierPath+CRExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+CRExtension.m"; sourceTree = "<group>"; };
-		0B872667262D5E65000ADA0B /* NSNumber+CRDealDecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+CRDealDecimal.m"; sourceTree = "<group>"; };
-		0B872668262D5E65000ADA0B /* UIColor+Y_StockChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Y_StockChart.m"; sourceTree = "<group>"; };
-		0B872669262D5E65000ADA0B /* UIBezierPath+CRExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+CRExtension.h"; sourceTree = "<group>"; };
-		0B87266E262D5E65000ADA0B /* LSLaunchAD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLaunchAD.m; sourceTree = "<group>"; };
-		0B87266F262D5E65000ADA0B /* LSLaunchAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLaunchAD.h; sourceTree = "<group>"; };
-		0B872670262D5E65000ADA0B /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		0B872673262D5E65000ADA0B /* MaintenanceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceVC.swift; sourceTree = "<group>"; };
-		0B872674262D5E65000ADA0B /* MaintenanceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaintenanceVC.xib; sourceTree = "<group>"; };
-		0B872675262D5E65000ADA0B /* HCLoginCustomTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCLoginCustomTool.swift; sourceTree = "<group>"; };
-		0B872677262D5E65000ADA0B /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
-		0B872679262D5E65000ADA0B /* ZJPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJPickerView.m; sourceTree = "<group>"; };
-		0B87267A262D5E65000ADA0B /* ZJPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJPickerView.h; sourceTree = "<group>"; };
-		0B87267C262D5E65000ADA0B /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
-		0B87267D262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
-		0B87267E262D5E65000ADA0B /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
-		0B87267F262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
-		0B872680262D5E65000ADA0B /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		0B8726D8262D5F2F000ADA0B /* categary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categary.h; sourceTree = "<group>"; };
-		0B8726DA262D5F2F000ADA0B /* NSString+SOAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SOAdditions.h"; sourceTree = "<group>"; };
-		0B8726DB262D5F2F000ADA0B /* NSData+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Additions.h"; sourceTree = "<group>"; };
-		0B8726DC262D5F2F000ADA0B /* UIAlertController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Extension.h"; sourceTree = "<group>"; };
-		0B8726DD262D5F2F000ADA0B /* SOAutoHideMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAutoHideMessageView.m; sourceTree = "<group>"; };
-		0B8726DE262D5F2F000ADA0B /* NSString+SOAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SOAdditions.m"; sourceTree = "<group>"; };
-		0B8726DF262D5F2F000ADA0B /* NSData+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Additions.m"; sourceTree = "<group>"; };
-		0B8726E0262D5F2F000ADA0B /* UIAlertController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Extension.m"; sourceTree = "<group>"; };
-		0B8726E1262D5F2F000ADA0B /* SOAutoHideMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAutoHideMessageView.h; sourceTree = "<group>"; };
-		0B8726E3262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LabelWidthAndHeight.h"; sourceTree = "<group>"; };
-		0B8726E4262D5F2F000ADA0B /* NSArray+matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+matching.h"; sourceTree = "<group>"; };
-		0B8726E5262D5F2F000ADA0B /* NSString+BlankString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BlankString.m"; sourceTree = "<group>"; };
-		0B8726E7262D5F2F000ADA0B /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
-		0B8726E8262D5F2F000ADA0B /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
-		0B8726E9262D5F2F000ADA0B /* NSMutableArray+matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+matching.m"; sourceTree = "<group>"; };
-		0B8726EA262D5F2F000ADA0B /* NSString+UserDataPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UserDataPath.m"; sourceTree = "<group>"; };
-		0B8726EB262D5F2F000ADA0B /* NSArray+matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+matching.m"; sourceTree = "<group>"; };
-		0B8726EC262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LabelWidthAndHeight.m"; sourceTree = "<group>"; };
-		0B8726ED262D5F2F000ADA0B /* NSString+BlankString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BlankString.h"; sourceTree = "<group>"; };
-		0B8726EE262D5F2F000ADA0B /* NSString+UserDataPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UserDataPath.h"; sourceTree = "<group>"; };
-		0B8726EF262D5F2F000ADA0B /* NSMutableArray+matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+matching.h"; sourceTree = "<group>"; };
-		0B8726F1262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XWAddForRoundedCorner.h"; sourceTree = "<group>"; };
-		0B8726F2262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XWAddForRoundedCorner.m"; sourceTree = "<group>"; };
 		0B8726FF262D5FDA000ADA0B /* PurchaseServiceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseServiceVC.xib; sourceTree = "<group>"; };
 		0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseServiceVC.swift; sourceTree = "<group>"; };
 		0B872719262D6117000ADA0B /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
@@ -562,7 +339,6 @@
 		0B79373C25FF015B00E2B5B1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0B872603262D5E65000ADA0B /* Other(辣鸡) */,
 				0B79373225FEF99100E2B5B1 /* Base */,
 				0B72BDAC25FB470800FA1CBC /* VC */,
 				0B72BDAE25FB471200FA1CBC /* View */,
@@ -596,316 +372,6 @@
 				0B844D3D260C79E500B4C5DF /* Network.swift */,
 			);
 			path = NetWork;
-			sourceTree = "<group>";
-		};
-		0B872603262D5E65000ADA0B /* Other(辣鸡) */ = {
-			isa = PBXGroup;
-			children = (
-				0B872604262D5E65000ADA0B /* order */,
-				0B87263F262D5E65000ADA0B /* KSGuaidView */,
-				0B872646262D5E65000ADA0B /* JsonUtil.swift */,
-				0B872647262D5E65000ADA0B /* Extension */,
-				0B872655262D5E65000ADA0B /* XWTransition */,
-				0B872663262D5E65000ADA0B /* Category */,
-				0B87266D262D5E65000ADA0B /* LSLaunchAD */,
-				0B872670262D5E65000ADA0B /* BaseModel.swift */,
-				0B872671262D5E65000ADA0B /* 保养手册 */,
-				0B872675262D5E65000ADA0B /* HCLoginCustomTool.swift */,
-				0B872676262D5E65000ADA0B /* NullSafe */,
-				0B872678262D5E65000ADA0B /* ZJPickerView */,
-				0B87267B262D5E65000ADA0B /* SDAutoLayout */,
-			);
-			path = "Other(辣鸡)";
-			sourceTree = "<group>";
-		};
-		0B872604262D5E65000ADA0B /* order */ = {
-			isa = PBXGroup;
-			children = (
-				0B872605262D5E65000ADA0B /* vc */,
-				0B87260E262D5E65000ADA0B /* model */,
-				0B872613262D5E65000ADA0B /* view */,
-			);
-			path = order;
-			sourceTree = "<group>";
-		};
-		0B872605262D5E65000ADA0B /* vc */ = {
-			isa = PBXGroup;
-			children = (
-				0B872606262D5E65000ADA0B /* BKShopOrderVC.swift */,
-				0B872607262D5E65000ADA0B /* BKInvoceInfoVC.swift */,
-				0B872608262D5E65000ADA0B /* BKOrderDetailVC.swift */,
-				0B872609262D5E65000ADA0B /* BKShopOrderDetailVC.swift */,
-				0B87260A262D5E65000ADA0B /* BKShopOrderCommentVC.swift */,
-				0B87260B262D5E65000ADA0B /* BKOrderVC.swift */,
-				0B87260C262D5E65000ADA0B /* BKOrderManagerVC.swift */,
-				0B87260D262D5E65000ADA0B /* BKLogisticsInfoVC.swift */,
-			);
-			path = vc;
-			sourceTree = "<group>";
-		};
-		0B87260E262D5E65000ADA0B /* model */ = {
-			isa = PBXGroup;
-			children = (
-				0B87260F262D5E65000ADA0B /* BKShopOrderModel.swift */,
-				0B872610262D5E65000ADA0B /* BKOrderLogistics.swift */,
-				0B872611262D5E65000ADA0B /* BKAddressModel.swift */,
-				0B872612262D5E65000ADA0B /* BKOrderModel.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		0B872613262D5E65000ADA0B /* view */ = {
-			isa = PBXGroup;
-			children = (
-				0B872614262D5E65000ADA0B /* BKShopCommentView.swift */,
-				0B872615262D5E65000ADA0B /* BKOrderDetailCell.swift */,
-				0B872616262D5E65000ADA0B /* BKShowReadMeInfoView.xib */,
-				0B872617262D5E65000ADA0B /* BKCommentInputView.xib */,
-				0B872618262D5E65000ADA0B /* BKShopCommentHeadView.swift */,
-				0B872619262D5E65000ADA0B /* BKShopFooterView.swift */,
-				0B87261A262D5E65000ADA0B /* BKOrderDetaiByPersonCell.swift */,
-				0B87261B262D5E65000ADA0B /* BKShowReadMeInfoView.swift */,
-				0B87261C262D5E65000ADA0B /* BKOrderDetailBottomCell.swift */,
-				0B87261D262D5E65000ADA0B /* BKDetialHeadSelectView.xib */,
-				0B87261E262D5E65000ADA0B /* BKCommentInputView.swift */,
-				0B87261F262D5E65000ADA0B /* BKOrderCell.swift */,
-				0B872620262D5E65000ADA0B /* BKShopOrderCell.xib */,
-				0B872621262D5E65000ADA0B /* BKShopOrderCell.swift */,
-				0B872622262D5E65000ADA0B /* BKOrderDetaiByPersonCell.xib */,
-				0B872623262D5E65000ADA0B /* BKOrderDetailInvoiceView.swift */,
-				0B872624262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.xib */,
-				0B872625262D5E65000ADA0B /* detail */,
-				0B872638262D5E65000ADA0B /* BKShopFooterView.xib */,
-				0B872639262D5E65000ADA0B /* BKDetialHeadSelectView.swift */,
-				0B87263A262D5E65000ADA0B /* BKOrderDetailBottomCell.xib */,
-				0B87263B262D5E65000ADA0B /* BKShopCommentHeadView.xib */,
-				0B87263C262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib */,
-				0B87263D262D5E65000ADA0B /* BKOrderCell.xib */,
-				0B87263E262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.swift */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		0B872625262D5E65000ADA0B /* detail */ = {
-			isa = PBXGroup;
-			children = (
-				0B872626262D5E65000ADA0B /* BKOrderNumInfoView.swift */,
-				0B872627262D5E65000ADA0B /* BKRecevieAddressView.xib */,
-				0B872628262D5E65000ADA0B /* BKBillInfoView.swift */,
-				0B872629262D5E65000ADA0B /* BKNeedPayMoneyInfoView.xib */,
-				0B87262A262D5E65000ADA0B /* BKRecevieAddressView.swift */,
-				0B87262B262D5E65000ADA0B /* BKInvoceInfoCell.swift */,
-				0B87262C262D5E65000ADA0B /* BKNeedPayMoneyInfoView.swift */,
-				0B87262D262D5E65000ADA0B /* BKInvoceView.xib */,
-				0B87262E262D5E65000ADA0B /* BKLogisticsView.swift */,
-				0B87262F262D5E65000ADA0B /* BKBillInfoView.xib */,
-				0B872630262D5E65000ADA0B /* BKOrderDetailBlueHeadView.xib */,
-				0B872631262D5E65000ADA0B /* BKShopOrderDetailHeadView.swift */,
-				0B872632262D5E65000ADA0B /* BKOrderNumInfoView.xib */,
-				0B872633262D5E65000ADA0B /* BKLogisticsInfoCell.swift */,
-				0B872634262D5E65000ADA0B /* BKOrderDetailBlueHeadView.swift */,
-				0B872635262D5E65000ADA0B /* BKInvoceView.swift */,
-				0B872636262D5E65000ADA0B /* BKShopOrderDetailFootView.swift */,
-				0B872637262D5E65000ADA0B /* BKLogisticsView.xib */,
-			);
-			path = detail;
-			sourceTree = "<group>";
-		};
-		0B87263F262D5E65000ADA0B /* KSGuaidView */ = {
-			isa = PBXGroup;
-			children = (
-				0B872640262D5E65000ADA0B /* KSGuaidViewController.h */,
-				0B872641262D5E65000ADA0B /* KSGuaidViewManager.m */,
-				0B872642262D5E65000ADA0B /* KSGuaidViewCell.h */,
-				0B872643262D5E65000ADA0B /* KSGuaidViewManager.h */,
-				0B872644262D5E65000ADA0B /* KSGuaidViewController.m */,
-				0B872645262D5E65000ADA0B /* KSGuaidViewCell.m */,
-			);
-			path = KSGuaidView;
-			sourceTree = "<group>";
-		};
-		0B872647262D5E65000ADA0B /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				0B872648262D5E65000ADA0B /* NSDictionary+AscendingKey.h */,
-				0B872649262D5E65000ADA0B /* NSString+CRDealDecimal.h */,
-				0B87264A262D5E65000ADA0B /* NSString+tool.m */,
-				0B87264B262D5E65000ADA0B /* NSMutableAttributedString+CSExtension.swift */,
-				0B87264C262D5E65000ADA0B /* UIButton + Extension.swift */,
-				0B87264D262D5E65000ADA0B /* String+Extension.swift */,
-				0B87264E262D5E65000ADA0B /* UserDefaults+CSExtension.swift */,
-				0B87264F262D5E65000ADA0B /* NSString+CRDealDecimal.m */,
-				0B872650262D5E65000ADA0B /* NSDictionary+AscendingKey.m */,
-				0B872651262D5E65000ADA0B /* NSString+tool.h */,
-				0B872652262D5E65000ADA0B /* HCDateFormatter.swift */,
-				0B872653262D5E65000ADA0B /* AppDelegate+UMPush.swift */,
-				0B872654262D5E65000ADA0B /* UITextField + Extension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		0B872655262D5E65000ADA0B /* XWTransition */ = {
-			isa = PBXGroup;
-			children = (
-				0B872656262D5E65000ADA0B /* Category */,
-				0B87265B262D5E65000ADA0B /* Main */,
-				0B872660262D5E65000ADA0B /* XWCircleSpreadAnimator */,
-			);
-			path = XWTransition;
-			sourceTree = "<group>";
-		};
-		0B872656262D5E65000ADA0B /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				0B872657262D5E65000ADA0B /* UINavigationController+XWTransition.m */,
-				0B872658262D5E65000ADA0B /* UIViewController+XWTransition.h */,
-				0B872659262D5E65000ADA0B /* UINavigationController+XWTransition.h */,
-				0B87265A262D5E65000ADA0B /* UIViewController+XWTransition.m */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		0B87265B262D5E65000ADA0B /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				0B87265C262D5E65000ADA0B /* XWInteractiveTransition.h */,
-				0B87265D262D5E65000ADA0B /* XWTransitionAnimator.h */,
-				0B87265E262D5E65000ADA0B /* XWInteractiveTransition.m */,
-				0B87265F262D5E65000ADA0B /* XWTransitionAnimator.m */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		0B872660262D5E65000ADA0B /* XWCircleSpreadAnimator */ = {
-			isa = PBXGroup;
-			children = (
-				0B872661262D5E65000ADA0B /* XWCircleSpreadAnimator.m */,
-				0B872662262D5E65000ADA0B /* XWCircleSpreadAnimator.h */,
-			);
-			path = XWCircleSpreadAnimator;
-			sourceTree = "<group>";
-		};
-		0B872663262D5E65000ADA0B /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				0B8726D8262D5F2F000ADA0B /* categary.h */,
-				0B8726F0262D5F2F000ADA0B /* circleRadius */,
-				0B8726E2262D5F2F000ADA0B /* NS */,
-				0B8726D9262D5F2F000ADA0B /* SOAutoHideMessageView */,
-				0B872664262D5E65000ADA0B /* NSNumber+CRDealDecimal.h */,
-				0B872665262D5E65000ADA0B /* UIColor+Y_StockChart.h */,
-				0B872666262D5E65000ADA0B /* UIBezierPath+CRExtension.m */,
-				0B872667262D5E65000ADA0B /* NSNumber+CRDealDecimal.m */,
-				0B872668262D5E65000ADA0B /* UIColor+Y_StockChart.m */,
-				0B872669262D5E65000ADA0B /* UIBezierPath+CRExtension.h */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		0B87266D262D5E65000ADA0B /* LSLaunchAD */ = {
-			isa = PBXGroup;
-			children = (
-				0B87266E262D5E65000ADA0B /* LSLaunchAD.m */,
-				0B87266F262D5E65000ADA0B /* LSLaunchAD.h */,
-			);
-			path = LSLaunchAD;
-			sourceTree = "<group>";
-		};
-		0B872671262D5E65000ADA0B /* 保养手册 */ = {
-			isa = PBXGroup;
-			children = (
-				0B872672262D5E65000ADA0B /* VC */,
-			);
-			path = "保养手册";
-			sourceTree = "<group>";
-		};
-		0B872672262D5E65000ADA0B /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				0B872673262D5E65000ADA0B /* MaintenanceVC.swift */,
-				0B872674262D5E65000ADA0B /* MaintenanceVC.xib */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		0B872676262D5E65000ADA0B /* NullSafe */ = {
-			isa = PBXGroup;
-			children = (
-				0B872677262D5E65000ADA0B /* NullSafe.m */,
-			);
-			path = NullSafe;
-			sourceTree = "<group>";
-		};
-		0B872678262D5E65000ADA0B /* ZJPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				0B872679262D5E65000ADA0B /* ZJPickerView.m */,
-				0B87267A262D5E65000ADA0B /* ZJPickerView.h */,
-			);
-			path = ZJPickerView;
-			sourceTree = "<group>";
-		};
-		0B87267B262D5E65000ADA0B /* SDAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				0B87267C262D5E65000ADA0B /* UIView+SDAutoLayout.m */,
-				0B87267D262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.h */,
-				0B87267E262D5E65000ADA0B /* SDAutoLayout.h */,
-				0B87267F262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.m */,
-				0B872680262D5E65000ADA0B /* UIView+SDAutoLayout.h */,
-			);
-			path = SDAutoLayout;
-			sourceTree = "<group>";
-		};
-		0B8726D9262D5F2F000ADA0B /* SOAutoHideMessageView */ = {
-			isa = PBXGroup;
-			children = (
-				0B8726DA262D5F2F000ADA0B /* NSString+SOAdditions.h */,
-				0B8726DB262D5F2F000ADA0B /* NSData+Additions.h */,
-				0B8726DC262D5F2F000ADA0B /* UIAlertController+Extension.h */,
-				0B8726DD262D5F2F000ADA0B /* SOAutoHideMessageView.m */,
-				0B8726DE262D5F2F000ADA0B /* NSString+SOAdditions.m */,
-				0B8726DF262D5F2F000ADA0B /* NSData+Additions.m */,
-				0B8726E0262D5F2F000ADA0B /* UIAlertController+Extension.m */,
-				0B8726E1262D5F2F000ADA0B /* SOAutoHideMessageView.h */,
-			);
-			path = SOAutoHideMessageView;
-			sourceTree = "<group>";
-		};
-		0B8726E2262D5F2F000ADA0B /* NS */ = {
-			isa = PBXGroup;
-			children = (
-				0B8726E3262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.h */,
-				0B8726E4262D5F2F000ADA0B /* NSArray+matching.h */,
-				0B8726E5262D5F2F000ADA0B /* NSString+BlankString.m */,
-				0B8726E6262D5F2F000ADA0B /* NSArray+Safe */,
-				0B8726E9262D5F2F000ADA0B /* NSMutableArray+matching.m */,
-				0B8726EA262D5F2F000ADA0B /* NSString+UserDataPath.m */,
-				0B8726EB262D5F2F000ADA0B /* NSArray+matching.m */,
-				0B8726EC262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.m */,
-				0B8726ED262D5F2F000ADA0B /* NSString+BlankString.h */,
-				0B8726EE262D5F2F000ADA0B /* NSString+UserDataPath.h */,
-				0B8726EF262D5F2F000ADA0B /* NSMutableArray+matching.h */,
-			);
-			path = NS;
-			sourceTree = "<group>";
-		};
-		0B8726E6262D5F2F000ADA0B /* NSArray+Safe */ = {
-			isa = PBXGroup;
-			children = (
-				0B8726E7262D5F2F000ADA0B /* NSArray+Safe.h */,
-				0B8726E8262D5F2F000ADA0B /* NSArray+Safe.m */,
-			);
-			path = "NSArray+Safe";
-			sourceTree = "<group>";
-		};
-		0B8726F0262D5F2F000ADA0B /* circleRadius */ = {
-			isa = PBXGroup;
-			children = (
-				0B8726F1262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.h */,
-				0B8726F2262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.m */,
-			);
-			path = circleRadius;
 			sourceTree = "<group>";
 		};
 		0BBD8B85260748D6003ECFF1 /* Extension */ = {
@@ -1013,44 +479,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B8726A7262D5E65000ADA0B /* BKBillInfoView.xib in Resources */,
 				0BBD8B9126074F15003ECFF1 /* AddressBookManagerCell.xib in Resources */,
-				0B87269B262D5E65000ADA0B /* BKOrderDetaiByPersonCell.xib in Resources */,
 				0B797B87260837A3009FB281 /* HomeVC.xib in Resources */,
 				E5982DE6260ECB8B00E07965 /* ImagePreviewVC.xib in Resources */,
 				0BA71D7326099C9900A36914 /* AllAnalyseCell.xib in Resources */,
-				0B872696262D5E65000ADA0B /* BKDetialHeadSelectView.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
 				0B797B92260849BE009FB281 /* ImageAndVideoAnalyseCell.xib in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
 				0B711A18262EE3FF00749CFA /* 隐私政策.html in Resources */,
-				0B87269D262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.xib in Resources */,
 				0B872701262D5FDB000ADA0B /* PurchaseServiceVC.xib in Resources */,
 				0BBD8BA326076C70003ECFF1 /* ImageAndVideoDealCell.xib in Resources */,
 				0BBD8B9626075969003ECFF1 /* CalendarAndReminderVC.xib in Resources */,
-				0B8726A8262D5E65000ADA0B /* BKOrderDetailBlueHeadView.xib in Resources */,
-				0B8726D1262D5E65000ADA0B /* MaintenanceVC.xib in Resources */,
-				0B8726B2262D5E65000ADA0B /* BKOrderDetailBottomCell.xib in Resources */,
 				0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */,
-				0B8726B3262D5E65000ADA0B /* BKShopCommentHeadView.xib in Resources */,
 				0BA71D6E26098F4E00A36914 /* AllAnalyseVC.xib in Resources */,
-				0B87268F262D5E65000ADA0B /* BKShowReadMeInfoView.xib in Resources */,
 				0B918325260726F1001CF4FF /* AddressBookCell.xib in Resources */,
-				0B8726AF262D5E65000ADA0B /* BKLogisticsView.xib in Resources */,
-				0B8726AA262D5E65000ADA0B /* BKOrderNumInfoView.xib in Resources */,
-				0B872690262D5E65000ADA0B /* BKCommentInputView.xib in Resources */,
 				0B91831926072143001CF4FF /* AddressBookVC.xib in Resources */,
 				0B7119FC262E861C00749CFA /* ContactBookVC.xib in Resources */,
-				0B87269F262D5E65000ADA0B /* BKRecevieAddressView.xib in Resources */,
 				0BBD8B9B26075BB3003ECFF1 /* CalendarAndReminderCell.xib in Resources */,
-				0B8726A1262D5E65000ADA0B /* BKNeedPayMoneyInfoView.xib in Resources */,
-				0B8726B0262D5E65000ADA0B /* BKShopFooterView.xib in Resources */,
 				0B797B8D2608478E009FB281 /* ImageAndVideoAnalyseVC.xib in Resources */,
-				0B8726A5262D5E65000ADA0B /* BKInvoceView.xib in Resources */,
 				0B711A17262EE3FF00749CFA /* 常见问题.html in Resources */,
-				0B8726B4262D5E65000ADA0B /* BKOrderDetailInvoiceView.xib in Resources */,
-				0B872699262D5E65000ADA0B /* BKShopOrderCell.xib in Resources */,
-				0B8726B5262D5E65000ADA0B /* BKOrderCell.xib in Resources */,
 				0B8005A32653A333003FF8B7 /* EquipmentInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1105,131 +552,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBD8BA226076C70003ECFF1 /* ImageAndVideoDealCell.swift in Sources */,
-				0B8726F5262D5F2F000ADA0B /* NSData+Additions.m in Sources */,
-				0B8726F4262D5F2F000ADA0B /* NSString+SOAdditions.m in Sources */,
 				0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */,
-				0B8726F7262D5F2F000ADA0B /* NSString+BlankString.m in Sources */,
 				0B797BA22608ADE9009FB281 /* NSMutableAttributedString+Ex.swift in Sources */,
 				0B711A0A262EB3CD00749CFA /* CRGCDTimer.m in Sources */,
-				0B8726C5262D5E65000ADA0B /* UINavigationController+XWTransition.m in Sources */,
 				0B8005A72653A345003FF8B7 /* EquipmentInfoModel.swift in Sources */,
-				0B8726FB262D5F2F000ADA0B /* NSArray+matching.m in Sources */,
-				0B8726F3262D5F2F000ADA0B /* SOAutoHideMessageView.m in Sources */,
 				0BBD8B8A26074D64003ECFF1 /* CalendarManagerVC.swift in Sources */,
 				0B79378125FF40A500E2B5B1 /* AppBaseNav.swift in Sources */,
-				0B8726CE262D5E65000ADA0B /* LSLaunchAD.m in Sources */,
-				0B87268C262D5E65000ADA0B /* BKOrderModel.swift in Sources */,
-				0B8726B8262D5E65000ADA0B /* KSGuaidViewController.m in Sources */,
-				0B8726BE262D5E65000ADA0B /* String+Extension.swift in Sources */,
 				0B844D3E260C79E500B4C5DF /* JSONArrayEncoding.swift in Sources */,
 				0B7B2A132603378D007B195A /* ImageCompareTool.mm in Sources */,
 				0B797B91260849BE009FB281 /* ImageAndVideoAnalyseCell.swift in Sources */,
-				0B8726AC262D5E65000ADA0B /* BKOrderDetailBlueHeadView.swift in Sources */,
 				0B8005A42653A333003FF8B7 /* EquipmentInfoCell.swift in Sources */,
-				0B872684262D5E65000ADA0B /* BKShopOrderDetailVC.swift in Sources */,
-				0B8726A4262D5E65000ADA0B /* BKNeedPayMoneyInfoView.swift in Sources */,
-				0B87269A262D5E65000ADA0B /* BKShopOrderCell.swift in Sources */,
-				0B8726B9262D5E65000ADA0B /* KSGuaidViewCell.m in Sources */,
 				0B724AAB2600BF1D00E3DAAC /* ContactAnalyseTool.swift in Sources */,
-				0B8726B6262D5E65000ADA0B /* BKOrderDetaiShowMoreCell.swift in Sources */,
 				0B797B9F26089C0A009FB281 /* TXScanProgressView.m in Sources */,
-				0B8726D0262D5E65000ADA0B /* MaintenanceVC.swift in Sources */,
 				E5982DE5260ECB8B00E07965 /* ImagePreviewVC.swift in Sources */,
 				0B797B9526084AAB009FB281 /* ImageAndVideoAnalyseModel.swift in Sources */,
 				0BBD8B87260748F0003ECFF1 /* UIView + Ex.swift in Sources */,
 				E57034332607821E00CD6517 /* HomeCircleView.swift in Sources */,
-				0B8726FD262D5F2F000ADA0B /* UIView+XWAddForRoundedCorner.m in Sources */,
-				0B872695262D5E65000ADA0B /* BKOrderDetailBottomCell.swift in Sources */,
 				0B7E1532260198F00070B02E /* CalendarAnalyseTool.swift in Sources */,
 				0B72BD9B25FB46A100FA1CBC /* HomeVC.swift in Sources */,
-				0B872683262D5E65000ADA0B /* BKOrderDetailVC.swift in Sources */,
 				0B79373425FEF9B000E2B5B1 /* AppBaseVC.swift in Sources */,
-				0B8726C4262D5E65000ADA0B /* UITextField + Extension.swift in Sources */,
-				0B8726D6262D5E65000ADA0B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				0B711A04262EB1BF00749CFA /* XLWave.m in Sources */,
-				0B8726FA262D5F2F000ADA0B /* NSString+UserDataPath.m in Sources */,
-				0B872691262D5E65000ADA0B /* BKShopCommentHeadView.swift in Sources */,
-				0B872692262D5E65000ADA0B /* BKShopFooterView.swift in Sources */,
-				0B872685262D5E65000ADA0B /* BKShopOrderCommentVC.swift in Sources */,
-				0B8726C3262D5E65000ADA0B /* AppDelegate+UMPush.swift in Sources */,
-				0B872681262D5E65000ADA0B /* BKShopOrderVC.swift in Sources */,
-				0B8726CB262D5E65000ADA0B /* NSNumber+CRDealDecimal.m in Sources */,
-				0B87268E262D5E65000ADA0B /* BKOrderDetailCell.swift in Sources */,
 				0BBD8B9526075969003ECFF1 /* CalendarAndReminderVC.swift in Sources */,
-				0B8726C6262D5E65000ADA0B /* UIViewController+XWTransition.m in Sources */,
-				0B87268B262D5E65000ADA0B /* BKAddressModel.swift in Sources */,
-				0B872689262D5E65000ADA0B /* BKShopOrderModel.swift in Sources */,
-				0B8726C1262D5E65000ADA0B /* NSDictionary+AscendingKey.m in Sources */,
 				0BBD8B9E26076BED003ECFF1 /* ImageAndVideoDealVC.swift in Sources */,
-				0B8726D3262D5E65000ADA0B /* NullSafe.m in Sources */,
 				0B844D6D260CC79600B4C5DF /* DateTool.swift in Sources */,
 				E5D85C7A260A26D0006F4447 /* ImageAndVideoAnalyseTool.swift in Sources */,
 				0B91831826072143001CF4FF /* AddressBookVC.swift in Sources */,
-				0B8726C9262D5E65000ADA0B /* XWCircleSpreadAnimator.m in Sources */,
 				0B797B8C2608478E009FB281 /* ImageAndVideoAnalyseVC.swift in Sources */,
 				0BA71D6D26098F4E00A36914 /* AllAnalyseVC.swift in Sources */,
 				0B872734262D907D000ADA0B /* AddressBookManagerVC.swift in Sources */,
 				0B7119FB262E861C00749CFA /* ContactBookVC.swift in Sources */,
-				0B8726F8262D5F2F000ADA0B /* NSArray+Safe.m in Sources */,
-				0B8726AB262D5E65000ADA0B /* BKLogisticsInfoCell.swift in Sources */,
-				0B8726AE262D5E65000ADA0B /* BKShopOrderDetailFootView.swift in Sources */,
-				0B8726C8262D5E65000ADA0B /* XWTransitionAnimator.m in Sources */,
 				0BBD8B9026074F15003ECFF1 /* AddressBookManagerCell.swift in Sources */,
-				0B8726A3262D5E65000ADA0B /* BKInvoceInfoCell.swift in Sources */,
-				0B872687262D5E65000ADA0B /* BKOrderManagerVC.swift in Sources */,
 				0B711A05262EB1BF00749CFA /* XLWaveProgress.m in Sources */,
 				E57034392607826A00CD6517 /* UICountingLabel.m in Sources */,
-				0B872698262D5E65000ADA0B /* BKOrderCell.swift in Sources */,
-				0B8726C0262D5E65000ADA0B /* NSString+CRDealDecimal.m in Sources */,
-				0B8726BB262D5E65000ADA0B /* NSString+tool.m in Sources */,
 				0B7B2A0926032EC7007B195A /* MemoryAnalyseTool.swift in Sources */,
-				0B872682262D5E65000ADA0B /* BKInvoceInfoVC.swift in Sources */,
-				0B8726D4262D5E65000ADA0B /* ZJPickerView.m in Sources */,
 				E5D85C7E260A2C20006F4447 /* VideoModel.swift in Sources */,
 				0BA71D7226099C9900A36914 /* AllAnalyseCell.swift in Sources */,
 				0B7B2A1A26033B89007B195A /* CircularView.m in Sources */,
-				0B8726C7262D5E65000ADA0B /* XWInteractiveTransition.m in Sources */,
-				0B8726F9262D5F2F000ADA0B /* NSMutableArray+matching.m in Sources */,
-				0B8726CC262D5E65000ADA0B /* UIColor+Y_StockChart.m in Sources */,
-				0B8726A2262D5E65000ADA0B /* BKRecevieAddressView.swift in Sources */,
-				0B8726B7262D5E65000ADA0B /* KSGuaidViewManager.m in Sources */,
 				0B918324260726F1001CF4FF /* AddressBookCell.swift in Sources */,
 				0BA71D762609E19500A36914 /* AllAnalyseResultModel.swift in Sources */,
-				0B8726BD262D5E65000ADA0B /* UIButton + Extension.swift in Sources */,
-				0B87268A262D5E65000ADA0B /* BKOrderLogistics.swift in Sources */,
 				0B844D3F260C79E500B4C5DF /* Network.swift in Sources */,
-				0B8726B1262D5E65000ADA0B /* BKDetialHeadSelectView.swift in Sources */,
-				0B8726A0262D5E65000ADA0B /* BKBillInfoView.swift in Sources */,
-				0B872697262D5E65000ADA0B /* BKCommentInputView.swift in Sources */,
-				0B872693262D5E65000ADA0B /* BKOrderDetaiByPersonCell.swift in Sources */,
 				0BBD8B8326072D7A003ECFF1 /* AddressBookHeaderView.swift in Sources */,
-				0B8726CA262D5E65000ADA0B /* UIBezierPath+CRExtension.m in Sources */,
-				0B8726C2262D5E65000ADA0B /* HCDateFormatter.swift in Sources */,
-				0B87268D262D5E65000ADA0B /* BKShopCommentView.swift in Sources */,
 				0B70464F260B456900542A5D /* PaymentManager.swift in Sources */,
 				E57A71EA26107D4100765937 /* AboutUsInfoVC.swift in Sources */,
 				E57A71ED26107FB200765937 /* AppWebVC.swift in Sources */,
-				0B8726BF262D5E65000ADA0B /* UserDefaults+CSExtension.swift in Sources */,
-				0B872694262D5E65000ADA0B /* BKShowReadMeInfoView.swift in Sources */,
 				E5D85C81260A2C41006F4447 /* ImageModel.swift in Sources */,
-				0B8726FC262D5F2F000ADA0B /* NSString+LabelWidthAndHeight.m in Sources */,
 				0B72BD9725FB46A100FA1CBC /* AppDelegate.swift in Sources */,
 				0BBD8B9A26075BB3003ECFF1 /* CalendarAndReminderCell.swift in Sources */,
-				0B8726A9262D5E65000ADA0B /* BKShopOrderDetailHeadView.swift in Sources */,
-				0B87269C262D5E65000ADA0B /* BKOrderDetailInvoiceView.swift in Sources */,
-				0B8726D2262D5E65000ADA0B /* HCLoginCustomTool.swift in Sources */,
-				0B8726AD262D5E65000ADA0B /* BKInvoceView.swift in Sources */,
 				0B80059F2653A2F9003FF8B7 /* EquipmentInfoVC.swift in Sources */,
-				0B8726D5262D5E65000ADA0B /* UIView+SDAutoLayout.m in Sources */,
-				0B872688262D5E65000ADA0B /* BKLogisticsInfoVC.swift in Sources */,
 				0B87271A262D6117000ADA0B /* AppManager.swift in Sources */,
-				0B8726CF262D5E65000ADA0B /* BaseModel.swift in Sources */,
-				0B8726F6262D5F2F000ADA0B /* UIAlertController+Extension.m in Sources */,
-				0B8726A6262D5E65000ADA0B /* BKLogisticsView.swift in Sources */,
-				0B872686262D5E65000ADA0B /* BKOrderVC.swift in Sources */,
-				0B8726BA262D5E65000ADA0B /* JsonUtil.swift in Sources */,
-				0B87269E262D5E65000ADA0B /* BKOrderNumInfoView.swift in Sources */,
-				0B8726BC262D5E65000ADA0B /* NSMutableAttributedString+CSExtension.swift in Sources */,
 				0B872702262D5FDB000ADA0B /* PurchaseServiceVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1380,7 +750,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 1001;
 				DEVELOPMENT_TEAM = WX972HMPDB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1410,7 +780,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 1001;
 				DEVELOPMENT_TEAM = WX972HMPDB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

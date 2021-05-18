@@ -55,7 +55,7 @@ class HomeVC: AppBaseVC {
         self.view.backgroundColor = HEX("#B9DFE8")
         
         //杂代码
-        _ = MaintenanceVC()
+//        _ = MaintenanceVC()
     }
     
     override func viewDidLayoutSubviews() {
