@@ -49,7 +49,14 @@ class HomeVC: AppBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshPieViewData()
-        self.bottomHeightCons.constant = 340 + cIndicatorHeight
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.bottomHeightCons.constant = 450 + cIndicatorHeight
+        }else{
+            self.bottomHeightCons.constant = 340 + cIndicatorHeight
+        }
+        
+        
         clearAllBtn.layer.cornerRadius = 24
         clearAllBtn.layer.masksToBounds = true
         self.view.backgroundColor = HEX("#B9DFE8")
