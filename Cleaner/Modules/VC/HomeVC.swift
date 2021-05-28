@@ -7,6 +7,8 @@
 
 import UIKit
 import QMUIKit
+import AppTrackingTransparency
+
 
 class HomeVC: AppBaseVC {
 
@@ -19,21 +21,21 @@ class HomeVC: AppBaseVC {
     
     @IBAction func clearAllBtnAction(btn:QMUIButton) {
         
-//        if DateTool.shared.isExpired() {
-//            let vc = PurchaseServiceVC()
-//            vc.successBlock = {
-//                //继续之前的操作
-//                let vc = AllAnalyseVC()
-//                vc.refreshMemeryBlock = {
-//                    self.refreshPieViewData()
-//                }
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//            let nav = AppBaseNav(rootViewController: vc)
-//            nav.modalPresentationStyle = .fullScreen
-//            self.navigationController?.present(nav, animated: true, completion: nil)
-//            return
-//        }
+        if DateTool.shared.isExpired() {
+            let vc = PurchaseServiceVC()
+            vc.successBlock = {
+                //继续之前的操作
+                let vc = AllAnalyseVC()
+                vc.refreshMemeryBlock = {
+                    self.refreshPieViewData()
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            let nav = AppBaseNav(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true, completion: nil)
+            return
+        }
         
         let vc = AllAnalyseVC()
         vc.refreshMemeryBlock = {
@@ -56,6 +58,12 @@ class HomeVC: AppBaseVC {
             self.bottomHeightCons.constant = 340 + cIndicatorHeight
         }
         
+        //申请权限
+        if #available(iOS 14.0, *) {
+            ATTrackingManager.requestTrackingAuthorization { (status) in
+                
+            }
+        }
         
         clearAllBtn.layer.cornerRadius = 24
         clearAllBtn.layer.masksToBounds = true

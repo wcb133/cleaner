@@ -24,11 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //百度统计
-        #if true
-            BaiduMobStat.default().start(withAppId: "111912a685")
+        let statTracker = BaiduMobStat.default()
+        statTracker.enableDebugOn = false
+        #if false
+              statTracker.start(withAppId: "111912a685")
         #else
-            BaiduMobStat.default().start(withAppId: "9ff5e41c7e")
-        
+              statTracker.start(withAppId: "9ff5e41c7e")
         #endif
         
         //设置友盟appkey
