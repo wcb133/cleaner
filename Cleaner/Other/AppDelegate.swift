@@ -24,18 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //百度统计
-        let statTracker = BaiduMobStat.default()
-        statTracker.enableDebugOn = false
-        #if false
-              statTracker.start(withAppId: "111912a685")
-        #else
-              statTracker.start(withAppId: "9ff5e41c7e")
-        #endif
+//        let statTracker = BaiduMobStat.default()
+//        statTracker.enableDebugOn = false
+//        #if false
+//              statTracker.start(withAppId: "111912a685")
+//        #else
+//              statTracker.start(withAppId: "9ff5e41c7e")
+//        #endif
         
         //设置友盟appkey
-        UMConfigure.initWithAppkey(UMentKeyStr, channel: "App Store")
+//        UMConfigure.initWithAppkey(UMentKeyStr, channel: "App Store")
         //leancloud
-        AVOSCloud.setApplicationId("BCyffpvafyN9QkcxC6TCaVaR-gzGzoHsz", clientKey: "gxG1YQc15y60r8hDWulAh5GR", serverURLString: "https://bcyffpva.lc-cn-n1-shared.com")
+//        AVOSCloud.setApplicationId("BCyffpvafyN9QkcxC6TCaVaR-gzGzoHsz", clientKey: "gxG1YQc15y60r8hDWulAh5GR", serverURLString: "https://bcyffpva.lc-cn-n1-shared.com")
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
