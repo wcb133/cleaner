@@ -14,15 +14,8 @@ import RxCocoa
 class PurchaseServiceVC: AppBaseVC {
    
     
+    
     @IBOutlet weak var weekBTn: UIButton!
-    
-    @IBOutlet weak var monthBtn: UIButton!
-    
-    @IBOutlet weak var quarterBtn: UIButton!
-    
-    
-    @IBOutlet weak var subscribeBtn: QMUIButton!
-
     
     @IBOutlet weak var topView: UIView!
     
@@ -33,15 +26,6 @@ class PurchaseServiceVC: AppBaseVC {
     @IBOutlet weak var privateProtocolBtn: UIButton!
     
     @IBOutlet weak var restoreBtn: UIButton!
-    
-    
-    //无试用期的label
-    
-    @IBOutlet weak var weekLab: UILabel!
-    
-    @IBOutlet weak var monthLab: UILabel!
-    
-    @IBOutlet weak var quarterLab: UILabel!
     
     
     //成功订阅block
@@ -60,25 +44,13 @@ class PurchaseServiceVC: AppBaseVC {
         
         weekBTn.layer.cornerRadius = 25
         weekBTn.layer.masksToBounds = true
-        monthBtn.layer.cornerRadius = 25
-        monthBtn.layer.masksToBounds = true
-        quarterBtn.layer.cornerRadius = 25
-        quarterBtn.layer.masksToBounds = true
         
-        subscribeBtn.layer.cornerRadius = 30
-        subscribeBtn.layer.masksToBounds = true
-        
-        self.topViewHeightCons.constant = iPhoneX ? 365 :320
+        self.topViewHeightCons.constant = iPhoneX ? 390 :340
         
         if PaymentManager.shared.productDict.isEmpty {
             PaymentManager.shared.requestProducts(productArray: subscribeItems)
         }
         
-        //需要展示试用期
-        self.weekLab.isHidden = AppManager.shared.isShowTry
-        self.monthLab.isHidden = AppManager.shared.isShowTry
-        self.quarterLab.isHidden = AppManager.shared.isShowTry
-
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.qmui_item(with: UIImage(named: "close"), target: self, action: #selector(closeBtnACtion))
 
         let str = NSMutableAttributedString(string: "使用条款")
@@ -121,13 +93,7 @@ class PurchaseServiceVC: AppBaseVC {
     
     
     @IBAction func itemACtion(_ sender: UIButton) {
-        selectBtn?.isSelected = false
-        sender.isSelected = true
-        selectBtn = sender
-        productID = subscribeItems[sender.tag]
-    }
-    
-    @IBAction func subscribeBtnAction(_ sender: QMUIButton) {
+        productID = subscribeItems[0]
         PaymentManager.shared.buyProduct(productID: productID) { (isSuccess) in
             //订阅成功
             if isSuccess{
@@ -139,7 +105,7 @@ class PurchaseServiceVC: AppBaseVC {
             }
         }
     }
-    
+
     
      @objc func closeBtnACtion() {
         self.dismiss(animated: true, completion: nil)
