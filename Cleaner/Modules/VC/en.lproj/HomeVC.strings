@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "68A-54-xce"; */
+"68A-54-xce.text" = "0%";
+
+/* Class = "UILabel"; text = "图片清理"; ObjectID = "Arz-Pa-JL1"; */
+"Arz-Pa-JL1.text" = "Photo Clear";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "BqY-MV-zpu"; */
+"BqY-MV-zpu.text" = "About";
+
+/* Class = "UILabel"; text = "通讯录优化"; ObjectID = "C8r-rA-b4H"; */
+"C8r-rA-b4H.text" = "Address Book";
+
+/* Class = "UILabel"; text = "建议优化"; ObjectID = "CIZ-Fu-6mp"; */
+"CIZ-Fu-6mp.text" = "Need Optimize";
+
+/* Class = "UILabel"; text = "  设备信息"; ObjectID = "Nhp-JH-tIj"; */
+"Nhp-JH-tIj.text" = "Device Info";
+
+/* Class = "UILabel"; text = "日历及提醒"; ObjectID = "Q3Q-nW-yuX"; */
+"Q3Q-nW-yuX.text" = "Calendar";
+
+/* Class = "UILabel"; text = "视频清理"; ObjectID = "TX1-ZU-M6O"; */
+"TX1-ZU-M6O.text" = "Video Clear";
+
+/* Class = "UIButton"; normalTitle = "快速清理"; ObjectID = "pf3-jC-lHP"; */
+"pf3-jC-lHP.normalTitle" = "Quick Clean";

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B70464F260B456900542A5D /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70464E260B456900542A5D /* PaymentManager.swift */; };
 		0B7119FB262E861C00749CFA /* ContactBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7119F9262E861C00749CFA /* ContactBookVC.swift */; };
-		0B7119FC262E861C00749CFA /* ContactBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7119FA262E861C00749CFA /* ContactBookVC.xib */; };
 		0B711A04262EB1BF00749CFA /* XLWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B711A00262EB1BF00749CFA /* XLWave.m */; };
 		0B711A05262EB1BF00749CFA /* XLWaveProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B711A03262EB1BF00749CFA /* XLWaveProgress.m */; };
 		0B711A0A262EB3CD00749CFA /* CRGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B711A08262EB3CD00749CFA /* CRGCDTimer.m */; };
@@ -24,9 +23,7 @@
 		0B79373425FEF9B000E2B5B1 /* AppBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79373325FEF9B000E2B5B1 /* AppBaseVC.swift */; };
 		0B79377025FF3ECC00E2B5B1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79376F25FF3ECC00E2B5B1 /* File.swift */; };
 		0B79378125FF40A500E2B5B1 /* AppBaseNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B79378025FF40A500E2B5B1 /* AppBaseNav.swift */; };
-		0B797B87260837A3009FB281 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B86260837A3009FB281 /* HomeVC.xib */; };
 		0B797B8C2608478E009FB281 /* ImageAndVideoAnalyseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B8A2608478E009FB281 /* ImageAndVideoAnalyseVC.swift */; };
-		0B797B8D2608478E009FB281 /* ImageAndVideoAnalyseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B8B2608478E009FB281 /* ImageAndVideoAnalyseVC.xib */; };
 		0B797B91260849BE009FB281 /* ImageAndVideoAnalyseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B8F260849BE009FB281 /* ImageAndVideoAnalyseCell.swift */; };
 		0B797B92260849BE009FB281 /* ImageAndVideoAnalyseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B797B90260849BE009FB281 /* ImageAndVideoAnalyseCell.xib */; };
 		0B797B9526084AAB009FB281 /* ImageAndVideoAnalyseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B797B9426084AAB009FB281 /* ImageAndVideoAnalyseModel.swift */; };
@@ -36,6 +33,16 @@
 		0B7B2A132603378D007B195A /* ImageCompareTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A112603378D007B195A /* ImageCompareTool.mm */; };
 		0B7B2A142603378D007B195A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7B2A122603378D007B195A /* opencv2.framework */; };
 		0B7B2A1A26033B89007B195A /* CircularView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B2A1926033B89007B195A /* CircularView.m */; };
+		0B7C0B4A26677E2C005EE9B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B4C26677E2C005EE9B2 /* Localizable.strings */; };
+		0B7C0B5126677EB9005EE9B2 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C0B5026677EB9005EE9B2 /* AppSettings.swift */; };
+		0B7C0B572667830A005EE9B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B592667830A005EE9B2 /* InfoPlist.strings */; };
+		0B7C0B6C2667889E005EE9B2 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B6E2667889E005EE9B2 /* HomeVC.xib */; };
+		0B7C0B7526678D49005EE9B2 /* AllAnalyseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B7726678D49005EE9B2 /* AllAnalyseVC.xib */; };
+		0B7C0B7D26678D7B005EE9B2 /* CalendarAndReminderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B7F26678D7B005EE9B2 /* CalendarAndReminderVC.xib */; };
+		0B7C0B8326678DA3005EE9B2 /* AddressBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B8526678DA3005EE9B2 /* AddressBookVC.xib */; };
+		0B7C0B8926678DB3005EE9B2 /* ContactBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B8B26678DB3005EE9B2 /* ContactBookVC.xib */; };
+		0B7C0B8E26678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B9026678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib */; };
+		0B7C0B9426678DEF005EE9B2 /* PurchaseServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B9626678DEF005EE9B2 /* PurchaseServiceVC.xib */; };
 		0B7E1532260198F00070B02E /* CalendarAnalyseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarAnalyseTool.swift */; };
 		0B80059F2653A2F9003FF8B7 /* EquipmentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */; };
 		0B8005A32653A333003FF8B7 /* EquipmentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */; };
@@ -44,16 +51,13 @@
 		0B844D3E260C79E500B4C5DF /* JSONArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */; };
 		0B844D3F260C79E500B4C5DF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D3D260C79E500B4C5DF /* Network.swift */; };
 		0B844D6D260CC79600B4C5DF /* DateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B844D6C260CC79600B4C5DF /* DateTool.swift */; };
-		0B872701262D5FDB000ADA0B /* PurchaseServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8726FF262D5FDA000ADA0B /* PurchaseServiceVC.xib */; };
 		0B872702262D5FDB000ADA0B /* PurchaseServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */; };
 		0B87271A262D6117000ADA0B /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872719262D6117000ADA0B /* AppManager.swift */; };
 		0B872734262D907D000ADA0B /* AddressBookManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B872733262D907D000ADA0B /* AddressBookManagerVC.swift */; };
 		0B91831826072143001CF4FF /* AddressBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91831626072143001CF4FF /* AddressBookVC.swift */; };
-		0B91831926072143001CF4FF /* AddressBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B91831726072143001CF4FF /* AddressBookVC.xib */; };
 		0B918324260726F1001CF4FF /* AddressBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B918322260726F1001CF4FF /* AddressBookCell.swift */; };
 		0B918325260726F1001CF4FF /* AddressBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B918323260726F1001CF4FF /* AddressBookCell.xib */; };
 		0BA71D6D26098F4E00A36914 /* AllAnalyseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71D6B26098F4E00A36914 /* AllAnalyseVC.swift */; };
-		0BA71D6E26098F4E00A36914 /* AllAnalyseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71D6C26098F4E00A36914 /* AllAnalyseVC.xib */; };
 		0BA71D7226099C9900A36914 /* AllAnalyseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71D7026099C9900A36914 /* AllAnalyseCell.swift */; };
 		0BA71D7326099C9900A36914 /* AllAnalyseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71D7126099C9900A36914 /* AllAnalyseCell.xib */; };
 		0BA71D762609E19500A36914 /* AllAnalyseResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71D752609E19500A36914 /* AllAnalyseResultModel.swift */; };
@@ -63,7 +67,6 @@
 		0BBD8B9026074F15003ECFF1 /* AddressBookManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8E26074F15003ECFF1 /* AddressBookManagerCell.swift */; };
 		0BBD8B9126074F15003ECFF1 /* AddressBookManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8B8F26074F15003ECFF1 /* AddressBookManagerCell.xib */; };
 		0BBD8B9526075969003ECFF1 /* CalendarAndReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9326075969003ECFF1 /* CalendarAndReminderVC.swift */; };
-		0BBD8B9626075969003ECFF1 /* CalendarAndReminderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9426075969003ECFF1 /* CalendarAndReminderVC.xib */; };
 		0BBD8B9A26075BB3003ECFF1 /* CalendarAndReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9826075BB3003ECFF1 /* CalendarAndReminderCell.swift */; };
 		0BBD8B9B26075BB3003ECFF1 /* CalendarAndReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9926075BB3003ECFF1 /* CalendarAndReminderCell.xib */; };
 		0BBD8B9E26076BED003ECFF1 /* ImageAndVideoDealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8B9D26076BED003ECFF1 /* ImageAndVideoDealVC.swift */; };
@@ -85,7 +88,6 @@
 /* Begin PBXFileReference section */
 		0B70464E260B456900542A5D /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		0B7119F9262E861C00749CFA /* ContactBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBookVC.swift; sourceTree = "<group>"; };
-		0B7119FA262E861C00749CFA /* ContactBookVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactBookVC.xib; sourceTree = "<group>"; };
 		0B711A00262EB1BF00749CFA /* XLWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLWave.m; sourceTree = "<group>"; };
 		0B711A01262EB1BF00749CFA /* XLWaveProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLWaveProgress.h; sourceTree = "<group>"; };
 		0B711A02262EB1BF00749CFA /* XLWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLWave.h; sourceTree = "<group>"; };
@@ -106,9 +108,7 @@
 		0B79376F25FF3ECC00E2B5B1 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		0B79377225FF3EFB00E2B5B1 /* Cleaner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cleaner-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B79378025FF40A500E2B5B1 /* AppBaseNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBaseNav.swift; sourceTree = "<group>"; };
-		0B797B86260837A3009FB281 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		0B797B8A2608478E009FB281 /* ImageAndVideoAnalyseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndVideoAnalyseVC.swift; sourceTree = "<group>"; };
-		0B797B8B2608478E009FB281 /* ImageAndVideoAnalyseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageAndVideoAnalyseVC.xib; sourceTree = "<group>"; };
 		0B797B8F260849BE009FB281 /* ImageAndVideoAnalyseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndVideoAnalyseCell.swift; sourceTree = "<group>"; };
 		0B797B90260849BE009FB281 /* ImageAndVideoAnalyseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageAndVideoAnalyseCell.xib; sourceTree = "<group>"; };
 		0B797B9426084AAB009FB281 /* ImageAndVideoAnalyseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndVideoAnalyseModel.swift; sourceTree = "<group>"; };
@@ -121,6 +121,30 @@
 		0B7B2A122603378D007B195A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		0B7B2A1826033B88007B195A /* CircularView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularView.h; sourceTree = "<group>"; };
 		0B7B2A1926033B89007B195A /* CircularView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularView.m; sourceTree = "<group>"; };
+		0B7C0B4426677CBD005EE9B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		0B7C0B4526677CBD005EE9B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0B7C0B4B26677E2C005EE9B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0B7C0B4E26677E34005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0B7C0B5026677EB9005EE9B2 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		0B7C0B582667830A005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0B7C0B5B26678310005EE9B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0B7C0B5E26678548005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		0B7C0B602667855D005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0B7C0B6D2667889E005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeVC.xib; sourceTree = "<group>"; };
+		0B7C0B71266788BF005EE9B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/HomeVC.strings"; sourceTree = "<group>"; };
+		0B7C0B73266788C6005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeVC.strings; sourceTree = "<group>"; };
+		0B7C0B7626678D49005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AllAnalyseVC.xib; sourceTree = "<group>"; };
+		0B7C0B7A26678D50005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AllAnalyseVC.strings; sourceTree = "<group>"; };
+		0B7C0B7C26678D51005EE9B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AllAnalyseVC.strings"; sourceTree = "<group>"; };
+		0B7C0B7E26678D7B005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CalendarAndReminderVC.xib; sourceTree = "<group>"; };
+		0B7C0B8226678D8A005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CalendarAndReminderVC.strings; sourceTree = "<group>"; };
+		0B7C0B8426678DA3005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddressBookVC.xib; sourceTree = "<group>"; };
+		0B7C0B8826678DA7005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddressBookVC.strings; sourceTree = "<group>"; };
+		0B7C0B8A26678DB3005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ContactBookVC.xib; sourceTree = "<group>"; };
+		0B7C0B8D26678DB8005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ContactBookVC.strings; sourceTree = "<group>"; };
+		0B7C0B8F26678DC5005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImageAndVideoAnalyseVC.xib; sourceTree = "<group>"; };
+		0B7C0B9526678DEF005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PurchaseServiceVC.xib; sourceTree = "<group>"; };
+		0B7C0B9826678DF3005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PurchaseServiceVC.strings; sourceTree = "<group>"; };
 		0B7E1531260198F00070B02E /* CalendarAnalyseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyseTool.swift; sourceTree = "<group>"; };
 		0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentInfoVC.swift; sourceTree = "<group>"; };
 		0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentInfoCell.xib; sourceTree = "<group>"; };
@@ -129,16 +153,13 @@
 		0B844D3C260C79E500B4C5DF /* JSONArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONArrayEncoding.swift; sourceTree = "<group>"; };
 		0B844D3D260C79E500B4C5DF /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		0B844D6C260CC79600B4C5DF /* DateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTool.swift; sourceTree = "<group>"; };
-		0B8726FF262D5FDA000ADA0B /* PurchaseServiceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseServiceVC.xib; sourceTree = "<group>"; };
 		0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseServiceVC.swift; sourceTree = "<group>"; };
 		0B872719262D6117000ADA0B /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		0B872733262D907D000ADA0B /* AddressBookManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookManagerVC.swift; sourceTree = "<group>"; };
 		0B91831626072143001CF4FF /* AddressBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookVC.swift; sourceTree = "<group>"; };
-		0B91831726072143001CF4FF /* AddressBookVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookVC.xib; sourceTree = "<group>"; };
 		0B918322260726F1001CF4FF /* AddressBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookCell.swift; sourceTree = "<group>"; };
 		0B918323260726F1001CF4FF /* AddressBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookCell.xib; sourceTree = "<group>"; };
 		0BA71D6B26098F4E00A36914 /* AllAnalyseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAnalyseVC.swift; sourceTree = "<group>"; };
-		0BA71D6C26098F4E00A36914 /* AllAnalyseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllAnalyseVC.xib; sourceTree = "<group>"; };
 		0BA71D7026099C9900A36914 /* AllAnalyseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAnalyseCell.swift; sourceTree = "<group>"; };
 		0BA71D7126099C9900A36914 /* AllAnalyseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllAnalyseCell.xib; sourceTree = "<group>"; };
 		0BA71D752609E19500A36914 /* AllAnalyseResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAnalyseResultModel.swift; sourceTree = "<group>"; };
@@ -148,7 +169,6 @@
 		0BBD8B8E26074F15003ECFF1 /* AddressBookManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookManagerCell.swift; sourceTree = "<group>"; };
 		0BBD8B8F26074F15003ECFF1 /* AddressBookManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookManagerCell.xib; sourceTree = "<group>"; };
 		0BBD8B9326075969003ECFF1 /* CalendarAndReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAndReminderVC.swift; sourceTree = "<group>"; };
-		0BBD8B9426075969003ECFF1 /* CalendarAndReminderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarAndReminderVC.xib; sourceTree = "<group>"; };
 		0BBD8B9826075BB3003ECFF1 /* CalendarAndReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAndReminderCell.swift; sourceTree = "<group>"; };
 		0BBD8B9926075BB3003ECFF1 /* CalendarAndReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarAndReminderCell.xib; sourceTree = "<group>"; };
 		0BBD8B9D26076BED003ECFF1 /* ImageAndVideoDealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndVideoDealVC.swift; sourceTree = "<group>"; };
@@ -233,26 +253,26 @@
 			isa = PBXGroup;
 			children = (
 				0B72BD9A25FB46A100FA1CBC /* HomeVC.swift */,
-				0B797B86260837A3009FB281 /* HomeVC.xib */,
+				0B7C0B6E2667889E005EE9B2 /* HomeVC.xib */,
 				0BA71D6B26098F4E00A36914 /* AllAnalyseVC.swift */,
-				0BA71D6C26098F4E00A36914 /* AllAnalyseVC.xib */,
+				0B7C0B7726678D49005EE9B2 /* AllAnalyseVC.xib */,
 				E57A71E926107D4100765937 /* AboutUsInfoVC.swift */,
 				E57A71EC26107FB200765937 /* AppWebVC.swift */,
 				0BBD8B8926074D64003ECFF1 /* CalendarManagerVC.swift */,
 				0BBD8B9326075969003ECFF1 /* CalendarAndReminderVC.swift */,
-				0BBD8B9426075969003ECFF1 /* CalendarAndReminderVC.xib */,
+				0B7C0B7F26678D7B005EE9B2 /* CalendarAndReminderVC.xib */,
 				0B872733262D907D000ADA0B /* AddressBookManagerVC.swift */,
 				0B91831626072143001CF4FF /* AddressBookVC.swift */,
-				0B91831726072143001CF4FF /* AddressBookVC.xib */,
+				0B7C0B8526678DA3005EE9B2 /* AddressBookVC.xib */,
 				0B7119F9262E861C00749CFA /* ContactBookVC.swift */,
-				0B7119FA262E861C00749CFA /* ContactBookVC.xib */,
+				0B7C0B8B26678DB3005EE9B2 /* ContactBookVC.xib */,
 				0B797B8A2608478E009FB281 /* ImageAndVideoAnalyseVC.swift */,
-				0B797B8B2608478E009FB281 /* ImageAndVideoAnalyseVC.xib */,
+				0B7C0B9026678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib */,
 				0BBD8B9D26076BED003ECFF1 /* ImageAndVideoDealVC.swift */,
 				E5982DE3260ECB8B00E07965 /* ImagePreviewVC.swift */,
 				E5982DE4260ECB8B00E07965 /* ImagePreviewVC.xib */,
 				0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */,
-				0B8726FF262D5FDA000ADA0B /* PurchaseServiceVC.xib */,
+				0B7C0B9626678DEF005EE9B2 /* PurchaseServiceVC.xib */,
 				0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */,
 			);
 			path = VC;
@@ -318,6 +338,8 @@
 				0B72BDA125FB46A400FA1CBC /* LaunchScreen.storyboard */,
 				0B72BDA425FB46A400FA1CBC /* Info.plist */,
 				0B79377225FF3EFB00E2B5B1 /* Cleaner-Bridging-Header.h */,
+				0B7C0B4C26677E2C005EE9B2 /* Localizable.strings */,
+				0B7C0B592667830A005EE9B2 /* InfoPlist.strings */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -357,9 +379,18 @@
 			path = ImageCompare;
 			sourceTree = "<group>";
 		};
+		0B7C0B4F26677EA9005EE9B2 /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				0B7C0B5026677EB9005EE9B2 /* AppSettings.swift */,
+			);
+			path = AppSettings;
+			sourceTree = "<group>";
+		};
 		0B844D3A260C79D200B4C5DF /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				0B7C0B4F26677EA9005EE9B2 /* AppSettings */,
 				0B844D3B260C79E500B4C5DF /* NetWork */,
 			);
 			path = Tool;
@@ -463,6 +494,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0B72BD8A25FB46A100FA1CBC;
 			productRefGroup = 0B72BD9425FB46A100FA1CBC /* Products */;
@@ -480,23 +512,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBD8B9126074F15003ECFF1 /* AddressBookManagerCell.xib in Resources */,
-				0B797B87260837A3009FB281 /* HomeVC.xib in Resources */,
 				E5982DE6260ECB8B00E07965 /* ImagePreviewVC.xib in Resources */,
 				0BA71D7326099C9900A36914 /* AllAnalyseCell.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
 				0B797B92260849BE009FB281 /* ImageAndVideoAnalyseCell.xib in Resources */,
+				0B7C0B6C2667889E005EE9B2 /* HomeVC.xib in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
 				0B711A18262EE3FF00749CFA /* 隐私政策.html in Resources */,
-				0B872701262D5FDB000ADA0B /* PurchaseServiceVC.xib in Resources */,
+				0B7C0B9426678DEF005EE9B2 /* PurchaseServiceVC.xib in Resources */,
+				0B7C0B572667830A005EE9B2 /* InfoPlist.strings in Resources */,
 				0BBD8BA326076C70003ECFF1 /* ImageAndVideoDealCell.xib in Resources */,
-				0BBD8B9626075969003ECFF1 /* CalendarAndReminderVC.xib in Resources */,
+				0B7C0B4A26677E2C005EE9B2 /* Localizable.strings in Resources */,
+				0B7C0B7D26678D7B005EE9B2 /* CalendarAndReminderVC.xib in Resources */,
 				0B72BD9E25FB46A100FA1CBC /* Main.storyboard in Resources */,
-				0BA71D6E26098F4E00A36914 /* AllAnalyseVC.xib in Resources */,
+				0B7C0B7526678D49005EE9B2 /* AllAnalyseVC.xib in Resources */,
 				0B918325260726F1001CF4FF /* AddressBookCell.xib in Resources */,
-				0B91831926072143001CF4FF /* AddressBookVC.xib in Resources */,
-				0B7119FC262E861C00749CFA /* ContactBookVC.xib in Resources */,
+				0B7C0B8326678DA3005EE9B2 /* AddressBookVC.xib in Resources */,
+				0B7C0B8926678DB3005EE9B2 /* ContactBookVC.xib in Resources */,
 				0BBD8B9B26075BB3003ECFF1 /* CalendarAndReminderCell.xib in Resources */,
-				0B797B8D2608478E009FB281 /* ImageAndVideoAnalyseVC.xib in Resources */,
+				0B7C0B8E26678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib in Resources */,
 				0B711A17262EE3FF00749CFA /* 常见问题.html in Resources */,
 				0B8005A32653A333003FF8B7 /* EquipmentInfoCell.xib in Resources */,
 			);
@@ -601,6 +635,7 @@
 				0B80059F2653A2F9003FF8B7 /* EquipmentInfoVC.swift in Sources */,
 				0B87271A262D6117000ADA0B /* AppManager.swift in Sources */,
 				0B872702262D5FDB000ADA0B /* PurchaseServiceVC.swift in Sources */,
+				0B7C0B5126677EB9005EE9B2 /* AppSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +646,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				0B72BD9D25FB46A100FA1CBC /* Base */,
+				0B7C0B4426677CBD005EE9B2 /* zh-Hans */,
+				0B7C0B5E26678548005EE9B2 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -619,8 +656,92 @@
 			isa = PBXVariantGroup;
 			children = (
 				0B72BDA225FB46A400FA1CBC /* Base */,
+				0B7C0B4526677CBD005EE9B2 /* zh-Hans */,
+				0B7C0B602667855D005EE9B2 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0B7C0B4C26677E2C005EE9B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B4B26677E2C005EE9B2 /* zh-Hans */,
+				0B7C0B4E26677E34005EE9B2 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0B7C0B592667830A005EE9B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B582667830A005EE9B2 /* en */,
+				0B7C0B5B26678310005EE9B2 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0B7C0B6E2667889E005EE9B2 /* HomeVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B6D2667889E005EE9B2 /* Base */,
+				0B7C0B71266788BF005EE9B2 /* zh-Hans */,
+				0B7C0B73266788C6005EE9B2 /* en */,
+			);
+			name = HomeVC.xib;
+			sourceTree = "<group>";
+		};
+		0B7C0B7726678D49005EE9B2 /* AllAnalyseVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B7626678D49005EE9B2 /* Base */,
+				0B7C0B7A26678D50005EE9B2 /* en */,
+				0B7C0B7C26678D51005EE9B2 /* zh-Hans */,
+			);
+			name = AllAnalyseVC.xib;
+			sourceTree = "<group>";
+		};
+		0B7C0B7F26678D7B005EE9B2 /* CalendarAndReminderVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B7E26678D7B005EE9B2 /* Base */,
+				0B7C0B8226678D8A005EE9B2 /* en */,
+			);
+			name = CalendarAndReminderVC.xib;
+			sourceTree = "<group>";
+		};
+		0B7C0B8526678DA3005EE9B2 /* AddressBookVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B8426678DA3005EE9B2 /* Base */,
+				0B7C0B8826678DA7005EE9B2 /* en */,
+			);
+			name = AddressBookVC.xib;
+			sourceTree = "<group>";
+		};
+		0B7C0B8B26678DB3005EE9B2 /* ContactBookVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B8A26678DB3005EE9B2 /* Base */,
+				0B7C0B8D26678DB8005EE9B2 /* en */,
+			);
+			name = ContactBookVC.xib;
+			sourceTree = "<group>";
+		};
+		0B7C0B9026678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B8F26678DC5005EE9B2 /* Base */,
+			);
+			name = ImageAndVideoAnalyseVC.xib;
+			sourceTree = "<group>";
+		};
+		0B7C0B9626678DEF005EE9B2 /* PurchaseServiceVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B7C0B9526678DEF005EE9B2 /* Base */,
+				0B7C0B9826678DF3005EE9B2 /* en */,
+			);
+			name = PurchaseServiceVC.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -630,6 +751,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -691,6 +813,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

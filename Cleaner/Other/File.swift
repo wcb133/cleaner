@@ -41,6 +41,10 @@ let ReleaseAlia = "release_"
 //主窗口
 let cKeyWindow = UIApplication.shared.keyWindow
 
+func localizedString(_ string:String) -> String {
+    return NSLocalizedString(string, comment: "")
+}
+
 func HEX(_ String:String) -> UIColor {
     return UIColor.qmui_color(withHexString: String)!
 }

@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //订阅监听
         PaymentManager.shared.addObserver()
         PaymentManager.shared.requestProducts(productArray: subscribeItems)
+        //本地化
+        object_setClass(Foundation.Bundle.main, Bundle.self)
         
         return true
     }

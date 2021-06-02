@@ -53,18 +53,18 @@ class PurchaseServiceVC: AppBaseVC {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.qmui_item(with: UIImage(named: "close"), target: self, action: #selector(closeBtnACtion))
 
-        let str = NSMutableAttributedString(string: "使用条款")
+        let str = NSMutableAttributedString(string: localizedString("Use Agreement"))
         let strRange = NSRange(location: 0, length: str.length)
         str.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange)
         useProtocolBtn.setAttributedTitle(str, for: .normal)
         
-        let str2 = NSMutableAttributedString(string: "隐私政策")
-        let strRange2 = NSRange(location: 0, length: str.length)
+        let str2 = NSMutableAttributedString(string: localizedString("Privacy Policy"))
+        let strRange2 = NSRange(location: 0, length: str2.length)
         str2.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange2)
         privateProtocolBtn.setAttributedTitle(str2, for: .normal)
         
-        let str3 = NSMutableAttributedString(string: "恢复购买")
-        let strRange3 = NSRange(location: 0, length: str.length)
+        let str3 = NSMutableAttributedString(string: localizedString("Restore"))
+        let strRange3 = NSRange(location: 0, length: str3.length)
         str3.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange3)
         restoreBtn.setAttributedTitle(str3, for: .normal)
         
