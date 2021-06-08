@@ -88,7 +88,7 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
     
     lazy var bottomTipsLab:UILabel = {
         let lab = UILabel()
-        lab.text = "努力分析中"
+        lab.text = localizedString("Scanning")
         lab.textColor = .white
         lab.font = .systemFont(ofSize: 16)
         lab.textAlignment = .center
@@ -136,13 +136,13 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
         return progressView
     }()
     
-    let photoTitles = ["模糊照片","相似照片","屏幕截图","超大照片"]
-    let videoTitles = ["重复视频","相似视频","损坏视频","超大视频"]
+    let photoTitles = ["Blurred Photos","Similar Photos","Screen Capture","Oversized Photos"]
+    let videoTitles = ["Repeated Video","Similar Videos","Damaged Videos","Oversized Videos"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         extendedLayoutIncludesOpaqueBars = false
-        titleView?.title = isScanPhoto ? "图片清理":"视频清理"
+        titleView?.title = isScanPhoto ? localizedString("Photo Clear"):localizedString("Video Clear")
         titleView?.titleLabel.textColor = .white
         self.bottomTipsLab.textColor = .white
         
@@ -197,11 +197,11 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
         let totalSpace = MemoryAnalyseTool.getTotalSpace()
         let freeSpace = totalSpace - usedSpace
         
-        let memoryString = String(format: "剩余%.2fGB",freeSpace)
+        let memoryString = String(format: "%@ %.2fGB",localizedString("Free"),freeSpace)
         let highLightString = String(format: "%.2f",freeSpace)
         self.memoryLab.attributedText = NSMutableAttributedString.highText(memoryString, highLight: highLightString, font: .systemFont(ofSize: 15), highLightFont: MediumFont(size: 38)!, color: .white, highLightColor: .white)
         
-        self.memoryPercentLab.text = String(format: "已使用%.2f%%", usedSpace / totalSpace * 100)
+        self.memoryPercentLab.text = String(format: "%@ %.2f%%", localizedString("Used"),usedSpace / totalSpace * 100)
     }
     
     
@@ -244,13 +244,13 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
             let nums:[Int] = [ImageAndVideoAnalyseTool.shared.fuzzyPhotoArray.count,similarCount,ImageAndVideoAnalyseTool.shared.screenshotsArray.count,ImageAndVideoAnalyseTool.shared.thinPhotoArray.count]
             
             for (idx,item) in self.items.enumerated() {
-                item.subTitle = String(format: "%d张，共占用 %.2fMB", nums[idx],Float(spaces[idx])  / (1024 * 1024))
+                item.subTitle = String(format: "%d %@，%@ %.2fMB", nums[idx],localizedString("Picture"),localizedString("Total Occupancy"),Float(spaces[idx])  / (1024 * 1024))
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
         }else{
             for item in self.items {
-                item.subTitle = "0张，共占用 0.00MB"
+                item.subTitle = String(format: "0 %@，%@ 0.00MB",localizedString("Picture"), localizedString("Total Occupancy"))
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
@@ -304,13 +304,13 @@ class ImageAndVideoAnalyseVC: AppBaseVC {
             let spaces:[Float] = [videoM.sameVideoSpace,videoM.similarVideoSpace,videoM.badVideoSpace,videoM.bigVideoSpace]
             
             for (idx,item) in self.items.enumerated() {
-                item.subTitle = String(format: "%d个，共占用 %.2fMB", nums[idx],spaces[idx])
+                item.subTitle = String(format: "%d %@，%@ %.2fMB", nums[idx],localizedString("Video"),localizedString("Total Occupancy"),spaces[idx])
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
         }else{
             for item in self.items {
-                item.subTitle = "0个，共占用 0.00MB"
+                item.subTitle = String(format: "0 %@，%@ 0.00MB",localizedString("Video"), localizedString("Total Occupancy"))
                 item.isDidCheck = true
             }
             self.tableView.reloadData()
@@ -364,7 +364,7 @@ extension ImageAndVideoAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             }
             vc.isPhoto = true
             vc.index = indexPath.row
-            vc.titleString = self.photoTitles[indexPath.row]
+            vc.titleString = localizedString(self.photoTitles[indexPath.row])
             vc.items = images[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }else{//查看视频
@@ -377,7 +377,7 @@ extension ImageAndVideoAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             let vc = ImageAndVideoDealVC()
             vc.isPhoto = false
             vc.index = indexPath.row
-            vc.titleString = self.videoTitles[indexPath.row]
+            vc.titleString = localizedString(self.videoTitles[indexPath.row])
             vc.videoItems = videoItems[indexPath.row]
             vc.refreshMemeryBlock = {
                 self.reloadMemeryDataAction()

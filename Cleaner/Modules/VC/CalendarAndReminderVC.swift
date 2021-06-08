@@ -49,7 +49,7 @@ class CalendarAndReminderVC: AppBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleView?.title = isCalendar ? "过期日历":"过期提醒事项"
+        self.titleView?.title = isCalendar ? localizedString("Expired Calendar"):localizedString("Overdue Reminders")
         deleteBtn.layer.cornerRadius = 24
         deleteBtn.layer.masksToBounds = true
         setupEmptyView()
@@ -90,7 +90,7 @@ class CalendarAndReminderVC: AppBaseVC {
         }
         
         
-        let message = self.isCalendar ?"确定删除所选过期节日?":"确定删除所选过期事项?"
+        let message = self.isCalendar ?localizedString("Are you sure you want to delete the selected expired Festival?"):localizedString("Are you sure you want to delete the selected overdue items?")
         ImageAndVideoAnalyseTool.shared.tipWith(message: message) {
             self.deleteSelectDataAction()
         }
@@ -104,7 +104,7 @@ class CalendarAndReminderVC: AppBaseVC {
             }
         }
         if deleteSelectEvents.isEmpty {
-            QMUITips.show(withText: isCalendar ? "请勾选要删除的节日":"请勾选要删除的事项")
+            QMUITips.show(withText: isCalendar ? localizedString("Please check the festival you want to delete"):localizedString("Please check the item to delete"))
             return
         }
         
@@ -120,7 +120,7 @@ class CalendarAndReminderVC: AppBaseVC {
                     }
                     
                     self.refreshUIBlock()
-                    QMUITips.show(withText: "已删除")
+                    QMUITips.show(withText: localizedString("Successfully Deleted"))
                     self.tableView.reloadData()
                 }else{
                     
@@ -133,7 +133,7 @@ class CalendarAndReminderVC: AppBaseVC {
                     self.itemDatas.removeAll { eventModel -> Bool in
                         return eventModel.isSelected
                     }
-                    QMUITips.show(withText: "已删除")
+                    QMUITips.show(withText: "")
                     self.tableView.reloadData()
                 }else{
                     
@@ -143,7 +143,7 @@ class CalendarAndReminderVC: AppBaseVC {
     }
     
     func setupEmptyView() {
-        showEmptyView(with: UIImage(named: "无内容"), text: "未发现可优化项目", detailText: nil, buttonTitle: "", buttonAction: nil)
+        showEmptyView(with: UIImage(named: "无内容"), text: localizedString("No optimizable items were found"), detailText: nil, buttonTitle: "", buttonAction: nil)
         emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
         emptyView?.textLabelFont = .systemFont(ofSize: 14)
         emptyView?.textLabelTextColor = HEX("#7C8A9C")

@@ -58,13 +58,6 @@ class HomeVC: AppBaseVC {
             self.bottomHeightCons.constant = 340 + cIndicatorHeight
         }
         
-        //申请权限
-        if #available(iOS 14.0, *) {
-            ATTrackingManager.requestTrackingAuthorization { (status) in
-                
-            }
-        }
-        
         clearAllBtn.layer.cornerRadius = 24
         clearAllBtn.layer.masksToBounds = true
         self.view.backgroundColor = HEX("#B9DFE8")

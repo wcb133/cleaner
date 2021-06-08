@@ -49,7 +49,7 @@ class AppSettings: NSObject {
     var language: Language
     override init() {
         // 第一次初始语言, 看手机是什么语言
-        language = AppSettings.localeIsChinese() ? .Chinese : .English
+        language = AppSettings.localeIsChinese() ? .English : .English
         super.init()
     }
 

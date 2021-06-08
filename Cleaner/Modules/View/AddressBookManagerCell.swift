@@ -23,7 +23,7 @@ class AddressBookManagerCell: UITableViewCell {
     var dataModel:AddressBookManagerModel = AddressBookManagerModel(){
         didSet{
             self.imgView.image = UIImage(named: self.dataModel.imgName)
-            self.titleLab.text = self.dataModel.titleString
+            self.titleLab.text = localizedString(self.dataModel.titleString)
             self.numLab.text = "\(self.dataModel.num)"
         }
     }

@@ -98,7 +98,7 @@ class AllAnalyseVC: AppBaseVC {
     
     lazy var bottomTipsLab:UILabel = {
         let lab = UILabel()
-        lab.text = "努力分析中"
+        lab.text = localizedString("Scanning")
         lab.textColor = .white
         lab.font = .systemFont(ofSize: 16)
         lab.textAlignment = .center
@@ -128,7 +128,7 @@ class AllAnalyseVC: AppBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleView?.title = "分析中"
+        titleView?.title = localizedString("Analyzing")
         self.deleteBtn.isHidden = true
         self.deleteBtnHeightCons.constant = 0
         deleteBtn.layer.cornerRadius = 24
@@ -136,7 +136,7 @@ class AllAnalyseVC: AppBaseVC {
         self.bottomInsetCons.constant = 20 + cIndicatorHeight
         self.percentLab.text = "0%"
         self.bottomTipsLab.backgroundColor = .clear
-        let titles = ["照片清理","通讯录优化","日历及提醒","视频清理"]
+        let titles = [localizedString("Photo Clear"),localizedString("Address Book"),localizedString("Calendar"),localizedString("Video Clear")]
         for title in titles {
             let model = AllAnalyseResultModel()
             model.title = title
@@ -147,7 +147,7 @@ class AllAnalyseVC: AppBaseVC {
         let sigOne = Observable.zip(self.photoVideoSubject, self.contactSubject, self.reminderSubject)
         sigOne.subscribe(onNext: {[weak self] (text) in
             guard let self = self else { return }
-            self.titleView?.title = "可清理的文件"
+            self.titleView?.title = localizedString("Cleanable Files")
             
             self.tableTopOffetConstraint?.uninstall()
             self.tableContainerView.snp.makeConstraints { (m) in

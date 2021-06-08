@@ -28,10 +28,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="388" height="740"/>
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF4-jC-LeN">
-                            <rect key="frame" x="0.0" y="0.0" width="388" height="590"/>
+                            <rect key="frame" x="0.0" y="0.0" width="388" height="595"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNw-U4-NWC">
-                                    <rect key="frame" x="0.0" y="314" width="388" height="276"/>
+                                    <rect key="frame" x="0.0" y="294" width="388" height="301"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfy-m9-461">
                                             <rect key="frame" x="50" y="60" width="288" height="50"/>
@@ -40,7 +40,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <state key="normal" title="$3.99/周，可自动续费">
+                                                    <state key="normal" title="$0.99/周，免费试用3天">
                                                         <color key="titleColor" systemColor="systemOrangeColor"/>
                                                     </state>
                                                     <connections>
@@ -58,7 +58,7 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClU-Fm-CIp">
-                                            <rect key="frame" x="262" y="125" width="58" height="35"/>
+                                            <rect key="frame" x="262" y="150" width="58" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="隐私服务">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,33 +68,27 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPa-Q9-zbx">
-                                            <rect key="frame" x="68" y="125" width="58" height="35"/>
+                                            <rect key="frame" x="68" y="150" width="58" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="29T-bJ-UZB"/>
-                                                <constraint firstAttribute="width" constant="60" id="oT7-15-fZ0"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="使用条款">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="oT7-15-fZ0"/>
-                                                </mask>
-                                            </variation>
                                             <connections>
                                                 <action selector="protocolBtn:" destination="-1" eventType="touchUpInside" id="P70-AM-OSY"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POr-rf-gAS">
-                                            <rect key="frame" x="15" y="170" width="358" height="86"/>
+                                            <rect key="frame" x="15" y="195" width="358" height="86"/>
                                             <string key="text">当您的试用期结束后，您的iTunes账户将扣除您确认购买时的相应费用，您可通过前往iTunes账号设置并取消订阅的方式,必须在当前有效期结束前24小时禁用，否则将自动续费.我们将在当前有效期结束前24小时内向您的账号收取续订费用,订阅款项将从您的iTunes账户中扣除.请注意:免费试用期的任何未使用部分将在用户购买其他订阅时失效。</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lao-fU-byI">
-                                            <rect key="frame" x="165" y="125" width="58" height="35"/>
+                                            <rect key="frame" x="165" y="150" width="58" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="恢复购买">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,21 +97,28 @@
                                                 <action selector="restoreBtnActionWithBtn:" destination="-1" eventType="touchUpInside" id="Oa6-6C-l1T"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动续订，可随时免费取消" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76f-wH-efs">
+                                            <rect key="frame" x="120" y="130" width="148" height="15"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.15686274509803921" green="0.70196078431372544" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="Lao-fU-byI" firstAttribute="height" secondItem="NPa-Q9-zbx" secondAttribute="height" id="0sd-Lp-NAk"/>
                                         <constraint firstItem="NPa-Q9-zbx" firstAttribute="centerX" secondItem="SNw-U4-NWC" secondAttribute="centerX" multiplier="0.5" id="9A9-MY-yZV"/>
+                                        <constraint firstItem="76f-wH-efs" firstAttribute="top" secondItem="rfy-m9-461" secondAttribute="bottom" constant="20" id="CaR-Nb-R7m"/>
                                         <constraint firstItem="rfy-m9-461" firstAttribute="leading" secondItem="SNw-U4-NWC" secondAttribute="leading" constant="50" id="FQ1-J4-pDk"/>
                                         <constraint firstItem="Lao-fU-byI" firstAttribute="top" secondItem="NPa-Q9-zbx" secondAttribute="top" id="JxA-wm-tuY"/>
                                         <constraint firstItem="Lao-fU-byI" firstAttribute="centerX" secondItem="SNw-U4-NWC" secondAttribute="centerX" id="NQG-w5-lQk"/>
                                         <constraint firstItem="POr-rf-gAS" firstAttribute="leading" secondItem="SNw-U4-NWC" secondAttribute="leading" constant="15" id="U42-EX-vnG"/>
-                                        <constraint firstItem="Lao-fU-byI" firstAttribute="width" secondItem="NPa-Q9-zbx" secondAttribute="width" id="bAX-hQ-Q1D"/>
                                         <constraint firstItem="ClU-Fm-CIp" firstAttribute="height" secondItem="NPa-Q9-zbx" secondAttribute="height" id="cNf-pu-d7F"/>
                                         <constraint firstAttribute="trailing" secondItem="POr-rf-gAS" secondAttribute="trailing" constant="15" id="dED-Oi-nd8"/>
+                                        <constraint firstItem="76f-wH-efs" firstAttribute="centerX" secondItem="SNw-U4-NWC" secondAttribute="centerX" id="ehC-Gd-tU0"/>
                                         <constraint firstItem="POr-rf-gAS" firstAttribute="top" secondItem="ClU-Fm-CIp" secondAttribute="bottom" constant="10" id="fEV-pf-op2"/>
-                                        <constraint firstItem="ClU-Fm-CIp" firstAttribute="width" secondItem="NPa-Q9-zbx" secondAttribute="width" id="gC5-7q-ZoX"/>
-                                        <constraint firstItem="NPa-Q9-zbx" firstAttribute="top" secondItem="rfy-m9-461" secondAttribute="bottom" constant="15" id="iSa-VL-jXh"/>
+                                        <constraint firstItem="NPa-Q9-zbx" firstAttribute="top" secondItem="rfy-m9-461" secondAttribute="bottom" constant="40" id="iSa-VL-jXh"/>
                                         <constraint firstItem="ClU-Fm-CIp" firstAttribute="top" secondItem="NPa-Q9-zbx" secondAttribute="top" id="inY-8y-AwQ"/>
                                         <constraint firstItem="ClU-Fm-CIp" firstAttribute="centerX" secondItem="SNw-U4-NWC" secondAttribute="centerX" multiplier="1.5" id="odS-uB-5lV"/>
                                         <constraint firstItem="rfy-m9-461" firstAttribute="top" secondItem="SNw-U4-NWC" secondAttribute="top" constant="60" id="tv3-FO-InO"/>
@@ -126,7 +127,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOX-0Z-ttT">
-                                    <rect key="frame" x="0.0" y="0.0" width="388" height="330"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="388" height="310"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无限制访问 所有功能" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITD-L9-SxN">
                                             <rect key="frame" x="118" y="74" width="152" height="72"/>
@@ -170,27 +171,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pe-gl-cch" customClass="QMUIButton">
-                                            <rect key="frame" x="120.5" y="286" width="131" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <state key="normal" title="可随时免费取消" image="选中">
-                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingBetweenImageAndTitle">
-                                                    <real key="value" value="6"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="4Pe-gl-cch" firstAttribute="leading" secondItem="cjV-QU-Ev7" secondAttribute="leading" id="59j-8F-eda"/>
-                                        <constraint firstAttribute="height" constant="330" id="7L6-9P-Mww"/>
+                                        <constraint firstAttribute="height" constant="310" id="7L6-9P-Mww"/>
                                         <constraint firstItem="ZpV-CD-Vr2" firstAttribute="centerX" secondItem="BOX-0Z-ttT" secondAttribute="centerX" id="9ed-VM-NjZ"/>
                                         <constraint firstItem="Lte-le-mWl" firstAttribute="top" secondItem="ZpV-CD-Vr2" secondAttribute="bottom" constant="20" id="CYR-Jv-96p"/>
-                                        <constraint firstItem="ITD-L9-SxN" firstAttribute="centerY" secondItem="BOX-0Z-ttT" secondAttribute="centerY" constant="-55" id="ICx-Gz-0cv"/>
-                                        <constraint firstItem="4Pe-gl-cch" firstAttribute="top" secondItem="cjV-QU-Ev7" secondAttribute="bottom" constant="20" id="LxX-ut-54z"/>
+                                        <constraint firstItem="ITD-L9-SxN" firstAttribute="centerY" secondItem="BOX-0Z-ttT" secondAttribute="centerY" constant="-45" id="ICx-Gz-0cv"/>
                                         <constraint firstItem="cjV-QU-Ev7" firstAttribute="leading" secondItem="Lte-le-mWl" secondAttribute="leading" id="NW1-rq-sub"/>
                                         <constraint firstItem="Lte-le-mWl" firstAttribute="leading" secondItem="ZpV-CD-Vr2" secondAttribute="leading" id="jnl-hG-HSA"/>
                                         <constraint firstItem="ZpV-CD-Vr2" firstAttribute="top" secondItem="ITD-L9-SxN" secondAttribute="bottom" constant="20" id="rTh-ih-YSe"/>

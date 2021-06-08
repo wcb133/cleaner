@@ -42,7 +42,6 @@
 		0B7C0B8326678DA3005EE9B2 /* AddressBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B8526678DA3005EE9B2 /* AddressBookVC.xib */; };
 		0B7C0B8926678DB3005EE9B2 /* ContactBookVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B8B26678DB3005EE9B2 /* ContactBookVC.xib */; };
 		0B7C0B8E26678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B9026678DC5005EE9B2 /* ImageAndVideoAnalyseVC.xib */; };
-		0B7C0B9426678DEF005EE9B2 /* PurchaseServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C0B9626678DEF005EE9B2 /* PurchaseServiceVC.xib */; };
 		0B7E1532260198F00070B02E /* CalendarAnalyseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1531260198F00070B02E /* CalendarAnalyseTool.swift */; };
 		0B80059F2653A2F9003FF8B7 /* EquipmentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */; };
 		0B8005A32653A333003FF8B7 /* EquipmentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */; };
@@ -73,6 +72,7 @@
 		0BBD8BA226076C70003ECFF1 /* ImageAndVideoDealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA026076C70003ECFF1 /* ImageAndVideoDealCell.swift */; };
 		0BBD8BA326076C70003ECFF1 /* ImageAndVideoDealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BBD8BA126076C70003ECFF1 /* ImageAndVideoDealCell.xib */; };
 		0BC4193A260DE58C0033623F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC41939260DE58C0033623F /* AssetsLibrary.framework */; };
+		0BF2E300266F0F2900A177C0 /* PurchaseServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF2E302266F0F2900A177C0 /* PurchaseServiceVC.xib */; };
 		A474638815D5B6E9F18CA275 /* Pods_Cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */; };
 		E57034332607821E00CD6517 /* HomeCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57034322607821E00CD6517 /* HomeCircleView.swift */; };
 		E57034392607826A00CD6517 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E57034382607826A00CD6517 /* UICountingLabel.m */; };
@@ -143,8 +143,6 @@
 		0B7C0B8A26678DB3005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ContactBookVC.xib; sourceTree = "<group>"; };
 		0B7C0B8D26678DB8005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ContactBookVC.strings; sourceTree = "<group>"; };
 		0B7C0B8F26678DC5005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImageAndVideoAnalyseVC.xib; sourceTree = "<group>"; };
-		0B7C0B9526678DEF005EE9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PurchaseServiceVC.xib; sourceTree = "<group>"; };
-		0B7C0B9826678DF3005EE9B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PurchaseServiceVC.strings; sourceTree = "<group>"; };
 		0B7E1531260198F00070B02E /* CalendarAnalyseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAnalyseTool.swift; sourceTree = "<group>"; };
 		0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentInfoVC.swift; sourceTree = "<group>"; };
 		0B8005A12653A333003FF8B7 /* EquipmentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentInfoCell.xib; sourceTree = "<group>"; };
@@ -175,6 +173,9 @@
 		0BBD8BA026076C70003ECFF1 /* ImageAndVideoDealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndVideoDealCell.swift; sourceTree = "<group>"; };
 		0BBD8BA126076C70003ECFF1 /* ImageAndVideoDealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageAndVideoDealCell.xib; sourceTree = "<group>"; };
 		0BC41939260DE58C0033623F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		0BF2E301266F0F2900A177C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PurchaseServiceVC.xib; sourceTree = "<group>"; };
+		0BF2E305266F0F2F00A177C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PurchaseServiceVC.strings; sourceTree = "<group>"; };
+		0BF2E307266F0F3000A177C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PurchaseServiceVC.strings"; sourceTree = "<group>"; };
 		1C0C74F26169EB50AE5412D8 /* Pods-Cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.release.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.release.xcconfig"; sourceTree = "<group>"; };
 		C338EFFB927BAE1303726FCC /* Pods_Cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CA1EA0DA5BCD9B6E3C64ED /* Pods-Cleaner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaner.debug.xcconfig"; path = "Target Support Files/Pods-Cleaner/Pods-Cleaner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -272,7 +273,7 @@
 				E5982DE3260ECB8B00E07965 /* ImagePreviewVC.swift */,
 				E5982DE4260ECB8B00E07965 /* ImagePreviewVC.xib */,
 				0B872700262D5FDA000ADA0B /* PurchaseServiceVC.swift */,
-				0B7C0B9626678DEF005EE9B2 /* PurchaseServiceVC.xib */,
+				0BF2E302266F0F2900A177C0 /* PurchaseServiceVC.xib */,
 				0B80059E2653A2F9003FF8B7 /* EquipmentInfoVC.swift */,
 			);
 			path = VC;
@@ -512,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBD8B9126074F15003ECFF1 /* AddressBookManagerCell.xib in Resources */,
+				0BF2E300266F0F2900A177C0 /* PurchaseServiceVC.xib in Resources */,
 				E5982DE6260ECB8B00E07965 /* ImagePreviewVC.xib in Resources */,
 				0BA71D7326099C9900A36914 /* AllAnalyseCell.xib in Resources */,
 				0B72BDA325FB46A400FA1CBC /* LaunchScreen.storyboard in Resources */,
@@ -519,7 +521,6 @@
 				0B7C0B6C2667889E005EE9B2 /* HomeVC.xib in Resources */,
 				0B72BDA025FB46A400FA1CBC /* Assets.xcassets in Resources */,
 				0B711A18262EE3FF00749CFA /* 隐私政策.html in Resources */,
-				0B7C0B9426678DEF005EE9B2 /* PurchaseServiceVC.xib in Resources */,
 				0B7C0B572667830A005EE9B2 /* InfoPlist.strings in Resources */,
 				0BBD8BA326076C70003ECFF1 /* ImageAndVideoDealCell.xib in Resources */,
 				0B7C0B4A26677E2C005EE9B2 /* Localizable.strings in Resources */,
@@ -735,11 +736,12 @@
 			name = ImageAndVideoAnalyseVC.xib;
 			sourceTree = "<group>";
 		};
-		0B7C0B9626678DEF005EE9B2 /* PurchaseServiceVC.xib */ = {
+		0BF2E302266F0F2900A177C0 /* PurchaseServiceVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0B7C0B9526678DEF005EE9B2 /* Base */,
-				0B7C0B9826678DF3005EE9B2 /* en */,
+				0BF2E301266F0F2900A177C0 /* Base */,
+				0BF2E305266F0F2F00A177C0 /* en */,
+				0BF2E307266F0F3000A177C0 /* zh-Hans */,
 			);
 			name = PurchaseServiceVC.xib;
 			sourceTree = "<group>";

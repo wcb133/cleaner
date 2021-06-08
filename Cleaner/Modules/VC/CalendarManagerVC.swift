@@ -25,7 +25,7 @@ class CalendarManagerVC: WMPageController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "日历及提醒"
+        navigationItem.title = localizedString("Calendar And Reminder")
         navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .white
         view.backgroundColor = .white
@@ -55,7 +55,7 @@ class CalendarManagerVC: WMPageController {
     }
     
     override func pageController(_ pageController: WMPageController, titleAt index: Int) -> String {
-        return index == 0 ? "过期日历":"过期提醒事项";
+        return index == 0 ? localizedString("Expired Calendar"):localizedString("Overdue Reminders");
     }
     
     

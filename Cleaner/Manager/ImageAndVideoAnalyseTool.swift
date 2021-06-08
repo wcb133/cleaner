@@ -522,16 +522,16 @@ extension ImageAndVideoAnalyseTool{
     
     func tipWith(message:String){
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert);
-        let left = UIAlertAction(title: "确定", style: .default, handler: nil)
+        let left = UIAlertAction(title: localizedString("Check"), style: .default, handler: nil)
         alert.addAction(left)
         let vc = cKeyWindow!.rootViewController
         vc?.present(alert, animated: true, completion: nil)
     }
     
     func tipWith(message:String,checkHandle:@escaping ()->Void){
-        let alert = UIAlertController(title: "温馨提示", message: message, preferredStyle: .alert)
-        let left = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        let right = UIAlertAction(title: "确定", style: .default) { action in
+        let alert = UIAlertController(title: localizedString("Tips"), message: message, preferredStyle: .alert)
+        let left = UIAlertAction(title: localizedString("Cancel"), style: .cancel, handler: nil)
+        let right = UIAlertAction(title: localizedString("Check"), style: .default) { action in
             checkHandle()
         }
         alert.addAction(left)

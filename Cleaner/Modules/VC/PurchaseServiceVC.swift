@@ -53,7 +53,7 @@ class PurchaseServiceVC: AppBaseVC {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.qmui_item(with: UIImage(named: "close"), target: self, action: #selector(closeBtnACtion))
 
-        let str = NSMutableAttributedString(string: localizedString("Use Agreement"))
+        let str = NSMutableAttributedString(string: localizedString("Terms of Use"))
         let strRange = NSRange(location: 0, length: str.length)
         str.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: strRange)
         useProtocolBtn.setAttributedTitle(str, for: .normal)
@@ -81,6 +81,10 @@ class PurchaseServiceVC: AppBaseVC {
     
     override func preferredNavigationBarHidden() -> Bool {
         return false
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
     
     override func navigationBarBackgroundImage() -> UIImage? {

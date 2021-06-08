@@ -5,7 +5,88 @@
   Created by fst on 2021/6/2.
   
 */
-"anl" = "分析中";
+"Analyzing" = "分析中";
 "Restore" = "恢复购买";
-"Use Agreement" = "使用条款";
+"Terms of Use" = "使用条款";
 "Privacy Policy" = "隐私服务";
+"User Agreement" = "用户协议";
+"Questions and Answers" = "常见问题";
+
+"Photo Clear" = "图片清理";
+"About" = "关于";
+"Address Book" = "通讯录优化";
+"Device Info" = "设备信息";
+"Calendar" = "日历及提醒";
+"Video Clear" = "视频清理";
+
+"Name" = "手机名称";
+"Model" = "手机型号";
+"System Version" = "系统版本";
+"Screen Resolution" = "屏幕分辨率";
+"Retina" = "Retina屏幕";
+"Battery Level" = "电池电量";
+"Start Time" = "启动时间";
+"YES" = "是";
+
+"Preview" = "预览大图";
+"Delete Selected" = "删除选中";
+"Select All" = "全选";
+"Deselect" = "取消全选";
+"After deletion, it will not be able to recover. Confirm to delete the selected photos?" = "删除后将无法恢复，确定删除选中的照片？";
+"After deletion, it will not be able to recover. Are you sure to delete the selected video?" = "删除后将无法恢复，确定删除选中的视频？";
+"Please select the picture you want to delete" = "请勾选要删除的图片";
+"Please select the video you want to delete" = "请勾选要删除的视频";
+
+"Successfully Deleted" = "已删除";
+"No cleanable items were found" = "未发现可清理项";
+"Tips" = "温馨提示";
+"Check" = "确定";
+"Cancel" = "取消";
+
+"Scanning" = "努力分析中";
+"Blurred Photos" = "模糊照片";
+"Similar Photos" = "相似照片";
+"Screen Capture" = "屏幕截图";
+"Oversized Photos" = "超大照片";
+
+"Repeated Video" = "重复视频";
+"Similar Videos" = "相似视频";
+"Damaged Videos" = "损坏视频";
+"Oversized Videos" = "超大视频";
+
+"Free" = "剩余";
+"Used" = "已使用";
+"Total Occupancy" = "共占用";
+"Picture" = "张";
+"Video" = "个";
+"No Name" = "无姓名";
+"Empty Number" = "空号码";
+"No corresponding contact was found" = "未发现相应联系人";
+"You will not be able to recover after deleting. Are you sure you want to delete the selected contact?" = "删除后将无法恢复，确定删除所选联系人?";
+"Please check the contact to be deleted" = "请勾选要删除的联系人";
+
+"Duplicate Contact" = "重复联系人";
+
+"No duplicate contacts found" = "未发现重复联系人";
+
+"Expired Calendar" = "过期日历";
+"Overdue Reminders" = "过期提醒事项";
+"Calendar And Reminder" = "日历及提醒";
+"No optimizable items were found" = "未发现可优化项目";
+"Are you sure you want to delete the selected expired Festival?" = "确定删除所选过期节日?";
+"Are you sure you want to delete the selected overdue items?" = "确定删除所选过期事项?";
+"Please check the festival you want to delete" = "请勾选要删除的节日";
+"Please check the item to delete" = "请勾选要删除的事项";
+"Cleanable Files" = "可清理的文件";
+
+
+
+
+
+
+
+
+
+
+
+

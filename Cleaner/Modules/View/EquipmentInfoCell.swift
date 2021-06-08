@@ -17,12 +17,13 @@ class EquipmentInfoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
     
     var dataModel:EquipmentInfoModel = EquipmentInfoModel(){
         didSet{
-            self.titleLab.text = dataModel.title
-            self.contentLab.text = dataModel.content
+            self.titleLab.text = localizedString(dataModel.title)
+            self.contentLab.text = localizedString(dataModel.content)
         }
     }
     

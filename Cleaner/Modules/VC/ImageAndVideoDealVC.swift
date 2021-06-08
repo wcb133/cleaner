@@ -29,7 +29,7 @@ class ImageAndVideoDealVC: AppBaseVC {
     lazy var deleteBtn: QMUIButton = {
         let btn = QMUIButton()
         btn.addTarget(self, action: #selector(deleteBtnAction(btn:)), for: .touchUpInside)
-        btn.setTitle("删除选中", for: .normal)
+        btn.setTitle(localizedString("Delete Selected"), for: .normal)
         btn.backgroundColor = HEX("28B3FF")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16)
@@ -79,11 +79,11 @@ class ImageAndVideoDealVC: AppBaseVC {
     
     lazy var rightBtn: UIButton = {
         let rightBtn = UIButton()
-        rightBtn.setTitle("全选", for: .normal)
+        rightBtn.setTitle(localizedString("Select All"), for: .normal)
         rightBtn.setTitleColor(HEX("FDCC33"), for: .normal)
         rightBtn.addTarget(self, action: #selector(rightBtnAction(btn:)), for: .touchUpInside)
         rightBtn.qmui_height = 44
-        rightBtn.qmui_width = 75
+        rightBtn.qmui_width = 85
         rightBtn.contentHorizontalAlignment = .right
         rightBtn.titleLabel?.font = MediumFont(size: 17)
         return rightBtn
@@ -103,15 +103,15 @@ class ImageAndVideoDealVC: AppBaseVC {
             guard let self = self else { return }
             if self.isPhoto {
                 if num == self.items.count {
-                    self.rightBtn.setTitle("取消全选", for: .normal)
+                    self.rightBtn.setTitle(localizedString("Deselect"), for: .normal)
                 }else{
-                    self.rightBtn.setTitle("全选", for: .normal)
+                    self.rightBtn.setTitle(localizedString("Select All"), for: .normal)
                 }
             }else{
                 if num == self.videoItems.count {
-                    self.rightBtn.setTitle("取消全选", for: .normal)
+                    self.rightBtn.setTitle(localizedString("Deselect"), for: .normal)
                 }else{
-                    self.rightBtn.setTitle("全选", for: .normal)
+                    self.rightBtn.setTitle(localizedString("Select All"), for: .normal)
                 }
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
@@ -146,7 +146,7 @@ class ImageAndVideoDealVC: AppBaseVC {
     
     @objc  func rightBtnAction(btn:UIButton)  {
         let titleString = btn.currentTitle ?? ""
-        if titleString == "全选" {
+        if titleString == localizedString("Select All") {
             self.selectNum = isPhoto ? self.items.count:self.videoItems.count
             if isPhoto {
                 self.items.forEach { model in
@@ -184,7 +184,7 @@ class ImageAndVideoDealVC: AppBaseVC {
         }
         
         
-        let message = self.isPhoto ? "删除后将无法恢复，确定删除选中的照片？":"删除后将无法恢复，确定删除选中的视频？"
+        let message = self.isPhoto ? localizedString("After deletion, it will not be able to recover. Confirm to delete the selected photos?"):localizedString("After deletion, it will not be able to recover. Are you sure to delete the selected video?")
         ImageAndVideoAnalyseTool.shared.tipWith(message: message) {[weak self] in
             guard let self = self else { return }
             self.isPhoto ? self.deletePhotos():self.deleteSelectVideos()
@@ -202,7 +202,7 @@ class ImageAndVideoDealVC: AppBaseVC {
         }
         
         if selectItems.isEmpty {
-            QMUITips.show(withText: "请勾选要删除的图片")
+            QMUITips.show(withText: localizedString("Please select the picture you want to delete"))
             return
         }
         let manager = ImageAndVideoAnalyseTool.shared
@@ -247,7 +247,7 @@ class ImageAndVideoDealVC: AppBaseVC {
     
                 
                 self.colltionView.reloadData()
-                QMUITips.show(withText: "已删除")
+                QMUITips.show(withText: localizedString("Successfully Deleted"))
                 self.refreshMemeryBlock()
                 if self.items.isEmpty {
                     self.showEmptyView()
@@ -267,7 +267,7 @@ class ImageAndVideoDealVC: AppBaseVC {
         }
         
         if selectItems.isEmpty {
-            QMUITips.show(withText: "请勾选要删除的视频")
+            QMUITips.show(withText: localizedString("Please select the video you want to delete"))
             return
         }
         QMUITips.showLoading(in: self.navigationController!.view)
@@ -321,7 +321,7 @@ class ImageAndVideoDealVC: AppBaseVC {
                 }
             
                 self.colltionView.reloadData()
-                QMUITips.show(withText: "已删除")
+                QMUITips.show(withText: localizedString("Successfully Deleted"))
                 self.refreshMemeryBlock()
                 if self.videoItems.isEmpty {
                     self.showEmptyView()
@@ -332,7 +332,7 @@ class ImageAndVideoDealVC: AppBaseVC {
     }
     
     func setupEmptyView() {
-        showEmptyView(with: UIImage(named: "无内容"), text: "未发现可清理项", detailText: nil, buttonTitle: "", buttonAction: nil)
+        showEmptyView(with: UIImage(named: "无内容"), text: localizedString("No cleanable items were found"), detailText: nil, buttonTitle: "", buttonAction: nil)
         emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
         emptyView?.textLabelFont = .systemFont(ofSize: 14)
         emptyView?.textLabelTextColor = HEX("#7C8A9C")

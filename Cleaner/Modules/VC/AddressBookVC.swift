@@ -59,7 +59,7 @@ class AddressBookVC: AppBaseVC {
         extendedLayoutIncludesOpaqueBars = false
         self.bottomInsetCons.constant = 20 + cIndicatorHeight
         setupEmptyView()
-        titleView?.title = "重复联系人"
+        titleView?.title = localizedString("Duplicate Contact")
         titleView?.titleLabel.textColor = .white
 //        self.topViewH.constant = iPhoneX ? 220: 200
         deleteBtn.layer.cornerRadius = 24
@@ -78,7 +78,7 @@ class AddressBookVC: AppBaseVC {
         }
     }
     func setupEmptyView() {
-        showEmptyView(with: UIImage(named: "无内容"), text: "未发现重复联系人", detailText: nil, buttonTitle: "", buttonAction: nil)
+        showEmptyView(with: UIImage(named: "无内容"), text: localizedString("No duplicate contacts found"), detailText: nil, buttonTitle: "", buttonAction: nil)
         emptyView?.imageViewInsets = UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0)
         emptyView?.textLabelFont = .systemFont(ofSize: 14)
         emptyView?.textLabelTextColor = HEX("#7C8A9C")
@@ -113,7 +113,7 @@ class AddressBookVC: AppBaseVC {
         }
         
         
-        ImageAndVideoAnalyseTool.shared.tipWith(message: "删除后将无法恢复，确定删除所选联系人?") {
+        ImageAndVideoAnalyseTool.shared.tipWith(message: localizedString("You will not be able to recover after deleting. Are you sure you want to delete the selected contact?")) {
             var selectContactModels:[ContactModel] = []
             for itemData in self.itemDatas {
                 for model in itemData.contactModels {
@@ -124,7 +124,7 @@ class AddressBookVC: AppBaseVC {
             }
             
             if selectContactModels.isEmpty {
-                QMUITips.show(withText: "请勾选要删除的联系人")
+                QMUITips.show(withText: localizedString("Please check the contact to be deleted"))
                 return
             }
             
@@ -145,7 +145,7 @@ class AddressBookVC: AppBaseVC {
             self.tableView.reloadData()
             QMUITips.hideAllTips()
             self.refreshUIBlock()
-            QMUITips.show(withText: "已删除")
+            QMUITips.show(withText: localizedString("Successfully Deleted"))
             if self.itemDatas.isEmpty {
                 self.showEmptyView()
                 self.deleteBtn.isHidden = true

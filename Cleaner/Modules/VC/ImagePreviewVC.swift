@@ -16,6 +16,6 @@ class ImagePreviewVC: AppBaseVC {
         super.viewDidLoad()
         self.imgView.image = image
         self.view.backgroundColor = .black
-        titleView?.title = "预览大图"
+        titleView?.title = localizedString("Preview")
     }
 }

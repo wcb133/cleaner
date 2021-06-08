@@ -74,7 +74,7 @@ class ImageAndVideoAnalyseCell: UITableViewCell {
                 self.titleLab.isHidden = false
                 self.subTitleLab.isHidden = false
                 self.mainLab.isHidden = true
-                self.titleLab.text = dataModel.title
+                self.titleLab.text = localizedString(dataModel.title)
                 self.subTitleLab.text = dataModel.subTitle
             }else{
                 self.indicatorView.startAnimating()
@@ -82,7 +82,7 @@ class ImageAndVideoAnalyseCell: UITableViewCell {
                 self.titleLab.isHidden = true
                 self.subTitleLab.isHidden = true
                 self.mainLab.isHidden = false
-                self.mainLab.text = dataModel.title
+                self.mainLab.text = localizedString(dataModel.title)
             }
         }
     }

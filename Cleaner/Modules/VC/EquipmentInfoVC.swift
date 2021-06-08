@@ -49,9 +49,9 @@ class EquipmentInfoVC: AppBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleView?.title = "设备信息"
+        self.titleView?.title = localizedString("Device Info")
         self.tableView.backgroundColor = .white
-        let titles:[String] = ["手机名称","手机型号","系统版本","屏幕分辨率","Retina屏幕","电池电量","启动时间"]
+        let titles:[String] = ["Name","Model","System Version","Screen Resolution","Retina","Battery Level","Start Time"]
         
         let imageCompare = ImageCompareTool()
         let scale = UIScreen.main.scale
@@ -60,7 +60,7 @@ class EquipmentInfoVC: AppBaseVC {
         let type = imageCompare.getDeviceName() ?? ""
         let version = currentDevice.systemName + currentDevice.systemVersion
         let phoneSize = String(format: "%.0fx%.0f", cScreenWidth * scale,cScreenHeight * scale)
-        let isRetina = "是"
+        let isRetina = localizedString("YES")
         let startTime = imageCompare.bootTime()
         currentDevice.isBatteryMonitoringEnabled = true
         let batteryLevelNum = currentDevice.batteryLevel < 0 ? currentDevice.batteryLevel * -1.0 :currentDevice.batteryLevel

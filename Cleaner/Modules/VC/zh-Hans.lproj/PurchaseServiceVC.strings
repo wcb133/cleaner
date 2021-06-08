@@ -1,31 +1,30 @@
 
 /* Class = "UILabel"; text = "自动续订，可随时免费取消"; ObjectID = "76f-wH-efs"; */
-"76f-wH-efs.text" = "Cancellable at any time";
+"76f-wH-efs.text" = "自动续订，可随时免费取消";
 
 /* Class = "UIButton"; normalTitle = "隐私服务"; ObjectID = "ClU-Fm-CIp"; */
-"ClU-Fm-CIp.normalTitle" = "Privacy Policy";
+"ClU-Fm-CIp.normalTitle" = "隐私服务";
 
 /* Class = "UILabel"; text = "无限制访问 所有功能"; ObjectID = "ITD-L9-SxN"; */
-"ITD-L9-SxN.text" = "Unlimited access to
-all features";
+"ITD-L9-SxN.text" = "无限制访问 所有功能";
 
 /* Class = "UIButton"; normalTitle = "恢复购买"; ObjectID = "Lao-fU-byI"; */
-"Lao-fU-byI.normalTitle" = "Restore";
+"Lao-fU-byI.normalTitle" = "恢复购买";
 
 /* Class = "UIButton"; normalTitle = "照片视频智能清理"; ObjectID = "Lte-le-mWl"; */
-"Lte-le-mWl.normalTitle" = "Photo video smart cleaning";
+"Lte-le-mWl.normalTitle" = "照片视频智能清理";
 
 /* Class = "UIButton"; normalTitle = "使用条款"; ObjectID = "NPa-Q9-zbx"; */
-"NPa-Q9-zbx.normalTitle" = "Terms of Use";
+"NPa-Q9-zbx.normalTitle" = "使用条款";
 
 /* Class = "UILabel"; text = "当您的试用期结束后，您的iTunes账户将扣除您确认购买时的相应费用，您可通过前往iTunes账号设置并取消订阅的方式,必须在当前有效期结束前24小时禁用，否则将自动续费.我们将在当前有效期结束前24小时内向您的账号收取续订费用,订阅款项将从您的iTunes账户中扣除.请注意:免费试用期的任何未使用部分将在用户购买其他订阅时失效。"; ObjectID = "POr-rf-gAS"; */
-"POr-rf-gAS.text" = "After the end of your trial period, the corresponding fee when you confirm your purchase will be deducted from your iTunes account. You can set up and unsubscribe from your iTunes account. It must be disabled 24 hours before the end of the current validity period, otherwise it will be automatically renewed. We will charge you a renewal fee 24 hours before the end of the current validity period, The subscription payment will be deducted from your iTunes account. Please note that any unused portion of the free trial period will lapse when the user purchases another subscription.";
+"POr-rf-gAS.text" = "当您的试用期结束后，您的iTunes账户将扣除您确认购买时的相应费用，您可通过前往iTunes账号设置并取消订阅的方式,必须在当前有效期结束前24小时禁用，否则将自动续费.我们将在当前有效期结束前24小时内向您的账号收取续订费用,订阅款项将从您的iTunes账户中扣除.请注意:免费试用期的任何未使用部分将在用户购买其他订阅时失效。";
 
 /* Class = "UIButton"; normalTitle = "$0.99/周，免费试用3天"; ObjectID = "Ven-z8-Eh3"; */
-"Ven-z8-Eh3.normalTitle" = "$0.99/week, free trial for 3 days";
+"Ven-z8-Eh3.normalTitle" = "$0.99/周，免费试用3天";
 
 /* Class = "UIButton"; normalTitle = "超快清除无用文件"; ObjectID = "ZpV-CD-Vr2"; */
-"ZpV-CD-Vr2.normalTitle" = "Fast clean useless files";
+"ZpV-CD-Vr2.normalTitle" = "超快清除无用文件";
 
 /* Class = "UIButton"; normalTitle = "忘掉广告和限制"; ObjectID = "cjV-QU-Ev7"; */
-"cjV-QU-Ev7.normalTitle" = "No advertising and restrictions";
+"cjV-QU-Ev7.normalTitle" = "忘掉广告和限制";

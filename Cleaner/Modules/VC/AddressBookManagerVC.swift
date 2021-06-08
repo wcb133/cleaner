@@ -57,11 +57,11 @@ class AddressBookManagerVC: AppBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleView?.title = "通讯录优化"
+        titleView?.title = localizedString("Address Book")
         self.tableView.backgroundColor = .white
         
         let imgs = ["1","3","2"]
-        let titles = ["重复联系人","空号码","无姓名"]
+        let titles = ["Duplicate Contact","Empty Number","No Name"]
         
         for (idx,title) in titles.enumerated() {
             let model = AddressBookManagerModel()

@@ -320,16 +320,16 @@ int aHash(cv::Mat matSrc1, cv::Mat matSrc2)
     if ([deviceString isEqualToString:@"iPhone8,2"])    return @"iPhone 6s Plus";
     if ([deviceString isEqualToString:@"iPhone8,4"])    return @"iPhone SE";
     // 日行两款手机型号均为日本独占，可能使用索尼FeliCa支付方案而不是苹果支付
-    if ([deviceString isEqualToString:@"iPhone9,1"])    return @"国行、日版、港行iPhone 7";
-    if ([deviceString isEqualToString:@"iPhone9,2"])    return @"港行、国行iPhone 7 Plus";
-    if ([deviceString isEqualToString:@"iPhone9,3"])    return @"美版、台版iPhone 7";
-    if ([deviceString isEqualToString:@"iPhone9,4"])    return @"美版、台版iPhone 7 Plus";
-    if ([deviceString isEqualToString:@"iPhone10,1"])   return @"国行(A1863)、日行(A1906)iPhone 8";
-    if ([deviceString isEqualToString:@"iPhone10,4"])   return @"美版(Global/A1905)iPhone 8";
-    if ([deviceString isEqualToString:@"iPhone10,2"])   return @"国行(A1864)、日行(A1898)iPhone 8 Plus";
-    if ([deviceString isEqualToString:@"iPhone10,5"])   return @"美版(Global/A1897)iPhone 8 Plus";
-    if ([deviceString isEqualToString:@"iPhone10,3"])   return @"国行(A1865)、日行(A1902)iPhone X";
-    if ([deviceString isEqualToString:@"iPhone10,6"])   return @"美版(Global/A1901)iPhone X";
+    if ([deviceString isEqualToString:@"iPhone9,1"])    return @"iPhone 7";
+    if ([deviceString isEqualToString:@"iPhone9,2"])    return @"iPhone 7 Plus";
+    if ([deviceString isEqualToString:@"iPhone9,3"])    return @"iPhone 7";
+    if ([deviceString isEqualToString:@"iPhone9,4"])    return @"iPhone 7 Plus";
+    if ([deviceString isEqualToString:@"iPhone10,1"])   return @"iPhone 8";
+    if ([deviceString isEqualToString:@"iPhone10,4"])   return @"iPhone 8";
+    if ([deviceString isEqualToString:@"iPhone10,2"])   return @"iPhone 8 Plus";
+    if ([deviceString isEqualToString:@"iPhone10,5"])   return @"iPhone 8 Plus";
+    if ([deviceString isEqualToString:@"iPhone10,3"])   return @"iPhone X";
+    if ([deviceString isEqualToString:@"iPhone10,6"])   return @"iPhone X";
     if ([deviceString isEqualToString:@"iPhone11,2"])   return @"iPhone XS";
     if ([deviceString isEqualToString:@"iPhone11,4"])   return @"iPhone XS Max";
     if ([deviceString isEqualToString:@"iPhone11,6"])   return @"iPhone XS Max";
@@ -392,14 +392,14 @@ int aHash(cv::Mat matSrc1, cv::Mat matSrc2)
     if ([deviceString isEqualToString:@"iPad8,2"])     return @"iPad Pro (11-inch)";
     if ([deviceString isEqualToString:@"iPad8,3"])     return @"iPad Pro (11-inch)";
     if ([deviceString isEqualToString:@"iPad8,4"])     return @"iPad Pro (11-inch)";
-    if ([deviceString isEqualToString:@"iPad8,5"])     return @"iPad Pro (12.9-inch) (3rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,6"])     return @"iPad Pro (12.9-inch) (3rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,7"])     return @"iPad Pro (12.9-inch) (3rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,8"])     return @"iPad Pro (12.9-inch) (3rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,9"])     return @"iPad Pro (11-inch) (2rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,10"])   return @"iPad Pro (11-inch) (2rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,11"])   return @"iPad Pro (12.9-inch) (4rd generation)";
-    if ([deviceString isEqualToString:@"iPad8,12"])   return @"iPad Pro (12.9-inch) (4rd generation)";
+    if ([deviceString isEqualToString:@"iPad8,5"])     return @"iPad Pro (12.9-inch)";
+    if ([deviceString isEqualToString:@"iPad8,6"])     return @"iPad Pro (12.9-inch)";
+    if ([deviceString isEqualToString:@"iPad8,7"])     return @"iPad Pro (12.9-inch)";
+    if ([deviceString isEqualToString:@"iPad8,8"])     return @"iPad Pro (12.9-inch)";
+    if ([deviceString isEqualToString:@"iPad8,9"])     return @"iPad Pro (11-inch)";
+    if ([deviceString isEqualToString:@"iPad8,10"])   return @"iPad Pro (11-inch)";
+    if ([deviceString isEqualToString:@"iPad8,11"])   return @"iPad Pro (12.9-inch)";
+    if ([deviceString isEqualToString:@"iPad8,12"])   return @"iPad Pro (12.9-inch)";
 
     
    if ([deviceString isEqualToString:@"AppleTV2,1"])    return @"Apple TV 2";

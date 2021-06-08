@@ -37,8 +37,6 @@
 	<string>是否允许“清理助手”获取你的相册权限用于获取本地照片？</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>是否允许“清理助手”获取你的提醒事项用于查找清理过期提醒</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>该标识符将用于向您投放个性化服务</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -46,12 +46,12 @@ class AboutUsInfoVC: AppBaseVC {
         return tableView
     }()
     
-    let items = ["隐私政策","用户协议","常见问题"]
+    let items = [localizedString("Privacy Policy"),localizedString("User Agreement"),localizedString("Questions and Answers")]
     var paths:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleView?.title = "关于"
+        titleView?.title = localizedString("About")
         self.tableView.backgroundColor = .white
         
         let pathOne = Bundle.main.path(forResource: "隐私政策", ofType: "html") ?? ""
