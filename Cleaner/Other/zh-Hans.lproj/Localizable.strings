@@ -79,6 +79,14 @@
 "Please check the item to delete" = "请勾选要删除的事项";
 "Cleanable Files" = "可清理的文件";
 
+" duplicate contact" = "个重复联系人";
+" reminder" = "个提醒";
+" similar photos" = "张相似照片";
+" similar videos" = "个相似视频";
+"Cleared Successfully" = "清除成功";
+"After the file is cleared, it cannot be recovered. Are you sure you want to clear all the selected files?" = "文件清除后将无法恢复，确定清除选中的所有文件?";
+
+
 
 
 

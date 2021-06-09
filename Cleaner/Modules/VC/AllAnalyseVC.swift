@@ -180,7 +180,7 @@ class AllAnalyseVC: AppBaseVC {
         ContactAnalyseTool.shared.getAllRepeatContacts { [weak self] in
             guard let self = self else { return }
             let item = self.items[1]
-            item.subTitle = "\(ContactAnalyseTool.shared.repeatContacts.count)个重复联系人"
+            item.subTitle = "\(ContactAnalyseTool.shared.repeatContacts.count)" + localizedString(" duplicate contact")
             item.isDidCheck = true
             self.contactSubject.onNext("")
         }
@@ -189,7 +189,7 @@ class AllAnalyseVC: AppBaseVC {
         CalendarAnalyseTool.shared.getAllOutOfDateReminders {[weak self] reminders in
             guard let self = self else { return }
             let item = self.items[2]
-            item.subTitle = "\(reminders.count)个提醒"
+            item.subTitle = "\(reminders.count)" + localizedString(" reminder")
             item.isDidCheck = true
             self.reminderSubject.onNext("")
         }
@@ -208,11 +208,11 @@ class AllAnalyseVC: AppBaseVC {
             if isSuccess {
                 let photoNums = manager.similarArray.flatMap{$0.map{$0}}.count
                 let videoNums = manager.similarVideos.flatMap{$0.map{$0}}.count
-                ImageModel.subTitle = "\(photoNums)张相似照片"
-                videoModel.subTitle = "\(videoNums)个相似视频"
+                ImageModel.subTitle = "\(photoNums)" + localizedString(" similar photos")
+                videoModel.subTitle = "\(videoNums)"  + localizedString(" similar videos")
             }else{
-                ImageModel.subTitle = "0张相似照片"
-                videoModel.subTitle = "0个相似视频"
+                ImageModel.subTitle = "0" + localizedString(" similar photos")
+                videoModel.subTitle = "0" + localizedString(" similar videos")
             }
             
             self.photoVideoSubject.onNext("")
@@ -231,7 +231,7 @@ class AllAnalyseVC: AppBaseVC {
             return
         }
         
-        let message = "文件清除后将无法恢复，确定清除选中的所有文件?"
+        let message = localizedString("After the file is cleared, it cannot be recovered. Are you sure you want to clear all the selected files?")
         ImageAndVideoAnalyseTool.shared.tipWith(message: message) { [weak self]in
             guard let self = self else { return }
             let manager = ImageAndVideoAnalyseTool.shared
@@ -283,13 +283,13 @@ class AllAnalyseVC: AppBaseVC {
                         manager.similarVideos = []
                     }
                     
-                    let subTitles = ["0张相似照片","0个重复联系人","0个提醒","0个相似视频"]
+                    let subTitles = ["0" + localizedString(" similar photos"),"0" + localizedString(" duplicate contact"),"0" + localizedString(" reminder"),"0" + localizedString(" similar videos")]
                     for (idx,item) in self.items.enumerated() {
                         item.subTitle = subTitles[idx]
                     }
                     self.tableView.reloadData()
                     self.refreshMemeryBlock()
-                    QMUITips.show(withText: "清除成功")
+                    QMUITips.show(withText: localizedString("Cleared Successfully"))
                 }
             }
         }
@@ -348,7 +348,7 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             vc.refreshMemeryBlock = {
                 let ImageModel = self.items[0]
                 let photoNums = manager.similarArray.count
-                ImageModel.subTitle = "\(photoNums)张相似照片"
+                ImageModel.subTitle = "\(photoNums)" + localizedString(" similar photos")
                 self.refreshMemeryBlock()
             }
             vc.isScanPhoto = true
@@ -363,7 +363,7 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
                         guard let self = self else { return }
                         DispatchQueue.main.async {
                             let item = self.items[1]
-                            item.subTitle = "\(ContactAnalyseTool.shared.repeatContacts.count)个重复联系人"
+                            item.subTitle = "\(ContactAnalyseTool.shared.repeatContacts.count)" + localizedString(" duplicate contact")
                             self.tableView.reloadData()
                         }
                     }
@@ -380,7 +380,7 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
                         guard let self = self else { return }
                         DispatchQueue.main.async {
                             let item = self.items[2]
-                            item.subTitle = "\(reminders.count)个提醒"
+                            item.subTitle = "\(reminders.count)" + localizedString(" reminder")
                             self.tableView.reloadData()
                         }
                     }
@@ -392,7 +392,7 @@ extension AllAnalyseVC:UITableViewDelegate,UITableViewDataSource {
             vc.refreshMemeryBlock = {
                 let videoModel = self.items[3]
                 let videoNums = manager.similarVideos.count
-                videoModel.subTitle = "\(videoNums)个相似视频"
+                videoModel.subTitle = "\(videoNums)" + localizedString(" similar videos")
                 self.refreshMemeryBlock()
             }
             vc.isScanPhoto = false

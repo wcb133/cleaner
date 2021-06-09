@@ -133,7 +133,8 @@ class CalendarAndReminderVC: AppBaseVC {
                     self.itemDatas.removeAll { eventModel -> Bool in
                         return eventModel.isSelected
                     }
-                    QMUITips.show(withText: "")
+                    self.refreshUIBlock()
+                    QMUITips.show(withText: localizedString("Successfully Deleted"))
                     self.tableView.reloadData()
                 }else{
                     
