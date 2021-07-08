@@ -344,7 +344,7 @@ DEPENDENCIES:
   - WMPageController
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  "git@gitee.com:mirrors/CocoaPods-Specs.git":
     - Alamofire
     - HandyJSON
     - iCarousel
@@ -376,6 +376,6 @@ SPEC CHECKSUMS:
   SnapKitExtend: 00ee4db6d1f80bee01a1e75745f2a6ae695ba662
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
 
-PODFILE CHECKSUM: 85d4be216c872db021ed4640c9e644ca6ea790d0
+PODFILE CHECKSUM: a4ad18ee0b1aa3dcd331a722c7353b638ad23658
 
 COCOAPODS: 1.10.1

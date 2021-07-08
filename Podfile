@@ -10,7 +10,8 @@
 #git clone https://github.com/CocoaPods/Specs master
 #自己工程的podFile第一行加上 sources 'https://github.com/CocoaPods/Specs'
 
-source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+#source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+source 'git@gitee.com:mirrors/CocoaPods-Specs.git'
 
 platform :ios, '10.0'
 
