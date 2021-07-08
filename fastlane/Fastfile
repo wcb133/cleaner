@@ -1,0 +1,315 @@
+default_platform(:ios)
+
+# 定义全局参数 大写开头为常数,小写、_开头为变量,$开头为全局变量(直接用#访问)
+# scheme名
+SCHEME_NAME = ENV['SCHEME_NAME']
+
+# workspace名
+WORKSPACE_NAME = "#{SCHEME_NAME}.xcworkspace"
+
+# plist文件路径
+INFO_PLIST_PATH = "#{SCHEME_NAME}/Other/Info.plist"
+
+# 版本号
+$VERSION_NUMBER = ""
+
+# 构建版本号
+$BUILD_NUMBER = ""
+
+# ipa导出路径
+$OUTPUT_DIRECTORY = ENV['OUTPUT_DIRECTORY']
+
+# ipa安装包路径
+$IPA_PATH = ""
+
+# 是否准备完成
+$PREPARE_COMPLETED = false
+
+platform :ios do
+  before_all do
+    # 所有lane执行之前
+    # 使用环境变量提供这个密码给fastlane，解决双重认证生成的特殊密码
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "hctd-fctb-mxrd-cxxc"
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    # 拉取远程最新代码
+    # git_pull
+    # 执行 pod instasll
+    # cocoapods
+    # carthage
+  end
+
+  desc '打包前的准备工作'
+  lane :prepare do |options|
+    if !$PREPARE_COMPLETED
+      puts "\033[32m====================即将开始打包====================\033[0m\n"
+      puts '您好，即将为你自动打包'
+    end
+
+    export_method = options[:export_method]
+    select_method = '-1'
+    # => 如果没有选择打包方式，提示选择打包方式
+    if export_method.nil? || export_method.empty?
+      puts "请选择打包方式 \033[33m1:打包上传AppStore(默认) 2:打包Development上传蒲公英Firm  3:打包AdHoc上传蒲公英Firm  4:打包Inhouse上传蒲公英Firm  0:结束打包  回车表示使用默认打包\033[0m"
+      select_method = STDIN.gets.chomp
+      if select_method!='1' && select_method!='2' && select_method!='3' && select_method!='4' && !select_method.empty?
+        # supported [:select, :message, :verbose, :error, :password, :input, :success, :important, :command, :user_error!, :command_output, :deprecated, :header, :content_error, :interactive?, :confirm, :crash!, :not_implemented, :shell_error!, :build_failure!, :test_failure!, :abort_with_message!]
+          UI.user_error!("您已取消打包 🚀")
+      end
+    end
+
+    if !$PREPARE_COMPLETED
+      currentVersion = get_info_plist_value(path: "#{INFO_PLIST_PATH}", key: "CFBundleShortVersionString")
+      currentBuild = get_info_plist_value(path: "#{INFO_PLIST_PATH}", key: "CFBundleVersion")
+      puts "当前工程的版本号是:\033[33m#{currentVersion}\033[0m 构建版本号是:\033[33m#{currentBuild}\033[0m"
+      version = options[:version]
+      build = options[:build]
+      output_directory = options[:output_directory]
+      
+      # => 如果没有选择版本号，提示是否需要输入版本号
+      if version.nil? || version.empty?
+        puts "请输入版本号，回车表示使用当前版本号\033[33m#{currentVersion}\033[0m"
+        version = STDIN.gets.chomp
+        if version == '' # 回车
+          $VERSION_NUMBER = currentVersion
+        else
+          $VERSION_NUMBER = version
+        end
+      else
+        $VERSION_NUMBER = version
+      end
+      # => 如果没有选择构建版本号，提示是否需要输入构建版本号
+      if build.nil? || build.empty?
+        puts "请输入构建版本号，回车表示使用默认自动生成构建版本号"
+        build = STDIN.gets.chomp
+        if build == '' # 回车
+          # $BUILD_NUMBER = AUTO_BUILD_NUMBER
+        else
+          $BUILD_NUMBER = build
+        end
+      else
+        $BUILD_NUMBER = build
+      end
+      # => 如果没有选择ipa输出目录，提示是否需要输入打包路径
+      if output_directory.nil? || output_directory.empty?
+        puts "请指定ipa包输出路径，回车表示使用默认输出路径:\033[33m#$OUTPUT_DIRECTORY\033[0m"
+        output_directory = STDIN.gets.chomp
+        if output_directory == '' # 回车
+        else
+          $OUTPUT_DIRECTORY = output_directory
+        end
+      else
+        $OUTPUT_DIRECTORY = output_directory
+      end
+    end
+    
+    $PREPARE_COMPLETED = true
+
+    if select_method != '-1' # 已选择
+      case select_method
+      when '1'
+        # 发布到appstore
+        release_appstore(options)
+      when '2'
+        # 打包Development或Adhoc发布到蒲公英Firm
+        release_development(options)
+      when '3'
+        # 打包Adhoc发布到蒲公英Firm
+        release_adhoc(options)
+      when '4'
+        # 打包inhouse发布到蒲公英
+        release_enterprise(options)
+      end
+      next
+    end
+    
+    # => 详细信息
+    summary(options)
+
+  end
+
+  desc "信息确认"
+  lane :summary do |options|
+    puts "\033[32m====================信息确认====================\033[0m\n"
+    puts "您设置的包输出路径为:"
+    # supported [:select, :message, :verbose, :error, :password, :input, :success, :important, :command, :user_error!, :command_output, :deprecated, :header, :content_error, :interactive?, :confirm, :crash!, :not_implemented, :shell_error!, :build_failure!, :test_failure!, :abort_with_message!]
+    UI.important "#$OUTPUT_DIRECTORY"
+    puts "您选择的打包方式为:"
+    UI.important "#{options[:export_method]}"
+    puts "指定的发布版本号为:"
+    UI.important "#$VERSION_NUMBER"
+    confirm = UI.confirm "确认信息是否正确,输入y继续打包"
+    if !confirm
+      UI.user_error!("您已取消打包 🚀")
+    end
+    puts "\033[32m====================信息确认====================\033[0m\n"
+    puts "3s后开始自动打包..."
+    sleep(3)
+  end
+
+  desc "更新版本号"
+  lane :update_version do
+    puts("*************| 更新version #$VERSION_NUMBER |*************")
+    increment_version_number_in_plist(
+      target: SCHEME_NAME,
+      version_number: $VERSION_NUMBER
+    )
+    puts("*************| 更新build #$BUILD_NUMBER |*************")
+    increment_build_number_in_plist(
+       target: SCHEME_NAME,
+       build_number: $BUILD_NUMBER
+    )
+  end
+
+  desc "打包发布"
+  lane :release do |options|
+    prepare(options)
+  end
+
+  desc "发布到appstore"
+  lane :release_appstore do |options|
+    options[:export_method] = "app-store"
+    prepare(options)
+    build(options)
+    deliver_appstore
+    end
+
+  desc "发布development"
+  lane :release_development do |options|
+    options[:export_method] = "development"
+    prepare(options)
+    build(options)
+    deliver_pgyer
+    deliver_firm
+  end
+
+  desc "发布ad-hoc"
+  lane :release_adhoc do |options|
+    options[:export_method] = "ad-hoc"
+    prepare(options)
+    build(options)
+    # deliver_pgyer
+    deliver_firm
+  end
+
+  desc "发布企业Inhouse"
+  lane :release_enterprise do |options|
+    options[:export_method] = "enterprise"
+    prepare(options)
+    build(options)
+    deliver_pgyer
+    deliver_firm
+  end
+
+  desc "上传到蒲公英"
+  lane :deliver_pgyer do |options|
+    pgyer(
+       api_key: ENV['PGYER_API_KEY'], # 从蒲公英项目详情中获取的apikey
+       user_key: ENV['PGYER_USER_KEY'], # 从蒲公英项目详情中获取的 userkey
+       #apk: $APK_PATH, #apk包路径
+       ipa: $IPA_PATH, #ipa包路径
+       install_type: ENV['PGYER_INSTALL_TYPE'], #1：公开，2：密码安装，3：邀请安装，4：回答问题安装。默认为1公开
+       password: ENV['PGYER_INSTALL_PASSWORD'], #设置安装密码
+       update_description: ENV['UPDATE_DESCRIPTION'] #更新描述
+    )
+  end
+
+  desc "上传到Firm"
+  lane :deliver_firm do |options|
+    firim(
+       firim_api_token: ENV['Firm_API_Token'], # 从Firm项目详情中获取的apitoken
+       ipa: $IPA_PATH, #ipa包路径
+       # icon: ENV['APPICON_PATH'] #icon
+    )
+  end
+  
+  desc "上传到appstore"
+  lane :deliver_appstore do |options|
+    deliver( 
+       username: ENV['APPLE_ID'], # 开发者账号
+       team_id: ENV['ITC_TEAM_ID'], # ITC Team ID
+       dev_portal_team_id: ENV['TEAM_ID'], # ADC Team ID
+       app_identifier: ENV['APP_IDENTIFIER'], # bundle ID
+       ipa: $IPA_PATH, # ipa包路径
+       app_version: $VERSION_NUMBER, # 更新版本号
+       release_notes: {
+         'zh-Hans' => "这是第一个版本哦"
+       },
+       force: true, # 设置true，会跳过预览页面，直接上架
+       skip_screenshots: true, # 不上传截图
+       skip_metadata: true, # 不上传元数据
+    )
+  end
+
+  desc "打包"
+  lane :build do |options|
+    # gym用来编译ipa
+    # 编译时间
+    build_time = Time.now.strftime("%Y-%m-%d %H-%M-%S")
+    # 自动生成的build版本号
+    auto_build_number = Time.now.strftime("%Y%m%d%H%M%S")
+    if $BUILD_NUMBER.empty?
+      $BUILD_NUMBER = auto_build_number
+    end
+
+    # 更新版本号
+    update_version
+
+    # 获取打包方式
+    export_method = options[:export_method]
+    # 配置项
+    configuration = 'Release'
+    # pp文件
+    provisioningProfiles = ENV['PP_APPSTORE']
+    # 输出目录
+    outputDir = ''
+    # 输出文件名
+    outputName = "#{SCHEME_NAME}_#$VERSION_NUMBER_#$BUILD_NUMBER_#{export_method}.ipa"
+    case export_method
+    when 'development'
+      configuration = 'Debug'
+      outputDir = "#$OUTPUT_DIRECTORY/Development/#{SCHEME_NAME}-#{build_time}"
+    when 'app-store'
+      outputDir = "#$OUTPUT_DIRECTORY/Appstore/#{SCHEME_NAME}-#{build_time}"
+    when 'ad-hoc'
+       provisioningProfiles = ENV['PP_ADHOC']
+       outputDir = "#$OUTPUT_DIRECTORY/ADHOC/#{SCHEME_NAME}-#{build_time}"
+    when 'enterprise'
+       provisioningProfiles = ENV['PP_ENTERPRISE']
+       outputDir = "#$OUTPUT_DIRECTORY/ADHOC/#{SCHEME_NAME}-#{build_time}"
+    end
+   
+    $IPA_PATH = gym(
+       clean: 'true', # 在打包前是否先执行clean。
+       scheme: "#{SCHEME_NAME}", # 指定项目的scheme名称
+       workspace: "#{WORKSPACE_NAME}", # 指定.xcworkspace文件的路径。
+       configuration: "#{configuration}", # 指定打包时的配置项，默认为Release
+       output_name: "#{outputName}", # 指定生成的.ipa文件的名称，应包含文件扩展名。
+       output_directory: "#{outputDir}", # 指定.ipa文件的输出目录
+       include_symbols: 'true', # 是否导出符号表
+       # include_bitcode: 'false',  # 是否使用bitcode打包
+       export_xcargs: "-allowProvisioningUpdates", #访问钥匙串
+       silent: true,  # 是否隐藏打包时不需要的信息。
+       buildlog_path: "#{outputDir}", # 指定编译日志文件的输出目录
+       export_options: {
+        method: "#{export_method}", # 指定导出.ipa时使用的方法，可用选项：app-store,ad-hoc,enterprise,development
+        thinning: "<none>",  # 是否瘦身
+       }
+    )
+  end
+
+  after_all do |lane|
+    # 在macOS 通知栏发送通知
+    notification(subtitle: "Successfully", message: "Successfully deployed new App Update")
+    #slack(
+    #   message: "Successfully deployed new App Update."
+    #)
+  end
+
+  error do |lane, exception|
+     #slack(
+     #  message: exception.message,
+     #  success: false
+     #)
+  end
+
+end
